@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример</title>
+</head>
+<body>
+
+<div class="name">Lorem ipsum dolor sit amet.</div>
+<div class="name">СловоСловоСловоСловоСловоСловоСловоСловоСлово</div>
+<button>click</button>
+<script>
+let boolBurgerMenu = true;
+let ArrayEl = [];
+let ArrayEl2 = [];
+const Name = document.querySelectorAll(".name");
+const button = document.querySelector("button");
+let len1 = 15;
+let len2 = 16;
+let len3 = 36;
+let len4 = 33; 
+
+button.addEventListener("click", function() {
+    if(boolBurgerMenu) {
+        boolBurgerMenu = false;
+        len1 = 15;
+        len2 = 16;
+        len3 = 36;
+        len4 = 33; 
+        ParseText();
+    } else {
+        boolBurgerMenu = true;
+        len1 = 17;
+        len2 = 18;
+        len3 = 38;
+        len4 = 41; 
+        ParseText();   
+    }
+})
+
+function PushArrayEl() {
+    Name.forEach(element => {
+        ArrayEl.push(element.innerHTML);
+    })
+}
+PushArrayEl();
+console.log(ArrayEl);
+function ParseText() {
+    Name.forEach(element => {
+        if (ArrayEl.length > len2) {
+            let el1;
+            let el2;
+            let el3;
+            let el4;
+            let a;
+            el1 = ArrayEl.slice(0, len1);
+            el2 = ArrayEl.slice(len1); 
+            for (let i = len1; i > 0; i--) {
+                if (el1[i] == " ") {
+                    a = i;
+                    i = 0;
+                    el3 = ArrayEl.slice(0, a);
+                    el4 = ArrayEl.slice(a, len1);
+                    element.innerHTML = el3 + "<br>" + el4 + el2;
+                } else {
+                    element.innerHTML = el1 + "<br>" + el2;
+                }
+            }
+        }
+
+        if (ArrayEl.length > len3) {
+            let el1 = "";
+            el1 = ArrayEl.slice(0, len4);
+            ArrayEl = el1 + "...";
+        }
+    })
+} 
+
+ParseText();
+</script>
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример</title>
+</head>
+<body>
+
+<div class="name">Lorem ipsum dolor sit amet.</div>
+<div class="name">СловоСловоСловоСловоСловоСловоСловоСловоСлово</div>
+<button>click</button>
+<script>
+    let boolBurgerMenu = true;
+    let ArrayEl = [];
+    let ArrayEl2 = [];
+    const button = document.querySelector("button");
+    const Name = document.querySelectorAll(".name");
+    button.addEventListener("click", function() {
+        if (boolBurgerMenu) {
+            boolBurgerMenu = false;
+            ParseText();
+        } else {
+            boolBurgerMenu = true;
+            ParseText();
+        }
+        console.log(boolBurgerMenu);
+    });
+    function PushArrayEl() {
+        Name.forEach(element => {
+            ArrayEl.push(element.innerHTML);
+        });
+    } 
+
+    PushArrayEl();
+function ParseText() {
+        Name.forEach(element => {
+        let len1 = 15;
+        let len2 = 16;
+        let len3 = 36;
+        let len4 = 33;  
+        ArrayEl2.push(element);
+        for (let i = 0; i < ArrayEl.length; i++) {
+                if (ArrayEl[i].length > len2) {
+                    let el1;
+                    let el2;
+                    let el3;
+                    let el4;
+                    el1 = ArrayEl[i].slice(0, len1);
+                    el2 = ArrayEl[i].slice(15);
+                    for (let j = len1; j > ArrayEl2.length; j++) {
+                        
+                    }
+                }
+        if (boolBurgerMenu) {
+            
+        }  else {
+            
+        }
+    }
+})
+}
+
+ParseText();
+console.log(ArrayEl);
+console.log(ArrayEl2);
+
+
+//     PushArrayEl();
+//     function ParseText() {
+//         Name.forEach(element => {
+//         ArrayEl2.push(element);
+//         if (boolBurgerMenu) {
+//                 for (let i = 0; i < ArrayEl.length; i++) {
+//                     if (ArrayEl[i].length > 16) {
+//                         let el1;
+//                         let el2;
+//                         let el3;
+//                         let el4;
+//                         let a;
+//                         el1 = ArrayEl[i].slice(0, 15);
+//                         el2 = ArrayEl[i].slice(15); 
+//                         for (let j = 15; j > 0; j--) {
+//                             if (el1[j] == " ") {
+//                                 a = j;
+//                                 j = 0;
+//                                 el3 = ArrayEl[j].slice(0, a);
+//                                 el4 = ArrayEl[j].slice(a, 15);
+//                                 for (let j = 0; j < ArrayEl2.length; j++) {
+//                                     ArrayEl2[j].innerHTML = el3 + "<br>" + el4 + el2;
+//                                 }
+//                             } else {
+//                                 for (let j = 0; j < ArrayEl2.length; j++) {
+//                                     ArrayEl2[j].innerHTML = el1 + "-" + "<br>" + el2;
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     if (ArrayEl[i].length > 36) {
+//                         let el1 = "";
+//                         el1 = ArrayEl[i].slice(0, 33);
+//                         for (let j = 0; j < ArrayEl2.length; j++) {
+//                             ArrayEl2[j].innerHTML = el1 + "...";
+//                         }
+//                     } 
+//                 }
+//         } else {
+//             for (let i = 0; i < ArrayEl.length; i++) {
+//                 if (ArrayEl[i].length > 18) {
+//                     let el1;
+//                     let el2;
+//                     let el3;
+//                     let el4;
+//                     let a;
+//                     el1 = ArrayEl[i].slice(0, 17);
+//                     el2 = ArrayEl[i].slice(17); 
+//                     for (let j = 17; j > 0; j--) {
+//                         if (el1[j] == " ") {
+//                             a = i;
+//                             j = 0;
+//                             el3 = ArrayEl[j].slice(0, a);
+//                             el4 = ArrayEl[j].slice(a, 17);
+//                             for (let j = 0; j < ArrayEl2.length; j++) {
+//                                     ArrayEl2[j].innerHTML = el3 + "<br>" + el4 + el2;
+//                                 }
+//                         } else {
+//                             for (let j = 0; j < ArrayEl2.length; j++) {
+//                                     ArrayEl2[j].innerHTML = el1 + "-" + "<br>" + el2;
+//                                 }
+//                         }
+//                     }
+//                 }
+//                 if (ArrayEl[i].length > 41) {
+//                     let el1 = "";
+//                     el1 = ArrayEl[i].slice(0, 38);
+//                     for (let j = 0; j < ArrayEl2.length; j++) {
+//                             ArrayEl2[j].innerHTML = el1 + "...";
+//                     }
+//                 } 
+//             }
+//         }
+//     })
+// }  
+
+// ParseText();
+// console.log(ArrayEl);
+// console.log(ArrayEl2);
+</script>
+
+</body>
+</html> -->

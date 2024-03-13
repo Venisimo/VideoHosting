@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="styles/result.css">
+    {% include 'templates/_head.html' %}
+<body>
+    {% include 'templates/_header.html' %}
+    {% include 'templates/_rightMenu.html' %}
+    <div class="container">
+        {% include 'templates/_leftMenu.html' %}
+        <div class="result-list">
+            <div class="video">
+                <div class="preview"></div>  
+                <div class="description-video">
+                    <div class="name">Название видео</div>
+                    <div class="avatar-and-name">
+                        <a class="avatar-for-description"></a>
+                        <div class="name-channel-stat">
+                            <a class="channel">Канал</a>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <img class="views-icon" src="images/dark-icon/views.png">
+                        <div class="num">130000000000</div>
+                        <div class="views"></div>
+                        <div>•</div>
+                        <div class="date">19/01/24</div>
+                    </div>
+                </div>
+            </div>
+            <div class="channel-result">
+                <a class="avatar-for-result"></a>
+                <div class="channel-result-stat">
+                    <div class="name-channel-result">Lorem, ipsum.</div>
+                    <div class="channel-des">
+                        <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
+                        <div class="num-subs">22222223</div>
+                        <div class="subs"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="video">
+                <div class="preview"></div>  
+                <div class="description-video">
+                    <div class="name">Название видео</div>
+                    <div class="avatar-and-name">
+                        <a class="avatar-for-description"></a>
+                        <div class="name-channel-stat">
+                            <a class="channel">Канал</a>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <img class="views-icon" src="images/dark-icon/views.png">
+                        <div class="num">130000000000</div>
+                        <div class="views"></div>
+                        <div>•</div>
+                        <div class="date">19/01/24</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="filters">
+            <div class="filters-title">
+                <img src="images/dark-icon/filters/filters-icon.png" class="filters-icon"></img>
+                <div>ФИЛЬТРЫ</div>
+            </div>
+            <div class="line"></div>
+            <div class="filters-title">
+                <img src="images/dark-icon/filters/upload-date.png" class="filters-icon"></img>
+                <div>ПО ДАТЕ</div>
+            </div>
+            <div class="sort-list">
+                <div>За последний час</div>
+                <div>Сегодня</div>
+                <div>За эту неделю</div>
+                <div>За этот месяц</div>
+                <div>За этот год</div>
+            </div>
+            <div class="line"></div>
+            <div class="filters-title">
+                <img src="images/dark-icon/filters/type.png" class="filters-icon"></img>
+                <div>ТИП</div>
+            </div>
+            <div class="sort-list">
+                <div>Видео</div>
+                <div>Каналы</div>
+                <div>Плейлисты</div>
+            </div>
+            <div class="line"></div>
+            <div class="filters-title">
+                <img src="images/dark-icon/filters/duration.png" class="filters-icon"></img>
+                <div>ДЛИТЕЛЬНОСТЬ</div>
+            </div>
+            <div class="sort-list">
+                <div>Менее 4 минут</div>
+                <div>От 4 до 20 минут</div>
+                <div>Более 20 минут</div>
+            </div>
+            <div class="line"></div>
+            <div class="filters-title">
+                <img src="images/dark-icon/filters/sort-by.png" class="filters-icon"></img>
+                <div>УПОРЯДОЧИТЬ</div>
+            </div>
+            <div class="sort-list">
+                <div>По релевантности</div>
+                <div>По дате загрузки</div>
+                <div>По числу просмотров</div>
+                <div>По рейтингу</div>
+            </div>
+            
+        </aside>
+    </div>
+    {% include 'templates/_scripts.html' %}
+    <script src="scripts/BodyOverflowResult.js" type="module"></script>
+    <script src="scripts/SubsText.js" type="module"></script>
+    <script src="scripts/ParseNumberSubs.js" type="module"></script>
+</body>
+</html>

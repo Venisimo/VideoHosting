@@ -1,0 +1,134 @@
+@font-face {
+    font-family: Inter-Regular;
+    src: url("fonts/Inter-Regular.otf");
+}
+body::-webkit-scrollbar {
+    width: 0;
+}
+.container {
+    display: flex;
+}
+.result-list {
+    margin-top: 100px;
+    margin-left: 650px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.video {
+    display: flex;
+    margin-top: 30px;
+}
+.preview {
+    width: 500px;
+    height: 280px;
+    border-radius: 22px;
+    background-color: rgb(79, 244, 215);
+    margin-left: 15px;
+    cursor: pointer;
+}
+.description-video {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 15px;
+    font-family: "Inter-Regular";
+    cursor: pointer;
+}
+.avatar-and-name {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.avatar-for-description {
+    width: 65px;
+    height: 65px;
+    background: url('../images/Avatar-for-des.png') center no-repeat;
+}
+.name-channel-stat {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.name {
+    font-size: 28px;
+}
+.channel {
+    font-size: 16px;
+    margin-top: 22px;
+}
+.stat {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    margin-top: 15px;
+    align-items: center;
+}
+.views-icon {
+    margin-right: 5px;
+}
+.num {
+    margin-right: 5px;
+}
+.views {
+    margin-right: 5px;
+}
+.date {
+    margin-left: 5px;
+}
+.channel-result {
+    display: flex;
+    font-family: "Inter-Regular";
+}
+.avatar-for-result {
+    background: url('../images/Avatar-for-result.png');
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 35px;
+    width: 450px;
+    height: 420px;
+}
+.channel-result-stat {
+    margin-top: 160px;
+}
+.name-channel-result {
+    font-size: 48px;
+}
+.channel-des {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    height: 25px;
+    font-size: 28px;
+}
+.num-subs {
+    margin-right: 5px;
+    margin-top: -3px;
+}
+.subs {
+    margin-top: -3px;
+    margin-right: 5px;
+    font-size: 28px;
+}
+.filters {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-top: 135px;
+    font-family: "Inter-Regular";
+}
+.filters-title {
+    display: flex;
+    flex-direction: flex;
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.filters-icon {
+    margin-right: 5px;
+}
+.sort-list {
+    font-size: 20px;
+    color: rgb(79, 244, 215);
+    font-weight: bold;
+}

@@ -1,0 +1,150 @@
+.right-menu {
+    background-color: rgb(79, 244, 215);
+    width: 310px;
+    height: 430px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+    margin-left: 1550px;
+    position: fixed;
+    visibility: hidden;
+}
+.right-menu button {
+    font-family: "Inter-Regular";
+    font-size: 32px;
+    margin-left: 15px;
+    background-color: rgb(79, 244, 215);
+    border-radius: 30px;
+    border: none;
+    width: 270px;
+    height: 50px;
+}
+.my-profile {
+    display: flex;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 270px;
+    height: 50px;
+}
+#profileIconRightMenu {
+    padding-left: 15px;
+    padding-top: 12px;
+}
+.my-profile-str {
+    padding-top: 5px;
+}
+.my-profile:hover {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.my-profile.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.language {
+    display: flex;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#languageIconRightMenu {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.language-str {
+    padding-top: 5px;
+}
+.language:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.language.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.theme {
+    display: flex;
+    margin-left: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#themeIconRightMenu{
+    padding-top: 14px;
+    padding-left: 15px; 
+}
+.theme-str {
+    padding-top: 8px;
+}
+.theme:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.theme.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.documentation {
+    display: flex;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#documentationIconRightMenu {
+    padding-top: 13px;
+    margin-left: 15px;
+}
+.documentation-str {
+    padding-top: 6px;
+    margin-left: 5px;
+}
+.documentation:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.documentation.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.settings {
+    display: flex;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#settingsIconRightMenu {
+    padding-top: 10px;
+    margin-left: 15px;
+}
+.settings-str {
+    padding-top: 5px;
+    margin-left: 2px;
+}
+.settings:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.settings.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.exit {
+    display: flex;
+    margin-top: 45px;
+    cursor: pointer;
+}
+#exitIconRightMenu {
+    padding-top: 13px;
+    margin-left: 20px;
+}
+.exit-str {
+    padding-top: 5px;
+    margin-left: 10px;
+}
+.exit:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.exit.dark2 {
+    background: rgb(3, 3, 3);
+}
+.dark2:hover {
+    background: rgb(31, 28, 28);
+}

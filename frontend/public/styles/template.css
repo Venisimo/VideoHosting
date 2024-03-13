@@ -1,0 +1,457 @@
+@font-face {
+    font-family: Inter-Regular;
+    src: url("fonts/Inter-Regular.otf");
+}
+body::-webkit-scrollbar {
+    width: 0;
+}
+header {
+    width: 100%;
+    position: fixed;
+    height: 100px;
+    left: 0;
+    top: 0;
+    /* background-color: rgba(217, 217, 217, 1); */
+    background-color: rgb(79, 244, 215);
+    /* background: url('../images/light-icon/header/header-bg.png'); */
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+.burger-menu {
+    margin-right: 5px;
+    margin-left: 5px;
+    height: 80px;
+    width: 100px;
+    background: rgb(79, 244, 215);
+    cursor: pointer;
+    transition: 0.4s ease;
+    border: none;
+    transition-duration: 0.6s;
+    border-radius: 50%;
+}
+.burger-menu.dark2 {
+    background: rgb(3, 3, 3);
+}
+.burger-menu:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.search {
+    margin-left: 425px;
+    width: 650px;
+    height: 60px;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+.input-search {
+    width: 85%;
+    height: 50px;
+    margin-left: 30px;
+    font-size: 32px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+}
+.input-search::placeholder {
+    color: rgb(61, 61, 61);
+}
+.dark3::placeholder {
+    color: rgb(197, 197, 197);
+}
+
+.lupa {
+    margin-left: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.4s ease;
+    border: none;
+    transition-duration: 0.6s;
+}
+.lupa:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+}
+.lupa.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+}
+.avatar {
+    margin-left: 510px;
+    cursor: pointer;
+}
+.container {
+    display: flex;
+}
+.left-menu {
+    width: 300px;
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    overflow: auto;
+    margin-top: 100px;
+}
+.left-menu::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.left-menu button {
+    border-radius: 30px;
+    margin: 14px;
+    padding: 10px;
+    width: 230px;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+}
+
+.home-button {
+    background: url('../images/LOGOTYPE.png');
+    background-position: 35px;
+    background-repeat: no-repeat;
+    background-color: rgb(79, 244, 215);
+    height: 50px;
+}
+
+.profile {
+    height: 50px;
+    transition: 0.4s ease;
+    transition-duration: 0.6s;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+}
+.profile-icon {
+    padding-top: 1px;
+}
+.profile:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+}
+
+.messenger {
+    height: 50px;
+    transition: 0.4s ease;
+    transition-duration: 0.6s;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+}
+.message-icon {
+    padding-top: 1px;
+}
+.message-str {
+    margin-left: 3px;
+}
+.messenger:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+}
+
+.history-views {
+    height: 80px;
+    transition: 0.4s ease;
+    transition-duration: 0.6s;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+}
+.history-views-icon {
+    padding-top: 15px;
+}
+.history-views-str {
+    padding-right: 20px;
+}
+.history-views:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+}
+
+.dark {
+    background: rgb(31, 28, 28);
+}
+.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+}
+
+.sub {
+    width: 200px;
+    height: 25px;
+    font-size: 28px;
+    display: flex;
+    margin-left: 10px;
+    font-family: "Inter-Regular";
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+.sub.bg-on2:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+    cursor: pointer;
+}
+.sub.bg-on2.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+    cursor: pointer;
+}
+.sub-icon {
+    margin-right: 10px;
+}
+.line {
+    width: 280px;
+    height: 2px;
+    background-color: rgb(79, 244, 215);
+    margin-top: 10px;
+}
+.avatar-for-sub {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 65px;
+    height: 65px;
+}
+.users {
+    height: 0px;
+    margin-top: 10px;
+    font-size: 28px;
+    font-family: "Inter-Regular";
+}
+.user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 265px;
+    height: 65px;
+    cursor: pointer;
+}
+
+.user:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+    border-radius: 25px;
+    transition: 0.4s ease;
+    transition-duration: 0.6s;
+}
+.user.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+}
+
+.preview {
+    width: 360px;
+    height: 250px;
+    border-radius: 22px;
+    background-color: rgb(79, 244, 215);
+    margin-top: 75px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+.description-video {
+    margin-top: 15px;
+    margin-left: 30px;
+    font-family: "Inter-Regular";
+    height: 100px;
+    cursor: pointer;
+}
+.avatar-and-name {
+    display: flex;
+    flex-direction: row;
+}
+.avatar-for-description {
+    width: 65px;
+    height: 65px;
+    background: url('../images/Avatar-for-des.png') center no-repeat;
+}
+.name-channel-stat {
+    margin-left: 10px;
+}
+.name {
+    font-size: 28px;
+}
+.channel {
+    font-size: 16px;
+    margin-top: 10px;
+}
+.stat {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+}
+.views-icon {
+    margin-right: 5px;
+}
+.num {
+    margin-right: 5px;
+}
+.views {
+    margin-right: 5px;
+}
+.date {
+    margin-left: 5px;
+}
+.videos {
+    display: flex;
+    flex-direction: column;
+    margin-left: 317px;
+    margin-top: 75px;
+    overflow: hidden;
+}
+.row-videos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.right-menu {
+    background-color: rgb(79, 244, 215);
+    width: 310px;
+    height: 430px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+    margin-left: 1550px;
+    position: fixed;
+    visibility: visible;
+}
+.right-menu button {
+    font-family: "Inter-Regular";
+    font-size: 32px;
+    margin-left: 15px;
+    background-color: rgb(79, 244, 215);
+    border-radius: 30px;
+    border: none;
+    width: 270px;
+    height: 50px;
+}
+.my-profile {
+    display: flex;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 270px;
+    height: 50px;
+}
+#profileIconRightMenu {
+    padding-left: 15px;
+    padding-top: 12px;
+}
+.my-profile-str {
+    padding-top: 5px;
+}
+.my-profile:hover {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.my-profile.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.language {
+    display: flex;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#languageIconRightMenu {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.language-str {
+    padding-top: 5px;
+}
+.language:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.language.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.theme {
+    display: flex;
+    margin-left: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#themeIconRightMenu{
+    padding-top: 14px;
+    padding-left: 15px; 
+}
+.theme-str {
+    padding-top: 8px;
+}
+.theme:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.theme.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.documentation {
+    display: flex;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#documentationIconRightMenu {
+    padding-top: 13px;
+    margin-left: 15px;
+}
+.documentation-str {
+    padding-top: 6px;
+    margin-left: 5px;
+}
+.documentation:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.documentation.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.settings {
+    display: flex;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#settingsIconRightMenu {
+    padding-top: 10px;
+    margin-left: 15px;
+}
+.settings-str {
+    padding-top: 5px;
+    margin-left: 2px;
+}
+.settings:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.settings.dark2 {
+    background: rgb(3, 3, 3);
+}
+
+.exit {
+    display: flex;
+    margin-top: 45px;
+    cursor: pointer;
+}
+#exitIconRightMenu {
+    padding-top: 13px;
+    margin-left: 20px;
+}
+.exit-str {
+    padding-top: 5px;
+    margin-left: 10px;
+}
+.exit:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+}
+.exit.dark2 {
+    background: rgb(3, 3, 3);
+}
+.dark2:hover {
+    background: rgb(31, 28, 28);
+}
+.footer {
+    margin-bottom: 5px;
+}
+.zagluhka-footer {
+    height: 1px;
+}
+.bg-on {
+    visibility: hidden;
+}

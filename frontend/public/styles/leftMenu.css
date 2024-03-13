@@ -1,0 +1,154 @@
+.left-menu {
+    width: 300px;
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    overflow: auto;
+    margin-top: 100px;
+}
+.left-menu::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.left-menu button {
+    border-radius: 30px;
+    margin: 14px;
+    padding: 10px;
+    width: 230px;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+}
+
+.home-button {
+    background: url('../images/LOGOTYPE.png');
+    background-position: 35px;
+    background-repeat: no-repeat;
+    background-color: rgb(79, 244, 215);
+    height: 50px;
+}
+
+.profile {
+    height: 50px;
+    transition: 0.4s ease;
+    transition-duration: 0.6s;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+}
+.profile-icon {
+    padding-top: 1px;
+}
+.profile:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+}
+
+.messenger {
+    height: 50px;
+    transition: 0.4s ease;
+    transition-duration: 0.6s;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+}
+.message-icon {
+    padding-top: 1px;
+}
+.message-str {
+    margin-left: 3px;
+}
+.messenger:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+}
+
+.history-views {
+    height: 80px;
+    transition: 0.4s ease;
+    transition-duration: 0.6s;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+}
+.history-views-icon {
+    padding-top: 15px;
+}
+.history-views-str {
+    padding-right: 20px;
+}
+.history-views:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+}
+
+.dark {
+    background: rgb(31, 28, 28);
+}
+.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+}
+
+.sub {
+    width: 200px;
+    height: 25px;
+    font-size: 28px;
+    display: flex;
+    margin-left: 10px;
+    font-family: "Inter-Regular";
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+.sub.bg-on2:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+    cursor: pointer;
+}
+.sub.bg-on2.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+    cursor: pointer;
+}
+.sub-icon {
+    margin-right: 10px;
+}
+.line {
+    width: 280px;
+    height: 2px;
+    background-color: rgb(79, 244, 215);
+    margin-top: 10px;
+}
+.avatar-for-sub {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 65px;
+    height: 65px;
+}
+.users {
+    height: 0px;
+    margin-top: 10px;
+    font-size: 28px;
+    font-family: "Inter-Regular";
+}
+.user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 265px;
+    height: 65px;
+    cursor: pointer;
+}
+
+.user:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+    border-radius: 25px;
+    transition: 0.4s ease;
+    transition-duration: 0.6s;
+}
+.user.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+}
+.footer {
+    margin-bottom: 5px;
+}
+.zagluhka-footer {
+    height: 1px;
+}
+.bg-on {
+    visibility: hidden;
+}

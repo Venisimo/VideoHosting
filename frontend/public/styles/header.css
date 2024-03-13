@@ -1,0 +1,73 @@
+header {
+    width: 100%;
+    position: fixed;
+    height: 100px;
+    left: 0;
+    top: 0;
+    background-color: rgb(79, 244, 215);
+    display: flex;
+    align-items: center;
+}
+.burger-menu {
+    margin-right: 5px;
+    margin-left: 5px;
+    height: 80px;
+    width: 100px;
+    background: rgb(79, 244, 215);
+    cursor: pointer;
+    transition: 0.4s ease;
+    border: none;
+    transition-duration: 0.6s;
+    border-radius: 50%;
+}
+.burger-menu.dark2 {
+    background: rgb(3, 3, 3);
+}
+.burger-menu:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.search {
+    margin-left: 425px;
+    width: 650px;
+    height: 60px;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+.input-search {
+    width: 85%;
+    height: 50px;
+    margin-left: 30px;
+    font-size: 32px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+}
+.input-search::placeholder {
+    color: rgb(61, 61, 61);
+}
+.dark3::placeholder {
+    color: rgb(197, 197, 197);
+}
+
+.lupa {
+    margin-left: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.4s ease;
+    border: none;
+    transition-duration: 0.6s;
+}
+.lupa:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+}
+.lupa.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+}
+.avatar {
+    margin-left: 510px;
+    cursor: pointer;
+}
