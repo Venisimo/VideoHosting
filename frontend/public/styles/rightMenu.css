@@ -9,6 +9,7 @@
     margin-left: 1550px;
     position: fixed;
     visibility: hidden;
+    z-index: 1;
 }
 .right-menu button {
     font-family: "Inter-Regular";
