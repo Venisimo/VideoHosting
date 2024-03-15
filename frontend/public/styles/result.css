@@ -86,6 +86,7 @@ body::-webkit-scrollbar {
 .channel-result {
     display: flex;
     font-family: "Inter-Regular";
+    color: black;
 }
 .avatar-for-result {
     background: url('../images/Avatar-for-result.png');

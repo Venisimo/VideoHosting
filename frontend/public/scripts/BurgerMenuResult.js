@@ -24,10 +24,7 @@ BurgerMenu.addEventListener('click', function() {
     }
     
     if (!boolBurgerMenu) {
-        Preview.forEach(element => {
-            element.style.width = "400px";
-            element.style.height = "300px";
-        });
+        ResultList.style.marginLeft = "200px";
         HomeButton.innerHTML = "";
         HomeButton.style.backgroundPosition = "center";
         HomeButton.style.width = "60px";
@@ -68,12 +65,8 @@ BurgerMenu.addEventListener('click', function() {
         HistoryViews.style.width = "60px";
         HistoryViews.style.height = "35px";
 
-        Videos.style.marginLeft = "120px";
     } else {
-        Preview.forEach(element => {
-            element.style.width = "360px";
-            element.style.height = "250px";
-        });
+        ResultList.style.marginLeft = "400px";
         if (rus) {
             HomeButton.innerHTML = "Главная";
             MessageStr.innerHTML = "Сообщения";
@@ -126,7 +119,5 @@ BurgerMenu.addEventListener('click', function() {
         Messenger.style.height = "50px";
         HistoryViews.style.width = "230px";
         HistoryViews.style.height = "80px";
-
-        Videos.style.marginLeft = "317px";
     }  
 });

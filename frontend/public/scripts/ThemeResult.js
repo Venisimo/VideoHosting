@@ -20,7 +20,6 @@ Theme.addEventListener('click', function() {
             element.style.backgroundColor = '#4FF4D7';
         })
         HomeButton.style.backgroundColor = '#4FF4D7';
-       
         MyProfie.classList.remove('dark2');
         Language.classList.remove('dark2');
         Theme.classList.remove('dark2');
@@ -65,6 +64,8 @@ Theme.addEventListener('click', function() {
             element.classList.remove('dark');
         });
         Sub.classList.remove('dark');
+        ChannelResult.style.color = '#000000';
+        FiltersTitle.style.color = '#000000';
     } else {
         ProfileIcon.src = 'images/light-icon/menu/profile.png';
         MessengerIcon.src = 'images/light-icon/menu/message.png';
@@ -110,7 +111,6 @@ Theme.addEventListener('click', function() {
         Documentation.style.color = '#ffffff';
         Settings.style.color = '#ffffff';
         Exit.style.color = '#ffffff';
-
         SubIcon.src = 'images/light-icon/menu/subscriptions.png';
         HomeButton.style.color = '#ffffff';
         Profile.style.color = '#ffffff';
@@ -127,5 +127,7 @@ Theme.addEventListener('click', function() {
         documentationIconRightMenu.src = 'images/light-icon/menu/documentation.png';
         settingsIconRightMenu.src = 'images/light-icon/menu/settings.png';
         exitIconRightMenu.src = 'images/light-icon/menu/log-out.png';
+        ChannelResult.style.color = '#ffffff';
+        FiltersTitle.style.color = '#ffffff';
     }
 })
