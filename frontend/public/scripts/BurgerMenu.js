@@ -57,7 +57,7 @@ BurgerMenu.addEventListener('click', function() {
         HistoryViewsIcon.style.paddingLeft = "3px";
         HistoryViews.style.paddingTop = "1px";
         Sub.style.marginLeft = "15px";
-        SubIcon.style.paddingLeft = "15px";
+        SubIconLeftMenu.style.paddingLeft = "15px";
 
         Sub.style.width = "60px";
         Sub.style.height = "35px";  
@@ -111,7 +111,7 @@ BurgerMenu.addEventListener('click', function() {
         HistoryViewsIcon.style.paddingLeft = "0px";
         HistoryViews.style.paddingTop = "10px";
         Sub.style.marginLeft = "10px";
-        SubIcon.style.paddingLeft = "0px";
+        SubIconLeftMenu.style.paddingLeft = "0px";
         
         Line.forEach(element => {
             element.style.width = "300px";

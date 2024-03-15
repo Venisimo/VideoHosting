@@ -37,7 +37,9 @@ Theme.addEventListener('click', function() {
         Exit.style.color = '#000000';
         
         BurgerMenuIcon.src = 'images/dark-icon/header/burger-menu.png';
-        SubIcon.src = 'images/dark-icon/menu/subscriptions.png';
+        SubIcon.forEach(element => {
+            element.src = 'images/dark-icon/menu/subscriptions.png';
+        });
         HomeButton.style.color = '#000000';
         Profile.style.color = '#000000';
         Messenger.style.color = '#000000';
@@ -64,8 +66,23 @@ Theme.addEventListener('click', function() {
             element.classList.remove('dark');
         });
         Sub.classList.remove('dark');
-        ChannelResult.style.color = '#000000';
-        FiltersTitle.style.color = '#000000';
+        ChannelResult.forEach(element => {
+            element.style.color = '#000000';
+        });
+        FiltersTitle.forEach(element => {
+            element.style.color = '#000000';
+        });
+        DescriptionChannel.forEach(element => {
+            element.style.color = '#606060';
+        });
+        Filter.forEach(element => {
+            element.classList.remove('dark');
+        });
+        FilterIcon.src = 'images/dark-icon/filters/filters-icon.png';
+        TypeIcon.src = 'images/dark-icon/filters/type.png';
+        UploadDateIcon.src = 'images/dark-icon/filters/upload-date.png';
+        DurationIcon.src = 'images/dark-icon/filters/duration.png';
+        SortByIcon.src = 'images/dark-icon/filters/sort-by.png';  
     } else {
         ProfileIcon.src = 'images/light-icon/menu/profile.png';
         MessengerIcon.src = 'images/light-icon/menu/message.png';
@@ -111,7 +128,9 @@ Theme.addEventListener('click', function() {
         Documentation.style.color = '#ffffff';
         Settings.style.color = '#ffffff';
         Exit.style.color = '#ffffff';
-        SubIcon.src = 'images/light-icon/menu/subscriptions.png';
+        SubIcon.forEach(element => {
+            element.src = 'images/light-icon/menu/subscriptions.png';
+        });
         HomeButton.style.color = '#ffffff';
         Profile.style.color = '#ffffff';
         Messenger.style.color = '#ffffff';
@@ -127,7 +146,22 @@ Theme.addEventListener('click', function() {
         documentationIconRightMenu.src = 'images/light-icon/menu/documentation.png';
         settingsIconRightMenu.src = 'images/light-icon/menu/settings.png';
         exitIconRightMenu.src = 'images/light-icon/menu/log-out.png';
-        ChannelResult.style.color = '#ffffff';
-        FiltersTitle.style.color = '#ffffff';
+        ChannelResult.forEach(element => {
+            element.style.color = '#ffffff';
+        });
+        FiltersTitle.forEach(element => {
+            element.style.color = '#ffffff';
+        });
+        DescriptionChannel.forEach(element => {
+            element.style.color = '#4FF4D7';
+        });
+        Filter.forEach(element => {
+            element.classList.add('dark');
+        });
+        FilterIcon.src = 'images/light-icon/filters/filters-icon.png';
+        TypeIcon.src = 'images/light-icon/filters/type.png';
+        UploadDateIcon.src = 'images/light-icon/filters/upload-date.png';
+        DurationIcon.src = 'images/light-icon/filters/duration.png';
+        SortByIcon.src = 'images/light-icon/filters/sort-by.png';  
     }
 })

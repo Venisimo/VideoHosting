@@ -38,7 +38,9 @@ Theme.addEventListener('click', function() {
         Exit.style.color = '#000000';
         
         BurgerMenuIcon.src = 'images/dark-icon/header/burger-menu.png';
-        SubIcon.src = 'images/dark-icon/menu/subscriptions.png';
+        SubIcon.forEach(element => {
+            element.src = 'images/dark-icon/menu/subscriptions.png';
+        });
         HomeButton.style.color = '#000000';
         Profile.style.color = '#000000';
         Messenger.style.color = '#000000';
@@ -110,8 +112,9 @@ Theme.addEventListener('click', function() {
         Documentation.style.color = '#ffffff';
         Settings.style.color = '#ffffff';
         Exit.style.color = '#ffffff';
-
-        SubIcon.src = 'images/light-icon/menu/subscriptions.png';
+        SubIcon.forEach(element => {
+            element.src = 'images/light-icon/menu/subscriptions.png';
+        });
         HomeButton.style.color = '#ffffff';
         Profile.style.color = '#ffffff';
         Messenger.style.color = '#ffffff';

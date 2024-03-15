@@ -6,9 +6,9 @@ BurgerMenu.addEventListener('click', function() {
     User.forEach(element => {
         element.classList.toggle('bg-on');
     });
-    Line.forEach(element => {
-        element.classList.toggle('bg-on');
-    });
+    // Line.forEach(element => {
+    //     element.classList.toggle('bg-on');
+    // });
     Footer.classList.toggle('bg-on');
     Sub.classList.toggle('bg-on2');
     console.log(Sub.classList.contains('bg-on2') && Profile.classList.contains('dark'));
@@ -35,9 +35,7 @@ BurgerMenu.addEventListener('click', function() {
         HistoryViews.style.marginTop = "7px";
         Sub.style.marginTop = "7px";
         
-        Line.forEach(element => {
-            element.style.width = "0px";
-        });
+        lineLeftMenu.style.width = "0px";
         LeftMenu.style.width = "80px";
         Sub.style.width = "20px";
         Users.style.width = "0px";
@@ -54,7 +52,7 @@ BurgerMenu.addEventListener('click', function() {
         HistoryViewsIcon.style.paddingLeft = "3px";
         HistoryViews.style.paddingTop = "1px";
         Sub.style.marginLeft = "15px";
-        SubIcon.style.paddingLeft = "15px";
+        SubIconLeftMenu.style.paddingLeft = "15px";
 
         Sub.style.width = "60px";
         Sub.style.height = "35px";  
@@ -104,11 +102,9 @@ BurgerMenu.addEventListener('click', function() {
         HistoryViewsIcon.style.paddingLeft = "0px";
         HistoryViews.style.paddingTop = "10px";
         Sub.style.marginLeft = "10px";
-        SubIcon.style.paddingLeft = "0px";
+        SubIconLeftMenu.style.paddingLeft = "0px";
         
-        Line.forEach(element => {
-            element.style.width = "300px";
-        });
+        lineLeftMenu.style.width = "300px";
         LeftMenu.style.width = "300px";
         Sub.style.width = "200px";
         Sub.style.height = "25px";
