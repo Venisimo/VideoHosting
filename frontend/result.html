@@ -84,7 +84,31 @@
                     <div class="description-channel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt suscipit repudiandae consequuntur accusamus! Consequuntur, enim!</div>
                     <div class="channel-des">
                         <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
-                        <div class="num-subs">22222223</div>
+                        <div class="num-subs">2222</div>
+                        <div class="subs"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="channel-result">
+                <a class="avatar-for-result"></a>
+                <div class="channel-result-stat">
+                    <div class="name-channel-result">Lorem, ipsum.</div>
+                    <div class="description-channel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt suscipit repudiandae consequuntur accusamus! Consequuntur, enim!</div>
+                    <div class="channel-des">
+                        <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
+                        <div class="num-subs">222222</div>
+                        <div class="subs"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="channel-result">
+                <a class="avatar-for-result"></a>
+                <div class="channel-result-stat">
+                    <div class="name-channel-result">Lorem, ipsum.</div>
+                    <div class="description-channel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt suscipit repudiandae consequuntur accusamus! Consequuntur, enim!</div>
+                    <div class="channel-des">
+                        <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
+                        <div class="num-subs">22222</div>
                         <div class="subs"></div>
                     </div>
                 </div>
@@ -93,52 +117,51 @@
         <aside class="filters">
             <div class="filters-title">
                 <img src="images/dark-icon/filters/filters-icon.png" class="filters-icon" id="filter-icon"></img>
-                <div>ФИЛЬТРЫ</div>
+                <div class="filters-str">ФИЛЬТРЫ</div>
             </div>
             <div class="line"></div>
             <div class="filters-title">
                 <img src="images/dark-icon/filters/upload-date.png" class="filters-icon" id="upload-date-icon"></img>
-                <div>ПО ДАТЕ</div>
+                <div class="upload-date-str">ПО ДАТЕ</div>
             </div>
             <div class="sort-list">
-                <div class="filter">За последний час</div>
-                <div class="filter">Сегодня</div>
-                <div class="filter">За эту неделю</div>
-                <div class="filter">За этот месяц</div>
-                <div class="filter">За этот год</div>
+                <div class="filter last-hour">За последний час</div>
+                <div class="filter today">Сегодня</div>
+                <div class="filter week">За эту неделю</div>
+                <div class="filter month">За этот месяц</div>
+                <div class="filter year">За этот год</div>
             </div>
             <div class="line"></div>
             <div class="filters-title">
                 <img src="images/dark-icon/filters/type.png" class="filters-icon" id="type"></img>
-                <div>ТИП</div>
+                <div class="type-str">ТИП</div>
             </div>
             <div class="sort-list">
-                <div class="filter">Видео</div>
-                <div class="filter">Каналы</div>
-                <div class="filter">Плейлисты</div>
+                <div class="filter video-filter">Видео</div>
+                <div class="filter channel-filter">Каналы</div>
+                <div class="filter playlist-filter">Плейлисты</div>
             </div>
             <div class="line"></div>
             <div class="filters-title">
                 <img src="images/dark-icon/filters/duration.png" class="filters-icon" id="duration"></img>
-                <div>ДЛИТЕЛЬНОСТЬ</div>
+                <div class="duration-str">ДЛИТЕЛЬНОСТЬ</div>
             </div>
             <div class="sort-list">
-                <div class="filter">Менее 4 минут</div>
-                <div class="filter">От 4 до 20 минут</div>
-                <div class="filter">Более 20 минут</div>
+                <div class="filter less-five-minutes">Менее 5 минут</div>
+                <div class="filter five-twenty-minutes">От 5 до 20 минут</div>
+                <div class="filter more-twenty-minutes">Более 20 минут</div>
             </div>
             <div class="line"></div>
             <div class="filters-title">
                 <img src="images/dark-icon/filters/sort-by.png" class="filters-icon" id="sort-by"></img>
-                <div>УПОРЯДОЧИТЬ</div>
+                <div class="sort-by-str">УПОРЯДОЧИТЬ</div>
             </div>
             <div class="sort-list">
-                <div class="filter">По релевантности</div>
-                <div class="filter">По дате загрузки</div>
-                <div class="filter">По числу просмотров</div>
-                <div class="filter">По рейтингу</div>
+                <div class="filter relevance tyk">По релевантности</div>
+                <div class="filter upload-date-filter">По дате загрузки</div>
+                <div class="filter num-of-views">По числу просмотров</div>
+                <div class="filter rating">По рейтингу</div>
             </div>
-            
         </aside>
     </div>
     {% include 'templates/_scripts.html' %}
@@ -147,5 +170,7 @@
     <script src="scripts/ParseNumberSubs.js" type="module"></script>
     <script src="scripts/BurgerMenuResult.js" type="module"></script>
     <script src="scripts/ThemeResult.js" type="module"></script>
+    <script src="scripts/LanguageResult.js" type="module"></script>
+    <script src="scripts/Tyk.js" type="module"></script>
 </body>
 </html>
