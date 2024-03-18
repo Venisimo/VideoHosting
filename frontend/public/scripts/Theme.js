@@ -1,6 +1,23 @@
 Theme.addEventListener('click', function() {
     console.log(Sub.classList.contains('bg-on2') && Profile.classList.contains('dark'));
-    if (Profile.classList.contains('dark')) {
+    HomeButton.classList.toggle('dark');
+    Profile.classList.toggle('dark')
+    Messenger.classList.toggle('dark');
+    HistoryViews.classList.toggle('dark');
+    MyProfie.classList.toggle('dark2');
+    Language.classList.toggle('dark2');
+    Theme.classList.toggle('dark2');
+    Documentation.classList.toggle('dark2');
+    Settings.classList.toggle('dark2');
+    Exit.classList.toggle('dark2');
+    BurgerMenu.classList.toggle('dark2');
+    InputSearch.classList.toggle('dark3');
+    Lupa.classList.toggle('dark');
+    Sub.classList.toggle('dark')
+    User.forEach(element => {
+        element.classList.toggle('dark');
+    });   
+    if (!theme) {
         Body.style.background = '#FFFFFF';
         Header.style.background = '#4FF4D7';
         Preview.forEach(element => {
@@ -19,17 +36,7 @@ Theme.addEventListener('click', function() {
         Line.forEach(element => {
             element.style.backgroundColor = '#4FF4D7';
         })
-        HomeButton.style.backgroundColor = '#4FF4D7';
-       
-        MyProfie.classList.remove('dark2');
-        Language.classList.remove('dark2');
-        Theme.classList.remove('dark2');
-        Documentation.classList.remove('dark2');
-        Settings.classList.remove('dark2');
-        Exit.classList.remove('dark2');
-        BurgerMenu.classList.remove('dark2');
-        InputSearch.classList.remove('dark3');
-        
+        // HomeButton.style.backgroundColor = '#4FF4D7';       
         MyProfie.style.color = '#000000';
         Language.style.color = '#000000';
         Theme.style.color = '#000000';
@@ -56,38 +63,16 @@ Theme.addEventListener('click', function() {
         documentationIconRightMenu.src = 'images/dark-icon/menu/documentation.png';
         settingsIconRightMenu.src = 'images/dark-icon/menu/settings.png';
         exitIconRightMenu.src = 'images/dark-icon/menu/log-out.png';
-        Lupa.classList.remove('dark');
-        Profile.classList.remove('dark');
         ProfileIcon.src = 'images/dark-icon/menu/profile.png';
-        Messenger.classList.remove('dark');
         MessengerIcon.src = 'images/dark-icon/menu/message.png';
-        HistoryViews.classList.remove('dark');
         HistoryViewsIcon.src = 'images/dark-icon/menu/history.png';
-        User.forEach(element => {
-            element.classList.remove('dark');
-        });
-        Sub.classList.remove('dark');
+
+        theme = true;
     } else {
         ProfileIcon.src = 'images/light-icon/menu/profile.png';
         MessengerIcon.src = 'images/light-icon/menu/message.png';
         HistoryViewsIcon.src = 'images/light-icon/menu/history.png';
         BurgerMenuIcon.src = 'images/light-icon/header/burger-menu.png';
-        Profile.classList.add('dark')
-        Messenger.classList.add('dark');
-        HistoryViews.classList.add('dark');
-        // Sub.classList.add('dark');
-        MyProfie.classList.add('dark2');
-        Language.classList.add('dark2');
-        Theme.classList.add('dark2');
-        Documentation.classList.add('dark2');
-        Settings.classList.add('dark2');
-        Exit.classList.add('dark2');
-        BurgerMenu.classList.add('dark2');
-        InputSearch.classList.add('dark3');
-        User.forEach(element => {
-            element.classList.add('dark');
-        });
-        Lupa.classList.add('dark');
         Body.style.background = '#1F1C1C';
         Header.style.background = '#030303';
         Preview.forEach(element => {
@@ -105,7 +90,7 @@ Theme.addEventListener('click', function() {
         Line.forEach(element => {
             element.style.backgroundColor = '#030303';
         });
-        HomeButton.style.backgroundColor = '#030303';
+        // HomeButton.style.backgroundColor = '#030303';
         MyProfie.style.color = '#ffffff';
         Language.style.color = '#ffffff';
         Theme.style.color = '#ffffff';
@@ -130,5 +115,7 @@ Theme.addEventListener('click', function() {
         documentationIconRightMenu.src = 'images/light-icon/menu/documentation.png';
         settingsIconRightMenu.src = 'images/light-icon/menu/settings.png';
         exitIconRightMenu.src = 'images/light-icon/menu/log-out.png';
+
+        theme = false;
     }
 })

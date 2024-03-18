@@ -25,11 +25,17 @@
 }
 
 .home-button {
-    background: url('../images/LOGOTYPE.png');
+    background-image: url('../images/LOGOTYPE.png');
     background-position: 35px;
     background-repeat: no-repeat;
     background-color: rgb(79, 244, 215);
     height: 50px;
+}
+.home-button.dark {
+    background-color: rgba(3, 3, 3, 1);
+}
+.home-button:hover {
+    background-color: rgba(79, 244, 215, 0.7);
 }
 
 .profile {
@@ -72,7 +78,7 @@
 }
 
 .dark {
-    background: rgb(31, 28, 28);
+    background-color: rgb(31, 28, 28);
 }
 .dark:hover {
     background-color: rgba(3, 3, 3, 0.7);

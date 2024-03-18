@@ -8,8 +8,14 @@ body::-webkit-scrollbar {
 .home-button {
     background-color: rgb(255, 255, 255);
 }
+.home-button.dark {
+    background-color: rgb(31, 28, 28);
+}
 .home-button:hover {
     background-color: rgba(79, 244, 215, 0.7);
+}
+.home-button.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
 }
 .container {
     display: flex;
@@ -187,6 +193,10 @@ body::-webkit-scrollbar {
 .tyk {
     border-radius: 30px;
     background-color: rgba(220, 220, 220, 0.7);
+}
+.tyk.dark {
+    border-radius: 30px;
+    background-color:  rgb(3, 3, 3, 0.7);
 }
 .filter.dark:hover {
     background-color: rgb(3, 3, 3, 0.7);

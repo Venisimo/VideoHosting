@@ -92,3 +92,5 @@ const Rating = document.querySelector('.rating');
 let boolBurgerMenu = true; 
 let boolRightMenu = true;
 let rus = true;
+let theme = true;
+console.log(theme)
