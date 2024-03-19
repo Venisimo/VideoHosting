@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'templates/_head.html' %}
+    <link rel="stylesheet" href="styles/watch.css">
+<body>
+    {% include 'templates/_header.html' %}
+    {% include 'templates/_rightMenu.html' %}
+    <div class="container">
+        {% include 'templates/_leftMenu.html' %}
+        <div class="video-block">
+            <video class="videoplayer" controls>
+                <source src="videos/example.mp4"> 
+            </video>
+            <div class="video-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, asperiores.</div>
+            <div class="video-block-channel">    
+                <img src="images/Avatar.png"/>
+                <div class="name-sub">
+                    <div class="video-block-channel-name">User</div>
+                    <div class="video-block-channel-des">
+                        <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
+                        <div class="num-subs">22222223</div>
+                        <div class="subs"></div>
+                    </div>
+                </div>
+            </div>
+            <button></button>
+            <button></button>
+            <button></button>
+            <div></div>
+            <div></div>
+            <button></button>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="recommendation">
+            {% include 'templates/_videosWatch.html' %}
+            {% include 'templates/_videosWatch.html' %}
+            {% include 'templates/_videosWatch.html' %}
+            {% include 'templates/_videosWatch.html' %}
+        </div>
+    </div>  
+    {% include 'templates/_scripts.html' %}
+    <script src="scripts/SubsText.js"></script>
+    <script src="scripts/ParseNumberSubs.js"></script>
+    <script src="scripts/ThemeResult.js"></script>
+    <script src="scripts/LanguageResult.js"></script>
+    <script src="scripts/Theme.js"></script>
+    <script src="scripts/Language.js"></script>
+    <!-- <script src="scripts/BodyOverflow.js"></script> -->
+    <script src="scripts/BurgerMenuWatch.js"></script>
+</body>
+</html>

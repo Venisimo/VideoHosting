@@ -1,3 +1,7 @@
+@font-face {
+    font-family: Inter-Regular;
+    src: url("fonts/Inter-Regular.otf");
+}
 .right-menu {
     background-color: rgb(79, 244, 215);
     width: 310px;
