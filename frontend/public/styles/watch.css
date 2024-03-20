@@ -19,6 +19,10 @@ body::-webkit-scrollbar {
     margin: 15px;
     font-size: 32px;
 }
+.video-block-btns {
+    display: flex;
+    margin-top: 20px;
+}
 .video-block-channel {
     display: flex;
     flex-direction: row;
@@ -40,6 +44,88 @@ body::-webkit-scrollbar {
 }
 .sub-icon {
     margin-right: 5px;
+}
+.subscribe-btn {
+    width: 300px;
+    height: 70px;
+    border-radius: 12px;
+    border-width: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 20px;
+    border-color: rgb(79, 244, 215);
+    background-color: rgb(255, 255, 255);
+    font-size: 28px;
+}
+.repost {
+    background-image: url('../images/dark-icon/videoplayer/repost-icon.png');
+    width: 65px;
+    height: 65px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 30px;
+    background-color: rgb(255, 255, 255);
+}
+.like {
+    background-image: url('../images/dark-icon/videoplayer/like-icon.png');
+    width: 70px;
+    height: 65px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 65px;
+    background-color: rgb(255, 255, 255); 
+}
+.dislike {
+    background-image: url('../images/dark-icon/videoplayer/dislike-icon.png');
+    width: 70px;
+    height: 65px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 35px;
+    background-color: rgb(255, 255, 255); 
+}
+.num-like {
+    font-size: 28px;
+    margin-top: 25px;
+    margin-left: 5px; 
+}
+.likes {
+    font-size: 28px;
+    margin-top: 25px;
+    margin-left: 5px; 
+}
+.num-dislike {
+    font-size: 28px;
+    margin-top: 25px;
+    margin-left: 5px; 
+}
+.dislikes {
+    font-size: 28px; 
+    margin-top: 25px;
+    margin-left: 5px; 
+}
+.description-entry {
+    margin-top: 25px;
+    background-color: rgb(79, 244, 215);
+    width: 1100px;
+    border-radius: 30px;
+}
+.description-entry-stat {
+    display: flex;
+    padding-top: 10px;
+    margin-left: 20px;
+}
+.description-entry-text {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 5px;
 }
 
 .left-menu {

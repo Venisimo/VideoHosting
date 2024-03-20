@@ -12,25 +12,41 @@
                 <source src="videos/example.mp4"> 
             </video>
             <div class="video-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, asperiores.</div>
-            <div class="video-block-channel">    
-                <img src="images/Avatar.png"/>
-                <div class="name-sub">
-                    <div class="video-block-channel-name">User</div>
-                    <div class="video-block-channel-des">
-                        <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
-                        <div class="num-subs">22222223</div>
-                        <div class="subs"></div>
+            <div class="video-block-btns"> 
+                <div class="video-block-channel">    
+                    <img src="images/Avatar.png"/>
+                    <div class="name-sub">
+                        <div class="video-block-channel-name">User</div>
+                        <div class="video-block-channel-des">
+                            <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
+                            <div class="num-subs">22222223</div>
+                            <div class="subs"></div>
+                        </div>
                     </div>
                 </div>
+                <button class="subscribe-btn">Подписаться</button>
+                <button class="repost"></button>
+                <button class="like"></button>
+                <div class="num-like">5</div>
+                <div class="likes">тыс</div>
+                <button class="dislike"></button>
+                <div class="num-dislike">1</div>
+                <div class="dislikes">тыс</div>
             </div>
-            <button></button>
-            <button></button>
-            <button></button>
-            <div></div>
-            <div></div>
-            <button></button>
-            <div></div>
-            <div></div>
+            <div class="description-entry">
+                <div class="description-entry-stat">
+                    <img class="views-icon" src="images/dark-icon/views.png">
+                    <div class="num">130000000000</div>
+                    <div class="views"></div>
+                    <div>•</div>
+                    <div class="date">19/01/24</div>
+                </div>
+                <div class="description-entry-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non aliquam sapiente, consectetur dolor atque quos rem molestias magni explicabo ipsum quibusdam minus laboriosam nam aliquid, maxime id? Quis, molestiae accusantium.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nesciunt quam voluptatibus odit officiis inventore laborum iste enim velit. Commodi adipisci voluptate cum reprehenderit quas aspernatur alias quis illo magni.
+                </div>
+                <div style="height: 5px"></div>
+            </div>
         </div>
         <div class="recommendation">
             {% include 'templates/_videosWatch.html' %}
