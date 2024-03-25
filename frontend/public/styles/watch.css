@@ -329,3 +329,54 @@ body::-webkit-scrollbar {
 .filter.dark:hover {
     background-color: rgb(3, 3, 3, 0.7);
 }
+.sort-comment-btn {
+    display: flex;
+    width: 310px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 32px;
+    margin-left: 10px;
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    margin-top: 5px;
+}
+.sort-comment-btn:hover {
+    background-color: rgba(220, 220, 220, 0.7);
+}
+.comment-block {
+    display: flex;
+    margin-top: 25px;
+}
+.str-comment {
+    font-size: 40px;
+}
+.num-comment {
+    margin-right: 10px;
+    font-size: 40px;
+}
+.comment-icon {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.comment-text {
+    resize: none;
+    width: 1000px;
+    height: 20px;
+    margin-top: 30px;
+    font-size: 20px;
+    border: none;
+}
+.line-comment {
+    height: 2px;
+    width: 1000px;
+    background-color: rgb(3, 3, 3);
+}
+.comment-entry {
+    display: flex;
+    margin-top: 40px;
+}
+.comment-text-block {
+    display: block;
+    margin-left: 10px;
+}
