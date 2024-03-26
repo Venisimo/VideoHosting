@@ -89,6 +89,7 @@ const Relevance = document.querySelector('.relevance');
 const UploadDateFilter = document.querySelector('.upload-date-filter');
 const NumOfViews = document.querySelector('.num-of-views');
 const Rating = document.querySelector('.rating');
+const CommentText = document.querySelector('.comment-text')
 let boolBurgerMenu = true; 
 let boolRightMenu = true;
 let rus = true;

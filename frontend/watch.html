@@ -56,13 +56,11 @@
                 </button>
             </div>
             <div class="comment-entry">
-                <img src="images/Avatar.png"/>
-                <div class="comment-text-block">
-                    <textarea class="comment-text">
-                    </textarea>
-                    <div class="line-comment"></div>
-                </div>
+                <img src="images/Avatar.png" class="comment-avatar"/>
+                <textarea class="comment-text" cols="90" rows="1"></textarea>
             </div>
+            <button class="btn-cancel">Отмена</button>
+            <button type="submit" class="btn-submit">Отправить</button>
         </div>
         <div class="recommendation">
             {% include 'templates/_videosWatch.html' %}
@@ -80,5 +78,6 @@
     <script src="scripts/Language.js"></script>
     <!-- <script src="scripts/BodyOverflow.js"></script> -->
     <script src="scripts/BurgerMenuWatch.js"></script>
+    <script src="scripts/WriteCommentFunc.js"></script>
 </body>
 </html>

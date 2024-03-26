@@ -361,10 +361,9 @@ body::-webkit-scrollbar {
 }
 .comment-text {
     resize: none;
-    width: 1000px;
-    height: 20px;
     margin-top: 30px;
     font-size: 20px;
+    height: 22px;
     border: none;
 }
 .line-comment {
@@ -376,7 +375,40 @@ body::-webkit-scrollbar {
     display: flex;
     margin-top: 40px;
 }
-.comment-text-block {
-    display: block;
+.comment-text {
+    border: none;
+	border-bottom: 1px solid #000;
     margin-left: 10px;
+}
+.btn-cancel {
+    margin-top: 15px;
+    margin-left: 750px;
+    width: 120px;
+    height: 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(204, 204, 204);
+    font-size: 24px;
+}
+.btn-cancel:hover{
+    background-color: rgba(204, 204, 204, 0.7);
+}
+.btn-submit {
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 170px;
+    height: 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(79, 244, 215);
+    font-size: 24px;
+}
+.btn-submit:hover{
+    background-color: rgba(79, 244, 215, 0.7);
+}
+.comment-avatar {
+    width: 80px;
+    height: 80px;
 }
