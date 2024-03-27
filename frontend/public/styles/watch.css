@@ -379,6 +379,15 @@ body::-webkit-scrollbar {
     border: none;
 	border-bottom: 1px solid #000;
     margin-left: 10px;
+    overflow: auto;
+}
+.comment-text:focus {
+    outline: none;
+    border-bottom: 2px solid #000;
+}
+.comment-text::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
 }
 .btn-cancel {
     margin-top: 15px;
@@ -411,4 +420,19 @@ body::-webkit-scrollbar {
 .comment-avatar {
     width: 80px;
     height: 80px;
+}
+.comment-text-user {
+    width: 1000px;
+    margin-top: 5px;
+}
+.channel-name-comment {
+    display: block;
+    margin-left: 10px;
+}
+.comment-user-date {
+    display: flex;
+    margin-top: 10px;
+}
+.comment-block-user-name {
+    margin-right: 5px;
 }
