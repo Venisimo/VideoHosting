@@ -1,6 +1,15 @@
 CommentText.addEventListener('input', function () {
     resizeTextarea();
+    if(CommentText.value.trim() !== "") {
+        BtnSumbit.disabled = false;
+    } else {
+        BtnSumbit.disabled = true;
+    }
 });
+BtnCancel.addEventListener('click', function() {
+    CommentText.value = "";
+    CommentText.style.height = "22px";
+})
 
 CommentText.addEventListener('keydown', function (event) {
     if (event.key === 'Enter' && event.shiftKey) {

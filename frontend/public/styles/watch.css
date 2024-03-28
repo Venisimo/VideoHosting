@@ -57,6 +57,12 @@ body::-webkit-scrollbar {
     background-color: rgb(255, 255, 255);
     font-size: 28px;
 }
+.subscribe-btn:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+    transition: 0.4s ease;
+    border: none;
+    transition-duration: 0.6s;
+}
 .repost {
     background-image: url('../images/dark-icon/videoplayer/repost-icon.png');
     width: 65px;
@@ -67,6 +73,12 @@ body::-webkit-scrollbar {
     margin-top: 5px;
     margin-left: 30px;
     background-color: rgb(255, 255, 255);
+}
+.repost:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+    transition: 0.4s ease;
+    border: none;
+    transition-duration: 0.6s;
 }
 .like {
     background-image: url('../images/dark-icon/videoplayer/like-icon.png');
@@ -79,6 +91,12 @@ body::-webkit-scrollbar {
     margin-left: 65px;
     background-color: rgb(255, 255, 255); 
 }
+.like:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+    transition: 0.4s ease;
+    border: none;
+    transition-duration: 0.6s;
+}
 .dislike {
     background-image: url('../images/dark-icon/videoplayer/dislike-icon.png');
     width: 70px;
@@ -89,6 +107,12 @@ body::-webkit-scrollbar {
     margin-top: 5px;
     margin-left: 35px;
     background-color: rgb(255, 255, 255); 
+}
+.dislike:hover {
+    background-color: rgba(79, 244, 215, 0.7);
+    transition: 0.4s ease;
+    border: none;
+    transition-duration: 0.6s;
 }
 .num-like {
     font-size: 28px;
@@ -343,6 +367,9 @@ body::-webkit-scrollbar {
 }
 .sort-comment-btn:hover {
     background-color: rgba(220, 220, 220, 0.7);
+    transition: 0.4s ease;
+    border: none;
+    transition-duration: 0.6s;
 }
 .comment-block {
     display: flex;
