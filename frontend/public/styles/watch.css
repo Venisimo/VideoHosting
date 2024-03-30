@@ -2,13 +2,21 @@
     font-family: Inter-Regular;
     src: url("fonts/Inter-Regular.otf");
 }
+body {
+    overflow: hidden;
+}
 body::-webkit-scrollbar {
-    width: 0;
+    width: 0; 
 }
 .video-block {
     margin-left: 75px;
     font-family: "Inter-Regular";
-    overflow: hidden;
+    height: 935px;
+    width: 1200px;
+    overflow-y: scroll;
+}
+.video-block::-webkit-scrollbar {
+    width: 0; 
 }
 .videoplayer {
     width: 1100px;
@@ -175,11 +183,16 @@ body::-webkit-scrollbar {
 }
 .recommendation {
     margin-top: 100px;
-    margin-left: 60px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    height: 835px;
+    width: 750px;
+    overflow-y: scroll;
 }
+.recommendation::-webkit-scrollbar {
+    width: 0; 
+}
+
 .video {
     display: flex;
     margin-top: 40px;
@@ -468,4 +481,7 @@ body::-webkit-scrollbar {
 .video-panel-on {
     border-width: 0px;
     background-color: rgb(79, 244, 215);
+}
+.preview {
+    background-image: url('../videos/posters/example1.jpg');
 }

@@ -28,10 +28,10 @@
                 <button class="repost"></button>
                 <button class="like"></button>
                 <div class="num-like">5</div>
-                <div class="likes">тыс</div>
+                <div class="likes"></div>
                 <button class="dislike"></button>
                 <div class="num-dislike">1</div>
-                <div class="dislikes">тыс</div>
+                <div class="dislikes"></div>
             </div>
             <div class="description-entry">
                 <div class="description-entry-stat">
@@ -65,6 +65,10 @@
             {% include 'templates/_comment.html' %}
             {% include 'templates/_comment.html' %}
             {% include 'templates/_comment.html' %}
+            {% include 'templates/_comment.html' %}
+            {% include 'templates/_comment.html' %}
+            {% include 'templates/_comment.html' %}
+            {% include 'templates/_comment.html' %}
         </div>
         <div class="recommendation">
             {% include 'templates/_videosWatch.html' %}
@@ -80,7 +84,7 @@
             {% include 'templates/_videosWatch.html' %}
             {% include 'templates/_videosWatch.html' %}
         </div>
-    </div>  
+    </div> 
     {% include 'templates/_scripts.html' %}
     <script src="scripts/SubsText.js"></script>
     <script src="scripts/ParseNumberSubs.js"></script>
@@ -88,10 +92,10 @@
     <script src="scripts/LanguageResult.js"></script>
     <script src="scripts/Theme.js"></script>
     <script src="scripts/Language.js"></script>
-    <!-- <script src="scripts/BodyOverflow.js"></script> -->
     <script src="scripts/BurgerMenuWatch.js"></script>
     <script src="scripts/WriteCommentFunc.js"></script>
     <script src="scripts/VideoPlayerButtons.js"></script>
-    <script src="scripts/RecomendationOverlow.js"></script>
+    <script src="scripts/ParseLikesDislikes.js"></script>
+    <script src="scripts/CountLikeDislike.js"></script>
 </body>
 </html>
