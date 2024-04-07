@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     {% include 'templates/_head.html' %}
+    <link rel="stylesheet" href="styles/videoplayer.css">
     <link rel="stylesheet" href="styles/watch.css">
 <body>
     {% include 'templates/_header.html' %}
@@ -8,9 +9,43 @@
     <div class="container">
         {% include 'templates/_leftMenu.html' %}
         <div class="video-block">
-            <video class="videoplayer" controls>
-                <source src="videos/example.mp4"> 
-            </video>
+            <div class="videoplayer">
+                <video class="video-in-player" autoplay>
+                    <source src="videos/example.mp4"> 
+                </video>
+                <div class="videoplayer-panel">
+                    <div class="progressAreaTime"></div>
+                    <div class="controls">
+                        <!-- <input type="range" min="0" max="100" class="progress-area"></input> -->
+                        <input type="range" min="0" max="100" class="progress-bar"></input>
+                            <span></span>
+                    </div>
+                    <div class="controls-list">
+                        <img class="pause-icon" src="images/light-icon/videoplayer/pause-icon.png"></img>
+                        <img class="stop-icon" src="images/light-icon/videoplayer/stop-icon.png"></img>
+                        <img class="sound-lvl3-icon" src="images/light-icon/videoplayer/sound-lvl3-icon.png"></img>
+                        <input type="range" min="0" max="100" class="volume_range">
+                        <div class="timer">
+                            <span class="current">00:00</span> / <span class="duration"></span>
+                        </div>
+                        <img class="wide-screen-icon" src="images/light-icon/videoplayer/wide-screen-icon.png"></img>
+                        <img class="settings-videoplayer-icon" src="images/light-icon/videoplayer/settings-videoplayer-icon.png"></img>
+                        <img class="fullscreen-icon" src="images/light-icon/videoplayer/fullscreen-icon.png"></img>
+                    </div>
+                </div> 
+                <!-- <div class="playback-settings">
+                    <span>Playback Speed</span>
+                    <ul>
+                        <li>0.25x</li>
+                        <li>0.5x</li>
+                        <li>0.75x</li>
+                        <li>1x</li>
+                        <li>1.25x</li>
+                        <li>1.5x</li>
+                        <li>2x</li>
+                    </ul>
+                </div> -->
+            </div>
             <div class="video-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, asperiores.</div>
             <div class="video-block-btns"> 
                 <div class="video-block-channel">    
@@ -86,6 +121,7 @@
         </div>
     </div> 
     {% include 'templates/_scripts.html' %}
+    <script src="scripts/Videoplayer.js"></script>
     <script src="scripts/SubsText.js"></script>
     <script src="scripts/ParseNumberSubs.js"></script>
     <script src="scripts/ThemeResult.js"></script>

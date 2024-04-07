@@ -1,0 +1,103 @@
+video {
+    object-fit: cover;
+    border: none;
+    outline: none;
+}
+video::cue {
+    opacity: 0;
+}
+.video-block {
+    margin-left: 100px
+    
+}
+.videoplayer-panel {
+    /* background-color: black; */
+    background: rgb(0 0 0 / 29%);
+    /* box-shadow: 0 0 40px 10px rgb(0 0 0 / 25%); */
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: -50px auto;
+    position: relative;
+    height: 45px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.videoplayer {
+    width: 1100px;
+}
+.controls {
+    display: flex;
+}
+.controls-list {
+    display: flex;
+    margin-top: 10px;
+}
+.video-in-player {
+    width: 1100px;
+    height: 600px;
+    border-radius: 30px;
+    margin-top: 130px;
+}
+.timer {
+    color: white;
+}
+.progressAreaTime {
+    width: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+    position: relative;
+    cursor: pointer;
+}
+.progress-bar {
+   background: rgb(79, 244, 215);
+   width: 100.1%; 
+   height: 5px;
+   cursor: pointer;
+   margin-left: -1px;
+   margin-right: -5px;
+   margin-top: -3px;
+}
+.pause-icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 30px;
+    cursor: pointer; 
+}
+.stop-icon {
+    margin-left: 10px;
+    cursor: pointer;
+}
+.sound-lvl3-icon {
+    margin-left: 10px; 
+    cursor: pointer;
+}
+.volume_range {
+    margin-left: 10px; 
+    cursor: pointer;
+}
+.timer {
+    margin-left: 10px;
+    margin-top: 3px; 
+}
+.wide-screen-icon {
+    margin-left: 640px;
+    margin-top: 3px;
+    cursor: pointer;
+    height: 20px;
+}
+.settings-videoplayer-icon {
+    margin-left: 10px;
+    margin-top: 3px;
+    cursor: pointer;
+    height: 20px;
+}
+.fullscreen-icon {
+    margin-left: 10px;
+    margin-top: 1px;
+    cursor: pointer;
+}
+.volume_range {
+    width: 100px;
+    cursor: pointer;
+}
