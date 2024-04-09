@@ -1,13 +1,13 @@
 function toggleVideoStatus() {
-    if(video.paused) {
-        video.play();
+    if(Video.paused) {
+        Video.play();
         pauseBtn.src = 'images/light-icon/videoplayer/pause-icon.png';
         pauseBtn.style.width = "25px";
         pauseBtn.style.height = "25px";
         pauseBtn.style.marginTop = "0px";
         pauseBtn.style.marginLeft = "30px";
     } else {
-        video.pause();
+        Video.pause();
         pauseBtn.src = 'images/light-icon/videoplayer/play-icon.png';
         pauseBtn.style.width = "20px";
         pauseBtn.style.height = "20px";
@@ -17,17 +17,17 @@ function toggleVideoStatus() {
 }
 
 function stopVideo() {
-    video.currentTime = 0;
-    video.pause();
+    Video.currentTime = 0;
+    Video.pause();
 }
 
 function updateProgress() {
-    ProgressBar.value = (video.currentTime / video.duration) * 100;
-    let minutes = Math.floor(video.currentTime / 60);
+    ProgressBar.value = (Video.currentTime / Video.duration) * 100;
+    let minutes = Math.floor(Video.currentTime / 60);
     if (minutes < 10) {
         minutes = '0' + String(minutes);
     }
-    let seconds = Math.floor(video.currentTime % 60);
+    let seconds = Math.floor(Video.currentTime % 60);
     if (seconds < 10) {
         seconds = '0' + String(seconds);
     }
@@ -35,15 +35,15 @@ function updateProgress() {
 }
 
 function setProgress() {
-    video.currentTime = (ProgressBar.value * video.duration) / 100;
+    Video.currentTime = (ProgressBar.value * Video.duration) / 100;
 }
 
 function DurationTime() {
-    let minutes = Math.floor(video.duration / 60) * 100;
+    let minutes = Math.floor(Video.duration / 60) * 100;
     if (minutes < 10) {
         minutes = '0' + String(minutes);
     }
-    let seconds = Math.floor(video.duration % 60);
+    let seconds = Math.floor(Video.duration % 60);
     if (seconds < 10) {
         seconds = '0' + String(seconds);
     }
@@ -57,42 +57,69 @@ function setVolume() {
     let VolumeRangeValue = VolumeRangeInput.value / 100;
     let InputRangeValue = VolumeRangeInput.value;
     VolumeRangeInput.style.background = '-webkit-linear-gradient(left, rgb(79, 244, 215) 0%, rgb(79, 244, 215) '+InputRangeValue+'%, #fff '+InputRangeValue+'%, #fff 100%)';
-    video.volume = VolumeRangeValue;
-    if (video.volume >= 0.75) {
-        soundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl3-icon.png';
-    } else if (video.volume < 0.75 && video.volume >= 0.25) {
-        soundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl2-icon.png';
-    } else if (video.volume < 0.25 && video.volume > 0) {
-        soundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl1-icon.png';
-    } else if (video.volume == 0) {
-        soundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl0-icon.png';
+    Video.volume = VolumeRangeValue;
+    if (Video.volume >= 0.75) {
+        SoundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl3-icon.png';
+    } else if (Video.volume < 0.75 && Video.volume >= 0.25) {
+        SoundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl2-icon.png';
+    } else if (Video.volume < 0.25 && Video.volume > 0) {
+        SoundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl1-icon.png';
+    } else if (Video.volume == 0) {
+        SoundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl0-icon.png';
     }
 }
-soundLevelIcon.addEventListener('click', function() {
+let InputRangeValue;
+SoundLevelIcon.addEventListener('click', function() {
     let VolumeRangeValue = VolumeRangeInput.value / 100;
-    let InputRangeValue;
     if (VolumeRangeValue > 0) {
         InputRangeValue = VolumeRangeInput.value;
+    } else if (VolumeRangeValue == 0 && boolSoundLvl) {
+        InputRangeValue = 20;
+        VolumeRangeValue = 0.2;
     }
     if (boolSoundLvl) {
-        video.volume = 0;
-        VolumeRangeInput.value = 0;
-        boolSoundLvl = false;
+        if (VolumeRangeInput.value == 0) {
+            Video.volume = VolumeRangeValue;
+            VolumeRangeInput.value = InputRangeValue;
+        } else {
+            Video.volume = 0;
+            VolumeRangeInput.value = 0;
+            boolSoundLvl = false;
+        }
         setVolume();
     } else if (!boolSoundLvl) {
-        video.volume = VolumeRangeValue;
+        Video.volume = VolumeRangeValue;
         VolumeRangeInput.value = InputRangeValue;
         boolSoundLvl = true;
         setVolume();
     }
 });
+
+HighScreenBtn.addEventListener('click', function() {
+    if (!boolHighScreen) {
+        Video.style.height = "800px";
+        Video.style.width = "1300px";
+        VideoBlock.style.width = "1400px"
+        VideoBlock.style.marginLeft = "0px";
+        Video.style.marginTop = "100px";
+        boolHighScreen = true;
+    } else {
+        Video.style.height = "600px";
+        Video.style.width = "1100px";
+        VideoBlock.style.width = "1200px"
+        VideoBlock.style.marginLeft = "75px";
+        Video.style.marginTop = "130px";
+        boolHighScreen = false;
+    }
+});
+
 FullscreenBtn.addEventListener('click', function() {
-    video.requestFullscreen()
+    Video.requestFullscreen()
 })
 VolumeRangeInput.addEventListener('change', setVolume);
-video.addEventListener('loadedmetadata', DurationTime);
+Video.addEventListener('loadedmetadata', DurationTime);
 ProgressBar.addEventListener('change',setProgress);
-video.addEventListener('timeupdate', function() {
+Video.addEventListener('timeupdate', function() {
     updateProgress();
     range();
 });

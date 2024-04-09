@@ -1,14 +1,23 @@
 video {
-    object-fit: cover;
+    object-fit: contain;
     border: none;
     outline: none;
 }
 video::cue {
     opacity: 0;
 }
-.video-block {
-    margin-left: 100px
-    
+.videoplayer-panel::backdrop {
+    /* background-color: black; */
+    background: rgb(0 0 0 / 29%);
+    /* box-shadow: 0 0 40px 10px rgb(0 0 0 / 25%); */
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: -50px auto;
+    position: relative;
+    height: 45px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 .videoplayer-panel {
     /* background-color: black; */
@@ -122,7 +131,7 @@ video::cue {
     margin-left: 10px;
     cursor: pointer;
 }
-.sound-lvl3-icon {
+.sound-lvl-icon {
     margin-left: 10px; 
     cursor: pointer;
 }
@@ -130,7 +139,7 @@ video::cue {
     margin-left: 10px;
     margin-top: 3px; 
 }
-.wide-screen-icon {
+.high-screen-icon {
     margin-left: 640px;
     margin-top: 3px;
     cursor: pointer;
