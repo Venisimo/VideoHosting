@@ -2,22 +2,10 @@ video {
     object-fit: contain;
     border: none;
     outline: none;
+    background: rgb(0 0 0 / 29%);
 }
 video::cue {
     opacity: 0;
-}
-.videoplayer-panel::backdrop {
-    /* background-color: black; */
-    background: rgb(0 0 0 / 29%);
-    /* box-shadow: 0 0 40px 10px rgb(0 0 0 / 25%); */
-    align-items: center;
-    flex-wrap: nowrap;
-    width: 100%;
-    margin: -50px auto;
-    position: relative;
-    height: 45px;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
 }
 .videoplayer-panel {
     /* background-color: black; */
@@ -31,6 +19,7 @@ video::cue {
     height: 45px;
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
+    visibility: hidden;
 }
 .videoplayer {
     width: 1100px;

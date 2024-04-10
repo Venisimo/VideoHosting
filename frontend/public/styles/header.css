@@ -7,6 +7,7 @@ header {
     background-color: rgb(79, 244, 215);
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 .burger-menu {
     margin-right: 5px;

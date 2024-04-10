@@ -16,9 +16,34 @@ function toggleVideoStatus() {
     }
 }
 
+function toggleFullScreen() {
+    
+}
+
+
+function AfterEnd() {
+    if (Video.currentTime == Video.duration) {
+        boolEndVideo = true;
+    }
+    console.log(boolEndVideo)
+    if (boolEndVideo) {
+        toggleVideoStatus();
+        if (Video.currentTime != Video.duration) {
+            boolEndVideo = false;
+        }
+    }
+}
+
+
 function stopVideo() {
     Video.currentTime = 0;
     Video.pause();
+    pauseBtn.src = 'images/light-icon/videoplayer/play-icon.png';
+    pauseBtn.style.width = "20px";
+    pauseBtn.style.height = "20px";
+    pauseBtn.style.marginTop = "2px";
+    pauseBtn.style.marginLeft = "35px";
+    
 }
 
 function updateProgress() {
@@ -31,11 +56,13 @@ function updateProgress() {
     if (seconds < 10) {
         seconds = '0' + String(seconds);
     }
-    CurrentTimeVideo.innerHTML = `${minutes}:${seconds}`
+    CurrentTimeVideo.innerHTML = `${minutes}:${seconds}`;
 }
 
 function setProgress() {
+    console.log(Video.paused);
     Video.currentTime = (ProgressBar.value * Video.duration) / 100;
+    AfterEnd();
 }
 
 function DurationTime() {
@@ -116,9 +143,27 @@ HighScreenBtn.addEventListener('click', function() {
 FullscreenBtn.addEventListener('click', function() {
     Video.requestFullscreen()
 })
+
+Video.addEventListener('click', function() {
+    VideoplayerPanel.style.visibility = "visible";
+    VolumeRangeInput.value = 100;
+    Video.volume = 1;
+    setVolume();
+    toggleVideoStatus();
+})
+
+Video.addEventListener('ended', function() {
+    pauseBtn.src = 'images/light-icon/videoplayer/replay-icon.png';
+    pauseBtn.style.width = "25px";
+    pauseBtn.style.height = "25px";
+    pauseBtn.style.marginTop = "0px";
+    pauseBtn.style.marginLeft = "30px";
+})
+
 VolumeRangeInput.addEventListener('change', setVolume);
 Video.addEventListener('loadedmetadata', DurationTime);
 ProgressBar.addEventListener('change',setProgress);
+Video.addEventListener('change',setProgress);
 Video.addEventListener('timeupdate', function() {
     updateProgress();
     range();
