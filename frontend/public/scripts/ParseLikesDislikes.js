@@ -1,7 +1,6 @@
 function LikeText() {
     let likeElement = NumLike.nextElementSibling;
         if (Number(NumLike.innerHTML) < 1000) {
-            console.log('ok')
             likeElement.innerHTML = "";
             NumLike.style.marginRight = "0px";
         } else if (Number(NumLike.innerHTML) >= 1000 && Number(NumLike.innerHTML) < 1000000) {
@@ -33,7 +32,10 @@ ParseNumberLikes();
 
 function DislikeText() {
     let DislikeElement = NumDislike.nextElementSibling;
-        if (Number(NumDislike.innerHTML) >= 1000 && Number(NumDislike.innerHTML) < 1000000) {
+        if (Number(NumDislike.innerHTML) < 1000) {
+            DislikeElement.innerHTML = "";
+            NumDislike.style.marginRight = "0px";
+        } else if (Number(NumDislike.innerHTML) >= 1000 && Number(NumDislike.innerHTML) < 1000000) {
             DislikeElement.innerHTML = "тыс";
         } else if (Number(NumDislike.innerHTML) >= 1000000 && Number(NumDislike.innerHTML) < 1000000000) {
             DislikeElement.innerHTML = "млн";

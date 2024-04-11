@@ -21,6 +21,14 @@ LikeBtn.addEventListener('click', function() {
             if (DislikeElement.innerHTML == "") {
                 SelfDislike -= 1;
                 NumDislike.innerHTML = SelfDislike;
+            } else {
+                if (DislikeBeforeParse[1] == 0 && DislikeBeforeParse.length > 3) {
+                    let NumDislikeBeforeParse = Number(DislikeBeforeParse) 
+                    NumDislikeBeforeParse -= 1;
+                    NumDislike.innerHTML = NumDislikeBeforeParse;
+                    DislikeText();
+                    ParseNumberDislikes();
+                }
             }
             boolDislike = false;
         }
@@ -48,6 +56,9 @@ DislikeBtn.addEventListener('click', function() {
         if (DislikeElement.innerHTML == "") {
             SelfDislike += 1;
             NumDislike.innerHTML = SelfDislike;
+            DislikeText();
+            DislikeBeforeParse = NumDislike.innerHTML;
+            ParseNumberDislikes();
         }
         boolDislike = true;
         if (boolLike) {
@@ -69,6 +80,14 @@ DislikeBtn.addEventListener('click', function() {
         if (DislikeElement.innerHTML == "") {
             SelfDislike -= 1;
             NumDislike.innerHTML = SelfDislike;
+        } else {
+            if (DislikeBeforeParse[1] == 0 && DislikeBeforeParse.length > 3) {
+                let NumDislikeBeforeParse = Number(DislikeBeforeParse) 
+                NumDislikeBeforeParse -= 1;
+                NumDislike.innerHTML = NumDislikeBeforeParse;
+                DislikeText();
+                ParseNumberDislikes();
+            }
         }
         boolDislike = false;
     }
