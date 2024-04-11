@@ -146,9 +146,12 @@ FullscreenBtn.addEventListener('click', function() {
 
 Video.addEventListener('click', function() {
     VideoplayerPanel.style.visibility = "visible";
-    VolumeRangeInput.value = 100;
-    Video.volume = 1;
-    setVolume();
+    if (!boolStartVideo) {
+        VolumeRangeInput.value = 100;
+        Video.volume = 1;
+        setVolume();
+        boolStartVideo = true;
+    }  
     toggleVideoStatus();
 })
 

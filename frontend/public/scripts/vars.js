@@ -121,3 +121,4 @@ let rus = true;
 let theme = true;
 let boolHighScreen = false;
 let boolEndVideo = false;
+let boolStartVideo = false;

@@ -1,87 +1,61 @@
 function LikeText() {
     let likeElement = NumLike.nextElementSibling;
-        if (Number(NumLike.innerHTML) >= 1000 && Number(NumLike.innerHTML) < 1000000) {
+        if (Number(NumLike.innerHTML) < 1000) {
+            console.log('ok')
+            likeElement.innerHTML = "";
+            NumLike.style.marginRight = "0px";
+        } else if (Number(NumLike.innerHTML) >= 1000 && Number(NumLike.innerHTML) < 1000000) {
             likeElement.innerHTML = "тыс";
         } else if (Number(NumLike.innerHTML) >= 1000000 && Number(NumLike.innerHTML) < 1000000000) {
             likeElement.innerHTML = "млн";
         } else if (Number(NumLike.innerHTML) >= 1000000000 && Number(NumLike.innerHTML) < 1000000000000) {
             likeElement.innerHTML = "млрд";
         }
-        console.log(likeElement.innerHTML);
     };    
 LikeText();
 
 function ParseNumberLikes() {
-    if (Number(NumLike.innerHTML) < 1000) {
+    if (NumLike.innerHTML.length == 3) {
         NumLike.style.marginRight = "0px";
-    } else if (Number(NumLike.innerHTML) > 999 && Number(NumLike.innerHTML) < 1100) {
-        NumLike.innerHTML = NumLike.innerHTML[0];
-    } else if (Number(NumLike.innerHTML) > 1099 && Number(NumLike.innerHTML) < 10000) {
-        NumLike.innerHTML = NumLike.innerHTML[0] + ',' + NumLike.innerHTML[1];
-    } else if (Number(NumLike.innerHTML) > 9999 && Number(NumLike.innerHTML) < 100000) {
+    } else if (NumLike.innerHTML.length == 4 || NumLike.innerHTML.length == 7 || NumLike.innerHTML.length == 10) {
+        if (NumLike.innerHTML[1] != 0) {
+            NumLike.innerHTML = NumLike.innerHTML[0] + ',' + NumLike.innerHTML[1];
+        } else {
+            NumLike.innerHTML = NumLike.innerHTML[0];
+        }
+    } else if (NumLike.innerHTML.length == 5 || NumLike.innerHTML.length == 8 || NumLike.innerHTML.length == 11) {
         NumLike.innerHTML = NumLike.innerHTML[0] + NumLike.innerHTML[1];
-    } else if (Number(NumLike.innerHTML) > 99999 && Number(NumLike.innerHTML) < 1000000) {
-        NumLike.innerHTML = NumLike.innerHTML[0] + NumLike.innerHTML[1] + NumLike.innerHTML[2];
-    } else if (Number(NumLike.innerHTML) > 999999 && Number(NumLike.innerHTML) < 1100000) {
-        NumLike.innerHTML = NumLike.innerHTML[0];
-    } else if (Number(NumLike.innerHTML) > 1099999 && Number(NumLike.innerHTML) < 10000000) {
-        NumLike.innerHTML = NumLike.innerHTML[0] + ',' + NumLike.innerHTML[1];
-    } else if (Number(NumLike.innerHTML) > 9999999 && Number(NumLike.innerHTML) < 100000000) {
-        NumLike.innerHTML = NumLike.innerHTML[0] + NumLike.innerHTML[1];             
-    } else if (Number(NumLike.innerHTML) > 99999999 && Number(NumLike.innerHTML) < 1000000000) {
-        NumLike.innerHTML = NumLike.innerHTML[0] + NumLike.innerHTML[1] + NumLike.innerHTML[2];
-    } else if (Number(NumLike.innerHTML) > 999999999 && Number(NumLike.innerHTML) < 1100000000) {
-        NumLike.innerHTML = NumLike.innerHTML[0]; 
-    } else if (Number(NumLike.innerHTML) > 1099999999 && Number(NumLike.innerHTML) < 10000000000) {
-        NumLike.innerHTML = NumLike.innerHTML[0] + ',' + NumLike.innerHTML[1];
-    } else if (Number(NumLike.innerHTML) > 1099999999 && Number(NumLike.innerHTML) < 100000000000) {
-        NumLike.innerHTML = NumLike.innerHTML[0] + NumLike.innerHTML[1];
-    } else if (Number(NumLike.innerHTML) > 9999999999 && Number(NumLike.innerHTML) < 1000000000000) {
-        NumLike.innerHTML = NumLike.innerHTML[0] + NumLike.innerHTML[1] + NumLike.innerHTML[2];
+    } else if (NumLike.innerHTML.length == 6 || NumLike.innerHTML.length == 9 || NumLike.innerHTML.length == 12) {
+        NumLike.innerHTML = NumLike.innerHTML[0] + NumLike.innerHTML[1] + NumLike.innerHTML[3];
     }
 }
 ParseNumberLikes();
 
 function DislikeText() {
-    let likeElement = NumDislike.nextElementSibling;
+    let DislikeElement = NumDislike.nextElementSibling;
         if (Number(NumDislike.innerHTML) >= 1000 && Number(NumDislike.innerHTML) < 1000000) {
-            likeElement.innerHTML = "тыс";
+            DislikeElement.innerHTML = "тыс";
         } else if (Number(NumDislike.innerHTML) >= 1000000 && Number(NumDislike.innerHTML) < 1000000000) {
-            likeElement.innerHTML = "млн";
+            DislikeElement.innerHTML = "млн";
         } else if (Number(NumDislike.innerHTML) >= 1000000000 && Number(NumDislike.innerHTML) < 1000000000000) {
-            likeElement.innerHTML = "млрд";
+            DislikeElement.innerHTML = "млрд";
         }
-        console.log(likeElement.innerHTML);
     };    
 DislikeText();
 
 function ParseNumberDislikes() {
-    if (Number(NumDislike.innerHTML) < 1000) {
+    if (NumDislike.innerHTML.length == 3) {
         NumDislike.style.marginRight = "0px";
-    } else if (Number(NumDislike.innerHTML) > 999 && Number(NumDislike.innerHTML) < 1100) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0];
-    } else if (Number(NumDislike.innerHTML) > 1099 && Number(NumDislike.innerHTML) < 10000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0] + ',' + NumDislike.innerHTML[1];
-    } else if (Number(NumDislike.innerHTML) > 9999 && Number(NumDislike.innerHTML) < 100000) {
+    } else if (NumDislike.innerHTML.length == 4 || NumDislike.innerHTML.length == 7 || NumDislike.innerHTML.length == 10) {
+        if (NumDislike.innerHTML[1] != 0) {
+            NumDislike.innerHTML = NumDislike.innerHTML[0] + ',' + NumDislike.innerHTML[1];
+        } else {
+            NumDislike.innerHTML = NumDislike.innerHTML[0];
+        }
+    } else if (NumDislike.innerHTML.length == 5 || NumDislike.innerHTML.length == 8 || NumDislike.innerHTML.length == 11) {
         NumDislike.innerHTML = NumDislike.innerHTML[0] + NumDislike.innerHTML[1];
-    } else if (Number(NumDislike.innerHTML) > 99999 && Number(NumDislike.innerHTML) < 1000000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0] + NumDislike.innerHTML[1] + NumDislike.innerHTML[2];
-    } else if (Number(NumDislike.innerHTML) > 999999 && Number(NumDislike.innerHTML) < 1100000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0];
-    } else if (Number(NumDislike.innerHTML) > 1099999 && Number(NumDislike.innerHTML) < 10000000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0] + ',' + NumDislike.innerHTML[1];
-    } else if (Number(NumDislike.innerHTML) > 9999999 && Number(NumDislike.innerHTML) < 100000000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0] + NumDislike.innerHTML[1];             
-    } else if (Number(NumDislike.innerHTML) > 99999999 && Number(NumDislike.innerHTML) < 1000000000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0] + NumDislike.innerHTML[1] + NumDislike.innerHTML[2];
-    } else if (Number(NumDislike.innerHTML) > 999999999 && Number(NumDislike.innerHTML) < 1100000000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0]; 
-    } else if (Number(NumDislike.innerHTML) > 1099999999 && Number(NumDislike.innerHTML) < 10000000000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0] + ',' + NumDislike.innerHTML[1];
-    } else if (Number(NumDislike.innerHTML) > 1099999999 && Number(NumDislike.innerHTML) < 100000000000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0] + NumDislike.innerHTML[1];
-    } else if (Number(NumDislike.innerHTML) > 9999999999 && Number(NumDislike.innerHTML) < 1000000000000) {
-        NumDislike.innerHTML = NumDislike.innerHTML[0] + NumDislike.innerHTML[1] + NumDislike.innerHTML[2];
+    } else if (NumDislike.innerHTML.length == 6 || NumDislike.innerHTML.length == 9 || NumDislike.innerHTML.length == 12) {
+        NumDislike.innerHTML = NumDislike.innerHTML[0] + NumDislike.innerHTML[1] + NumDislike.innerHTML[3];
     }
 }
 ParseNumberDislikes();
