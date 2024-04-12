@@ -8,6 +8,7 @@ CommentText.addEventListener('input', function () {
 });
 BtnCancel.addEventListener('click', function() {
     CommentText.value = "";
+    BtnSumbit.disabled = true;
     CommentText.style.height = "22px";
 })
 
@@ -29,3 +30,8 @@ CommentText.addEventListener('keydown', function (event) {
         console.log(CommentText.value);
     }
 });
+
+BtnSumbit.addEventListener('click', function() {
+    console.log('send');
+    console.log(CommentText.value);
+})
