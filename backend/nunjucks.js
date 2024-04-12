@@ -21,6 +21,9 @@ app.get('/result', function(req, res) {
 app.get('/watch', function(req, res) {
     res.render('watch.html');
 });
+app.get('/channel', function(req, res) {
+    res.render('channel.html');
+});
 
 app.use(express.static(path.join(templatesPath, 'public')));
 

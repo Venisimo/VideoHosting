@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'templates/_head.html' %}
+    <link rel="stylesheet" href="styles/channel.css">
+<body>
+    {% include 'templates/_header.html' %}
+    {% include 'templates/_rightMenu.html' %}
+    <div class="container">
+        {% include 'templates/_leftMenu.html' %}
+        <div class="shapka"></div>
+        <div class="window-profile">
+            <img class="avatar-for-channel" src="images/Avatar-for-channel.png"/>
+            <div class="channel-des">
+                <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
+                <div class="num-subs">22222223</div>
+                <div class="subs"></div>
+            </div>
+            <button class="btn-channel">Изменить</button>
+            <div class="des-channel">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eligendi odio error iste consequuntur et!
+            </div>
+        </div>
+    </div>
+    {% include 'templates/_scripts.html' %}
+    <script src="scripts/BurgerMenuChannel.js"></script>
+</body>
+</html>
