@@ -57,11 +57,11 @@
 }
 .btn-channel {
     background-color: #ffffff;
-    width: 290px;
-    height: 60px;
+    width: 200px;
+    height: 50px;
     border: none;
     border-radius: 30px;
-    margin-left: 155px;
+    margin-left: 200px;
     font-size: 28px;
     cursor: pointer;
     margin-top: 15px;
@@ -70,4 +70,104 @@
     margin-top: 15px;
     margin-left: 10px;
     margin-right: 10px;
+}
+.list-channel {
+    font-size: 28px;
+    display: flex;
+    margin-top: 50px;
+    margin-left: 650px;
+}
+.list-channel li {
+    display: inline;
+    margin-right: 100px;
+    cursor: pointer;
+}
+.lineChannel {
+    height: 2px;
+    width: 103%;
+    background-color: rgb(79, 244, 215);
+    margin-left: -50px;
+    margin-top: 0px;
+}
+.lineChoiseChannel {
+    height: 5px;
+    background-color: rgb(79, 244, 215);
+    width: 100px;
+    margin-top: -10px; 
+    margin-left: 680px;
+}
+.videos {
+    display: flex;
+}
+.preview {
+    width: 360px;
+    height: 250px;
+    border-radius: 22px;
+    background-color: rgb(79, 244, 215);
+    margin-top: 20px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+.description-video {
+    margin-top: 15px;
+    margin-left: 30px;
+    font-family: "Inter-Regular";
+    height: 100px;
+    cursor: pointer;
+}
+.avatar-and-name {
+    display: flex;
+    flex-direction: row;
+}
+.avatar-for-description {
+    width: 65px;
+    height: 65px;
+    background: url('../images/Avatar-for-des.png') center no-repeat;
+}
+.name-channel-stat {
+    margin-left: 10px;
+}
+.name {
+    font-size: 28px;
+}
+.channel {
+    font-size: 16px;
+    margin-top: 10px;
+}
+.stat {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+}
+.views-icon {
+    margin-right: 5px;
+}
+.num {
+    margin-right: 5px;
+}
+.views {
+    margin-right: 5px;
+}
+.date {
+    margin-left: 5px;
+}
+.btn-add-video {
+    width: 100px;
+    height: 100px;
+    margin-top: 75px;
+    margin-left: 125px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.str-add-video {
+    font-size: 28px;
+    margin-left: 40px; 
+}
+.plus {
+    margin-top: -50px;
+    margin-left: -7.5px;
+    font-size: 150px;
 }

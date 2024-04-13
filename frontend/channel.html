@@ -21,7 +21,35 @@
             </div>
         </div>
     </div>
+    <ul class="list-channel">
+        <li class="list-channel-videos">Видео</li>
+        <li class="list-channel-subscriptions">Подписки</li>
+        <li class="list-channel-about">Описание</li>
+    </ul>
+    <div class="lineChoiseChannel"></div>
+    <div class="lineChannel"></div>
+    <div class="videos">
+        <div class="video">
+            <div class="preview">
+                <button class="btn-add-video">
+                    <div class="plus">+</div>
+                </button>
+            </div>  
+            <div class="description-video">
+                <div class="avatar-and-name">
+                    <div class="name-channel-stat">
+                        <div class="str-add-video">Добавить видео</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'templates/_videosChannel.html' %} 
+        {% include 'templates/_videosChannel.html' %} 
+        {% include 'templates/_videosChannel.html' %} 
+        {% include 'templates/_videosChannel.html' %} 
+    </div> 
     {% include 'templates/_scripts.html' %}
     <script src="scripts/BurgerMenuChannel.js"></script>
+    <script src="scripts/Channel.js"></script>
 </body>
 </html>
