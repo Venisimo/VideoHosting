@@ -21,8 +21,11 @@ app.get('/result', function(req, res) {
 app.get('/watch', function(req, res) {
     res.render('watch.html');
 });
-app.get('/channel', function(req, res) {
+app.get('/channel/videos', function(req, res) {
     res.render('channel.html');
+});
+app.get('/channel/subscriptions', function(req, res) {
+    res.render('channelSubs.html');
 });
 
 app.use(express.static(path.join(templatesPath, 'public')));
