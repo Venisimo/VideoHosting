@@ -1,3 +1,18 @@
 .lineChoiseChannel {
     margin-left: 890px;
 }
+.users-channel-menu {
+    margin-left: 350px;
+    margin-top: 10px;
+    display: flex;
+}
+.user-channel-menu {
+    margin-left: 60px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.name-channel {
+    font-size: 28px;
+    text-align: center;
+}

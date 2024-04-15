@@ -2,6 +2,7 @@
 <html lang="en">
     {% include 'templates/_head.html' %}
     <link rel="stylesheet" href="/styles/channel.css">
+    <link rel="stylesheet" href="/styles/channelAbout.css">
     <link rel="stylesheet" href="/styles/channelSubs.css">
 <body data-barba="wrapper">
     {% include 'templates/_header.html' %}
@@ -25,21 +26,28 @@
     <ul class="list-channel">
         <li class="list-channel-videos"><a href="/channel/videos">Видео</a></li>
         <li class="list-channel-subscriptions"><a href="/channel/subscriptions">Подписки</a></li>
-        <li class="list-channel-about">Описание</li>
+        <li class="list-channel-about"><a href="/channel/about">Описание</a></li>
     </ul>
     <div class="lineChoiseChannel"></div>
     <div class="lineChannel"></div>
     <div data-barba="container" data-barba-namespace="home">
-        dfsds  
+        <div class="users-channel-menu">
+            {% include 'templates/_userChannelMenu.html' %}
+            {% include 'templates/_userChannelMenu.html' %}
+            {% include 'templates/_userChannelMenu.html' %}
+            {% include 'templates/_userChannelMenu.html' %}
+        </div>
     </div>
-    {% include 'templates/_scripts.html' %}
-    <script src="/scripts/BurgerMenuChannel.js"></script>
-    <script src="/scripts/Channel.js"></script>
-    <script src="https://unpkg.com/@barba/core"></script>
-    <script>
-        barba.init({
+    <div data-barba="container" data-barba-namespace="home">
+        {% include 'templates/_scripts.html' %}
+        <script src="/scripts/BurgerMenuChannel.js"></script>
+        <script src="/scripts/Channel.js"></script>
+        <script src="https://unpkg.com/@barba/core"></script>
+        <script>
+            barba.init({
 
-        })
-    </script>
+            })
+        </script>
+    </div>
 </body>
 </html>

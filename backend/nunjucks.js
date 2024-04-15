@@ -27,6 +27,9 @@ app.get('/channel/videos', function(req, res) {
 app.get('/channel/subscriptions', function(req, res) {
     res.render('channelSubs.html');
 });
+app.get('/channel/about', function(req, res) {
+    res.render('channelAbout.html');
+});
 
 app.use(express.static(path.join(templatesPath, 'public')));
 
