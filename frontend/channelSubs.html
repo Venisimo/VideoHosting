@@ -38,16 +38,19 @@
             {% include 'templates/_userChannelMenu.html' %}
         </div>
     </div>
-    <div data-barba="container" data-barba-namespace="home">
-        {% include 'templates/_scripts.html' %}
-        <script src="/scripts/BurgerMenuChannel.js"></script>
-        <script src="/scripts/Channel.js"></script>
-        <script src="https://unpkg.com/@barba/core"></script>
-        <script>
-            barba.init({
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="/scripts/vars.js"></script>
+    <script src="/scripts/ViewsText.js"></script>
+    <script src="/scripts/ParseNumber.js"></script>
+    <script src="/scripts/ParseText.js"></script>
+    <script src="/scripts/inputEvent.js"></script>
+    <script src="/scripts/AvatarClick.js"></script>
+    <script src="/scripts/BurgerMenuChannel.js"></script>
+    <script src="/scripts/Channel.js"></script>
+    <script>
+        barba.init({
 
-            })
-        </script>
-    </div>
+        })
+    </script>
 </body>
 </html>

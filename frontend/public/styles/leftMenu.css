@@ -7,6 +7,7 @@
     position: fixed;
     overflow: auto;
     margin-top: 100px;
+    overflow-y: hidden;
 }
 .left-menu::-webkit-scrollbar {
     width: 0;
