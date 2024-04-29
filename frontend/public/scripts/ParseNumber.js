@@ -12,8 +12,8 @@ function ParseNumber() {
             element.innerHTML = element.innerHTML[0] + element.innerHTML[1];
         } else if (element.innerHTML.length == 6 || element.innerHTML.length == 9 || element.innerHTML.length == 12) {
             element.innerHTML = element.innerHTML[0] + element.innerHTML[1] + element.innerHTML[3];
+            console.log('ParseNumber')
         }
     })  
 }
 ParseNumber();
-// ListChannelVideos.addEventListener('click', ParseNumber)

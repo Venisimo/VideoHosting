@@ -182,3 +182,10 @@ body::-webkit-scrollbar {
     margin-left: -7.5px;
     font-size: 150px;
 }
+.home-button {
+    background-color: rgba(255, 255, 255, 1);
+}
+.profile {
+    background-color: rgb(79, 244, 215);
+    display: flex;
+}

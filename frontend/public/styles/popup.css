@@ -1,0 +1,175 @@
+* {
+    font-family: "Inter-Regular";
+}
+input {
+    font-size: 28px;
+}
+.popup-full {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 3; 
+    margin-top: -100px;
+    font-size: 28px;
+    visibility: hidden;
+}
+.popup {
+    margin-top: -100px;
+    width: 800px;
+    height: 850px;
+    background-color: rgb(79, 244, 215);
+    border-radius: 30px;
+    margin-left: 560px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.popup::-webkit-scrollbar {
+    width: 0px;
+}
+.popup-des {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.popup-links {
+    display: flex;
+    margin-left: 100px;
+    margin-top: 15px;
+}
+.textarea-des {
+    margin-left: 15px;
+    resize: none;
+    font-size: 20px;
+    border: none;
+    width: 430px;
+    border-radius: 15px;
+}
+.popup__content {
+    margin-top: 20px;
+    margin-left: 740px;
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    cursor: pointer;
+    border: none;
+}
+.popup-des-links-list li {
+    margin-bottom: 15px;
+    display: flex;
+}
+.popup__close {
+    font-size: 28px;
+}
+
+.btn-delete-link,
+.btn-edit-link {
+    border-radius: 12px;
+    border: none;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: white;
+    vertical-align: middle;
+    font-size: 28px;
+}
+.btn-edit-link {
+    margin-left: 8px;
+    background-image: url("/images/dark-icon/popup/feather-icon.png");
+    background-repeat: no-repeat;
+    background-position: 3px;
+    margin-right: auto; 
+}
+.btn-delete-link {
+    margin-left: 8px;
+}
+.btn-add-link {
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 12px;
+    border: none;
+    margin-left: 5px;
+    font-size: 28px;
+}
+.input-link-add {
+    border-radius: 30px;
+    border: none;
+    width: 350px;
+}
+.btn-save {
+    width: 250px;
+    height: 60px;
+    background: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 275px;
+    margin-bottom: 40px;
+    font-size: 28px;
+}
+.avatar-for-channel-popup {
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.links-in-des {
+    width: 350px;
+}
+
+.avatar-wrapper {
+    position: relative;
+    height: 250px;
+    width: 250px;
+    margin-left: 275px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: none;
+    transition: all .3s ease;
+}
+
+    .avatar-wrapper:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+        .avatar-wrapper:hover .avatar-for-channel-popup {
+            opacity: .5;
+        }
+
+    .avatar-wrapper .avatar-for-channel-popup {
+        height: 100%;
+        width: 100%;
+        transition: all .3s ease;
+    }
+
+        .avatar-wrapper .avatar-for-channel-popup:after {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            text-align: center;
+        }
+
+    /* .avatar-wrapper .upload-button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    } */
+
+        .avatar-wrapper .upload-button .fa-arrow-circle-up {
+            position: absolute;
+            font-size: 243px;
+            top: 10px;
+            left: 22px;
+            text-align: center;
+            opacity: 0;
+            transition: all .3s ease;
+            color: #e4eae7;
+        }
+
+        .avatar-wrapper .upload-button:hover .fa-arrow-circle-up {
+            opacity: .9;
+        }
