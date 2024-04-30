@@ -4,7 +4,11 @@
     <link rel="stylesheet" href="/styles/channel.css">
     <link rel="stylesheet" href="/styles/channelAbout.css">
     <link rel="stylesheet" href="/styles/channelSubs.css">
+    <link rel="stylesheet" href="/styles/popup.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body data-barba="wrapper">
+    {% include 'templates/_popup.html' %}
     {% include 'templates/_header.html' %}
     {% include 'templates/_rightMenu.html' %}
     <div class="container">
@@ -66,6 +70,7 @@
     <script src="/scripts/BurgerMenuChannel.js"></script>
     <script src="/scripts/Channel.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
+    <script src="/scripts/Popup.js"></script>
     <script>
         barba.init({
 

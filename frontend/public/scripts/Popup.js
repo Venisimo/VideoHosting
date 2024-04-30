@@ -1,14 +1,21 @@
 BtnChannelEdit.addEventListener('click', function() {
+    PopupFull.style.opacity = 1;
     PopupFull.style.visibility = "visible";
     Body.style.overflow = "hidden";
 });
-PopupClose.addEventListener('click', function() {
-    PopupFull.style.visibility = "hidden";
-    Body.style.overflowY = "visible";
-});
+function closePopup(event) {
+    if (event.target === PopupFull || event.target === PopupClose) {
+        Body.style.overflowY = "visible";
+        PopupFull.style.opacity = 0;
+        setTimeout(() => {
+            PopupFull.style.visibility = "hidden";
+        }, 300)
+    }
+    
+}
+PopupFull.addEventListener('click', closePopup);
+PopupClose.addEventListener('click', closePopup);
 
-PopupFull.style.height = String(mainElementHeight) + "px";
-PopupFull.style.width = String(mainElementWidth) + "px";
 BtnEditLinks.forEach(BtnEditLink => {
     BtnEditLink.addEventListener('click', function() {
         let li = BtnEditLink.parentElement;

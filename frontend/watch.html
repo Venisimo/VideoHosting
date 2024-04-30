@@ -8,15 +8,15 @@
     {% include 'templates/_rightMenu.html' %}
     <div class="container">
         {% include 'templates/_leftMenu.html' %}
+        <div class="Shadow-for-leftMenu"></div>
         <div class="video-block">
             <div class="videoplayer">
                 <video class="video-in-player" autoplay poster="videos/posters/example1.jpg">
-                    <source src="videos/example2.mkv"> 
+                    <source src="videos/example2.mkv">
                 </video>
                 <div class="videoplayer-panel">
                     <div class="progressAreaTime"></div>
                     <div class="controls">
-                        <!-- <input type="range" min="0" max="100" class="progress-area"></input> -->
                         <input type="range" min="0" max="100" class="progress-bar"></input>
                             <span></span>
                     </div>
@@ -32,7 +32,7 @@
                         <img class="settings-videoplayer-icon" src="images/light-icon/videoplayer/settings-videoplayer-icon.png"></img>
                         <img class="fullscreen-icon" src="images/light-icon/videoplayer/fullscreen-icon.png"></img>
                     </div>
-                </div> 
+                </div>
                 <!-- <div class="playback-settings">
                     <span>Playback Speed</span>
                     <ul>
@@ -47,14 +47,14 @@
                 </div> -->
             </div>
             <div class="video-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, asperiores.</div>
-            <div class="video-block-btns"> 
-                <div class="video-block-channel">    
+            <div class="video-block-btns">
+                <div class="video-block-channel">
                     <img src="images/Avatar.png"/>
                     <div class="name-sub">
                         <div class="video-block-channel-name">User</div>
                         <div class="video-block-channel-des">
                             <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
-                            <div class="num-subs">22222223</div>
+                            <div class="num-subs">2222</div>
                             <div class="subs"></div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                 <div class="str-comment">Комментарии</div>
                 <button class="sort-comment-btn">
                     <img src="images/dark-icon/videoplayer/comment-icon.png" class="comment-icon"></img>
-                    <div>Упорядочить</div>
+                    <div class="sort-by-str-watch">Упорядочить</div>
                 </button>
             </div>
             <div class="comment-entry">
@@ -120,15 +120,13 @@
             {% include 'templates/_videosWatch.html' %}
             {% include 'templates/_videosWatch.html' %}
         </div>
-    </div> 
+    </div>
     {% include 'templates/_scripts.html' %}
     <script src="scripts/Videoplayer.js"></script>
     <script src="scripts/SubsText.js"></script>
     <script src="scripts/ParseNumberSubs.js"></script>
-    <script src="scripts/ThemeResult.js"></script>
-    <script src="scripts/LanguageResult.js"></script>
-    <script src="scripts/Theme.js"></script>
-    <script src="scripts/Language.js"></script>
+    <script src="scripts/ThemeWatch.js"></script>
+    <script src="scripts/LanguageWatch.js"></script>
     <script src="scripts/BurgerMenuWatch.js"></script>
     <script src="scripts/WriteCommentFunc.js"></script>
     <script src="scripts/VideoPlayerButtons.js"></script>

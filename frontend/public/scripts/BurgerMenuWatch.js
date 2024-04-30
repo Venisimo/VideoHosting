@@ -1,4 +1,4 @@
-BurgerMenu.addEventListener('click', function() {
+function closeLeftMenu() {
     if (boolBurgerMenu == true) {
         boolBurgerMenu = false;
     } else {
@@ -6,16 +6,12 @@ BurgerMenu.addEventListener('click', function() {
     }
     
     if (!boolBurgerMenu) {
+        ShadowForLeftMenu.style.visibility = "visible";
         LeftMenu.style.visibility = "visible";
-        VideoBlock.style.overflow = 'hidden';
-        RecBlock.style.overflow = 'hidden';
-        // CoveringShadow.style.visibility = "visible";
     } else {
+        ShadowForLeftMenu.style.visibility = "hidden";
         LeftMenu.style.visibility = "hidden";
-        VideoBlock.style.overflow = 'visible';
-        RecBlock.style.overflow = 'visible';
-        VideoBlock.style.overflowY = 'scroll';
-        RecBlock.style.overflowY = 'scroll';
-        // CoveringShadow.style.visibility = "hidden";
     }  
-});
+}
+BurgerMenu.addEventListener('click', closeLeftMenu);
+ShadowForLeftMenu.addEventListener('click', closeLeftMenu);

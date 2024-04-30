@@ -4,6 +4,7 @@
 }
 body {
     overflow: hidden;
+    margin: 0px;
 }
 body::-webkit-scrollbar {
     width: 0; 
@@ -68,6 +69,9 @@ body::-webkit-scrollbar {
     transition: 0.4s ease;
     border: none;
     transition-duration: 0.6s;
+}
+.dark4 {
+    border: none;
 }
 .repost {
     background-image: url('../images/dark-icon/videoplayer/repost-icon.png');
@@ -483,18 +487,19 @@ body::-webkit-scrollbar {
 }
 .left-menu {
     background-color: #ffffff;
-    z-index: 1;
+    z-index: 2;
 }
 .left-menu button {
     transition: 0.0s ease;
     transition-duration: 0.0s;
 }
-/* body {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
-} */
-/* .covering-shadow {
+.Shadow-for-leftMenu {
+    position: fixed;
+    inset: 0;
     visibility: hidden;
-    background-color: rgb(0 0 0 / 29%);
-    opacity: 0.2;
+    opacity: 0.5;
+    background-color: black;
+    inset: 0;
     z-index: 1;
-} */
+    cursor: pointer;
+}
