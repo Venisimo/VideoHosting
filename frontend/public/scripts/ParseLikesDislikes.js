@@ -4,11 +4,25 @@ function LikeText() {
             likeElement.innerHTML = "";
             NumLike.style.marginRight = "0px";
         } else if (Number(NumLike.innerHTML) >= 1000 && Number(NumLike.innerHTML) < 1000000) {
-            likeElement.innerHTML = "тыс";
+            if (rus) {
+                likeElement.innerHTML = "тыс";
+                NumLike.style.marginRight = "5px";
+            } else {
+                likeElement.innerHTML = "k";
+                NumLike.style.marginRight = "0px";
+            }
         } else if (Number(NumLike.innerHTML) >= 1000000 && Number(NumLike.innerHTML) < 1000000000) {
-            likeElement.innerHTML = "млн";
+            if (rus) {
+                likeElement.innerHTML = "млн";
+            } else {
+                likeElement.innerHTML = "mln";
+            }
         } else if (Number(NumLike.innerHTML) >= 1000000000 && Number(NumLike.innerHTML) < 1000000000000) {
-            likeElement.innerHTML = "млрд";
+            if (rus) {
+                likeElement.innerHTML = "млрд";
+            } else {
+                likeElement.innerHTML = "bln";
+            }
         }
     };    
 LikeText();
@@ -36,11 +50,25 @@ function DislikeText() {
             DislikeElement.innerHTML = "";
             NumDislike.style.marginRight = "0px";
         } else if (Number(NumDislike.innerHTML) >= 1000 && Number(NumDislike.innerHTML) < 1000000) {
-            DislikeElement.innerHTML = "тыс";
+            if (rus) {
+                DislikeElement.innerHTML = "тыс";
+                NumDislike.style.marginRight = "5px";
+            } else {
+                DislikeElement.innerHTML = "k";
+                NumDislike.style.marginRight = "0px";
+            }
         } else if (Number(NumDislike.innerHTML) >= 1000000 && Number(NumDislike.innerHTML) < 1000000000) {
-            DislikeElement.innerHTML = "млн";
+            if (rus) {
+                DislikeElement.innerHTML = "млн";
+            } else {
+                DislikeElement.innerHTML = "mln";
+            }
         } else if (Number(NumDislike.innerHTML) >= 1000000000 && Number(NumDislike.innerHTML) < 1000000000000) {
-            DislikeElement.innerHTML = "млрд";
+            if (rus) {
+                DislikeElement.innerHTML = "млрд";
+            } else {
+                DislikeElement.innerHTML = "bln";
+            }
         }
     };    
 DislikeText();

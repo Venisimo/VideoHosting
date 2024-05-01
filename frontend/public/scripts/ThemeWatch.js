@@ -1,6 +1,6 @@
 Theme.addEventListener('click', function() {
-    console.log(Sub.classList.contains('bg-on2') && Profile.classList.contains('dark'));
     HomeButton.classList.toggle('dark');
+    SortCommentButton.classList.toggle('dark');
     MyProfie.classList.toggle('dark2');
     Language.classList.toggle('dark2');
     Theme.classList.toggle('dark2');
@@ -13,13 +13,23 @@ Theme.addEventListener('click', function() {
     Profile.classList.toggle('dark');
     Messenger.classList.toggle('dark');
     HistoryViews.classList.toggle('dark');
-    SubscribeBtn.classList.toggle('dark4')
+    SubscribeBtn.classList.toggle('dark4');
+    SubscribeBtn.classList.toggle('dark');
+    Repost.classList.toggle('dark');
+    LikeBtn.classList.toggle('dark');
+    DislikeBtn.classList.toggle('dark');
+    BtnSumbit.classList.toggle('dark');
+    BtnCancel.classList.toggle('dark');
+    SortCommentBlock.classList.toggle('dark')
+    BtnTopComment.classList.toggle('dark');
+    BtnNewComment.classList.toggle('dark');
     User.forEach(element => {
         element.classList.toggle('dark');
     });
     if (!theme) {
         Body.style.background = '#FFFFFF';
         Header.style.background = '#4FF4D7';
+        DescriptionEntry.style.background = '#4FF4D7';
         Preview.forEach(element => {
             element.style.background = '#4FF4D7';
         });
@@ -27,7 +37,7 @@ Theme.addEventListener('click', function() {
             element.style.color = '#000000';
         });
         ViewsIcon.forEach(element => {
-            element.src = 'images/dark-icon/views.png'
+            element.src = 'images/dark-icon/views.png';
         })
         RightMenu.style.backgroundColor = '#4FF4D7';
         RightMenu.style.color = '#000000';
@@ -66,6 +76,7 @@ Theme.addEventListener('click', function() {
         ProfileIcon.src = 'images/dark-icon/menu/profile.png';
         MessengerIcon.src = 'images/dark-icon/menu/message.png';
         HistoryViewsIcon.src = 'images/dark-icon/menu/history.png';
+        SortCommentIcon.src = 'images/dark-icon/videoplayer/comment-icon.png';
         ChannelResult.forEach(element => {
             element.style.color = '#000000';
         });
@@ -75,9 +86,22 @@ Theme.addEventListener('click', function() {
         DescriptionChannel.forEach(element => {
             element.style.color = '#606060';
         });
-        
+        CommentEntry.forEach(element => {
+            element.style.color = '#000000';
+        });
+
+        LeftMenu.style.backgroundColor = '#ffffff';
         CommentText.style.backgroundColor = '#ffffff';
         CommentText.style.color = '#000000';
+        SortCommentButton.style.color = '#000000';
+        CommentBlock.style.color = '#000000';
+        DescriptionEntry.style.color = '#000000';
+        VideoName.style.color = '#000000';
+        NameSub.style.color = '#000000';
+        NumLike.style.color = '#000000';
+        NumDislike.style.color = '#000000';
+        Likes.style.color = '#000000';
+        Dislikes.style.color = '#000000';
 
         theme = true;
     } else {
@@ -87,6 +111,7 @@ Theme.addEventListener('click', function() {
         BurgerMenuIcon.src = 'images/light-icon/header/burger-menu.png';
         Body.style.background = '#1F1C1C';
         Header.style.background = '#030303';
+        DescriptionEntry.style.background = '#030303';
         Preview.forEach(element => {
             element.style.background = '#030303';
         });
@@ -127,6 +152,7 @@ Theme.addEventListener('click', function() {
         documentationIconRightMenu.src = 'images/light-icon/menu/documentation.png';
         settingsIconRightMenu.src = 'images/light-icon/menu/settings.png';
         exitIconRightMenu.src = 'images/light-icon/menu/log-out.png';
+        SortCommentIcon.src = 'images/light-icon/videoplayer/comment-icon.png';
         ChannelResult.forEach(element => {
             element.style.color = '#ffffff';
         });
@@ -136,9 +162,22 @@ Theme.addEventListener('click', function() {
         DescriptionChannel.forEach(element => {
             element.style.color = '#4FF4D7';
         }); 
+        CommentEntry.forEach(element => {
+            element.style.color = '#FFFFFF'
+        });
 
+        LeftMenu.style.backgroundColor = '#1F1C1C';
         CommentText.style.backgroundColor = '#1F1C1C';
         CommentText.style.color = '#ffffff';
+        SortCommentButton.style.color = '#ffffff';
+        CommentBlock.style.color = '#ffffff';
+        DescriptionEntry.style.color = '#ffffff';
+        VideoName.style.color = '#ffffff';
+        NameSub.style.color = '#ffffff';
+        NumLike.style.color = '#ffffff';
+        NumDislike.style.color = '#ffffff';
+        Likes.style.color = '#ffffff';
+        Dislikes.style.color = '#ffffff';
 
         theme = false;
     }

@@ -1,5 +1,14 @@
 Language.addEventListener('click', function() {
+    let likeElement = NumLike.nextElementSibling;
     if (rus) {
+        if (likeElement.innerHTML == "млн") {
+            likeElement.innerHTML = "mln";
+        } else if (likeElement.innerHTML == "тыс") {
+            likeElement.innerHTML = "k";
+            NumLike.style.marginRight = "0px";
+        } else if (likeElement.innerHTML == "млрд") {
+            likeElement.innerHTML = "bln";
+        }
         Subs.forEach(element => {
             let numElement = element.previousElementSibling;
             if (element.innerHTML == "млн") {
@@ -13,7 +22,6 @@ Language.addEventListener('click', function() {
         });
         Views.forEach(element => {
             let numElement = element.previousElementSibling;
-
             if (element.innerHTML == "млн") {
                 element.innerHTML = "mln";
             } else if (element.innerHTML == "тыс") {
@@ -36,11 +44,16 @@ Language.addEventListener('click', function() {
             HistoryViewsStr.innerHTML = "";
             SubStr.innerHTML = "";
         }
+
+        SortCommentBlock.style.marginLeft = "250px";
         ProfileStr.style.paddingLeft = "20px";
         HistoryViewsStr.style.paddingLeft = "20px"
         MessageStr.style.marginLeft = "10px";
         SubscribeBtn.style.marginLeft = "60px";
         SortCommentButton.style.width = "230px";
+
+        BtnTopComment.innerHTML = "Top comments";
+        BtnNewComment.innerHTML = "New comments";
 
         SubscribeBtn.innerHTML = "Subscribe";
         StrComment.innerHTML = "Comments";
@@ -59,6 +72,16 @@ Language.addEventListener('click', function() {
         InputSearch.placeholder = "Search...";
         rus = false;
     } else {
+        if (likeElement.innerHTML == "mln") {
+            likeElement.innerHTML = "млн";
+        } else if (likeElement.innerHTML == "k") {
+            likeElement.innerHTML = "тыс";
+            NumLike.style.marginRight = "5px";
+        } else if (likeElement.innerHTML == "bln") {
+            likeElement.innerHTML = "млрд";
+        } else {
+            likeElement.innerHTML = "";
+        }
         Subs.forEach(element => {
             let numElement = element.previousElementSibling;
             if (element.innerHTML == "mln") {
@@ -98,11 +121,16 @@ Language.addEventListener('click', function() {
             HistoryViewsStr.innerHTML = "";
             SubStr.innerHTML = "";
         }
+
+        SortCommentBlock.style.marginLeft = "330px";
         ProfileStr.style.paddingLeft = "0px";
         HistoryViewsStr.style.paddingLeft = "0px"
         MessageStr.style.marginLeft = "3px";
         SubscribeBtn.style.marginLeft = "20px";
         SortCommentButton.style.width = "310px";
+
+        BtnTopComment.innerHTML = "Сначала популярные";
+        BtnNewComment.innerHTML = "Сначала новые";
 
         SubscribeBtn.innerHTML = "Подписаться";
         StrComment.innerHTML = "Комментарии";

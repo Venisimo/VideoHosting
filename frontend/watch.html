@@ -62,7 +62,7 @@
                 <button class="subscribe-btn">Подписаться</button>
                 <button class="repost"></button>
                 <button class="like"></button>
-                <div class="num-like">999</div>
+                <div class="num-like">1000000000</div>
                 <div class="likes"></div>
                 <button class="dislike"></button>
                 <div class="num-dislike">999</div>
@@ -87,9 +87,13 @@
                 <div class="num-comment">65</div>
                 <div class="str-comment">Комментарии</div>
                 <button class="sort-comment-btn">
-                    <img src="images/dark-icon/videoplayer/comment-icon.png" class="comment-icon"></img>
+                    <img src="images/dark-icon/videoplayer/comment-icon.png" class="sort-comment-icon"></img>
                     <div class="sort-by-str-watch">Упорядочить</div>
                 </button>
+            </div>
+            <div class="sort-comment-block">
+                <button class="btn-top-comment">Сначала популярные</button>
+                <button class="btn-new-comment">Сначала новые</button>
             </div>
             <div class="comment-entry">
                 <img src="images/Avatar.png" class="comment-avatar"/>
@@ -122,11 +126,11 @@
         </div>
     </div>
     {% include 'templates/_scripts.html' %}
+    <script src="scripts/ThemeWatch.js"></script>
+    <script src="scripts/LanguageWatch.js"></script>
     <script src="scripts/Videoplayer.js"></script>
     <script src="scripts/SubsText.js"></script>
     <script src="scripts/ParseNumberSubs.js"></script>
-    <script src="scripts/ThemeWatch.js"></script>
-    <script src="scripts/LanguageWatch.js"></script>
     <script src="scripts/BurgerMenuWatch.js"></script>
     <script src="scripts/WriteCommentFunc.js"></script>
     <script src="scripts/VideoPlayerButtons.js"></script>
