@@ -25,9 +25,35 @@ DislikeBtn.addEventListener('click', function() {
 
 SortCommentButton.addEventListener('click', function() {
     SortCommentBlock.classList.toggle('on');
+    if (!boolSCB) {
+        VideoBlock.style.overflow = "hidden";
+        boolSCB = true;
+    } else if (boolSCB) {
+        VideoBlock.style.overflow = "";
+        boolSCB = false;
+    }
+});
+// SortCommentButton.addEventListener('blur', function() {
+//     SortCommentBlock.classList.remove('on');
+//     VideoBlock.style.overflow = "";
+//     boolSCB = false;
+// });
+
+ShowDes.addEventListener('click', function() {
+    if (!boolShowDes) {
+        ShowDes.innerHTML = "Скрыть описание";
+        boolShowDes = true
+    } else {
+        ShowDes.innerHTML = "Показать описание";
+        boolShowDes = false
+    }
 })
 
 BtnTopComment.addEventListener('click', function() {
+    BtnTopComment.classList.add('on');
+    BtnNewComment.classList.remove('on');
 });
-BtnTopComment.addEventListener('click', function() {
+BtnNewComment.addEventListener('click', function() {
+    BtnNewComment.classList.add('on');
+    BtnTopComment.classList.remove('on');
 });
