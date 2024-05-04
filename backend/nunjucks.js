@@ -30,6 +30,9 @@ app.get('/channel/subscriptions', function(req, res) {
 app.get('/channel/about', function(req, res) {
     res.render('channelAbout.html');
 });
+app.get('/history', function(req, res) {
+    res.render('ViewsHistory.html');
+});
 
 app.use(express.static(path.join(templatesPath, 'public')));
 

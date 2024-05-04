@@ -34,4 +34,64 @@ CommentText.addEventListener('keydown', function (event) {
 BtnSumbit.addEventListener('click', function() {
     console.log('send');
     console.log(CommentText.value);
+});
+
+function resizeCommentTextAnswer(CommentTextAnswer) {
+    CommentTextAnswer.style.height = '20px'; 
+    CommentTextAnswer.style.height = CommentTextAnswer.scrollHeight + 'px';
+}
+
+CommentTextAnswers.forEach(CommentTextAnswer => {
+    CommentTextAnswer.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' && event.shiftKey) {
+            CommentTextAnswer.rows += 1;
+            resizeCommentTextAnswer(CommentTextAnswer);
+        }
+    });
+});
+
+CommentTextAnswers.forEach(CommentTextAnswer => {
+    CommentTextAnswer.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            console.log('send');
+            console.log(CommentTextAnswer.value);
+        }
+    });
+});
+
+CommentTextAnswers.forEach(CommentTextAnswer => {
+    let ParentCommentTextAnswer = CommentTextAnswer.parentElement;
+    let btnCancelAnswer = ParentCommentTextAnswer.nextElementSibling;
+    let btnSubmitAnswer = btnCancelAnswer.nextElementSibling;
+    CommentTextAnswer.addEventListener('input', function () {
+        resizeCommentTextAnswer(CommentTextAnswer);
+        if (CommentTextAnswer.value.trim() !== "") {
+            btnSubmitAnswer.disabled = false;
+        } else {
+            btnSubmitAnswer.disabled = true;
+        }
+        btnCancelAnswer.addEventListener('click', function() {
+            CommentTextAnswer.value = "";
+            btnSubmitAnswer.disabled = true;
+            CommentTextAnswer.style.height = "22px";
+        });
+        CommentTextAnswer.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                console.log('send');
+                console.log(CommentTextAnswer.value);
+            }
+        });
+        btnSubmitAnswer.addEventListener('click', function() {
+            console.log('send');
+            console.log(CommentTextAnswer.value);
+        });
+    });
+});
+
+BtnAnswersList.forEach(Element => {
+    let Rotate = 0;
+    Element.addEventListener('click', function() {
+        Rotate += 0.5;
+        Element.children[0].style.transform = 'rotate('+Rotate+'turn)';
+    })
 })

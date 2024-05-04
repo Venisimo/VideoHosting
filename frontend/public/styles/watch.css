@@ -334,7 +334,7 @@ body::-webkit-scrollbar {
     background-color: rgb(3, 3, 3);
 }
 .comment-entry {
-    display: flex;
+    display: block;
     margin-top: 40px;
 }
 .comment-text {
@@ -416,6 +416,156 @@ button.dark:disabled {
 }
 .comment-block-user-name {
     margin-right: 5px;
+}
+.answer-text-user {
+    width: 900px;
+}
+.answer-block {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 80px;
+    height: auto;
+}
+.basic-comment {
+    display: flex;
+}
+.answer-comment {
+    margin-top: 15px;
+    display: flex;
+}
+.like-answer {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    background-image: url('../images/dark-icon/videoplayer/comment-like-icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+.num-like-anwser {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.num-dislike-answer {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.dislike-answer {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    background-image: url('../images/dark-icon/videoplayer/comment-dislike-icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.btn-answer {
+    margin-left: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    width: 100px;
+    height: 25px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+.btn-answer {
+    list-style: none;
+    text-align: center;
+}
+.btn-answer:hover {
+    background-color: rgb(79, 244, 215);
+    transition: 0.6s ease;
+}
+.btn-answers {
+    margin-top: 15px;
+    margin-left: 80px;
+    padding-top: 10px;
+    width: 130px;
+    height: 30px;
+    background-color: rgb(79, 244, 215);
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+    list-style: none;
+}
+.self-answer {
+    width: 800px;
+    display: block;
+    margin-top: 15px;
+}
+.self-answer-entry {
+    display: flex;
+}
+
+.btn-cancel-answer {
+    margin-top: 10px;
+    margin-left: 570px;
+    width: 80px;
+    height: 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(204, 204, 204);
+    font-size: 16px;
+}
+.btn-submit-answer{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 100px;
+    height: 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(79, 244, 215);
+    font-size: 16px;
+}
+.btn-cancel-answer:hover{
+    background-color: rgba(204, 204, 204, 0.7);
+}
+.btn-cancel-answer.dark {
+    background-color: rgb(255, 255, 255);
+}
+.btn-cancel-answer.dark:hover{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.btn-submit-answer:hover{
+    background-color: rgba(79, 244, 215, 0.7);
+}
+.btn-submit-answer.dark {
+    background-color: rgb(3, 3, 3);
+    color: #ffffff;
+}
+.btn-submit-answer.dark:hover{
+    background-color: rgba(3, 3, 3, 0.7);
+}
+
+.comment-text-answer {
+    border: none;
+	border-bottom: 1px solid #000;
+    margin-left: 10px;
+    overflow: auto;
+    font-size: 16px;
+    height: 22px;
+    resize: none;
+    margin-top: 20px;
+}
+.comment-text-answer:focus {
+    outline: none;
+    border-bottom: 2px solid #000;
+}
+.comment-text-answer::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+.answer-avatar {
+    margin-left: 80px;
+    width: 50px;
+    height: 50px;
 }
 .video-panel-on {
     border-width: 0px;
