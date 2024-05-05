@@ -23,6 +23,8 @@ Theme.addEventListener('click', function() {
     SortCommentBlock.classList.toggle('dark')
     BtnTopComment.classList.toggle('dark');
     BtnNewComment.classList.toggle('dark');
+    LikeAnswer.classList.toggle('dark');
+    DislikeAnswer.classList.toggle('dark')
     User.forEach(element => {
         element.classList.toggle('dark');
     });

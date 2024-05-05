@@ -68,20 +68,25 @@
             </div>
         </div>
         <div class="Hisory-Input">
-            <input class="input-search-history" placeholder="Поиск..."/>
-            <img src="images/dark-icon/lupa.png">
+            <div class="search-history">
+                <input class="input-search-history" placeholder="Поиск видео"/>
+                <button class="btn-search-history">
+                    <img src="images/dark-icon/lupa.png" class="search-history-icon">
+                </button>
+            </div>
             <button class="btn-clear-history">
-                История просмотров
+                <img src="images/dark-icon/trash-icon.png" class="trash-icon">
+                <div class="history-views-search-str">Очистить историю</div>
             </button>
         </div>
     </div>
     {% include 'templates/_scripts.html' %}
+    <script src="scripts/inputHistoryEvent.js"></script>
     <script src="scripts/BodyOverflowResult.js"></script>
-    <script src="scripts/SubsText.js"></script>
-    <script src="scripts/ParseNumberSubs.js"></script>
     <script src="scripts/BurgerMenuResult.js"></script>
-    <script src="scripts/ThemeResult.js"></script>
-    <script src="scripts/LanguageResult.js"></script>
-    <script src="scripts/Tyk.js"></script>
+    <script src="scripts/Theme.js"></script>
+    <script src="scripts/ThemeHistory.js"></script>
+    <script src="scripts/Language.js"></script>
+    <script src="scripts/LanguageHistory.js"></script>
 </body>
 </html>

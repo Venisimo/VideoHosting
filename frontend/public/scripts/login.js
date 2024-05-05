@@ -2,8 +2,6 @@ const Theme = document.querySelector('.theme');
 const ThemeIcon = document.querySelector('#theme-icon');
 const Language = document.querySelector('.language');
 const LanguageIcon = document.querySelector('#Language-icon');
-
-
 const body = document.getElementsByTagName('body')[0];
 const loginMargin = document.getElementsByClassName('login-margin')[0];
 const signInTitle = document.getElementsByClassName('sign-in-title')[0];
@@ -20,7 +18,7 @@ const RusEng = document.getElementsByClassName('rus-eng')[0];
 Theme.addEventListener('click', function() {
     if (Theme.classList.contains('dark')) {
         body.style.background = '#FFFFFF';
-        loginMargin.style.background = '#D9D9D9';
+        loginMargin.style.background = 'rgb(79, 244, 215)';
         signInTitle.style.color = "black";
         loginInput.style.background = "";
         passwordInput.style.background = "";
@@ -32,8 +30,8 @@ Theme.addEventListener('click', function() {
         signUp.style.color = "black";
         ru.style.color = "black";
         en.style.color = "black";
-        LanguageIcon.src = 'images/language-for-light.png';
-        ThemeIcon.src = 'images/Moon.png';
+        LanguageIcon.src = 'images/dark-icon/language-icon-sign.png';
+        ThemeIcon.src = 'images/dark-icon/Moon-sign.png';
         Theme.classList.remove('dark');
     } else {
         body.style.background = '#1F1C1C';
@@ -49,8 +47,8 @@ Theme.addEventListener('click', function() {
         signUp.style.color = "white";
         ru.style.color = "white";
         en.style.color = "white";
-        LanguageIcon.src = 'images/language-for-dark.png';
-        ThemeIcon.src = 'images/Sun.png';
+        LanguageIcon.src = 'images/light-icon/language-icon-sign.png';
+        ThemeIcon.src = 'images/light-icon/Sun-sign.png';
         Theme.classList.add('dark');
     }
 });

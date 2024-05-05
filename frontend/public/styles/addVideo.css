@@ -1,0 +1,133 @@
+* {
+    font-family: "Inter-Regular";
+}
+input {
+    font-size: 28px;
+}
+.upload-video {
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+}
+.upload-preview {
+    margin-top: 25px;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+}
+.popup-add-video-full {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 4; 
+    margin-top: -100px;
+    font-size: 28px;
+    visibility: hidden;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    cursor: pointer;
+}
+.upload-video-button {
+    width: 170px;
+    height: 90px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+.upload-preview-button {
+    width: 170px;
+    height: 90px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+.upload-video-video {
+    width: 350px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 15px;
+    margin-left: 60px;
+}
+.upload-preview-preview {
+    width: 350px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 15px;
+    margin-left: 60px;
+}
+.popup {
+    width: 800px;
+    height: 850px;
+    background-color: rgb(79, 244, 215);
+    border-radius: 30px;
+    margin-left: 560px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    cursor: default;
+}
+.popup::-webkit-scrollbar {
+    width: 0px;
+}
+.popup-name {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.input-name {
+    border-radius: 12px;
+    border: none;
+    width: 430px;
+    margin-left: 20px;
+}
+.popup-des {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.popup-links {
+    display: flex;
+    margin-left: 100px;
+    margin-top: 15px;
+}
+.textarea-des-video {
+    margin-left: 15px;
+    resize: none;
+    font-size: 20px;
+    border: none;
+    width: 430px;
+    border-radius: 15px;
+    height: 30px;
+}
+.popup__content {
+    margin-top: 20px;
+    margin-left: 740px;
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-public {
+    width: 250px;
+    height: 60px;
+    background: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 275px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    font-size: 28px;
+}
+
+.popup-close-add-video {
+    font-size: 28px;   
+}

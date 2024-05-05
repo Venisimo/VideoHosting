@@ -1,0 +1,27 @@
+<div class="popup-add-video-full">
+    <canvas></canvas>
+    <div id="popup" class="popup">
+        <button class="popup__content">
+            <div class="popup-close-add-video">X</div>
+        </button>
+        <div class="upload-video">
+            <button class="upload-video-button" onclick="document.getElementById('fileInputVideo').click()">Загруть видео</button>
+            <input id="fileInputVideo" type="file" style="display: none;" accept="video/*">
+            <video class="upload-video-video" controls></video>
+        </div>
+        <div class="upload-preview">
+            <button class="upload-preview-button" onclick="document.getElementById('fileInputPreview').click()">Загруть превью</button>
+            <input id="fileInputPreview" type="file" style="display: none;" accept="image/*">
+            <img class="upload-preview-preview"></img>
+        </div>
+        <div class="popup-name">
+            <div>Название:</div>
+            <input class="input-name" maxlength="30"/>
+        </div>
+        <div class="popup-des">
+            <div class="popup-des-str">Описание:</div>
+            <textarea class="textarea-des-video"></textarea>
+        </div>
+        <button class="btn-public">Опубликовать</button>
+    </div>
+</div>

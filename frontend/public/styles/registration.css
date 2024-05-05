@@ -3,14 +3,14 @@
     src: url("fonts/Inter-Regular.otf");
 }
 .sign-in-light {
-    padding: 89.7px 635px;
+    padding: 42.7px 635px;
     position: relative;
   }
   .login-margin {
-    background-color: rgba(217, 217, 217, 1);
+    background-color: rgb(79, 244, 215);
     border-radius: 30px;
     width: 650px;
-    height: 750px;
+    height: 820px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -120,7 +120,7 @@
     outline: none;
     position: absolute;
   }
-  .sign-in {
+  .sign-up {
     height: 60px;
     width: 330px;
     background-color: black;
@@ -131,22 +131,24 @@
     font-family: "Inter-Regular";
     border-radius: 22px;
     font-size: 28px;
-    bottom: 25px;
+    bottom: 100px;
     left: 160px;
     border: none;
     position: absolute;
+    cursor: pointer;
   }
-  .sign-up {
+  .sign-in {
+    color: black;
     height: 30px;
-    width: 300px;
     display: flex;
     text-align: center;
     text-decoration: underline;
     font-family: "Inter-Regular";
     font-size: 28px;
     bottom: 50px;
-    left: 175px;
+    left: 270px;
     position: absolute;
+    cursor: pointer;
   }
   .theme {
     left: 20px;

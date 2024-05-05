@@ -436,12 +436,17 @@ button.dark:disabled {
 .like-answer {
     width: 30px;
     height: 30px;
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255);
     background-image: url('../images/dark-icon/videoplayer/comment-like-icon.png');
     background-position: center;
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
+    border-radius: 12px;
+}
+.like-answer.dark {
+    background-color: rgb(31, 28, 28);
+    background-image: url('../images/light-icon/videoplayer/comment-like-icon.png');
 }
 .num-like-anwser {
     margin-left: 5px;
@@ -454,13 +459,18 @@ button.dark:disabled {
 .dislike-answer {
     width: 30px;
     height: 30px;
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255);
     background-image: url('../images/dark-icon/videoplayer/comment-dislike-icon.png');
     background-position: center;
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
     margin-left: 10px;
+    border-radius: 12px;
+}
+.dislike-answer.dark {
+    background-color: rgb(31, 28, 28);
+    background-image: url('../images/light-icon/videoplayer/comment-dislike-icon.png');
 }
 .btn-answer {
     margin-left: 5px;
