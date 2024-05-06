@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/ProfileSetting.css">
+    <link rel="shortcut icon" href="images/LOGOTYPE.png" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Настройка профиля</title>
+</head>
+<body>
+    <div id="popup" class="popup">
+        <div class="Theme-Language">
+            <div class="theme">
+                <img id="theme-icon" src="images/dark-icon/Moon-sign.png">
+            </div>
+            <div class="language">
+                <img id="Language-icon" src="images/dark-icon/language-icon-sign.png"/>
+            </div>
+            <div class="rus-eng">
+                <a class="ru">рус</a>
+                <a class="en">/анг</a>
+            </div>
+        </div>
+        <div class="avatar-wrapper">
+            <img class="avatar-for-channel-popup" src="images/Avatar-for-channel.png"/>
+            <div class="upload-button">
+                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            </div>
+            <input class="file-upload" type="file" accept="image/*"/>
+        </div>
+        <div class="popup-name">
+            <div>Придумайте имя (макс. 30 символов):</div>
+            <input class="input-name" maxlength="30"/>
+        </div>
+        <div class="popup-des">
+            <div class="popup-des-str">Расскажите о себе (макс. 250 символов):</div>
+            <textarea class="textarea-des" maxlength="250">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, aperiam.</textarea>
+        </div>
+        <div class="popup-links">
+            <div class="popup-links-str">Добавьте ссылки на ваши ресурсы:</div>
+            <div class="popup-des-links-list">
+                <ul class="ul-list-links">
+                    <li><input class="input-link-add"></input><button class="btn-add-link">+</button></li>
+                </ul>
+            </div>
+        </div>
+        <button class="btn-save">Сохранить</button>
+    </div>
+    <script src="/scripts/vars.js"></script>
+    <script src="/scripts/ProfileSetting.js"></script>
+</body>
+</html>

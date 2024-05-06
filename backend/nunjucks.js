@@ -15,6 +15,9 @@ app.get('/', function(req, res) {
     res.render('start.html');
 });
 
+app.get('/profile-setting', function(req, res) {
+    res.render('profileSetting.html');
+});
 app.get('/login', function(req, res) {
     res.render('login.html');
 });
