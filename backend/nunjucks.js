@@ -2,8 +2,8 @@ import express from 'express';
 import nunjucks from 'nunjucks';
 import path from 'path';
 import __dirname from '../__dirname.js';
+import UserController from '../backend/controller/user.controller.js';
 let app = express();
-
 const templatesPath = path.join(__dirname, '/frontend');
 
 nunjucks.configure(templatesPath, {
@@ -11,9 +11,11 @@ nunjucks.configure(templatesPath, {
     express: app
 });
 
+app.use(express.json())
 app.get('/', function(req, res) {
     res.render('start.html');
 });
+app.post('/register', UserController.regestration);
 
 app.get('/profile-setting', function(req, res) {
     res.render('profileSetting.html');

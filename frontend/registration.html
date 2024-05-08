@@ -8,7 +8,7 @@
     <title>Регистрация</title>
 </head>
 <body>
-    <div class="sign-in-light">
+    <form id="registrationForm" action="/register" method="POST" class="sign-in-light">
         <div class="login-margin">
         <div class="theme">
             <img id="theme-icon" src="images/dark-icon/Moon-sign.png">
@@ -22,17 +22,18 @@
           </div>
           <p class="sign-in-title">Регистрация</p>
           <p class="login">Логин</p>
-          <input class="login-input"></input>
+          <input class="login-input" name="userLogin"></input>
           <p class="email">Почта</p>
-          <input class="email-input"></input>
+          <input class="email-input" name="userEmail"></input>
           <p class="password">Пароль</p>
-          <input class="password-input"></input>
+          <input class="password-input" name="userPassword"></input>
           <p class="password-repit">Повторите пароль</p>
           <input class="password-repit-input"></input>
           <button class="sign-up">Зарегистрироваться</button>
           <a class="sign-in" href="login">Назад</a>   
         </div>
-    </div>
+    </form>
     <script src="scripts/registration.js"></script>
+    <script src="scripts/RegisterDate.js" type="module"></script>
 </body>
 </html>
