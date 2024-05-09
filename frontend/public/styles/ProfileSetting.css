@@ -10,7 +10,7 @@ input {
 }
 .popup {
     width: 800px;
-    height: 850px;
+    height: 890px;
     background-color: rgb(79, 244, 215);
     border-radius: 30px;
     margin-left: 560px;
@@ -149,7 +149,11 @@ input {
 .language {
     margin-left: 570px;
 }
-
+.error_message_profile {
+    margin-left: 285px;
+    color: red;
+    font-size: 28px;
+}
 .avatar-wrapper:hover {
         transform: scale(1.05);
         cursor: pointer;

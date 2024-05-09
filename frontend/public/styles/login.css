@@ -2,6 +2,9 @@
     font-family: Inter-Regular;
     src: url("fonts/Inter-Regular.otf");
 }
+* {
+  font-family: "Inter-Regular";
+}
 .sign-in-light {
     padding: 139.74px 635px;
     position: relative;
@@ -85,10 +88,11 @@
     font-family: "Inter-Regular";
     border-radius: 22px;
     font-size: 28px;
-    bottom: 135px;
+    bottom: 100px;
     left: 225px;
     border: none;
     position: absolute;
+    cursor: pointer;
   }
   .sign-up {
     height: 30px;
@@ -135,4 +139,10 @@
     text-decoration: none;
     color: black;
     cursor: pointer;
+  }
+  .error_message_login {
+    margin-top: 430px;
+    margin-left: 200px;
+    color: red;
+    font-size: 28px;
   }

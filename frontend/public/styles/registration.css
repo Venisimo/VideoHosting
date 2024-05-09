@@ -2,6 +2,9 @@
     font-family: Inter-Regular;
     src: url("fonts/Inter-Regular.otf");
 }
+* {
+  font-family: "Inter-Regular";
+}
 .sign-in-light {
     padding: 42.7px 635px;
     position: relative;
@@ -10,7 +13,7 @@
     background-color: rgb(79, 244, 215);
     border-radius: 30px;
     width: 650px;
-    height: 820px;
+    height: 840px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -50,6 +53,12 @@
     border: none;
     outline: none;
     position: absolute;
+  }
+  .login-input::placeholder {
+    font-size: 18px;
+  }
+  .dark::placeholder {
+    color: rgb(197, 197, 197);
   }
   .email {
     height: 30px;
@@ -131,7 +140,7 @@
     font-family: "Inter-Regular";
     border-radius: 22px;
     font-size: 28px;
-    bottom: 100px;
+    bottom: 80px;
     left: 160px;
     border: none;
     position: absolute;
@@ -145,7 +154,7 @@
     text-decoration: underline;
     font-family: "Inter-Regular";
     font-size: 28px;
-    bottom: 50px;
+    bottom: 30px;
     left: 270px;
     position: absolute;
     cursor: pointer;
@@ -182,4 +191,9 @@
     text-decoration: none;
     color: black;
     cursor: pointer;
+  }
+  .error_message_reg {
+    margin-top: 645px;
+    color: red;
+    font-size: 28px;
   }

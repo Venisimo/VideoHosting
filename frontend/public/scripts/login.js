@@ -14,6 +14,7 @@ const signUp = document.getElementsByClassName('sign-up')[0];
 const ru = document.getElementsByClassName('ru')[0];
 const en = document.getElementsByClassName('en')[0];
 const RusEng = document.getElementsByClassName('rus-eng')[0];
+const ErrorMessageLogin = document.getElementsByClassName('error_message_login')[0];
 
 Theme.addEventListener('click', function() {
     if (Theme.classList.contains('dark')) {

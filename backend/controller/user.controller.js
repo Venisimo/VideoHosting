@@ -10,11 +10,13 @@ class UserController {
             const {email, login, password} = await req.body;
             const chekName = await db.query(`SELECT login FROM "Users" where login = '${login}'`);
             if (chekName.rows.length !== 0) {
-                throw new Error("Пользователь с таким именем уже существует");
+                res.status(400).json({ error: "Пользователь уже существует" });
+                return;
             }
             const checkEmail = await db.query(`SELECT email FROM "Users" where email = '${email}'`);
             if (checkEmail.rows.length !== 0) {
-                throw new Error("Пользователь с такой почтой уже существует");
+                res.status(400).json({ error: "Почта уже используется" });
+                return;
             }
             const currentDate = new Date();
 
@@ -24,6 +26,25 @@ class UserController {
         } catch(e) {
             return res.status(400).json( {message: `${e}`} )
         }
+    }
+    async login(req, res) {
+        try {
+            const {login, password} = await req.body;
+            const user = await db.query(`SELECT login, password FROM "Users" where login = '${login}'`);
+            if (user.rows.length === 0) {
+                return res.json("Пользователь не найден");
+            }
+    
+            const storedPassword = user.rows[0].password;
+    
+            if (password !== storedPassword) {
+                return res.json("Неправильный пароль");
+            }
+
+            res.json({ message: "Пользователь успешно залогинен", user: user.rows[0] });
+        } catch(e) {
+            return res.json("Пользователь/пароль не подходит");
+        } 
     }
 }
 

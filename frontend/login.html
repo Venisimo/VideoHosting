@@ -8,7 +8,7 @@
     <title>Вход</title>
 </head>
 <body>
-    <div class="sign-in-light">
+    <form id="loginForm" class="sign-in-light">
         <div class="login-margin">
         <div class="theme">
             <img id="theme-icon" src="images/dark-icon/Moon-sign.png">
@@ -22,13 +22,15 @@
           </div>
           <p class="sign-in-title">Вход</p>
           <p class="login">Логин</p>
-          <input class="login-input"></input>
+          <input class="login-input" required></input>
           <p class="password">Пароль</p>
-          <input class="password-input"></input>
+          <input class="password-input" required></input>
+          <p class="error_message_login"></p> 
           <button class="sign-in">Войти</button>
-          <a class="sign-up" href="registration">Зарегистрироваться</a>   
+          <a class="sign-up" href="registration">Зарегистрироваться</a>  
         </div>
-    </div>
+    </form>
     <script src="scripts/login.js"></script>
+    <script src="scripts/LoginData.js"></script>
 </body>
 </html>

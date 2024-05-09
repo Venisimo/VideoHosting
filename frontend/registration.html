@@ -22,18 +22,19 @@
           </div>
           <p class="sign-in-title">Регистрация</p>
           <p class="login">Логин</p>
-          <input class="login-input" name="userLogin"></input>
+          <input class="login-input" name="userLogin" pattern="[a-zA-Z0-9]+" placeholder="Вводите только латинские буквы и цифры" required></input>
           <p class="email">Почта</p>
-          <input class="email-input" name="userEmail"></input>
+          <input class="email-input" name="userEmail" required></input>
           <p class="password">Пароль</p>
-          <input class="password-input" name="userPassword"></input>
+          <input class="password-input" name="userPassword" required></input>
           <p class="password-repit">Повторите пароль</p>
-          <input class="password-repit-input"></input>
+          <input class="password-repit-input" required></input>
+          <p class="error_message_reg"></p> 
           <button class="sign-up">Зарегистрироваться</button>
           <a class="sign-in" href="login">Назад</a>   
         </div>
     </form>
     <script src="scripts/registration.js"></script>
-    <script src="scripts/RegisterDate.js" type="module"></script>
+    <script src="scripts/RegisterData.js" type="module"></script>
 </body>
 </html>

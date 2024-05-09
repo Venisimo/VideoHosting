@@ -3,6 +3,7 @@ import nunjucks from 'nunjucks';
 import path from 'path';
 import __dirname from '../__dirname.js';
 import UserController from '../backend/controller/user.controller.js';
+import ProfileController from '../backend/controller/profile.controller.js';
 let app = express();
 const templatesPath = path.join(__dirname, '/frontend');
 
@@ -16,6 +17,9 @@ app.get('/', function(req, res) {
     res.render('start.html');
 });
 app.post('/register', UserController.regestration);
+app.post('/login', UserController.login);
+app.put('/profile', ProfileController.createProfile);
+app.post('/ChekProfile', ProfileController.chekProfile);
 
 app.get('/profile-setting', function(req, res) {
     res.render('profileSetting.html');

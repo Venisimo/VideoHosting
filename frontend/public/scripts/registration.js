@@ -18,6 +18,7 @@ const signUp = document.getElementsByClassName('sign-up')[0];
 const ru = document.getElementsByClassName('ru')[0];
 const en = document.getElementsByClassName('en')[0];
 const RusEng = document.getElementsByClassName('rus-eng')[0];
+const ErrorMessageReg = document.getElementsByClassName('error_message_reg')[0];
 
 Theme.addEventListener('click', function() {
     if (Theme.classList.contains('dark')) {
@@ -39,8 +40,11 @@ Theme.addEventListener('click', function() {
         en.style.color = "black";
         LanguageIcon.src = 'images/dark-icon/language-icon-sign.png';
         ThemeIcon.src = 'images/dark-icon/Moon-sign.png';
+        signUp.style.background = "black";
+        loginInput.classList.remove('dark');
         Theme.classList.remove('dark');
     } else {
+        loginInput.classList.add('dark');
         body.style.background = '#1F1C1C';
         loginMargin.style.background = '#030303';
         signInTitle.style.color = "white";
@@ -61,6 +65,7 @@ Theme.addEventListener('click', function() {
         en.style.color = "white";
         LanguageIcon.src = 'images/light-icon/language-icon-sign.png';
         ThemeIcon.src = 'images/light-icon/Sun-sign.png';
+        signUp.style.background = "#1F1C1C";
         Theme.classList.add('dark');
     }
 });
