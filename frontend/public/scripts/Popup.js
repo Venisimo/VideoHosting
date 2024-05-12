@@ -16,15 +16,18 @@ function closePopup(event) {
 PopupFull.addEventListener('click', closePopup);
 PopupClose.addEventListener('click', closePopup);
 
-BtnEditLinks.forEach(BtnEditLink => {
-    BtnEditLink.addEventListener('click', function() {
+document.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('btn-edit-link')) {
+        let BtnEditLink = event.target;
         let li = BtnEditLink.parentElement;
         let liInput = document.createElement('input');
         let btnDelete = BtnEditLink.nextElementSibling;
         let linkStr = BtnEditLink.previousElementSibling;
+        let LinkId = linkStr.getAttribute('data-link-id')
         let linkStrContent = linkStr.href;
-        liInput.className = "input-link-add";
+        liInput.className = "input-link-edit";
         liInput.value = linkStrContent;
+        liInput.setAttribute('data-link-id', LinkId)
         linkStr.remove();
         BtnEditLink.remove();
         btnDelete.remove();
@@ -38,37 +41,39 @@ BtnEditLinks.forEach(BtnEditLink => {
             let link = btnDelete.parentElement;
             link.remove();
         });
-    })    
-}) 
+    }
+});
 
+document.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('btn-add-link')) {
+        let BtnAddLink = event.target;
+        BtnAddLink.remove();
+        let li = document.createElement('li');
+        let liInput = document.createElement('input');
+        let btnDelete = document.createElement('button');
+        BtnAddLink.innerHTML = "+";
+        btnDelete.innerHTML = "X";
+        btnDelete.className = "btn-delete-link"
+        liInput.className = "input-link-add";
+        UlListLinks.append(li);
+        li.append(liInput);
+        li.append(BtnAddLink);
+        selfLi = li.previousElementSibling;
+        selfLi.append(btnDelete);
 
-BtnAddLink.addEventListener('click', function() {
-    BtnAddLink.remove();
-    let li = document.createElement('li');
-    let liInput = document.createElement('input');
-    let btnDelete = document.createElement('button');
-    BtnAddLink.innerHTML = "+";
-    btnDelete.innerHTML = "X";
-    btnDelete.className = "btn-delete-link"
-    liInput.className = "input-link-add";
-    UlListLinks.append(li);
-    li.append(liInput);
-    li.append(BtnAddLink);
-    selfLi = li.previousElementSibling;
-    selfLi.append(btnDelete);
-
-    btnDelete.addEventListener('click', function() {
+        btnDelete.addEventListener('click', function() {
+            let link = btnDelete.parentElement;
+            link.remove();
+        });
+    }
+});
+document.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('btn-delete-link')) {
+        let btnDelete = event.target;
         let link = btnDelete.parentElement;
         link.remove();
-    });
-})
-
-BtnDeleteLinks.forEach(BtnDeleteLink => {
-    BtnDeleteLink.addEventListener('click', function() {
-        let link = BtnDeleteLink.parentElement;
-        link.remove();
-    })
-})
+    }
+});
 TextAreaDes.addEventListener('input', function () {
     resizeTextareaChannelDes();
 });

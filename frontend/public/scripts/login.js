@@ -15,11 +15,18 @@ const ru = document.getElementsByClassName('ru')[0];
 const en = document.getElementsByClassName('en')[0];
 const RusEng = document.getElementsByClassName('rus-eng')[0];
 const ErrorMessageLogin = document.getElementsByClassName('error_message_login')[0];
+const Modal = document.getElementsByClassName('modal')[0];
+const BtnOK = document.getElementsByClassName('btnOK')[0]; 
+const ModalWindow = document.getElementsByClassName('modal-widnow')[0];
 
 Theme.addEventListener('click', function() {
     if (Theme.classList.contains('dark')) {
         body.style.background = '#FFFFFF';
         loginMargin.style.background = 'rgb(79, 244, 215)';
+        ModalWindow.style.background = 'rgb(79, 244, 215)';
+        ModalWindow.style.color = '#000000';
+        BtnOK.style.background = 'rgb(255, 255, 255)';
+        BtnOK.style.color = 'black';
         signInTitle.style.color = "black";
         loginInput.style.background = "";
         passwordInput.style.background = "";
@@ -37,6 +44,10 @@ Theme.addEventListener('click', function() {
     } else {
         body.style.background = '#1F1C1C';
         loginMargin.style.background = '#030303';
+        ModalWindow.style.background = '#1F1C1C';
+        ModalWindow.style.color = '#FFFFFF';
+        BtnOK.style.background = '#030303';
+        BtnOK.style.color = 'white';
         signInTitle.style.color = "white";
         loginInput.style.background = "#1F1C1C";
         passwordInput.style.background = "#1F1C1C";
@@ -94,3 +105,7 @@ ru.addEventListener('click', function() {
     signUp.innerHTML = "Зарегистрироваться";
     signUp.style.left = "175px";
 })
+
+BtnOK.addEventListener('click', function() {
+    location.reload()
+});

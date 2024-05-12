@@ -38,9 +38,11 @@ body::-webkit-scrollbar {
     z-index: 2;
 }
 .avatar-for-channel {
+    width: 250px;
+    height: 250px;
     margin-left: 175px;
     margin-top: 20px;
-    border-radius: 30px;
+    border-radius: 50%;
     z-index: 3;
 }
 .sub-icon {

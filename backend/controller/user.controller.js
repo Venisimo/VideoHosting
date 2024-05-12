@@ -1,5 +1,16 @@
 import db from '../db.js'
 import { validationResult } from 'express-validator';
+import jwt from 'jsonwebtoken';
+import { secret } from '../config.js';
+const generateAccessToken = (id) => {
+    const payload = {
+        id
+    }
+    return jwt.sign(payload, secret, {expiresIn: "24h"})
+}
+
+
+
 class UserController {
     async regestration(req, res) {
         try {
@@ -30,7 +41,7 @@ class UserController {
     async login(req, res) {
         try {
             const {login, password} = await req.body;
-            const user = await db.query(`SELECT login, password FROM "Users" where login = '${login}'`);
+            const user = await db.query(`SELECT id, login, password FROM "Users" where login = '${login}'`);
             if (user.rows.length === 0) {
                 return res.json("Пользователь не найден");
             }
@@ -40,11 +51,22 @@ class UserController {
             if (password !== storedPassword) {
                 return res.json("Неправильный пароль");
             }
-
-            res.json({ message: "Пользователь успешно залогинен", user: user.rows[0] });
+            const token = generateAccessToken(user.rows[0].id)
+            return res.json({ token });
         } catch(e) {
             return res.json("Пользователь/пароль не подходит");
         } 
+    }
+    async verifyToken(token) {
+        return new Promise((resolve, reject) => {
+            jwt.verify(token, secret, (err, decoded) => {
+                if (err) {
+                    reject(err); 
+                } else {
+                    resolve(decoded);
+                }
+            });
+        });
     }
 }
 

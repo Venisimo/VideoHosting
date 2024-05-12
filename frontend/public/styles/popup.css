@@ -112,6 +112,11 @@ input {
     border: none;
     width: 350px;
 }
+.input-link-edit {
+    border-radius: 30px;
+    border: none;
+    width: 350px;
+}
 .btn-save {
     width: 250px;
     height: 60px;
@@ -146,7 +151,11 @@ input {
     box-shadow: none;
     transition: all .3s ease;
 }
-
+.ErrorMessageEditProfile {
+    margin-left: 200px;
+    color: red;
+    font-size: 28px;
+}
 .avatar-wrapper:hover {
         transform: scale(1.05);
         cursor: pointer;

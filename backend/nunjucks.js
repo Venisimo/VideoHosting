@@ -20,7 +20,23 @@ app.post('/register', UserController.regestration);
 app.post('/login', UserController.login);
 app.put('/profile', ProfileController.createProfile);
 app.post('/ChekProfile', ProfileController.chekProfile);
-
+app.post('/verifyToken', async (req, res) => {
+    const token = req.headers.authorization;
+    if (!token) {
+        return res.status(401).json({ error: 'Токен не предоставлен' });
+    }
+    try {
+        const decodedToken = await UserController.verifyToken(token);
+        res.status(200).json({ message: 'Токен верифицирован', decodedToken });
+    } catch (error) {
+        return res.status(401).json({ error: 'Неверный токен' });
+    }
+});
+app.post('/userInfo', ProfileController.getInfoUser); 
+app.post('/profileLink', ProfileController.addLink); 
+app.post('/getLink', ProfileController.getLink); 
+app.put('/profileLinkUpdate', ProfileController.updateLink); 
+app.delete('/profileLinkDelete', ProfileController.deleteLink); 
 app.get('/profile-setting', function(req, res) {
     res.render('profileSetting.html');
 });
