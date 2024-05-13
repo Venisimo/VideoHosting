@@ -71,4 +71,7 @@ header {
 .avatar {
     margin-left: 510px;
     cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }

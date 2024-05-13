@@ -2,9 +2,9 @@ import db from '../db.js';
 
 class ProfileController {
     async createProfile(req, res) {
-        const {id, name, description, avatar} = req.body;
-        const setPrfoile = await db.query(`UPDATE "Users" set name = $1, description = $2, avatar = $3 where id = '${id}' RETURNING *`, 
-        [name, description, avatar]);
+        const {id, name, description} = req.body;
+        const setPrfoile = await db.query(`UPDATE "Users" set name = $1, description = $2 where id = '${id}' RETURNING *`, 
+        [name, description]);
         res.json(setPrfoile.rows[0]);
     }
     async addLink(req, res) {

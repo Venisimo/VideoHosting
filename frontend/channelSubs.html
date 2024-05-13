@@ -5,9 +5,11 @@
     <link rel="stylesheet" href="/styles/channelAbout.css">
     <link rel="stylesheet" href="/styles/channelSubs.css">
     <link rel="stylesheet" href="/styles/popup.css">
+    <link rel="stylesheet" href="/styles/ChannelModalAlert.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body data-barba="wrapper">
+    {% include 'templates/_popupAlert.html' %}
     {% include 'templates/_popup.html' %}
     {% include 'templates/_header.html' %}
     {% include 'templates/_rightMenu.html' %}
@@ -43,11 +45,25 @@
         </div>
     </div>
     {% include 'templates/_scripts.html' %}
+    <script>
+        function OpenModel() {
+            Modal.style.display = "flex";
+        }
+        BtnOK.addEventListener('click', function() {
+            location.reload()
+        });
+    </script>
+    <script src="/scripts/ChannelVideoGetInfo.js"></script>
+    <script src="/scripts/ChannelGetLinks.js"></script>
+    <script src="/scripts/VerifyToken.js"></script>
+    <script src="/scripts/ChannelUpdateProfile.js"></script>
+    <script src="/scripts/ChannelInsertLink.js"></script>
+    <script src="/scripts/ChannelUpdateLink.js"></script>
+    <script src="/scripts/ChannelDeleteLink.js"></script>
     <script src="/scripts/BurgerMenuChannel.js"></script>
     <script src="/scripts/Channel.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="/scripts/Popup.js"></script>
-    <script src="/scripts/AddVideo.js"></script>
     <script>
         barba.init({
 

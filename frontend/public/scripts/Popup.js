@@ -114,11 +114,49 @@ function ParseTextLinks() {
 }
 ParseTextLinks();
 
+let uploadImg = null;
+
+document.getElementById('popup').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    if (uploadImg != null) {
+        uploadAvatar(uploadImg);
+    }
+});
+
+
+let currentAvatar = AvatarForChannel.src;
+console.log(currentAvatar);
+let arrCurrentAvatar = currentAvatar.split('/');
+currentAvatar = arrCurrentAvatar[3] + '/' + arrCurrentAvatar[4] + '/' + arrCurrentAvatar[5];
+console.log(currentAvatar);
+async function uploadAvatar(Img) {
+    let formData = new FormData();
+    formData.append('avatar', Img);
+    formData.append('id', UserId);
+    formData.append('currentAvatar', currentAvatar)
+    fetch('/uploadPhoto', {
+        method: 'PUT',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Ошибка при загрузке файла');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Файл успешно загружен:', data.filename);        
+    })
+    .catch(error => {
+        console.error(error);
+    });
+}
 
 function readURL(input)
 {
     if(input.files && input.files[0]){
         let reader = new FileReader();
+        uploadImg = input.files[0];
         reader.onload=function(e)
         {
             let fileurl = e.target.result;

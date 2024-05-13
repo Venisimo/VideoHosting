@@ -1,11 +1,23 @@
-ListChannelVideos.addEventListener('click', function() {
+ListChannelVideos.addEventListener('click', function(event) {
     LineChoiseChannel.style.marginLeft = "680px";
+    setTimeout(() => {
+        window.location.href = event.target.href;
+        location.reload();
+    }, 500);
 });
-ListChannelSubscriptions.addEventListener('click', function() {
+ListChannelSubscriptions.addEventListener('click', function(event) {
     LineChoiseChannel.style.marginLeft = "890px";
+    setTimeout(() => {
+        window.location.href = event.target.href;
+        location.reload();
+    }, 500);
 });
-ListChannelAbout.addEventListener('click', function() {
+ListChannelAbout.addEventListener('click', function(event) {
     LineChoiseChannel.style.marginLeft = "1125px";
+    setTimeout(() => {
+        window.location.href = event.target.href;
+        location.reload();
+    }, 500);
 });
 function urlCheking() {
     if(currentUrl == "http://localhost:3000/channel/videos") {
