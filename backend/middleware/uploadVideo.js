@@ -3,14 +3,14 @@ import __dirname from '../../__dirname.js';
 import path from 'path';
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '/frontend/public/images/users-avatar/'));
+        cb(null, path.join(__dirname, '/frontend/public/videos/'));
     },
     filename: function (req, file, cb) {
-        cb(null, new Date().toISOString().replace(/:/g, '-') + '-' + Math.random().toString(36) + '.png');
+        cb(null, new Date().toISOString().replace(/:/g, '-') + '-' + Math.random().toString(36) + '.mp4');
     }
 });
 
-const types = ['image/png', 'image/jpeg', 'image/jpg'];
+const types = ['video/mp4', 'video/mpeg', 'video/ogg'];
 
 const fileFilter = (req, file, cb) => {
     if (types.includes(file.mimetype)) {

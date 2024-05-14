@@ -1,4 +1,4 @@
-let userId;
+let UserId;
 async function verifyTokenOnServer(token) {
     try {
         const response = await fetch('/verifyToken', {
@@ -26,8 +26,8 @@ window.addEventListener('DOMContentLoaded', async function() {
         try {
             const decodedToken = await verifyTokenOnServer(token);
             console.log('Токен верифицирован:', decodedToken);
-            userId = decodedToken.id;
-            chekProfile(userId)
+            UserId = decodedToken.id;
+            chekProfile(UserId)
         } catch (error) {
             console.error('Ошибка при верификации токена:', error);
             localStorage.removeItem('jwtToken');
@@ -36,9 +36,9 @@ window.addEventListener('DOMContentLoaded', async function() {
         console.log('Токен отсутствует, пользователь не аутентифицирован.');
     }
 });
-async function chekProfile(userId) {
+async function chekProfile(UserId) {
     const Data = {
-        id: userId,
+        id: UserId,
     } 
     const response = await fetch('/ChekProfile', {
         method: 'POST',
@@ -56,29 +56,23 @@ async function chekProfile(userId) {
         window.location.replace("http://localhost:3000/");
     }
 }
-document.getElementById('profileForm').addEventListener('submit', async function(event) {
+document.getElementById('popup').addEventListener('submit', async function(event) {
     event.preventDefault();
     let userName = InputName.value;
     let userDescription = TextAreaDes.value;
-    let userAvatar = "images/Avatar-for-channel.png";
     let trimmedDescription = userDescription.trim();
     let trimmedName = userName.trim();
-    if (trimmedDescription === '') {
-        ErrorMessageProfile.style.marginLeft = "220px";
-        return ErrorMessageProfile.innerHTML = "Введите данные корректно!";
-    } 
     if (userName == "") {
-        ErrorMessageProfile.style.marginLeft = "285px";
-        return ErrorMessageProfile.innerHTML = "Вы не ввели имя!";
+        ErrorMessageEditProfile.style.marginLeft = "285px";
+        return ErrorMessageEditProfile.innerHTML = "Вы не ввели имя!";
     } else if (userName.length < 4) {
-        ErrorMessageProfile.style.marginLeft = "240px";
-        return ErrorMessageProfile.innerHTML = "Вы ввели короткое имя!";
+        ErrorMessageEditProfile.style.marginLeft = "240px";
+        return ErrorMessageEditProfile.innerHTML = "Вы ввели короткое имя!";
     }
     const Data = { 
         name: trimmedName, 
         description: trimmedDescription,
-        avatar: userAvatar,
-        id: userId
+        id: UserId
     }; 
     console.log(Data);
     console.log(JSON.stringify(Data));

@@ -38,8 +38,8 @@
     </ul>
     <div class="lineChoiseChannel"></div>
     <div class="lineChannel"></div>
-    <div data-barba="container" data-barba-namespace="home">
-        <div class="videos-channel">
+    <div class="videos-block" data-barba="container" data-barba-namespace="home">
+        <!-- <div class="videos-channel">
             <div class="video">
                 <div class="preview">
                     <button class="btn-add-video">
@@ -54,16 +54,7 @@
                     </div>
                 </div>
             </div>
-            {% include 'templates/_videosChannel.html' %} 
-            {% include 'templates/_videosChannel.html' %} 
-            {% include 'templates/_videosChannel.html' %} 
-        </div>
-        <div class="videos-channel">
-            {% include 'templates/_videosChannel.html' %} 
-            {% include 'templates/_videosChannel.html' %} 
-            {% include 'templates/_videosChannel.html' %}
-            {% include 'templates/_videosChannel.html' %}  
-        </div>
+        </div> -->
     </div>
     {% include 'templates/_scripts.html' %}
     <script>
@@ -76,6 +67,8 @@
     </script>
     <script src="/scripts/ChannelGetLinks.js"></script>
     <script src="/scripts/ChannelVideoGetInfo.js"></script>
+    <script src="/scripts/ChannelGetVideos.js"></script>
+    <script src="/scripts/ChekProfile.js"></script>
     <script src="/scripts/VerifyToken.js"></script>
     <script src="/scripts/ChannelUpdateProfile.js"></script>
     <script src="/scripts/ChannelInsertLink.js"></script>
@@ -86,6 +79,7 @@
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="/scripts/Popup.js" type="module"></script>
     <script src="/scripts/AddVideo.js"></script>
+    <script src="/scripts/OpenVideo.js"></script>
     <script>
         barba.init({
 

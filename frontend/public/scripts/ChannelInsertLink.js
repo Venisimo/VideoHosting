@@ -1,4 +1,12 @@
 document.getElementById('popup').addEventListener('submit', async function(event) {
+    let userName = InputName.value;
+    if (userName == "") {
+        ErrorMessageEditProfile.style.marginLeft = "285px";
+        return ErrorMessageEditProfile.innerHTML = "Вы не ввели имя!";
+    } else if (userName.length < 4) {
+        ErrorMessageEditProfile.style.marginLeft = "240px";
+        return ErrorMessageEditProfile.innerHTML = "Вы ввели короткое имя!";
+    }
     event.preventDefault();
     const inputLinkAdd = document.querySelectorAll('.input-link-add');
     let userInputLinksAdd = [];

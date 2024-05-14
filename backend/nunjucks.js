@@ -5,8 +5,11 @@ import __dirname from '../__dirname.js';
 import UserController from '../backend/controller/user.controller.js';
 import ProfileController from '../backend/controller/profile.controller.js';
 import uploadAvatar from './middleware/uploadAvatar.js';
+import uploadVideo from './middleware/uploadVideo.js';
+import uploadPreview from './middleware/uploadPreview.js';
 import db from './db.js';
 import fs from 'fs'
+import videoController from './controller/video.controller.js';
 let app = express();
 const templatesPath = path.join(__dirname, '/frontend');
 
@@ -43,7 +46,7 @@ app.delete('/profileLinkDelete', ProfileController.deleteLink);
 app.put('/uploadPhoto', uploadAvatar.single('avatar'), async (req, res) => {
     if (req.file) {
         const UserId = req.body.id;
-        console.log(req.body.currentAvatar);
+        console.log(req.body);
         if ("images/users-avatar/Avatar-default.png" != req.body.currentAvatar) {
             fs.unlink(__dirname + "/frontend/public/" + req.body.currentAvatar, (err) => {
                 if (err) throw err;
@@ -57,6 +60,30 @@ app.put('/uploadPhoto', uploadAvatar.single('avatar'), async (req, res) => {
     }
     res.status(400).json({ message: 'Файл не был загружен' });
 });
+app.post('/uploadVideo', uploadVideo.single('video'), async (req, res) => {
+    if (req.file) {
+        const {id, name, description} = req.body;
+        console.log(req.body);
+        const newVideo = "/videos/" + req.file.filename;
+        const currentDate = new Date();
+        console.log(newVideo);
+        await db.query(`INSERT INTO "Videos" (path, user_id, name, description, date) VALUES ($1, $2, $3, $4, $5) RETURNING *`, 
+        [newVideo, id, name, description, currentDate]);
+        return res.json({ filename: req.file.filename });
+    }
+    res.status(400).json({ message: 'Файл не был загружен' });
+});
+app.put('/uploadPoster', uploadPreview.single('poster'), async (req, res) => {
+    if (req.file) {
+        console.log(req.body);
+        const pathVideo = req.body.pathVideo
+        const newPoster = "/videos/posters/" + req.file.filename;
+        await db.query(`UPDATE "Videos" set preview = $1 where path = '${pathVideo}' RETURNING *`, [newPoster]);
+        return res.json({ filename: req.file.filename });
+    }
+    res.status(400).json({ message: 'Файл не был загружен' });
+});
+app.post('/getSelfVideo', videoController.getSelfVideo);
 app.get('/profile-setting', function(req, res) {
     res.render('profileSetting.html');
 });

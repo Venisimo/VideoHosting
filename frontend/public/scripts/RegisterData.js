@@ -113,7 +113,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
                 ErrorMessageReg.style.marginLeft = "120px"
             }
         } else {
-            window.location.replace("http://localhost:3000/login");
+            OpenModel();
         }
  
 
@@ -122,3 +122,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
     
     }
 });
+
+function OpenModel() {
+    Modal.style.display = "flex";
+}

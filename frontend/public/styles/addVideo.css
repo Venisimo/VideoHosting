@@ -45,14 +45,24 @@ input {
     font-size: 28px;
     cursor: pointer;
 }
-.upload-video-video {
+.upload-video-container {
     width: 350px;
     height: 200px;
     background-color: rgb(255, 255, 255);
     border: none;
     border-radius: 15px;
     margin-left: 60px;
+    overflow: hidden;
+    position: relative;
 }
+
+.upload-video-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
 .upload-preview-preview {
     width: 350px;
     height: 200px;
@@ -79,7 +89,7 @@ input {
     margin-top: 30px;
     margin-left: 100px;
 }
-.input-name {
+.input-name-video {
     border-radius: 12px;
     border: none;
     width: 430px;
@@ -130,4 +140,10 @@ input {
 
 .popup-close-add-video {
     font-size: 28px;   
+}
+
+.ErrorMessageUploadVideo {
+    margin-left: 200px;
+    color: red;
+    font-size: 28px;
 }

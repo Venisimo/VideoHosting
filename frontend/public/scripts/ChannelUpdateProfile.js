@@ -4,16 +4,12 @@ document.getElementById('popup').addEventListener('submit', async function(event
     let userDescription = TextAreaDes.value;
     let trimmedDescription = userDescription.trim();
     let trimmedName = userName.trim();
-    if (trimmedDescription === '') {
-        ErrorMessageProfile.style.marginLeft = "220px";
-        return ErrorMessageProfile.innerHTML = "Введите данные корректно!";
-    } 
     if (userName == "") {
-        ErrorMessageProfile.style.marginLeft = "285px";
-        return ErrorMessageProfile.innerHTML = "Вы не ввели имя!";
+        ErrorMessageEditProfile.style.marginLeft = "285px";
+        return ErrorMessageEditProfile.innerHTML = "Вы не ввели имя!";
     } else if (userName.length < 4) {
-        ErrorMessageProfile.style.marginLeft = "240px";
-        return ErrorMessageProfile.innerHTML = "Вы ввели короткое имя!";
+        ErrorMessageEditProfile.style.marginLeft = "240px";
+        return ErrorMessageEditProfile.innerHTML = "Вы ввели короткое имя!";
     }
     const Data = { 
         name: trimmedName, 

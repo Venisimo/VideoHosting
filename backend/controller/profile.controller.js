@@ -10,6 +10,7 @@ class ProfileController {
     async addLink(req, res) {
         const { id, links } = req.body; 
         try {
+            console.log(links);
             const insertedLinks = [];
             for (let link of links) {
                 const setLink = await db.query(`INSERT INTO "Links" (user_id, link) VALUES ($1, $2) RETURNING *`, [id, link]);

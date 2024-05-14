@@ -12,6 +12,14 @@ document.addEventListener('click', function(event) {
 
 document.getElementById('popup').addEventListener('submit', async function(event) {
     event.preventDefault();
+    let userName = InputName.value;
+    if (userName == "") {
+        ErrorMessageEditProfile.style.marginLeft = "285px";
+        return ErrorMessageEditProfile.innerHTML = "Вы не ввели имя!";
+    } else if (userName.length < 4) {
+        ErrorMessageEditProfile.style.marginLeft = "240px";
+        return ErrorMessageEditProfile.innerHTML = "Вы ввели короткое имя!";
+    }
     if (userDeleteLinks.length > 0) {
         const DataLink = {
             id: UserId,

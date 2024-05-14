@@ -3,7 +3,7 @@ import __dirname from '../../__dirname.js';
 import path from 'path';
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '/frontend/public/images/users-avatar/'));
+        cb(null, path.join(__dirname, '/frontend/public/videos/posters/'));
     },
     filename: function (req, file, cb) {
         cb(null, new Date().toISOString().replace(/:/g, '-') + '-' + Math.random().toString(36) + '.png');

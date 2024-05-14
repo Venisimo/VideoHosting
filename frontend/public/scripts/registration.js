@@ -19,6 +19,9 @@ const ru = document.getElementsByClassName('ru')[0];
 const en = document.getElementsByClassName('en')[0];
 const RusEng = document.getElementsByClassName('rus-eng')[0];
 const ErrorMessageReg = document.getElementsByClassName('error_message_reg')[0];
+const Modal = document.getElementsByClassName('modal')[0];
+const BtnOK = document.getElementsByClassName('btnOK')[0]; 
+const ModalWindow = document.getElementsByClassName('modal-widnow')[0];
 
 Theme.addEventListener('click', function() {
     if (Theme.classList.contains('dark')) {
@@ -35,6 +38,8 @@ Theme.addEventListener('click', function() {
         email.style.color = "black";
         password.style.color = "black";
         passwordRepit.style.color = "black";
+        emailInput.style.color = "black";
+        passwordRepitInput.style.color = "black";
         signIn.style.color = "#000000";
         ru.style.color = "black";
         en.style.color = "black";
@@ -112,3 +117,7 @@ ru.addEventListener('click', function() {
     signIn.innerHTML = "Назад";
     signIn.style.left = "270px";
 })
+
+BtnOK.addEventListener('click', function() {
+    window.location.replace("http://localhost:3000/login");
+});

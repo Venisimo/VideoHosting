@@ -58,7 +58,7 @@ document.addEventListener('click', function(event) {
         UlListLinks.append(li);
         li.append(liInput);
         li.append(BtnAddLink);
-        selfLi = li.previousElementSibling;
+        let selfLi = li.previousElementSibling;
         selfLi.append(btnDelete);
 
         btnDelete.addEventListener('click', function() {
@@ -118,6 +118,14 @@ let uploadImg = null;
 
 document.getElementById('popup').addEventListener('submit', async function(event) {
     event.preventDefault();
+    let userName = InputName.value;
+    if (userName == "") {
+        ErrorMessageEditProfile.style.marginLeft = "285px";
+        return ErrorMessageEditProfile.innerHTML = "Вы не ввели имя!";
+    } else if (userName.length < 4) {
+        ErrorMessageEditProfile.style.marginLeft = "240px";
+        return ErrorMessageEditProfile.innerHTML = "Вы ввели короткое имя!";
+    }
     if (uploadImg != null) {
         uploadAvatar(uploadImg);
     }

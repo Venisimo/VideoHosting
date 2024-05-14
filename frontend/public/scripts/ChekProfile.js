@@ -1,4 +1,4 @@
-async function GetInfo() {
+async function ChekInfo() {
     try {
         const Data = {
             id: UserId
@@ -12,16 +12,10 @@ async function GetInfo() {
         });
         console.log(response);
         const responseData = await response.json();
-        // if (responseData.name == null) {
-        //     window.location.replace("http://localhost:3000/profile-setting");
-        // }
-        DesChannel.innerHTML = responseData.description;
-        TextAreaDes.value = DesChannel.innerHTML;
-        InputName.value = responseData.name;
-        AvatarForChannel.src = responseData.avatar
-        Avatar.src = responseData.avatar;
-        AvatarForChannelPopup.src = responseData.avatar;
         console.log(responseData);
+        if (responseData.name == null) {
+            window.location.replace("http://localhost:3000/profile-setting");
+        }
         if (!response.ok) {
             throw new Error('Ошибка вывода данных');
         }

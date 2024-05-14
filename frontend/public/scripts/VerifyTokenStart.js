@@ -16,10 +16,7 @@ async function verifyTokenOnServer() {
         }
         UserId = responseData.decodedToken.id;
         console.log(UserId)
-        GetInfo();
-        GetLinks();
         ChekInfo();
-        GetSelfVideo();
         return responseData.decodedToken; 
     } catch (error) {
         console.error('Ошибка при верификации токена:', error);
