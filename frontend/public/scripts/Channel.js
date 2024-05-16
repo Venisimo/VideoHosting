@@ -19,12 +19,14 @@ ListChannelAbout.addEventListener('click', function(event) {
         location.reload();
     }, 500);
 });
+partUrl = currentUrl.split('?');
+
 function urlCheking() {
-    if(currentUrl == "http://localhost:3000/channel/videos") {
+    if(currentUrl == "http://localhost:3000/channel/videos" || partUrl[0] == "http://localhost:3000/videos") {
         LineChoiseChannel.style.marginLeft = "680px";
-    } else if (currentUrl == "http://localhost:3000/channel/subscriptions") {
+    } else if (currentUrl == "http://localhost:3000/channel/subscriptions" || partUrl[0] == "http://localhost:3000/subscriptions") {
         LineChoiseChannel.style.marginLeft = "890px";
-    } else if (currentUrl == "http://localhost:3000/channel/about") {
+    } else if (currentUrl == "http://localhost:3000/channel/about" || partUrl[0] == "http://localhost:3000/about") {
         LineChoiseChannel.style.marginLeft = "1125px";
     }
 } 

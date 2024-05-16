@@ -10,6 +10,7 @@ import uploadPreview from './middleware/uploadPreview.js';
 import db from './db.js';
 import fs from 'fs'
 import videoController from './controller/video.controller.js';
+import subcribeController from './controller/subcribe.controller.js';
 let app = express();
 const templatesPath = path.join(__dirname, '/frontend');
 
@@ -22,6 +23,7 @@ app.use(express.json())
 app.get('/', function(req, res) {
     res.render('start.html');
 });
+app.post('/getStartVideo', videoController.getStartVideo)
 app.post('/register', UserController.regestration);
 app.post('/login', UserController.login);
 app.put('/profile', ProfileController.createProfile);
@@ -64,7 +66,7 @@ app.post('/uploadVideo', uploadVideo.single('video'), async (req, res) => {
     if (req.file) {
         const {id, name, description} = req.body;
         console.log(req.body);
-        const newVideo = "/videos/" + req.file.filename;
+        const newVideo = req.file.filename;
         const currentDate = new Date();
         console.log(newVideo);
         await db.query(`INSERT INTO "Videos" (path, user_id, name, description, date) VALUES ($1, $2, $3, $4, $5) RETURNING *`, 
@@ -84,6 +86,10 @@ app.put('/uploadPoster', uploadPreview.single('poster'), async (req, res) => {
     res.status(400).json({ message: 'Файл не был загружен' });
 });
 app.post('/getSelfVideo', videoController.getSelfVideo);
+app.post('/getWatchVideo', videoController.getWatchVideo);
+app.post('/getResultVideo', videoController.getResultVideo);
+app.post('/getUsersVideo', videoController.getUsersVideo);
+app.post('/subcribeOnChannel', subcribeController.subscribe);
 app.get('/profile-setting', function(req, res) {
     res.render('profileSetting.html');
 });
@@ -108,10 +114,21 @@ app.get('/channel/subscriptions', function(req, res) {
 app.get('/channel/about', function(req, res) {
     res.render('channelAbout.html');
 });
+app.get('/videos', function(req, res) {
+    res.render('userChannel.html');
+});
+app.get('/subscriptions', function(req, res) {
+    res.render('userSubs.html');
+});
+app.get('/about', function(req, res) {
+    res.render('userAbout.html');
+});
 app.get('/history', function(req, res) {
     res.render('ViewsHistory.html');
 });
-
+app.get('/s', function(req, res) {
+    res.render('startNotAutorization.html');
+});
 app.use(express.static(path.join(templatesPath, 'public')));
 
 app.listen(3000, function() {

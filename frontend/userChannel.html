@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'templates/_head.html' %}
+    <link rel="stylesheet" href="/styles/channel.css">
+    <link rel="stylesheet" href="/styles/channelAbout.css">
+    <link rel="stylesheet" href="/styles/channelSubs.css">
+    <link rel="stylesheet" href="/styles/user.css">
+    <link rel="stylesheet" href="/styles/popupRequestLogin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body data-barba="wrapper">
+    {% include 'templates/_header.html' %}
+    {% include 'templates/_rightMenu.html' %}
+    {% include 'templates/_popup_request_login.html' %}
+    <div class="container">
+        {% include 'templates/_leftMenu.html' %}
+        <div class="shapka"></div>
+        <div class="window-profile">
+            <img class="avatar-for-channel" src="/images/Avatar-for-channel.png"/>
+            <div class="channel-des">
+                <img class="sub-icon" src="/images/dark-icon/menu/subscriptions.png"/>
+                <div class="num-subs">22222223</div>
+                <div class="subs"></div>
+            </div>
+            <div class="user-name">Name</div>
+            <button class="btn-channel">Подписаться</button>
+            <div class="des-channel">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eligendi odio error iste consequuntur et!
+            </div>
+        </div>
+    </div>
+    <ul class="list-channel">
+        <li class="list-channel-videos"><a class="videosUrl" href="/videos?">Видео</a></li>
+        <li class="list-channel-subscriptions"><a class="subsUrl" href="/subscriptions?">Подписки</a></li>
+        <li class="list-channel-about"><a class="aboutUrl" href="/about?">Описание</a></li>
+    </ul>
+    <div class="lineChoiseChannel"></div>
+    <div class="lineChannel"></div>
+    <div class="videos-block" data-barba="container" data-barba-namespace="home">
+    </div>
+    {% include 'templates/_scripts.html' %}
+    <script>
+        const btnCancel = document.querySelector(".btnCancel")
+        btnCancel.addEventListener('click', function() {
+            Modal.style.display = "none";
+        });
+        Modal.addEventListener('click', function() {
+            Modal.style.display = "none";
+        });
+        function OpenModel() {
+            Modal.style.display = "flex";
+        }
+    </script>
+    <script src="/scripts/VerifyToken.js"></script>
+    <script src="/scripts/ChekProfile.js"></script>
+    <script src="/scripts/BurgerMenuChannel.js"></script>
+    <script src="/scripts/UserChannel.js"></script>
+    <script src="/scripts/UserChannelGetVideos.js"></script>
+    <script src="/scripts/Channel.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="/scripts/subFunc.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            barba.init({
+                prevent: ({ el }) => {
+                    if (el.hasAttribute('data-barba') && el.getAttribute('data-barba') === 'false') {
+                        return true;
+                    }
+                    if (el.href && el.href.indexOf(window.location.origin) !== 0) {
+                        return true;
+                    }
+
+                    return false;
+                },
+            });
+        });
+    </script>
+</body>
+</html>

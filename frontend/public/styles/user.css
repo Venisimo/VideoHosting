@@ -1,0 +1,25 @@
+.user-name {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 22px;
+}
+.avatar-for-channel {
+    width: 250px;
+    height: 250px;
+    margin-left: 175px;
+    margin-top: 0px;
+}
+.btn-channel {
+    margin-top: 10px;
+    background-color: rgb(55, 121, 101);
+    color: rgb(255, 255, 255);
+}
+.on {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+.btn-channel:hover {
+    background-color: rgb(79, 244, 215, 0.7);
+    transition: 0.4s ease;
+    transition-duration: 0.6s;
+}

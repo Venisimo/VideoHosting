@@ -14,7 +14,7 @@ async function GetLinks() {
         const responseData = await response.json();
         console.log(responseData);
         for (let i = 0; i < responseData.links.length; i++) {
-            UlListLinks.innerHTML += `<li><a href="${responseData.links[i]}" data-link-id="${responseData.linksId[i]}" class="links-in-des">${responseData.links[i]}</a>
+            UlListLinks.innerHTML += `<li><a href="${responseData.links[i]}" data-link-id="${responseData.linksId[i]}" data-barba="false" class="links-in-des">${responseData.links[i]}</a>
             <button class="btn-edit-link" type="button"></button><button class="btn-delete-link" type="button">X</button></li>`;
         }
         UlListLinks.innerHTML += `<li><input class="input-link-add"></input><button class="btn-add-link" type="button">+</button></li>`;

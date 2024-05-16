@@ -12,6 +12,10 @@ body {
 body::-webkit-scrollbar {
     width: 0;
 }
+.video {
+    text-decoration: none;
+    color: black;
+}
 .right-menu {
     margin-top: 0px;
 }

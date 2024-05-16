@@ -1,3 +1,5 @@
+let tk = localStorage.getItem("jwtToken");
+
 CommentText.addEventListener('input', function () {
     resizeTextarea();
     if(CommentText.value.trim() !== "") {
@@ -25,15 +27,23 @@ function resizeTextarea() {
 }
 
 CommentText.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter' && !event.shiftKey) {
-        console.log('send');
-        console.log(CommentText.value);
+    if(tk) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            console.log('send');
+            console.log(CommentText.value);
+        }
+    } else {
+        OpenModel();
     }
 });
 
 BtnSumbit.addEventListener('click', function() {
-    console.log('send');
-    console.log(CommentText.value);
+    if (tk) {
+        console.log('send');
+        console.log(CommentText.value);
+    } else {
+        OpenModel();
+    }
 });
 
 function resizeCommentTextAnswer(CommentTextAnswer) {
@@ -76,14 +86,22 @@ CommentTextAnswers.forEach(CommentTextAnswer => {
             CommentTextAnswer.style.height = "22px";
         });
         CommentTextAnswer.addEventListener('keydown', function (event) {
-            if (event.key === 'Enter' && !event.shiftKey) {
-                console.log('send');
-                console.log(CommentTextAnswer.value);
+            if (tk) {
+                if (event.key === 'Enter' && !event.shiftKey) {
+                    console.log('send');
+                    console.log(CommentTextAnswer.value);
+                }
+            } else {
+                OpenModel();
             }
         });
         btnSubmitAnswer.addEventListener('click', function() {
-            console.log('send');
-            console.log(CommentTextAnswer.value);
+            if (tk) {
+                console.log('send');
+                console.log(CommentTextAnswer.value);
+            } else {
+                OpenModel();
+            }
         });
     });
 });

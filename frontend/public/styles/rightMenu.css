@@ -15,6 +15,10 @@
     visibility: hidden;
     z-index: 1;
 }
+#NotAutorization {
+    width: 310px;
+    height: 350px;
+}
 .right-menu button {
     font-family: "Inter-Regular";
     font-size: 32px;

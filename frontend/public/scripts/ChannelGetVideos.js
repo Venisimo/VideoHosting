@@ -45,23 +45,24 @@ async function GetSelfVideo() {
             if (mm < 10) mm = '0' + mm;
             let yy = d.getFullYear() % 100;
             VideosChannel.innerHTML += `
-                <div class="video">
-                    <div class="preview" data-path="${responseData.VideosPath[i]}" style="background-image: url('${responseData.VideosPreviews[i]}')"></div>  
-                    <div class="description-video">
-                        <div class="avatar-and-name">
-                            <div class="name-channel-stat">
-                                <div class="name">${responseData.VideosNames[i]}</div>
-                                <div class="stat">
-                                    <img class="views-icon" src="/images/dark-icon/views.png">
-                                    <div class="num">${responseData.VideosViews[i]}</div>
-                                    <div class="views"></div>
-                                    <div>•</div>
-                                    <div class="date">${dd + '/' + mm + '/' + yy}</div>
-                                </div>
-                            </div>
+            <a href="http://localhost:3000/watch?${responseData.VideosPath[i]}" type="button" data-barba="false" class="video">
+            <div class="preview" style="background-image: url('${responseData.VideosPreviews[i]}')"></div>
+            <div class="description-video">
+                <div class="avatar-and-name">
+                    <div class="name-channel-stat">
+                        <div class="name">${responseData.VideosNames[i]}</div>
+                        <div class="stat">
+                            <img class="views-icon" src="/images/dark-icon/views.png">
+                            <div class="num">${responseData.VideosViews[i]}</div>
+                            <div class="views"></div>
+                            <div>•</div>
+                            <div class="date">${dd + '/' + mm + '/' + yy}</div>
                         </div>
                     </div>
-                </div>`;
+                </div>
+            </div>
+        </a>
+        `;
         }
 
         ParseText();

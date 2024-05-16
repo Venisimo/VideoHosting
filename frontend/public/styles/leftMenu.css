@@ -152,3 +152,8 @@
 .bg-on {
     visibility: hidden;
 }
+#profileStrNotAutorization {
+    padding-left: 45px;
+    padding-top: 3px;
+    padding-right: 5px;
+}

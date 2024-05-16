@@ -5,10 +5,19 @@
 body::-webkit-scrollbar {
     width: 0;
 }
+body {
+    margin: 0px;
+}
+.row-videos {
+    margin-bottom: 22px;
+}
 .container {
     display: flex;
 }
-
+.video {
+    text-decoration: none;
+    color: black;
+}
 .preview {
     width: 360px;
     height: 250px;
@@ -17,6 +26,9 @@ body::-webkit-scrollbar {
     margin-top: 75px;
     margin-left: 30px;
     cursor: pointer;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; 
 }
 .description-video {
     margin-top: 15px;
@@ -32,7 +44,7 @@ body::-webkit-scrollbar {
 .avatar-for-description {
     width: 65px;
     height: 65px;
-    background: url('../images/Avatar-for-des.png') center no-repeat;
+    border-radius: 50%;
 }
 .name-channel-stat {
     margin-left: 10px;
@@ -43,6 +55,8 @@ body::-webkit-scrollbar {
 .channel {
     font-size: 16px;
     margin-top: 10px;
+    text-decoration: none;
+    color: black;
 }
 .stat {
     display: flex;
@@ -73,5 +87,11 @@ body::-webkit-scrollbar {
 .row-videos {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+}
+.imgPreview {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    background: none;
+    background-size: contain;
 }

@@ -1,16 +1,15 @@
 video {
-    object-fit: contain;
+    object-fit: cover;
     border: none;
     outline: none;
-    background: rgb(0 0 0 / 29%);
+    background: rgb(79, 244, 215);
 }
 video::cue {
     opacity: 0;
 }
+
 .videoplayer-panel {
-    /* background-color: black; */
     background: rgb(0 0 0 / 29%);
-    /* box-shadow: 0 0 40px 10px rgb(0 0 0 / 25%); */
     align-items: center;
     flex-wrap: nowrap;
     width: 100%;

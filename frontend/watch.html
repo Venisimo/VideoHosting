@@ -3,16 +3,18 @@
     {% include 'templates/_head.html' %}
     <link rel="stylesheet" href="styles/videoplayer.css">
     <link rel="stylesheet" href="styles/watch.css">
+    <link rel="stylesheet" href="styles/popupRequestLogin.css">
 <body>
     {% include 'templates/_header.html' %}
     {% include 'templates/_rightMenu.html' %}
+    {% include 'templates/_popup_request_login.html' %}
     <div class="container">
         {% include 'templates/_leftMenu.html' %}
         <div class="Shadow-for-leftMenu"></div>
         <div class="video-block">
             <div class="videoplayer">
-                <video class="video-in-player" autoplay poster="videos/posters/example1.jpg">
-                    <source src="videos/example2.mkv">
+                <video class="video-in-player" autoplay poster="">
+                    <source src="">
                 </video>
                 <div class="videoplayer-panel">
                     <div class="progressAreaTime"></div>
@@ -33,23 +35,11 @@
                         <img class="fullscreen-icon" src="images/light-icon/videoplayer/fullscreen-icon.png"></img>
                     </div>
                 </div>
-                <!-- <div class="playback-settings">
-                    <span>Playback Speed</span>
-                    <ul>
-                        <li>0.25x</li>
-                        <li>0.5x</li>
-                        <li>0.75x</li>
-                        <li>1x</li>
-                        <li>1.25x</li>
-                        <li>1.5x</li>
-                        <li>2x</li>
-                    </ul>
-                </div> -->
             </div>
             <div class="video-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, asperiores.</div>
             <div class="video-block-btns">
                 <div class="video-block-channel">
-                    <img src="images/Avatar.png"/>
+                    <a href="link" id="AvatarWatchVideo"></a>
                     <div class="name-sub">
                         <div class="video-block-channel-name">User</div>
                         <div class="video-block-channel-des">
@@ -72,21 +62,16 @@
                 <div class="description-entry-stat">
                     <img class="views-icon" src="images/dark-icon/views.png">
                     <div class="des-info">
-                        <div class="num">130000000000</div>
+                        <div class="num" id="num-watch-video"></div>
                         <div class="views"></div>
                         <div>•</div>
-                        <div class="date">19/01/24</div>
+                        <div class="date" id="num-watch-date"></div>
                     </div>
                 </div>
                 <details class="description-entry-text">
                     <summary class="show-des">
                         Показать описание
                     </summary>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non aliquam sapiente, consectetur dolor atque quos rem molestias magni explicabo ipsum quibusdam minus laboriosam nam aliquid, maxime id? Quis, molestiae accusantium.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nesciunt quam voluptatibus odit officiis inventore laborum iste enim velit. Commodi adipisci voluptate cum reprehenderit quas aspernatur alias quis illo magni.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex possimus voluptate omnis temporibus excepturi exercitationem dolor et tempore, magni, debitis corrupti quibusdam est neque distinctio? Nostrum saepe cum accusantium vel?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim accusantium cum voluptatibus, neque excepturi necessitatibus molestias quos inventore. Labore delectus architecto enim odio expedita, a veniam sequi officia praesentium inventore.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, nulla! Maiores eligendi, iure doloremque temporibus voluptatibus officia quo fugiat, totam libero, necessitatibus est aut. Veniam laboriosam facilis suscipit reiciendis nisi.
                 </details>
                 <div style="height: 5px"></div>
             </div>
@@ -133,8 +118,21 @@
         </div>
     </div>
     {% include 'templates/_scripts.html' %}
+    <script>
+        const btnCancel = document.querySelector(".btnCancel")
+        console.log(btnCancel);
+        btnCancel.addEventListener('click', function() {
+            Modal.style.display = "none";
+        });
+        Modal.addEventListener('click', function() {
+            Modal.style.display = "none";
+        });
+        function OpenModel() {
+            Modal.style.display = "flex";
+        }
+    </script>
     <script src="/scripts/ChekProfile.js"></script>
-    <script src="/scripts/VerifyTokenStart.js"></script>
+    <!-- <script src="/scripts/VerifyTokenStart.js"></script> -->
     <script src="scripts/ThemeWatch.js"></script>
     <script src="scripts/LanguageWatch.js"></script>
     <script src="scripts/Videoplayer.js"></script>
@@ -145,5 +143,6 @@
     <script src="scripts/VideoPlayerButtons.js"></script>
     <script src="scripts/ParseLikesDislikes.js"></script>
     <script src="scripts/CountLikeDislike.js"></script>
+    <script src="scripts/GetWatchVideo.js"></script>
 </body>
 </html>

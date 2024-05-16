@@ -185,6 +185,7 @@ body::-webkit-scrollbar {
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 5px;
+    overflow-wrap: break-word;
 }
 
 .left-menu {
@@ -684,4 +685,9 @@ button.dark:disabled {
     font-size: 20px;
     cursor: pointer;
     margin-bottom: 15px;
+}
+#AvatarWatchVideo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }

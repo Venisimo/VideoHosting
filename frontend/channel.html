@@ -39,22 +39,6 @@
     <div class="lineChoiseChannel"></div>
     <div class="lineChannel"></div>
     <div class="videos-block" data-barba="container" data-barba-namespace="home">
-        <!-- <div class="videos-channel">
-            <div class="video">
-                <div class="preview">
-                    <button class="btn-add-video">
-                        <div class="plus">+</div>
-                    </button>
-                </div>  
-                <div class="description-video">
-                    <div class="avatar-and-name">
-                        <div class="name-channel-stat">
-                            <div class="str-add-video">Добавить видео</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
     {% include 'templates/_scripts.html' %}
     <script>
@@ -81,9 +65,23 @@
     <script src="/scripts/AddVideo.js"></script>
     <script src="/scripts/OpenVideo.js"></script>
     <script>
-        barba.init({
+        document.addEventListener('DOMContentLoaded', function() {
+            barba.init({
+                prevent: ({ el }) => {
+                    // Если ссылка содержит атрибут data-barba="false", Barba.js ее игнорирует
+                    if (el.hasAttribute('data-barba') && el.getAttribute('data-barba') === 'false') {
+                        return true;
+                    }
 
-        })
+                    // Если ссылка ведет на внешний сайт, Barba.js ее игнорирует
+                    if (el.href && el.href.indexOf(window.location.origin) !== 0) {
+                        return true;
+                    }
+
+                    return false;
+                },
+            });
+        });
     </script>
 </body>
 </html>

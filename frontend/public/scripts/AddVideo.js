@@ -121,7 +121,7 @@ async function addVideo(Video) {
     })
     .then(data => {
         console.log('Файл успешно загружен:', data.filename);        
-        pathVideo = "/videos/" + data.filename;
+        pathVideo = data.filename;
         if (uploadPoster != null) {
             addPoster(uploadPoster, pathVideo);
         }
