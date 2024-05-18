@@ -55,7 +55,7 @@ async function Result() {
                             <div class="description-channel">${responseData.ResultUsers[i].description}</div>
                             <div class="channel-des">
                                 <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
-                                <div class="num-subs">2222</div>
+                                <div class="num-subs">${responseData.CountsSubs[i].count}</div>
                                 <div class="subs"></div>
                             </div>
                         </div>

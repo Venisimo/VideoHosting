@@ -11,25 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body data-barba="wrapper">
     {% include 'templates/_popupAlert.html' %}
+    {% include 'templates/_popupAlertVideo.html' %}
     {% include 'templates/_popup.html' %}
     {% include 'templates/_popupAddVideo.html' %}
     {% include 'templates/_header.html' %}
     {% include 'templates/_rightMenu.html' %}
     <div class="container">
         {% include 'templates/_leftMenu.html' %}
-        <div class="shapka"></div>
-        <div class="window-profile">
-            <img class="avatar-for-channel" src="/images/Avatar-for-channel.png"/>
-            <div class="channel-des">
-                <img class="sub-icon" src="/images/dark-icon/menu/subscriptions.png"/>
-                <div class="num-subs">22222223</div>
-                <div class="subs"></div>
-            </div>
-            <button class="btn-channel">Изменить</button>
-            <div class="des-channel">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eligendi odio error iste consequuntur et!
-            </div>
-        </div>
+        {% include 'templates/_selfProfile.html' %}
     </div>
     <ul class="list-channel">
         <li class="list-channel-videos"><a href="/channel/videos">Видео</a></li>
@@ -48,12 +37,25 @@
         BtnOK.addEventListener('click', function() {
             location.reload()
         });
+        function OpenModelVideo() {
+            ModalVideo.style.display = "flex";
+        }
+        BtnOKVideo.addEventListener('click', function() {
+            location.reload()
+        });
     </script>
     <script src="/scripts/ChannelGetLinks.js"></script>
     <script src="/scripts/ChannelVideoGetInfo.js"></script>
     <script src="/scripts/ChannelGetVideos.js"></script>
+    <script src="/scripts/CountSelfSub.js"></script>
+    <script src="/scripts/UploadAvatar.js"></script>
+    {% include 'templates/_verifyScripts.html' %}
+    <script>
+        if (!token) {
+            location.replace("http://localhost:3000/login")
+        }
+    </script>
     <script src="/scripts/ChekProfile.js"></script>
-    <script src="/scripts/VerifyToken.js"></script>
     <script src="/scripts/ChannelUpdateProfile.js"></script>
     <script src="/scripts/ChannelInsertLink.js"></script>
     <script src="/scripts/ChannelUpdateLink.js"></script>
@@ -64,24 +66,6 @@
     <script src="/scripts/Popup.js" type="module"></script>
     <script src="/scripts/AddVideo.js"></script>
     <script src="/scripts/OpenVideo.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            barba.init({
-                prevent: ({ el }) => {
-                    // Если ссылка содержит атрибут data-barba="false", Barba.js ее игнорирует
-                    if (el.hasAttribute('data-barba') && el.getAttribute('data-barba') === 'false') {
-                        return true;
-                    }
-
-                    // Если ссылка ведет на внешний сайт, Barba.js ее игнорирует
-                    if (el.href && el.href.indexOf(window.location.origin) !== 0) {
-                        return true;
-                    }
-
-                    return false;
-                },
-            });
-        });
-    </script>
+    {% include 'templates/_barba_init.html' %}
 </body>
 </html>

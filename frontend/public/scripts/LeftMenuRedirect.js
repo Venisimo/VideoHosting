@@ -1,10 +1,6 @@
 let tok = localStorage.getItem("jwtToken");
 HomeButton.addEventListener('click', function() {
-    if (tok) {
-        location.href = "http://localhost:3000/";
-    } else {
-        location.href = "http://localhost:3000/s";
-    }
+    location.href = "http://localhost:3000/";
 });
 HistoryViews.addEventListener('click', function() {
     if (tok) {

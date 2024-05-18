@@ -14,8 +14,10 @@ async function GetUsersAbout() {
         if (!response.ok) {
             throw new Error('Ошибка вывода данных');
         }
-
         const responseData = await response.json();
+        if (responseData.userInfo.id == UserId) {
+            location.replace("http://localhost:3000/channel/subscriptions");
+        }
         console.log(responseData);
         let d = new Date(responseData.userInfo.date)
         let dd = d.getDate();
@@ -37,4 +39,6 @@ async function GetUsersAbout() {
         console.error(error);
     }
 }
-GetUsersAbout();
+if (!token) {
+    GetUsersAbout();
+}

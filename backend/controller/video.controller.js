@@ -14,13 +14,17 @@ class VideoController {
     async getWatchVideo(req, res) {
         const {path} = req.body;
         const WatchVideo = await db.query(`SELECT views, name, preview, user_id, date, description FROM "Videos" where path = '${path}'`);
-        const NewView = WatchVideo.rows[0].views + 1;
-        await db.query(`UPDATE "Videos" set views = $1 where path = '${path}' RETURNING *`, [NewView]);
-        const UserId = WatchVideo.rows[0].user_id;
-        const User = await db.query(`SELECT login, name, avatar FROM "Users" where id = '${UserId}'`);
-        const VideoInfo = WatchVideo.rows[0];
-        const UserInfo = User.rows[0];
-        res.json({VideoInfo, UserInfo});
+        if (WatchVideo.rows.length !== 0) {
+            const NewView = WatchVideo.rows[0].views + 1;
+            await db.query(`UPDATE "Videos" set views = $1 where path = '${path}' RETURNING *`, [NewView]);
+            const UserId = WatchVideo.rows[0].user_id;
+            const User = await db.query(`SELECT login, name, avatar FROM "Users" where id = '${UserId}'`);
+            const VideoInfo = WatchVideo.rows[0];
+            const UserInfo = User.rows[0];
+            res.json({VideoInfo, UserInfo, UserId});
+        } else {
+            return res.status(404).json( {message: `видео нет(`} )
+        }
     }
     async getStartVideo(req, res) {
         const Videos = await db.query(`SELECT views, path, name, preview, user_id, date FROM "Videos"`);
@@ -34,16 +38,21 @@ class VideoController {
     }
     async getResultVideo(req, res) {
         const {search} = req.body;
-        const ResultUser = await db.query(`SELECT login, name, description, avatar FROM public."Users" where name ILIKE '%' || '${search}' || '%';`);
-        const ResultVideo = await db.query(`SELECT name, path, preview, views, date, user_id FROM public."Videos" where name ILIKE '%' || '${search}' || '%';`);
+        const ResultUser = await db.query(`SELECT login, name, description, avatar FROM "Users" where name ILIKE '%' || '${search}' || '%';`);
+        const ResultVideo = await db.query(`SELECT name, path, preview, views, date, user_id FROM "Videos" where name ILIKE '%' || '${search}' || '%';`);
         let UsersInfo = [];
+        let CountsSubs = [];
         for (let i = 0; i < ResultVideo.rows.length; i++) {
             const User = await db.query(`SELECT login, name, avatar FROM "Users" where id = '${ResultVideo.rows[i].user_id}'`);
             UsersInfo.push(User.rows[0]);
         }
         let ResultUsers = ResultUser.rows;
+        for (let i = 0; i < ResultUsers.length; i++) {
+            const CountSub = await db.query(`SELECT COUNT(user_id) FROM "Subscribers" WHERE channel = '${ResultUsers[i].login}'`);
+            CountsSubs.push(CountSub.rows[0])
+        } 
         let ResultVideos = ResultVideo.rows
-        res.json({ResultUsers, ResultVideos, UsersInfo});
+        res.json({ResultUsers, ResultVideos, UsersInfo, CountsSubs});
     }
     async getUsersVideo(req, res) {
         const {login} = req.body;
@@ -55,14 +64,30 @@ class VideoController {
         const TotalVideos = await db.query(`SELECT COUNT(path) AS total_videos FROM public."Videos" WHERE user_id = ${id} GROUP BY user_id`);
         const Links = await db.query(`SELECT link FROM public."Links" WHERE user_id = ${id}`);
         const links = Links.rows;
-        const totalViews = TotalViews.rows[0].total_views;
-        const totalVideos = TotalVideos.rows[0].total_videos;
+        let totalViews = 0;
+        let totalVideos = 0;
+        if (TotalVideos.rows.length !== 0) {
+            totalViews = TotalViews.rows[0].total_views;
+            totalVideos = TotalVideos.rows[0].total_videos;
+        }
         const VideosViews = userVideos.rows.map(row => row.views);
         const VideosNames = userVideos.rows.map(row => row.name);
         const VideosPreviews = userVideos.rows.map(row => row.preview);
         const VideosPath = userVideos.rows.map(row => row.path);
         const VideosDate = userVideos.rows.map(row => row.date);
         res.json({links, userInfo, totalViews, totalVideos, VideosViews, VideosNames, VideosPreviews, VideosPath, VideosDate});
+    }
+    async getSelfInfoVideo(req, res) {
+        const {id} = req.body;
+        const TotalViews = await db.query(`SELECT SUM(views) AS total_views FROM public."Videos" WHERE user_id = ${id} GROUP BY user_id`);
+        const TotalVideos = await db.query(`SELECT COUNT(path) AS total_videos FROM public."Videos" WHERE user_id = ${id} GROUP BY user_id`);
+        let totalViews = 0;
+        let totalVideos = 0;
+        if (TotalVideos.rows.length !== 0) {
+            totalViews = TotalViews.rows[0].total_views;
+            totalVideos = TotalVideos.rows[0].total_videos;
+        }
+        res.json({totalViews, totalVideos});
     }
 } 
 

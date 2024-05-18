@@ -1,0 +1,17 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        barba.init({
+            prevent: ({ el }) => {
+                if (el.hasAttribute('data-barba') && el.getAttribute('data-barba') === 'false') {
+                    return true;
+                }
+
+                if (el.href && el.href.indexOf(window.location.origin) !== 0) {
+                    return true;
+                }
+
+                return false;
+            },
+        });
+    });
+</script>

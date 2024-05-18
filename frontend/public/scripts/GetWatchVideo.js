@@ -1,5 +1,6 @@
 let VideoPath = location.href;
 let arrPath = VideoPath.split('?');
+let channelLogin;
 VideoPath = arrPath[1];
 console.log(VideoPath);
 async function GetVideo() {
@@ -16,7 +17,9 @@ async function GetVideo() {
         });
         console.log(response);
         const responseData = await response.json();
-        console.log(responseData);
+        if (responseData.UserId == UserId) {
+            SubscribeBtn.innerHTML = "Удалить"
+        }
         let d = new Date(responseData.VideoInfo.date);
         let dd = d.getDate();
         if (dd < 10) dd = '0' + dd;
@@ -35,9 +38,10 @@ async function GetVideo() {
         VideoBlockChannelName.innerHTML = responseData.UserInfo.name;
         AvatarWatchVideo.style.background = `url(..${responseData.UserInfo.avatar}) center no-repeat`;
         AvatarWatchVideo.style.backgroundSize = `cover`;
+        AvatarWatchVideo.href = "http://localhost:3000/videos?" + responseData.UserInfo.login;
+        channelLogin = responseData.UserInfo.login;
         Video.load(); 
     } catch (error) {
         throw error;
     }
 }
-GetVideo();

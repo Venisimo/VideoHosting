@@ -44,7 +44,7 @@
                         <div class="video-block-channel-name">User</div>
                         <div class="video-block-channel-des">
                             <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>
-                            <div class="num-subs">2222</div>
+                            <div class="num-subs"></div>
                             <div class="subs"></div>
                         </div>
                     </div>
@@ -103,6 +103,7 @@
             {% include 'templates/_comment.html' %}
         </div>
         <div class="recommendation">
+            <!-- {% include 'templates/_videosWatch.html' %}
             {% include 'templates/_videosWatch.html' %}
             {% include 'templates/_videosWatch.html' %}
             {% include 'templates/_videosWatch.html' %}
@@ -113,8 +114,7 @@
             {% include 'templates/_videosWatch.html' %}
             {% include 'templates/_videosWatch.html' %}
             {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
+            {% include 'templates/_videosWatch.html' %} -->
         </div>
     </div>
     {% include 'templates/_scripts.html' %}
@@ -131,8 +131,9 @@
             Modal.style.display = "flex";
         }
     </script>
-    <script src="/scripts/ChekProfile.js"></script>
-    <!-- <script src="/scripts/VerifyTokenStart.js"></script> -->
+    <script src="/scripts/GetVideosWatch.js"></script>
+    <script src="scripts/GetWatchVideo.js"></script>
+    {% include 'templates/_verifyScripts.html' %}
     <script src="scripts/ThemeWatch.js"></script>
     <script src="scripts/LanguageWatch.js"></script>
     <script src="scripts/Videoplayer.js"></script>
@@ -143,6 +144,8 @@
     <script src="scripts/VideoPlayerButtons.js"></script>
     <script src="scripts/ParseLikesDislikes.js"></script>
     <script src="scripts/CountLikeDislike.js"></script>
-    <script src="scripts/GetWatchVideo.js"></script>
+    <script src="/scripts/ChekSubsWatch.js"></script>
+    <script src="/scripts/subFuncWatch.js"></script>
+    <script src="/scripts/DeleteVideoFunc.js"></script>
 </body>
 </html>

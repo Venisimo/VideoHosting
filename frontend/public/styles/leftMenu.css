@@ -118,6 +118,7 @@
     margin-right: 10px;
     width: 65px;
     height: 65px;
+    border-radius: 50%;
 }
 .users {
     height: 0px;
@@ -132,6 +133,8 @@
     width: 265px;
     height: 65px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .user:hover {
@@ -154,6 +157,6 @@
 }
 #profileStrNotAutorization {
     padding-left: 45px;
-    padding-top: 3px;
+    padding-top: 5px;
     padding-right: 5px;
 }

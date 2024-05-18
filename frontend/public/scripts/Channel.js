@@ -42,7 +42,6 @@ function ViewsTextSubs() {
         } else if (Number(numElement.innerHTML) >= 1000000000 && Number(numElement.innerHTML) < 1000000000000) {
             viewsElement.innerHTML = "млрд";
         }
-        console.log(viewsElement.innerHTML)
     });    
 }
 ViewsTextSubs();

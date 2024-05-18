@@ -66,17 +66,17 @@ class ProfileController {
     async chekProfile(req, res) {
         const {id} = req.body;
         const Prfoile = await db.query(`SELECT name FROM "Users" where id = '${id}'`);
-        
-        // if (Prfoile.rows.length === 0) {
-
-        // } else {
-        // }
         res.json(Prfoile.rows[0]);
     }
     async getInfoUser(req, res) {
         const {id} = req.body;
         const getInfo = await db.query(`SELECT name, description, avatar, date FROM "Users" where id = '${id}'`);
         res.json(getInfo.rows[0]);
+    }
+    async getHeaderInfo(req, res) {
+        const {id} = req.body;
+        const getHeader = await db.query(`SELECT avatar FROM "Users" where id = '${id}'`);
+        res.json(getHeader.rows[0]);
     }
 } 
 

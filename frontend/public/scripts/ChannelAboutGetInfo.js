@@ -34,3 +34,27 @@ async function GetInfo() {
         throw error;
     }
 }
+async function GetInfoVideos() {
+    try {
+        const Data = {
+            id: UserId
+        }
+        const response = await fetch('/userInfoVideos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Data),
+        });
+        console.log(response);
+        const responseData = await response.json();
+        AmountViews.innerHTML = responseData.totalViews;
+        AmountVideos.innerHTML = responseData.totalVideos;
+        console.log(responseData);
+        if (!response.ok) {
+            throw new Error('Ошибка вывода данных');
+        }
+    } catch (error) {
+        throw error;
+    }
+}

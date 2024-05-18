@@ -14,20 +14,7 @@
     {% include 'templates/_popup_request_login.html' %}
     <div class="container">
         {% include 'templates/_leftMenu.html' %}
-        <div class="shapka"></div>
-        <div class="window-profile">
-            <img class="avatar-for-channel" src="/images/Avatar-for-channel.png"/>
-            <div class="channel-des">
-                <img class="sub-icon" src="/images/dark-icon/menu/subscriptions.png"/>
-                <div class="num-subs">22222223</div>
-                <div class="subs"></div>
-            </div>
-            <div class="user-name">Name</div>
-            <button class="btn-channel">Подписаться</button>
-            <div class="des-channel">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eligendi odio error iste consequuntur et!
-            </div>
-        </div>
+        {% include 'templates/_Profile.html' %}
     </div>
     <ul class="list-channel">
         <li class="list-channel-videos"><a class="videosUrl" href="/videos?">Видео</a></li>
@@ -36,18 +23,13 @@
     </ul>
     <div class="lineChoiseChannel"></div>
     <div class="lineChannel"></div>
-    <div data-barba="container" data-barba-namespace="home">
+    <div data-barba="container" data-barba-namespace="home" class="SubsBlock">
         <div class="users-channel-menu">
-            {% include 'templates/_userChannelMenu.html' %}
-            {% include 'templates/_userChannelMenu.html' %}
-            {% include 'templates/_userChannelMenu.html' %}
-            {% include 'templates/_userChannelMenu.html' %}
         </div>
     </div>
     {% include 'templates/_scripts.html' %}
     <script>
         const btnCancel = document.querySelector(".btnCancel")
-        console.log(btnCancel);
         btnCancel.addEventListener('click', function() {
             Modal.style.display = "none";
         });
@@ -58,18 +40,16 @@
             Modal.style.display = "flex";
         }
     </script>
-    <script src="/scripts/VerifyToken.js"></script>
-    <script src="/scripts/ChekProfile.js"></script>
-    <script src="/scripts/BurgerMenuChannel.js"></script>
     <script src="/scripts/UserChannel.js"></script>
+    <script src="/scripts/GetUserSubscriptions.js"></script>
+    {% include 'templates/_verifyScripts.html' %}
+    <script src="/scripts/ChekProfile.js"></script>
+    <script src="/scripts/ChekSubs.js"></script>
+    <script src="/scripts/BurgerMenuChannel.js"></script>
     <script src="/scripts/Channel.js"></script>
     <script src="/scripts/UserChannelGetSubs.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="/scripts/subFunc.js"></script>
-    <script>
-        barba.init({
-
-        })
-    </script>
+    {% include 'templates/_barba_init.html' %}
 </body>
 </html>

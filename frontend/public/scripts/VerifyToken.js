@@ -8,7 +8,6 @@ async function verifyTokenOnServer() {
                 'Authorization': token
             }
         });
-        console.log(response);
         const responseData = await response.json();
         if (!response.ok) {
             throw new Error('Ошибка при верификации токена');
@@ -21,10 +20,50 @@ async function verifyTokenOnServer() {
             GetSelfVideo();
         }
         if (typeof GetInfo === 'function') {
-            GetInfo()
+            GetInfo().then(() => {
+                if (typeof Upload === 'function') {
+                    Upload()
+                }
+            });          
         }
         if (typeof GetLinks === 'function') {
             GetLinks()
+        }
+        if (typeof GetSelfSubscriptions === 'function') {
+            GetSelfSubscriptions()
+        }
+        if (typeof GetInfoVideos === 'function') {
+            GetInfoVideos()
+        }
+        if (typeof GetUserSubscriptions === 'function') {
+            GetUserSubscriptions()
+        }
+        if (typeof ChekSubs === 'function') {
+            ChekSubs();
+        }
+        if (typeof CountSelfSub === 'function') {
+            CountSelfSub()
+        }
+        if (typeof GetUsersVideo === 'function') {
+            GetUsersVideo()
+        }
+        if (typeof GetUsersSubs === 'function') {
+            GetUsersSubs()
+        }
+        if (typeof GetUsersAbout === 'function') {
+            GetUsersAbout()
+        }
+        if (typeof GetHeader === 'function') {
+            GetHeader()
+        }
+        if (typeof GetSelfSubsLeftMenu === 'function') {
+            GetSelfSubsLeftMenu()
+        }
+        if (typeof GetVideo === 'function') {
+            GetVideo().then(() => {
+                CountSub();
+                ChekSubs();
+            });
         }
         return responseData.decodedToken; 
     } catch (error) {
@@ -43,6 +82,17 @@ window.addEventListener('DOMContentLoaded', async function() {
             localStorage.removeItem('jwtToken');
         }
     } else {
+        if (typeof GetVideo === 'function') {
+            GetVideo().then(() => {
+                CountSub();
+                ChekSubs();
+            });
+        }
         console.log('Токен отсутствует, пользователь не аутентифицирован.');
+        if (Users) {
+            Users.innerHTML += `<div class="line" id="line-for-leftMenu"></div>
+                                <div class="footer">© 2024 Venisimo</div>
+                                <div class="zagluhka-footer"></div>`
+        }
     }
 });

@@ -2,15 +2,14 @@ import express from 'express';
 import nunjucks from 'nunjucks';
 import path from 'path';
 import __dirname from '../__dirname.js';
-import UserController from '../backend/controller/user.controller.js';
-import ProfileController from '../backend/controller/profile.controller.js';
-import uploadAvatar from './middleware/uploadAvatar.js';
-import uploadVideo from './middleware/uploadVideo.js';
-import uploadPreview from './middleware/uploadPreview.js';
+import getRoutes from '../backend/routes/get.routes.js';
+import userRoutes from '../backend/routes/user.routes.js';
+import profileRoutes from '../backend/routes/profile.routes.js';
+import uploadRoutes from '../backend/routes/upload.routes.js';
+import subscribeRoutes from '../backend/routes/subscribe.routes.js';
+import videoRoutes from '../backend/routes/video.routes.js';
+import fs from 'fs';
 import db from './db.js';
-import fs from 'fs'
-import videoController from './controller/video.controller.js';
-import subcribeController from './controller/subcribe.controller.js';
 let app = express();
 const templatesPath = path.join(__dirname, '/frontend');
 
@@ -20,114 +19,67 @@ nunjucks.configure(templatesPath, {
 });
 
 app.use(express.json())
-app.get('/', function(req, res) {
-    res.render('start.html');
-});
-app.post('/getStartVideo', videoController.getStartVideo)
-app.post('/register', UserController.regestration);
-app.post('/login', UserController.login);
-app.put('/profile', ProfileController.createProfile);
-app.post('/ChekProfile', ProfileController.chekProfile);
-app.post('/verifyToken', async (req, res) => {
-    const token = req.headers.authorization;
-    if (!token) {
-        return res.status(401).json({ error: 'Токен не предоставлен' });
-    }
-    try {
-        const decodedToken = await UserController.verifyToken(token);
-        res.status(200).json({ message: 'Токен верифицирован', decodedToken });
-    } catch (error) {
-        return res.status(401).json({ error: 'Неверный токен' });
-    }
-});
-app.post('/userInfo', ProfileController.getInfoUser); 
-app.post('/profileLink', ProfileController.addLink); 
-app.post('/getLink', ProfileController.getLink); 
-app.put('/profileLinkUpdate', ProfileController.updateLink); 
-app.delete('/profileLinkDelete', ProfileController.deleteLink);
-app.put('/uploadPhoto', uploadAvatar.single('avatar'), async (req, res) => {
-    if (req.file) {
-        const UserId = req.body.id;
-        console.log(req.body);
-        if ("images/users-avatar/Avatar-default.png" != req.body.currentAvatar) {
-            fs.unlink(__dirname + "/frontend/public/" + req.body.currentAvatar, (err) => {
-                if (err) throw err;
-            
-                console.log('Deleted');
-            });
-        }
-        const newAvatar = "/images/users-avatar/" + req.file.filename;
-        await db.query(`UPDATE "Users" set avatar = $1 where id = '${UserId}' RETURNING *`, [newAvatar])
-        return res.json({ filename: req.file.filename });
-    }
-    res.status(400).json({ message: 'Файл не был загружен' });
-});
-app.post('/uploadVideo', uploadVideo.single('video'), async (req, res) => {
-    if (req.file) {
-        const {id, name, description} = req.body;
-        console.log(req.body);
-        const newVideo = req.file.filename;
-        const currentDate = new Date();
-        console.log(newVideo);
-        await db.query(`INSERT INTO "Videos" (path, user_id, name, description, date) VALUES ($1, $2, $3, $4, $5) RETURNING *`, 
-        [newVideo, id, name, description, currentDate]);
-        return res.json({ filename: req.file.filename });
-    }
-    res.status(400).json({ message: 'Файл не был загружен' });
-});
-app.put('/uploadPoster', uploadPreview.single('poster'), async (req, res) => {
-    if (req.file) {
-        console.log(req.body);
-        const pathVideo = req.body.pathVideo
-        const newPoster = "/videos/posters/" + req.file.filename;
-        await db.query(`UPDATE "Videos" set preview = $1 where path = '${pathVideo}' RETURNING *`, [newPoster]);
-        return res.json({ filename: req.file.filename });
-    }
-    res.status(400).json({ message: 'Файл не был загружен' });
-});
-app.post('/getSelfVideo', videoController.getSelfVideo);
-app.post('/getWatchVideo', videoController.getWatchVideo);
-app.post('/getResultVideo', videoController.getResultVideo);
-app.post('/getUsersVideo', videoController.getUsersVideo);
-app.post('/subcribeOnChannel', subcribeController.subscribe);
-app.get('/profile-setting', function(req, res) {
-    res.render('profileSetting.html');
-});
-app.get('/login', function(req, res) {
-    res.render('login.html');
-});
-app.get('/registration', function(req, res) {
-    res.render('registration.html');
-});
-app.get('/result', function(req, res) {
-    res.render('result.html');
-});
-app.get('/watch', function(req, res) {
-    res.render('watch.html');
-});
-app.get('/channel/videos', function(req, res) {
-    res.render('channel.html');
-});
-app.get('/channel/subscriptions', function(req, res) {
-    res.render('channelSubs.html');
-});
-app.get('/channel/about', function(req, res) {
-    res.render('channelAbout.html');
-});
-app.get('/videos', function(req, res) {
-    res.render('userChannel.html');
-});
-app.get('/subscriptions', function(req, res) {
-    res.render('userSubs.html');
-});
-app.get('/about', function(req, res) {
-    res.render('userAbout.html');
-});
-app.get('/history', function(req, res) {
-    res.render('ViewsHistory.html');
-});
+app.use('/', getRoutes);
+app.post('/getStartVideo', videoRoutes);
+app.post('/register', userRoutes);
+app.post('/login', userRoutes);
+app.put('/profile', profileRoutes);
+app.post('/ChekProfile', profileRoutes);
+app.post('/verifyToken', userRoutes);
+app.post('/userInfo', profileRoutes); 
+app.post('/profileLink', profileRoutes); 
+app.post('/getLink', profileRoutes); 
+app.put('/profileLinkUpdate', profileRoutes); 
+app.delete('/profileLinkDelete', profileRoutes);
+app.post('/headerInfo', profileRoutes);
+app.put('/uploadPhoto', uploadRoutes);
+app.post('/uploadVideo', uploadRoutes);
+app.put('/uploadPoster', uploadRoutes);
+app.post('/getSelfVideo', videoRoutes);
+app.post('/getWatchVideo', videoRoutes);
+app.post('/getResultVideo', videoRoutes);
+app.post('/getUsersVideo', videoRoutes);
+app.post('/subcribeOnChannel', subscribeRoutes);
+app.delete('/unSubcribeOnChannel', subscribeRoutes);
+app.post('/getSelfSubscriptions', subscribeRoutes);
+app.post('/getUserSubscriptions', subscribeRoutes);
+app.post('/userInfoVideos', videoRoutes);
+app.post('/ChekSubs', subscribeRoutes);
+app.post('/CountSub', subscribeRoutes);
+app.post('/CountSelfSub', subscribeRoutes);
+app.use('/deleteVideo', async(req, res) => {
+    const { path } = req.body;
+    fs.unlink(__dirname + "/frontend/public/videos/" + path, (err) => {
+        if (err) throw err;
+        console.log('Deleted video');
+    });
+    await db.query(`DELETE FROM "Videos" where path = $1 RETURNING *`, [path])
+    res.json({message: `видео удалено`});
+})
+
+app.use('/profile-setting', getRoutes) 
+app.use('/login', getRoutes) 
+app.use('/registration', getRoutes) 
+app.use('/result', getRoutes) 
+
+app.use('/watch', getRoutes) 
+
+app.use('/channel/videos', getRoutes) 
+
+app.use('/channel/subscriptions', getRoutes) 
+
+app.use('/channel/about', getRoutes) 
+
+app.use('/videos', getRoutes) 
+
+app.use('/subscriptions', getRoutes) 
+
+app.use('/about', getRoutes) 
+
+app.use('/history', getRoutes) 
+
 app.get('/s', function(req, res) {
-    res.render('startNotAutorization.html');
+    res.render('startNotAuthorization.html');
 });
 app.use(express.static(path.join(templatesPath, 'public')));
 

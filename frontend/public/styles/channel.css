@@ -26,7 +26,7 @@ body::-webkit-scrollbar {
 .shapka {
     width: 100%;
     height: 540px;
-    background-image: url('../channels/shapka/example1.jpg');
+    /* background-image: url('../channels/shapka/example1.jpg'); */
     background-repeat: no-repeat;
     background-position: center;
     margin-top: 100px;
@@ -34,7 +34,7 @@ body::-webkit-scrollbar {
 }
 .window-profile {
     width: 600px;
-    height: 470px;
+    height: 500px;
     background-color: rgb(79, 244, 215);
     margin-left: 660px;
     margin-top: -510px;
@@ -81,7 +81,7 @@ body::-webkit-scrollbar {
 .list-channel {
     font-size: 28px;
     display: flex;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 650px;
 }
 .list-channel li {

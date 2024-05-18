@@ -12,9 +12,6 @@ async function GetInfo() {
         });
         console.log(response);
         const responseData = await response.json();
-        // if (responseData.name == null) {
-        //     window.location.replace("http://localhost:3000/profile-setting");
-        // }
         DesChannel.innerHTML = responseData.description;
         TextAreaDes.value = DesChannel.innerHTML;
         InputName.value = responseData.name;

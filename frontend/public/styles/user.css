@@ -23,3 +23,6 @@
     transition: 0.4s ease;
     transition-duration: 0.6s;
 }
+.profile {
+    background-color: rgb(255, 255, 255);
+}

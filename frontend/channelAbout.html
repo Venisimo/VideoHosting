@@ -15,19 +15,7 @@
     {% include 'templates/_rightMenu.html' %}
     <div class="container">
         {% include 'templates/_leftMenu.html' %}
-        <div class="shapka"></div>
-        <div class="window-profile">
-            <img class="avatar-for-channel" src="/images/Avatar-for-channel.png"/>
-            <div class="channel-des">
-                <img class="sub-icon" src="/images/dark-icon/menu/subscriptions.png"/>
-                <div class="num-subs">22222223</div>
-                <div class="subs"></div>
-            </div>
-            <button class="btn-channel">Изменить</button>
-            <div class="des-channel">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eligendi odio error iste consequuntur et!
-            </div>
-        </div>
+        {% include 'templates/_selfProfile.html' %}
     </div>
     <ul class="list-channel">
         <li class="list-channel-videos"><a href="/channel/videos">Видео</a></li>
@@ -79,16 +67,19 @@
     </script>
     <script src="/scripts/ChannelAboutGetInfo.js"></script>
     <script src="/scripts/ChannelAboutGetLinks.js"></script>
+    <script src="/scripts/CountSelfSub.js"></script>
+    <script src="/scripts/UploadAvatar.js"></script>
+    {% include 'templates/_verifyScripts.html' %}
+    <script>
+        if (!token) {
+            location.replace("http://localhost:3000/login")
+        }
+    </script>
     <script src="/scripts/ChekProfile.js"></script>
-    <script src="/scripts/VerifyToken.js"></script>
     <script src="/scripts/BurgerMenuChannel.js"></script>
     <script src="/scripts/Channel.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="/scripts/Popup.js"></script>
-    <script>
-        barba.init({
-
-        })
-    </script>
+    {% include 'templates/_barba_init.html' %}
 </body>
 </html>

@@ -17,6 +17,10 @@ async function GetUsersVideo() {
 
         const responseData = await response.json();
         console.log(responseData);
+        console.log(UserId);
+        if (responseData.userInfo.id == UserId) {
+            location.replace("http://localhost:3000/channel/videos");
+        }
         AvatarForChannel.src = responseData.userInfo.avatar;
         UserName.innerHTML = responseData.userInfo.name;
         DesChannel.innerHTML = responseData.userInfo.description;
@@ -109,4 +113,6 @@ function ParseText() {
         }
     });
 }
-GetUsersVideo();
+if (!token) {
+    GetUsersVideo();
+}

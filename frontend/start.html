@@ -2,23 +2,36 @@
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="styles/start.css">
+    <link rel="stylesheet" href="styles/popupRequestLogin.css">
     {% include 'templates/_head.html' %}
 <body>
     {% include 'templates/_header.html' %}
     {% include 'templates/_rightMenu.html' %}
+    {% include 'templates/_popup_request_login.html' %}
     <div class="container">
         {% include 'templates/_leftMenu.html' %}
         <div class="videos">
         </div>   
     </div> 
     {% include 'templates/_scripts.html' %}
-    <script src="/scripts/VerifyToken.js"></script>
-    <script src="/scripts/ChekProfile.js"></script>
+    {% include 'templates/_verifyScripts.html' %}
+    <script>
+        const btnCancel = document.querySelector(".btnCancel")
+        console.log(btnCancel);
+        btnCancel.addEventListener('click', function() {
+            Modal.style.display = "none";
+        });
+        Modal.addEventListener('click', function() {
+            Modal.style.display = "none";
+        });
+        function OpenModel() {
+            Modal.style.display = "flex";
+        }
+    </script>
     <script src="scripts/BodyOverflow.js"></script>
     <script src="scripts/BurgerMenu.js"></script>
     <script src="scripts/Theme.js"></script>
     <script src="scripts/Language.js"></script>
     <script src="scripts/GetVideos.js"></script>
-    <script src="scripts/SearchFunc.js"></script>
 </body>
 </html>

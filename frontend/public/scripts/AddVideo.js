@@ -87,6 +87,7 @@ async function addPoster(Poster, Video) {
     })
     .then(data => {
         console.log('Файл успешно загружен:', data.filename);
+        OpenModelVideo();
     })
     .catch(error => {
         console.error(error);
@@ -124,6 +125,8 @@ async function addVideo(Video) {
         pathVideo = data.filename;
         if (uploadPoster != null) {
             addPoster(uploadPoster, pathVideo);
+        } else {
+            OpenModelVideo();
         }
     })
     .catch(error => {

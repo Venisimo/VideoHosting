@@ -14,8 +14,10 @@ async function GetUsersSubs() {
         if (!response.ok) {
             throw new Error('Ошибка вывода данных');
         }
-
         const responseData = await response.json();
+        if (responseData.userInfo.id == UserId) {
+            location.replace("http://localhost:3000/channel/subscriptions");
+        }
         console.log(responseData);
         AvatarForChannel.src = responseData.userInfo.avatar;
         UserName.innerHTML = responseData.userInfo.name;
@@ -24,4 +26,6 @@ async function GetUsersSubs() {
         console.error(error);
     }
 }
-GetUsersSubs();
+if (!token) {
+    GetUsersSubs();
+}

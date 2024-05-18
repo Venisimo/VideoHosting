@@ -44,7 +44,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
     background: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
 }
 .description-video {
     display: flex;

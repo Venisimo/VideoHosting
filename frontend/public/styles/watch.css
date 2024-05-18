@@ -229,6 +229,7 @@ body::-webkit-scrollbar {
     height: 250px;
     border-radius: 22px;
     background-color: rgb(79, 244, 215);
+    background-size: cover;
     margin-left: 15px;
     cursor: pointer;
 }
@@ -249,7 +250,7 @@ body::-webkit-scrollbar {
 .avatar-for-description {
     width: 65px;
     height: 65px;
-    background: url('../images/Avatar-for-des.png') center no-repeat;
+    border-radius: 50%;
 }
 .name-channel-stat {
     display: flex;
@@ -262,6 +263,8 @@ body::-webkit-scrollbar {
 .channel {
     font-size: 16px;
     margin-top: 22px;
+    text-decoration: none;
+    color: #000;
 }
 .stat {
     display: flex;
@@ -591,6 +594,7 @@ button.dark:disabled {
 }
 .preview {
     background-image: url('../videos/posters/example1.jpg');
+    background-position: center;
 }
 .left-menu {
     background-color: #ffffff;
