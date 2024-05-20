@@ -52,10 +52,10 @@
                 <button class="subscribe-btn">Подписаться</button>
                 <button class="repost"></button>
                 <button class="like"></button>
-                <div class="num-like">1000000000</div>
+                <div class="num-like"></div>
                 <div class="likes"></div>
                 <button class="dislike"></button>
-                <div class="num-dislike">999</div>
+                <div class="num-dislike"></div>
                 <div class="dislikes"></div>
             </div>
             <div class="description-entry">
@@ -76,7 +76,7 @@
                 <div style="height: 5px"></div>
             </div>
             <div class="comment-block">
-                <div class="num-comment">65</div>
+                <div class="num-comment"></div>
                 <div class="str-comment">Комментарии</div>
                 <button class="sort-comment-btn">
                     <img src="images/dark-icon/videoplayer/comment-icon.png" class="sort-comment-icon"></img>
@@ -88,33 +88,15 @@
                 <button class="btn-new-comment">Сначала новые</button>
             </div>
             <div class="comment-entry">
-                <img src="images/Avatar.png" class="comment-avatar"/>
+                <a href="http://localhost:3000/channel/videos" style="text-decoration: none;">
+                    <img src="images/Avatar.png" class="comment-avatar"/>
+                </a>
                 <textarea class="comment-text" cols="90" rows="1" placeholder="Введите Комментарий"></textarea>
             </div>
             <button class="btn-cancel">Отмена</button>
-            <button type="submit" class="btn-submit" disabled>Отправить</button>
-            {% include 'templates/_comment.html' %}
-            {% include 'templates/_comment_no_answers.html' %}
-            {% include 'templates/_comment_no_answers.html' %}
-            {% include 'templates/_comment.html' %}
-            {% include 'templates/_comment_no_answers.html' %}
-            {% include 'templates/_comment.html' %}
-            {% include 'templates/_comment_no_answers.html' %}
-            {% include 'templates/_comment.html' %}
+            <button class="btn-submit" disabled>Отправить</button>
         </div>
         <div class="recommendation">
-            <!-- {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %}
-            {% include 'templates/_videosWatch.html' %} -->
         </div>
     </div>
     {% include 'templates/_scripts.html' %}

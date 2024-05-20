@@ -4,7 +4,14 @@ let LikeBeforeParse;
 let DislikeBeforeParse;
 let likeElement = NumLike.nextElementSibling;
 let DislikeElement = NumDislike.nextElementSibling;
-
+function LDinit() {
+    if (LikeBtn.classList.contains('video-panel-on')) {
+        boolLike = true;
+    }
+    if (DislikeBtn.classList.contains('video-panel-on')) {
+        boolDislike = true;
+    }
+}
 LikeBtn.addEventListener('click', function() {
     let SelfDislike = Number(NumDislike.innerHTML);
     let SelfLike = Number(NumLike.innerHTML);
@@ -32,6 +39,7 @@ LikeBtn.addEventListener('click', function() {
             }
             boolDislike = false;
         }
+        console.log(SelfDislike);
     } else {
         if (likeElement.innerHTML == "") {
             SelfLike -= 1;

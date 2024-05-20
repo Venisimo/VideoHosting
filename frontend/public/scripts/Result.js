@@ -2,7 +2,7 @@ async function Result() {
     console.log(requestResult[1]);
     try {
         const Data = {
-            search: requestResult[1],
+            search: decodeURIComponent(requestResult[1]),
         }
         const response = await fetch('/getResultVideo', {
             method: 'POST',
@@ -23,7 +23,7 @@ async function Result() {
                     let mm = d.getMonth() + 1;
                     if (mm < 10) mm = '0' + mm;
                     let yy = d.getFullYear() % 100;
-                    ResultList.innerHTML = `
+                    ResultList.innerHTML += `
                         <div class="video">
                         <a class="preview" style="background-image: url(${responseData.ResultVideos[i].preview})" href="http://localhost:3000/watch?${responseData.ResultVideos[i].path}"></a> 
                         <div class="description-video">

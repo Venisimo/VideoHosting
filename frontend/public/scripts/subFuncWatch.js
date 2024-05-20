@@ -1,11 +1,3 @@
-// window.addEventListener('DOMContentLoaded', async function() {
-//     GetVideo().then(() => {
-//         CountSub();
-//         ChekSubs();
-//     });
-// });
-
-console.log(!token);
 if (!token == true) {
     SubscribeBtn.addEventListener('click', function() {
         OpenModel();

@@ -59,10 +59,20 @@ async function verifyTokenOnServer() {
         if (typeof GetSelfSubsLeftMenu === 'function') {
             GetSelfSubsLeftMenu()
         }
+        if (typeof GetHistory === 'function') {
+            GetHistory()
+        }
         if (typeof GetVideo === 'function') {
             GetVideo().then(() => {
                 CountSub();
                 ChekSubs();
+                CountLikesDislikes();
+                ChekSelfLD();
+                getCountComment();
+                getComment().then(() => {
+                    getSelfProfile();
+                    LDinit();
+                });
             });
         }
         return responseData.decodedToken; 
@@ -86,6 +96,9 @@ window.addEventListener('DOMContentLoaded', async function() {
             GetVideo().then(() => {
                 CountSub();
                 ChekSubs();
+                CountLikesDislikes();
+                getComment();
+                getCountComment();
             });
         }
         console.log('Токен отсутствует, пользователь не аутентифицирован.');

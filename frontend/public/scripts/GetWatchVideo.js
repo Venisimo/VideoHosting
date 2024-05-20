@@ -15,7 +15,9 @@ async function GetVideo() {
             },
             body: JSON.stringify(Data),
         });
-        console.log(response);
+        if (response.ok && typeof UserId !== 'undefined') {
+            addInHtistory();
+        }
         const responseData = await response.json();
         if (responseData.UserId == UserId) {
             SubscribeBtn.innerHTML = "Удалить"
@@ -44,4 +46,20 @@ async function GetVideo() {
     } catch (error) {
         throw error;
     }
+}
+
+async function addInHtistory() {
+    const Data = {
+        path: VideoPath,
+        id: UserId,
+    }
+    const response = await fetch('/addHistory', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(Data),
+    });
+    const responseData = await response.json();
+    console.log(responseData);
 }

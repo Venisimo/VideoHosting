@@ -1,6 +1,6 @@
 let requestResult = location.href.split('?');
 console.log(requestResult);
-InputSearch.value = requestResult[1];
+InputSearch.value = decodeURIComponent(requestResult[1]);
 
 InputSearch.addEventListener("keyup", e => {
     if (e.key == "Enter" && InputSearch.value.trim() != "") {

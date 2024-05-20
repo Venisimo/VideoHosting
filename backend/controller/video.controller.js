@@ -89,6 +89,55 @@ class VideoController {
         }
         res.json({totalViews, totalVideos});
     }
+    async addHistory(req, res) {
+        const {id, path} = req.body;
+        const HistoryVideos = await db.query(`SELECT path FROM "History watch" where user_id = $1 and path = $2`, [id, path]);
+        if (HistoryVideos.rows.length !== 0) {
+            await db.query(`UPDATE "History watch" set user_id = $1, path = $2 where user_id = '${id}' and path = '${path}' RETURNING *`, [id, path]);
+        } else {
+            await db.query(`INSERT INTO "History watch" (user_id, path) values ($1, $2) RETURNING *`, [id, path]);   
+        }
+        res.json({message: `добавлено в историю просмторов`});
+    }
+    async getHistory(req, res) {
+        const {id} = req.body;
+        const HistoryVideos = await db.query(`SELECT path FROM "History watch" where user_id = $1`, [id]);
+        const historyVideos = HistoryVideos.rows;
+        let UsersInfo = [];
+        let VideosInfo = [];
+        for (let i = 0; i < HistoryVideos.rows.length; i++) {
+            const VideoInfo = await db.query(`SELECT user_id, preview, views, date, name FROM "Videos" where path = '${HistoryVideos.rows[i].path}'`);
+            VideosInfo.push(VideoInfo.rows[0]);
+        }
+        for (let i = 0; i < VideosInfo.length; i++) {
+            const UserInfo = await db.query(`SELECT login, name, avatar FROM "Users" where id = '${VideosInfo[i].user_id}'`);
+            UsersInfo.push(UserInfo.rows[0]);
+        }
+        res.json({UsersInfo, historyVideos, VideosInfo});
+    }
+    async deleteHistory(req, res) {
+        const {id} = req.body;
+        await db.query(`DELETE FROM "History watch" where user_id = $1`, [id]);
+    }
+    async searchHistory(req, res) {
+        const {id, name} = req.body;
+        const HistoryVideos = await db.query(`SELECT path FROM "History watch" where user_id = $1`, [id]);
+        const historyVideos = HistoryVideos.rows;
+        let UsersInfo = [];
+        let VideosInfo = [];
+        for (let i = 0; i < HistoryVideos.rows.length; i++) {
+            const VideoInfo = await db.query(`SELECT user_id, preview, views, date, path, name FROM "Videos" where path = '${HistoryVideos.rows[i].path}' 
+            and name ILIKE '%' || '${name}' || '%'`);
+            if (typeof VideoInfo.rows[0] !== 'undefined') {
+                VideosInfo.push(VideoInfo.rows[0]);
+            }
+        }
+        for (let i = 0; i < VideosInfo.length; i++) {
+            const UserInfo = await db.query(`SELECT login, name, avatar FROM "Users" where id = '${VideosInfo[i].user_id}'`);
+            UsersInfo.push(UserInfo.rows[0]);
+        }
+        res.json({UsersInfo, historyVideos, VideosInfo});
+    }
 } 
 
 export default new VideoController();
