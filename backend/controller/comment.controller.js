@@ -46,6 +46,7 @@ class CommentController {
     }
     async deleteComment(req, res) {
         const {id} = req.body;
+        await db.query(`DELETE FROM "Answers" WHERE comment_id = ${id}`);
         await db.query(`DELETE FROM "Comments" WHERE id = ${id}`);
         res.json({message: "Коммент удален"});
     }

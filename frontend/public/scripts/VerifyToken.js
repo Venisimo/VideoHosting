@@ -13,7 +13,7 @@ async function verifyTokenOnServer() {
             throw new Error('Ошибка при верификации токена');
         }
         UserId = responseData.decodedToken.id;
-        if (typeof GetSelfVideo === 'function') {
+        if (typeof ChekInfo === 'function') {
             ChekInfo();
         }
         if (typeof GetSelfVideo === 'function') {
@@ -24,7 +24,7 @@ async function verifyTokenOnServer() {
                 if (typeof Upload === 'function') {
                     Upload()
                 }
-            });          
+            });
         }
         if (typeof GetLinks === 'function') {
             GetLinks()
@@ -57,7 +57,17 @@ async function verifyTokenOnServer() {
             GetHeader()
         }
         if (typeof GetSelfSubsLeftMenu === 'function') {
-            GetSelfSubsLeftMenu()
+            GetSelfSubsLeftMenu().then(() => {
+                if (typeof chekBurgerMenu === 'function') {
+                    chekBurgerMenu();
+                }
+                if (typeof checkTheme === 'function') {
+                    checkTheme();
+                }
+                if (typeof chekThemeResult === 'function') {
+                    chekThemeResult();
+                }
+            })
         }
         if (typeof GetHistory === 'function') {
             GetHistory()
@@ -66,16 +76,17 @@ async function verifyTokenOnServer() {
             GetVideo().then(() => {
                 CountSub();
                 ChekSubs();
-                CountLikesDislikes();
+                AmountLikesDislikes();
                 ChekSelfLD();
                 getCountComment();
                 getComment().then(() => {
                     getSelfProfile();
-                    LDinit();
+                    CountLikeDislike();
+                    VideoPlayer()
                 });
             });
         }
-        return responseData.decodedToken; 
+        return responseData.decodedToken;
     } catch (error) {
         console.error('Ошибка при верификации токена:', error);
         throw error;
@@ -96,16 +107,30 @@ window.addEventListener('DOMContentLoaded', async function() {
             GetVideo().then(() => {
                 CountSub();
                 ChekSubs();
-                CountLikesDislikes();
-                getComment();
+                AmountLikesDislikes();
+                getComment().then(() => {
+                    VideoPlayer()
+                });
                 getCountComment();
             });
+        }
+        if (typeof GetUserSubscriptions === 'function') {
+            GetUserSubscriptions()
         }
         console.log('Токен отсутствует, пользователь не аутентифицирован.');
         if (Users) {
             Users.innerHTML += `<div class="line" id="line-for-leftMenu"></div>
                                 <div class="footer">© 2024 Venisimo</div>
                                 <div class="zagluhka-footer"></div>`
+            if (typeof chekBurgerMenu === 'function') {
+                chekBurgerMenu();
+            }
+            if (typeof checkTheme === 'function') {
+                checkTheme();
+            }
+            if (typeof chekThemeResult === 'function') {
+                chekThemeResult();
+            }
         }
     }
 });

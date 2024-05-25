@@ -10,10 +10,11 @@
     display: flex;
     flex-direction: column;
     margin-top: 90px;
-    margin-left: 1550px;
     position: fixed;
     visibility: hidden;
     z-index: 1;
+    right: 0;
+    margin-right: 50px;
 }
 #NotAutorization {
     width: 310px;

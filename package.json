@@ -16,10 +16,10 @@
   "type": "module",
   "name": "diplom",
   "version": "1.0.0",
-  "main": "backend/nunjucks.js",
+  "main": "backend/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon backend/nunjucks.js"
+    "dev": "nodemon backend/index.js"
   },
   "author": "Ven",
   "license": "ISC",

@@ -133,7 +133,7 @@ async function Dislike() {
         throw error;
     }
 }
-async function CountLikesDislikes() {
+async function AmountLikesDislikes() {
     try {
         const Data = {
             path: VideoPath,

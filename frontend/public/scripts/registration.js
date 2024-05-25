@@ -22,11 +22,33 @@ const ErrorMessageReg = document.getElementsByClassName('error_message_reg')[0];
 const Modal = document.getElementsByClassName('modal')[0];
 const BtnOK = document.getElementsByClassName('btnOK')[0]; 
 const ModalWindow = document.getElementsByClassName('modal-widnow')[0];
-
+const SuccesLog = document.getElementsByClassName('SuccesLog')[0];
+let Lang = localStorage.getItem('language');
+if (Lang == null) {
+    localStorage.setItem('language', "ru");
+}
+let ThemeLocalStorage = localStorage.getItem('theme');
+if (ThemeLocalStorage == null) {
+    localStorage.setItem('theme', "light");
+}
 Theme.addEventListener('click', function() {
-    if (Theme.classList.contains('dark')) {
+    if (localStorage.getItem('theme') == "light") {
+        localStorage.setItem('theme', "dark");
+        ChekTheme();
+    } else if (localStorage.getItem('theme') == "dark") {
+        localStorage.setItem('theme', "light");
+        ChekTheme();
+    }
+});
+
+function ChekTheme() {
+    if (localStorage.getItem('theme') == "light") {
         body.style.background = '#FFFFFF';
         loginMargin.style.background = 'rgb(79, 244, 215)';
+        ModalWindow.style.background = 'rgb(79, 244, 215)';
+        ModalWindow.style.color = '#000000';
+        BtnOK.style.background = 'rgb(255, 255, 255)';
+        BtnOK.style.color = 'black';
         signInTitle.style.color = "black";
         loginInput.style.background = "";
         emailInput.style.background = "";
@@ -48,10 +70,15 @@ Theme.addEventListener('click', function() {
         signUp.style.background = "black";
         loginInput.classList.remove('dark');
         Theme.classList.remove('dark');
-    } else {
+        localStorage.setItem('theme', "light");
+    } else if (localStorage.getItem('theme') == "dark") {
         loginInput.classList.add('dark');
         body.style.background = '#1F1C1C';
         loginMargin.style.background = '#030303';
+        ModalWindow.style.background = '#1F1C1C';
+        ModalWindow.style.color = '#FFFFFF';
+        BtnOK.style.background = '#030303';
+        BtnOK.style.color = 'white';
         signInTitle.style.color = "white";
         loginInput.style.background = "#1F1C1C";
         emailInput.style.background = "#1F1C1C";
@@ -73,50 +100,66 @@ Theme.addEventListener('click', function() {
         signUp.style.background = "#1F1C1C";
         Theme.classList.add('dark');
     }
-});
+}
+ChekTheme();
 en.addEventListener('click', function() {
-    ru.innerHTML = "ru/";
-    ru.style.fontWeight = 'normal';
-    en.innerHTML = "en";
-    en.style.fontWeight = 'bold';
-
-    Language.style.right = '110px'
-    RusEng.style.right = '-20px';
-
-    signInTitle.innerHTML = "Sign up";  
-    signInTitle.style.width = "210px";
-    signInTitle.style.left = "220px";
-    signInTitle.style.right = "220px";
-    
-    login.innerHTML = "Login";
-    email.innerHTML = "Email";
-    password.innerHTML = "Password";
-    passwordRepit.innerHTML = "Password repit"
-    signIn.innerHTML = "Back";
-    signIn.style.left = "280px";
+    localStorage.setItem('language', "en");
+    ChekLanguage();
 })
 
 ru.addEventListener('click', function() {
-    ru.innerHTML = "рус";
-    ru.style.fontWeight = 'bold';
-    en.innerHTML = "/анг";
-    en.style.fontWeight = 'normal';
-
-    Language.style.right = '140px'
-    RusEng.style.right = '10px';
-
-    signInTitle.innerHTML = "Регистрация";  
-    signInTitle.style.width = "170px";
-    signInTitle.style.left = "160px";
-    signInTitle.style.right = "160px";
-    
-    login.innerHTML = "Логин";
-    email.innerHTML = "Почта";
-    password.innerHTML = "Пароль";
-    passwordRepit.innerHTML = "Повторите пароль"
-    signIn.innerHTML = "Назад";
-    signIn.style.left = "270px";
+    localStorage.setItem('language', "ru");
+    ChekLanguage();
 })
+
+function ChekLanguage() {
+    if (localStorage.getItem('language') == "en") {
+        loginInput.placeholder = "Input only latin and digitals";
+        ru.innerHTML = "ru/";
+        ru.style.fontWeight = 'normal';
+        en.innerHTML = "en";
+        en.style.fontWeight = 'bold';
+
+        Language.style.right = '110px'
+        RusEng.style.right = '-20px';
+
+        signInTitle.innerHTML = "Sign up";  
+        signInTitle.style.width = "210px";
+        signInTitle.style.left = "220px";
+        signInTitle.style.right = "220px";
+        
+        login.innerHTML = "Login";
+        email.innerHTML = "Email";
+        password.innerHTML = "Password";
+        passwordRepit.innerHTML = "Password repit"
+        signIn.innerHTML = "Back";
+        signIn.style.left = "280px";
+        SuccesLog.innerHTML = "Registration success!";
+    } else if (localStorage.getItem('language') == "ru") {
+        loginInput.placeholder = "Вводите только латинские буквы и цифры";
+        ru.innerHTML = "рус";
+        ru.style.fontWeight = 'bold';
+        en.innerHTML = "/анг";
+        en.style.fontWeight = 'normal';
+
+        Language.style.right = '140px'
+        RusEng.style.right = '10px';
+
+        signInTitle.innerHTML = "Регистрация";  
+        signInTitle.style.width = "170px";
+        signInTitle.style.left = "160px";
+        signInTitle.style.right = "160px";
+        
+        login.innerHTML = "Логин";
+        email.innerHTML = "Почта";
+        password.innerHTML = "Пароль";
+        passwordRepit.innerHTML = "Повторите пароль"
+        signIn.innerHTML = "Назад";
+        signIn.style.left = "270px";
+        SuccesLog.innerHTML = "Успешная регистрация!";
+    }
+}
+ChekLanguage();
 
 BtnOK.addEventListener('click', function() {
     window.location.replace("http://localhost:3000/login");

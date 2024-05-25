@@ -66,7 +66,9 @@ function createNewChannel(parent) {
     return newRowVideos;
 }
 
-GetStartVideo();
+GetStartVideo().then(()=> {
+    checkTheme();
+});
 function ParseText() {
     const Name = document.querySelectorAll(".name");
     Name.forEach(element => {

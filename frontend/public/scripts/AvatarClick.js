@@ -7,7 +7,7 @@ Avatar.addEventListener('click', function(){
     } else {
         RightMenu.style.visibility = "hidden";
         Header.style.overflow = "visible";
-        Body.style.overflow = "visible";
+        Body.style.overflowY = "visible";
         boolRightMenu = true;
     }
 });

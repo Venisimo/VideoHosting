@@ -104,6 +104,10 @@ input {
     border: none;
     width: 350px;
 }
+.dark {
+    background-color: rgb(31, 28, 28);
+    color: rgb(255, 255, 255);
+}
 .btn-save {
     width: 250px;
     height: 60px;
@@ -145,15 +149,30 @@ input {
     margin-left: 15px;
     margin-top: 20px;
     display: flex;
+    cursor: pointer;
 }
 .language {
-    margin-left: 570px;
+    margin-left: 550px;
 }
 .ErrorMessageEditProfile {
     margin-left: 285px;
     color: red;
     font-size: 28px;
 }
+.ru {
+    font-weight: bold;
+    font-family: "Inter-Regular";
+    font-size: 32px;
+    cursor: pointer;
+}
+.en {
+    font-family: "Inter-Regular";
+    font-size: 32px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
 .avatar-wrapper:hover {
         transform: scale(1.05);
         cursor: pointer;

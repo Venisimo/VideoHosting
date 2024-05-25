@@ -1,8 +1,18 @@
 Language.addEventListener('click', function() {
-    if (rus) {
+    if (localStorage.getItem('language') == "ru") {
+        localStorage.setItem('language', "en");
+        ChekLanguage();
+    } else if (localStorage.getItem('language') == "en") {
+        localStorage.setItem('language', "ru");
+        ChekLanguage();
+    }
+});
+function ChekLanguage() {
+    console.log(ProfileStr.innerHTML)
+    if (localStorage.getItem('language') == "en") {
         Views.forEach(element => {
             let numElement = element.previousElementSibling;
-
+    
             if (element.innerHTML == "млн") {
                 element.innerHTML = "mln";
             } else if (element.innerHTML == "тыс") {
@@ -12,20 +22,25 @@ Language.addEventListener('click', function() {
                 element.innerHTML = "bln";
             }
         });
-        if (boolBurgerMenu) {
+        if (localStorage.getItem('Burger') == "off") {
             HomeButton.innerHTML = "Home";
-            ProfileStr.innerHTML = "My profile";
+            if (ProfileStr.innerHTML == "Мой профиль") {
+                ProfileStr.innerHTML = "My profile";
+                ProfileStr.style.paddingLeft = "20px";
+            } else if (ProfileStr.innerHTML == "Вход") {
+                ProfileStr.innerHTML = "Login";
+                ProfileStr.style.paddingLeft = "0px";
+            }
             MessageStr.innerHTML = "Messenger";
             HistoryViewsStr.innerHTML = "Views<br>history";
             SubStr.innerHTML = "Subscriptions";
-        } else {
+        } else if (localStorage.getItem('Burger') == "on") {
             ProfileStr.innerHTML = "";
             MessageStr.innerHTML = "";
             HomeButton.innerHTML = "";
             HistoryViewsStr.innerHTML = "";
             SubStr.innerHTML = "";
         }
-        ProfileStr.style.paddingLeft = "20px";
         HistoryViewsStr.style.paddingLeft = "20px"
         MessageStr.style.marginLeft = "10px";
         MyProfileStr.innerHTML = "My profile";
@@ -33,11 +48,14 @@ Language.addEventListener('click', function() {
         ThemeStr.innerHTML = "Theme";
         DocumentationStr.innerHTML = "Help";
         SettingsStr.innerHTML = "Settings";
-        ExitStr.innerHTML = "Exit";
+        if (ExitStr.innerHTML == "Выйти") {
+            ExitStr.innerHTML = "Logout";
+        } else if (ExitStr.innerHTML == "Войти") {
+            ExitStr.innerHTML = "Login";
+        }
         profileIconRightMenu.innerHTML = "My profile";
         InputSearch.placeholder = "Search...";
-        rus = false;
-    } else {
+    } else if (localStorage.getItem('language') == "ru") {
         Views.forEach(element => {
             let numElement = element.previousElementSibling;
             if (element.innerHTML == "mln") {
@@ -51,13 +69,17 @@ Language.addEventListener('click', function() {
                 element.innerHTML = "";
             }
         });
-        if (boolBurgerMenu) {
-            ProfileStr.innerHTML = "Мой профиль";
+        if (localStorage.getItem('Burger') == "off") {
+            if (ProfileStr.innerHTML == "My profile") {
+                ProfileStr.innerHTML = "Мой профиль";
+            } else if (ProfileStr.innerHTML == "Login") {
+                ProfileStr.innerHTML = "Вход";
+            }
             MessageStr.innerHTML = "Сообщения";
             HomeButton.innerHTML = "Главная";
             HistoryViewsStr.innerHTML = "История просмотров";
             SubStr.innerHTML = "Подписки";
-        } else {
+        } else if (localStorage.getItem('Burger') == "on") {
             ProfileStr.innerHTML = "";
             MessageStr.innerHTML = "";
             HomeButton.innerHTML = "";
@@ -72,9 +94,14 @@ Language.addEventListener('click', function() {
         ThemeStr.innerHTML = "Тема";
         DocumentationStr.innerHTML = "Справка";
         SettingsStr.innerHTML = "Настройки";
-        ExitStr.innerHTML = "Выйти";
+        if (ExitStr.innerHTML == "Logout") {
+            ExitStr.innerHTML = "Выйти";
+        } else if (ExitStr.innerHTML == "Login") {
+            ExitStr.innerHTML = "Войти";
+        }
         profileIconRightMenu.innerHTML = "Мой профиль";
         InputSearch.placeholder = "Поиск...";
-        rus = true
+        localStorage.setItem('language', "ru");
     }
-});
+}
+ChekLanguage();

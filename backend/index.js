@@ -64,6 +64,7 @@ app.post('/getProfileForComment', commentRoutes);
 app.post('/getCountComment', commentRoutes);
 app.post('/deleteComment', commentRoutes);
 app.post('/addAnswer', answerRoutes);
+app.post('/deleteAnswer', answerRoutes);
 app.use('/deleteVideo', async(req, res) => {
     const { path } = req.body;
     fs.unlink(__dirname + "/frontend/public/videos/" + path, (err) => {

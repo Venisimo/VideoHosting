@@ -2,6 +2,7 @@ BtnChannelEdit.addEventListener('click', function() {
     PopupFull.style.opacity = 1;
     PopupFull.style.visibility = "visible";
     Body.style.overflow = "hidden";
+    resizeTextareaChannelDes();
 });
 function closePopup(event) {
     if (event.target === PopupFull || event.target === PopupClose) {
@@ -84,7 +85,7 @@ TextAreaDes.addEventListener('keydown', function (event) {
     }
 });
 function resizeTextareaChannelDes() {
-    TextAreaDes.style.height = '20px';
+    TextAreaDes.style.height = 'auto';
     TextAreaDes.style.height = TextAreaDes.scrollHeight + 'px';
 }
 function ParseTextLinks() {

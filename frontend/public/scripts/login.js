@@ -18,9 +18,26 @@ const ErrorMessageLogin = document.getElementsByClassName('error_message_login')
 const Modal = document.getElementsByClassName('modal')[0];
 const BtnOK = document.getElementsByClassName('btnOK')[0]; 
 const ModalWindow = document.getElementsByClassName('modal-widnow')[0];
-
+const SuccesLog = document.getElementsByClassName('SuccesLog')[0];
+let Lang = localStorage.getItem('language');
+if (Lang == null) {
+    localStorage.setItem('language', "ru");
+}
+let ThemeLocalStorage = localStorage.getItem('theme');
+if (ThemeLocalStorage == null) {
+    localStorage.setItem('theme', "light");
+}
 Theme.addEventListener('click', function() {
-    if (Theme.classList.contains('dark')) {
+    if (localStorage.getItem('theme') == "light") {
+        localStorage.setItem('theme', "dark");
+        ChekTheme();
+    } else if (localStorage.getItem('theme') == "dark") {
+        localStorage.setItem('theme', "light");
+        ChekTheme();
+    }
+});
+function ChekTheme() {
+    if (localStorage.getItem('theme') == "light") {
         body.style.background = '#FFFFFF';
         loginMargin.style.background = 'rgb(79, 244, 215)';
         ModalWindow.style.background = 'rgb(79, 244, 215)';
@@ -41,7 +58,7 @@ Theme.addEventListener('click', function() {
         LanguageIcon.src = 'images/dark-icon/language-icon-sign.png';
         ThemeIcon.src = 'images/dark-icon/Moon-sign.png';
         Theme.classList.remove('dark');
-    } else {
+    } else if (localStorage.getItem('theme') == "dark") {
         body.style.background = '#1F1C1C';
         loginMargin.style.background = '#030303';
         ModalWindow.style.background = '#1F1C1C';
@@ -63,49 +80,62 @@ Theme.addEventListener('click', function() {
         ThemeIcon.src = 'images/light-icon/Sun-sign.png';
         Theme.classList.add('dark');
     }
-});
+}
+ChekTheme();
 en.addEventListener('click', function() {
-    ru.innerHTML = "ru/";
-    ru.style.fontWeight = 'normal';
-    en.innerHTML = "en";
-    en.style.fontWeight = 'bold';
-
-    Language.style.right = '110px'
-    RusEng.style.right = '-20px';
-
-    signInTitle.innerHTML = "Sign in";  
-    signInTitle.style.width = "210px";
-    signInTitle.style.left = "220px";
-    signInTitle.style.right = "220px";
-    
-    login.innerHTML = "Login";
-    password.innerHTML = "Password";
-    signIn.innerHTML = "Login";
-    signUp.innerHTML = "Sign up";
-    signUp.style.left = "270px";
+    localStorage.setItem('language', "en");
+    ChekLanguage();
 })
 
 ru.addEventListener('click', function() {
-    ru.innerHTML = "рус";
-    ru.style.fontWeight = 'bold';
-    en.innerHTML = "/анг";
-    en.style.fontWeight = 'normal';
+    localStorage.setItem('language', "ru");
+    ChekLanguage();
+});
 
-    Language.style.right = '140px'
-    RusEng.style.right = '10px';
+function ChekLanguage() {
+    if (localStorage.getItem('language') == "en") {
+        ru.innerHTML = "ru/";
+        ru.style.fontWeight = 'normal';
+        en.innerHTML = "en";
+        en.style.fontWeight = 'bold';
 
-    signInTitle.innerHTML = "Вход";  
-    signInTitle.style.width = "170px";
-    signInTitle.style.left = "240px";
-    signInTitle.style.right = "240px";
-    
-    login.innerHTML = "Логин";
-    password.innerHTML = "Пароль";
-    signIn.innerHTML = "Войти";
-    signUp.innerHTML = "Зарегистрироваться";
-    signUp.style.left = "175px";
-})
+        Language.style.right = '110px'
+        RusEng.style.right = '-20px';
 
+        signInTitle.innerHTML = "Sign in";  
+        signInTitle.style.width = "210px";
+        signInTitle.style.left = "220px";
+        signInTitle.style.right = "220px";
+        
+        login.innerHTML = "Login";
+        password.innerHTML = "Password";
+        signIn.innerHTML = "Login";
+        signUp.innerHTML = "Sign up";
+        signUp.style.left = "270px";
+        SuccesLog.innerHTML = "Login success!";
+    } else if (localStorage.getItem('language') == "ru") {
+        ru.innerHTML = "рус";
+        ru.style.fontWeight = 'bold';
+        en.innerHTML = "/анг";
+        en.style.fontWeight = 'normal';
+
+        Language.style.right = '140px'
+        RusEng.style.right = '10px';
+
+        signInTitle.innerHTML = "Вход";  
+        signInTitle.style.width = "170px";
+        signInTitle.style.left = "240px";
+        signInTitle.style.right = "240px";
+        
+        login.innerHTML = "Логин";
+        password.innerHTML = "Пароль";
+        signIn.innerHTML = "Войти";
+        signUp.innerHTML = "Зарегистрироваться";
+        signUp.style.left = "175px";
+        SuccesLog.innerHTML = "Успешный вход!";
+    }
+}
+ChekLanguage();
 BtnOK.addEventListener('click', function() {
     location.reload()
 });

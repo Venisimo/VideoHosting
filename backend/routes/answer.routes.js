@@ -5,6 +5,6 @@ router.post('/addAnswer', AnswerController.AnswerCreate);
 // router.post('/getComments', CommentController.getComments);
 // router.post('/getProfileForComment', CommentController.getSelfProfile);
 // router.post('/getCountComment', CommentController.getCountComment);
-// router.post('/deleteComment', CommentController.deleteComment);
+router.post('/deleteAnswer', AnswerController.deleteAnswer);
 
 export default router;

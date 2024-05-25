@@ -30,9 +30,13 @@ BtnAddLink.addEventListener('click', function() {
     let liInput = document.createElement('input');
     let btnDelete = document.createElement('button');
     BtnAddLink.innerHTML = "+";
-    btnDelete.innerHTML = "X";
+    btnDelete.innerHTML = "X"; 
     btnDelete.className = "btn-delete-link"
     liInput.className = "input-link-add";
+    if (BtnAddLink.classList.contains('dark')) {
+        btnDelete.classList.add('dark')
+        liInput.classList.add('dark')
+    }
     UlListLinks.append(li);
     li.append(liInput);
     li.append(BtnAddLink);
@@ -103,6 +107,8 @@ document.getElementById('popup').addEventListener('submit', async function(event
     } else if (userName.length < 4) {
         ErrorMessageEditProfile.style.marginLeft = "240px";
         return ErrorMessageEditProfile.innerHTML = "Вы ввели короткое имя!";
+    } else {
+        OpenModel();
     }
     if (uploadImg != null) {
         uploadAvatar(uploadImg);

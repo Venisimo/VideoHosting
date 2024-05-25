@@ -17,12 +17,9 @@ async function Upload() {
     });
 
     const AvatarForChannel = document.querySelector('.avatar-for-channel')
-    console.log(AvatarForChannelPopup);
     let currentAvatar = AvatarForChannel.src;
-    console.log(currentAvatar);
     let arrCurrentAvatar = currentAvatar.split('/');
     currentAvatar = arrCurrentAvatar[3] + '/' + arrCurrentAvatar[4] + '/' + arrCurrentAvatar[5];
-    console.log(currentAvatar);
     async function uploadAvatar(Img) {
         let formData = new FormData();
         formData.append('avatar', Img);

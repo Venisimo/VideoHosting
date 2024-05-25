@@ -194,7 +194,7 @@ const NumWatchVideo = document.querySelector("#num-watch-video");
 const NumWatchDate = document.querySelector("#num-watch-date");
 const AvatarWatchVideo = document.querySelector("#AvatarWatchVideo");
 const DesText = document.querySelector(".des-text");
-const imgPreview = document.querySelector(".imgPreview");
+const imgPreview = document.querySelectorAll(".imgPreview");
 const UserName = document.querySelector(".user-name");
 const VideosUrl = document.querySelector(".videosUrl");
 const SubsUrl = document.querySelector(".subsUrl");
@@ -207,6 +207,24 @@ const AnswerAvatar = document.querySelectorAll(".answer-avatar");
 const AnswerBlock = document.querySelectorAll(".answer-block");
 const NumComment = document.querySelector(".num-comment");
 const DeleteComment = document.querySelectorAll(".Delete-Comment");
+const ThemeIcon = document.querySelector("#theme-icon");
+const ru = document.getElementsByClassName('ru')[0];
+const en = document.getElementsByClassName('en')[0];
+const LanguageIcon = document.querySelector('#Language-icon');
+const NameStr = document.querySelector('.name-str');
+const PopupDesStr = document.querySelector('.popup-des-str');
+const PopupLinksStr = document.querySelector('.popup-links-str');
+const ModalWindow = document.querySelector('.modal-widnow');
+const SuccesLog = document.querySelector('.SuccesLog');
+const ReqLog = document.querySelector('.ReqLog');
+let Lang = localStorage.getItem('language');
+if (Lang == null) {
+    localStorage.setItem('language', "ru");
+}
+let BurgMenu = localStorage.getItem('Burger');
+if (BurgMenu == null) {
+    localStorage.setItem('Burger', "off");
+}
 let boolSoundLvl = true;
 let boolBurgerMenu = true; 
 let boolRightMenu = true;
