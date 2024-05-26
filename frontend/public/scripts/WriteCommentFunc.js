@@ -42,7 +42,7 @@ async function getComment() {
             let Answer = "";
             let SummaryAnswer = `<summary class="btn-answers">
                                     <img src="images/dark-icon/videoplayer/answers-summary-logo.png" class="answers-summary-icon">
-                                    Ответы
+                                    <div class="btn-answers-str">Ответы</div>
                                 </summary>`
             for (let j = 0; j < responseData.Answers.answer[i].length / 2; j++) {
                 
@@ -115,7 +115,7 @@ async function getComment() {
                                     </div>
                                 </details>`;
             let CommentDelete = Comment + buttonDelete;
-            if (responseData.comments[i].user_id == UserId || SubscribeBtn.innerHTML == "Удалить") {
+            if (responseData.comments[i].user_id == UserId || SubscribeBtn.innerHTML == "Удалить" || SubscribeBtn.innerHTML == "Delete") {
                 if (Answer.length > 0) {
                     VideoBlock.innerHTML += CommentDelete + `</div>` + `<details>` + SummaryAnswer + Answer + `</details>` + `</div>`
                 } else {

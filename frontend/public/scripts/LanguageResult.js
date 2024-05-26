@@ -118,6 +118,7 @@ function ChekLanguageResult() {
         if (localStorage.getItem('Burger') == "off") {
             if (ProfileStr.innerHTML == "My profile") {
                 ProfileStr.innerHTML = "Мой профиль";
+                ProfileStr.style.paddingLeft = "0px";
             } else if (ProfileStr.innerHTML == "Login") {
                 ProfileStr.innerHTML = "Вход";
             }

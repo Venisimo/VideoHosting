@@ -107,7 +107,10 @@ class VideoController {
         let VideosInfo = [];
         for (let i = 0; i < HistoryVideos.rows.length; i++) {
             const VideoInfo = await db.query(`SELECT user_id, preview, views, date, name FROM "Videos" where path = '${HistoryVideos.rows[i].path}'`);
-            VideosInfo.push(VideoInfo.rows[0]);
+            if (typeof VideoInfo.rows[0] !== 'undefined') {
+                VideosInfo.push(VideoInfo.rows[0])
+            }
+            // console.log(VideosInfo);     
         }
         for (let i = 0; i < VideosInfo.length; i++) {
             const UserInfo = await db.query(`SELECT login, name, avatar FROM "Users" where id = '${VideosInfo[i].user_id}'`);

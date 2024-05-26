@@ -26,6 +26,11 @@
     {% include 'templates/_scripts.html' %}
     <script src="scripts/HistoryWatch.js"></script>
     {% include 'templates/_Verifyscripts.html' %}
+    <script>
+        if (!token) {
+            location.replace("http://localhost:3000/login")
+        }
+    </script>
     <script src="scripts/inputHistoryEvent.js"></script>
     <script src="scripts/BodyOverflowResult.js"></script>
     <script src="scripts/BurgerMenuResult.js"></script>

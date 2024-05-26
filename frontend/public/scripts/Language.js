@@ -40,6 +40,7 @@ function ChekLanguage() {
             HomeButton.innerHTML = "";
             HistoryViewsStr.innerHTML = "";
             SubStr.innerHTML = "";
+            ProfileStr.style.paddingLeft = "20px";
         }
         HistoryViewsStr.style.paddingLeft = "20px"
         MessageStr.style.marginLeft = "10px";
@@ -55,6 +56,12 @@ function ChekLanguage() {
         }
         profileIconRightMenu.innerHTML = "My profile";
         InputSearch.placeholder = "Search...";
+        if (ModalWindow !== null) {
+            ReqLog.innerHTML = "You must be logged in to use this feature";
+            BtnOK.innerHTML = "Login";
+            btnCancel.innerHTML = "Cancel";
+            ModalWindow.style.height = "160px";
+        }
     } else if (localStorage.getItem('language') == "ru") {
         Views.forEach(element => {
             let numElement = element.previousElementSibling;
@@ -101,7 +108,12 @@ function ChekLanguage() {
         }
         profileIconRightMenu.innerHTML = "Мой профиль";
         InputSearch.placeholder = "Поиск...";
-        localStorage.setItem('language', "ru");
+        if (ModalWindow !== null) {
+            ReqLog.innerHTML = "Чтобы пользоваться данной функцией нужно войти в систему";
+            btnCancel.innerHTML = "Назад";
+            BtnOK.innerHTML = "Войти";
+            ModalWindow.style.height = "200px";
+        } 
     }
 }
 ChekLanguage();

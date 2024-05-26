@@ -1,13 +1,13 @@
 Theme.addEventListener('click', function() {
     if (localStorage.getItem('theme') == "light") {
         localStorage.setItem('theme', "dark");
-        chekThemeResult();
+        checkTheme();
     } else if (localStorage.getItem('theme') == "dark") {
         localStorage.setItem('theme', "light");
-        chekThemeResult();
+        checkTheme();
     }
 });
-function chekThemeResult() {
+function checkTheme() {
     const HomeButton = document.querySelector(".home-button");
     const Profile = document.querySelector(".profile");
     const ProfileIcon = document.querySelector(".profile-icon");
@@ -49,7 +49,8 @@ function chekThemeResult() {
     const SortByIcon = document.querySelector('#sort-by');
     const DescriptionChannel = document.querySelectorAll('.description-channel');
     const Filter = document.querySelectorAll('.filter');
-    const NameChannelStat = document.querySelectorAll('.name-channel-stat');
+    const Channel = document.querySelectorAll('.channel');
+    const NameChannelResult = document.querySelectorAll('.name-channel-result');
     if (localStorage.getItem('theme') == "light") {
         HomeButton.classList.remove('dark');
         if (MyProfie !== null) {
@@ -70,14 +71,21 @@ function chekThemeResult() {
         HistoryViews.classList.remove('dark');
         User.forEach(element => {
             element.classList.remove('dark');
+            element.style.color = "#000000";
+        });
+        NameChannelResult.forEach(element => {
+            element.style.color = "#000000";
         });
         Filter.forEach(element => {
             element.classList.remove('dark');
         });
+        Channel.forEach(element => {
+            element.style.color = "#000000"
+        });
         Body.style.background = '#FFFFFF';
         Header.style.background = '#4FF4D7';
         Preview.forEach(element => {
-            element.style.background = '#4FF4D7';
+            element.style.backgroundColor = '#4FF4D7';
         });
         DescriptionVideo.forEach(element => {
             element.style.color = '#000000';
@@ -157,6 +165,10 @@ function chekThemeResult() {
         HistoryViews.classList.add('dark');
         User.forEach(element => {
             element.classList.add('dark');
+            element.style.color = "#ffffff";
+        });
+        NameChannelResult.forEach(element => {
+            element.style.color = "#ffffff";
         });
         if (MyProfie !== null) {
             MyProfie.classList.add('dark2');
@@ -175,13 +187,16 @@ function chekThemeResult() {
         Filter.forEach(element => {
             element.classList.add('dark');
         });
+        Channel.forEach(element => {
+            element.style.color = "#ffffff"
+        });
         MessengerIcon.src = 'images/light-icon/menu/message.png';
         HistoryViewsIcon.src = 'images/light-icon/menu/history.png';
         BurgerMenuIcon.src = 'images/light-icon/header/burger-menu.png';
         Body.style.background = '#1F1C1C';
         Header.style.background = '#030303';
         Preview.forEach(element => {
-            element.style.background = '#030303';
+            element.style.backgroundColor = '#030303';
         });
         DescriptionVideo.forEach(element => {
             element.style.color = '#ffffff';

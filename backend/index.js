@@ -72,6 +72,7 @@ app.use('/deleteVideo', async(req, res) => {
         console.log('Deleted video');
     });
     await db.query(`DELETE FROM "Videos" where path = $1 RETURNING *`, [path])
+    await db.query(`DELETE FROM "History watch" where path = $1 RETURNING *`, [path])
     res.json({message: `видео удалено`});
 })
 

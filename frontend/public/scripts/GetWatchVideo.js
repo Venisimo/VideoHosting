@@ -20,7 +20,12 @@ async function GetVideo() {
         }
         const responseData = await response.json();
         if (responseData.UserId == UserId) {
-            SubscribeBtn.innerHTML = "Удалить"
+            if (localStorage.getItem('language') == "ru") {
+                SubscribeBtn.innerHTML = "Удалить";
+            } else if (localStorage.getItem('language') == "en") {
+                SubscribeBtn.innerHTML = "Delete";
+            }
+            
         }
         let d = new Date(responseData.VideoInfo.date);
         let dd = d.getDate();

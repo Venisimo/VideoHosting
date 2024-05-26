@@ -1,5 +1,7 @@
 .Hisory-Input {
     margin-top: 150px;
+    position: fixed;
+    right: 120px;
 }
 .btn-clear-history {
     width: 250px;

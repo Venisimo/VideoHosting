@@ -2,9 +2,9 @@
     font-family: Inter-Regular;
     src: url("fonts/Inter-Regular.otf");
 }
-* {
+/* * {
     font-family: "Inter-Regular";
-}
+} */
 body {
     overflow: hidden;
     margin: 0px;
@@ -346,6 +346,7 @@ body::-webkit-scrollbar {
 	border-bottom: 1px solid #000;
     margin-left: 10px;
     overflow: auto;
+    font-family: "Inter-Regular";
 }
 .comment-text:focus {
     outline: none;
@@ -498,6 +499,13 @@ button.dark:disabled {
     background-color: rgb(79, 244, 215);
     transition: 0.6s ease;
 }
+.btn-answer.dark {
+    background-color: rgb(31, 28, 28);
+}
+.btn-answer.dark:hover {
+    background-color: rgb(3, 3, 3);
+    transition: 0.6s ease;
+}
 .btn-answers {
     margin-top: 15px;
     margin-left: 80px;
@@ -509,6 +517,14 @@ button.dark:disabled {
     border-radius: 30px;
     cursor: pointer;
     list-style: none;
+    display: flex;
+}
+.answers-summary-icon {
+    width: 14px;
+    height: 12px;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-right: 5px;
 }
 .self-answer {
     width: 800px;
@@ -570,6 +586,7 @@ button.dark:disabled {
     height: 22px;
     resize: none;
     margin-top: 20px;
+    font-family: "Inter-Regular";
 }
 .comment-text-answer:focus {
     outline: none;
@@ -718,6 +735,13 @@ button.dark:disabled {
 .Delete-Comment:hover {
     background-color: rgba(79, 244, 215, 0.7);
 }
+.Delete-Comment.dark {
+    background-color: rgb(31, 28, 28);
+    color: #ffffff;
+}
+.Delete-Comment.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+}
 .Answer-Comment {
     margin-left: 80px;
     margin-top: 5px;
@@ -731,4 +755,11 @@ button.dark:disabled {
 }
 .Answer-Comment:hover {
     background-color: rgba(79, 244, 215, 0.7);
+}
+.Answer-Comment.dark {
+    color: #ffffff;
+    background-color: rgb(31, 28, 28);
+}
+.Answer-Comment.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
 }

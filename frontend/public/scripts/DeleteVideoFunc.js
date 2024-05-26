@@ -1,11 +1,11 @@
 SubscribeBtn.addEventListener('click', function() {
     SubscribeBtn.classList.toggle('video-panel-on');
-    if (rus) {
+    if (localStorage.getItem('language') == "ru") {
         if (SubscribeBtn.innerHTML == "Удалить") {
             SubscribeBtn.innerHTML = "Удалено";
             DeleteVideo();
         }
-    } else {
+    } else if (localStorage.getItem('language') == "en") {
         if (SubscribeBtn.innerHTML == "Delete") {
             SubscribeBtn.innerHTML = "deleted";
             DeleteVideo();

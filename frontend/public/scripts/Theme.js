@@ -75,7 +75,10 @@ function checkTheme() {
         Body.style.background = '#FFFFFF';
         Header.style.background = '#4FF4D7';
         Preview.forEach(element => {
-            element.style.background = '#4FF4D7';
+            element.style.backgroundColor = '#4FF4D7';
+            if (element.style.backgroundImage == `url("/videos/posters/default-dark.png")`) {
+                element.style.backgroundImage = `url("/videos/posters/default.png")`
+            }
         });
         DescriptionVideo.forEach(element => {
             element.style.color = '#000000';
@@ -129,6 +132,15 @@ function checkTheme() {
                 element.src = "http://localhost:3000/videos/posters/default.png"
             }
         });
+        if (ModalWindow) {
+            ModalWindow.style.background = "#4FF4D7";
+            ReqLog.style.color = "#000000";
+            BtnOK.style.background = "#FFFFFF";
+            BtnOK.style.color = "#000000";
+            btnCancel.style.background = "#FFFFFF";
+            btnCancel.style.color = "#000000";
+        }
+        
     } else if (localStorage.getItem('theme') == "dark") {
         HomeButton.classList.add('dark');
         Profile.classList.add('dark')
@@ -166,7 +178,10 @@ function checkTheme() {
         Body.style.background = '#1F1C1C';
         Header.style.background = '#030303';
         Preview.forEach(element => {
-            element.style.background = '#030303';
+            element.style.backgroundColor = '#030303';
+            if (element.style.backgroundImage == `url("/videos/posters/default.png")`) {
+                element.style.backgroundImage = "url(/videos/posters/default-dark.png)"
+            }
         });
         DescriptionVideo.forEach(element => {
             element.style.color = '#ffffff';
@@ -210,5 +225,13 @@ function checkTheme() {
                 element.src = "http://localhost:3000/videos/posters/default-dark.png";
             }
         });
+        if (ModalWindow !== null) {
+            ModalWindow.style.background = "#1F1C1C";
+            ReqLog.style.color = "#FFFFFF";
+            BtnOK.style.background = "#030303";
+            BtnOK.style.color = "#FFFFFF";
+            btnCancel.style.background = "#030303";
+            btnCancel.style.color = "#FFFFFF";
+        } 
     }
 }

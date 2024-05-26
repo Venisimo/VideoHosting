@@ -16,11 +16,11 @@ async function ChekSubs() {
         const responseData = await response.json();
         for (let i = 0; i < responseData.length; i++) {
             if (UserId == responseData[i].user_id) {
-                if (rus) {
-                    SubscribeBtn.innerHTML = "Отписаться";
-                    SubscribeBtn.classList.add('video-panel-on');
-                } else {
+                if (localStorage.getItem('language') == "ru") {
                     SubscribeBtn.innerHTML = "Unsubscribe";
+                    SubscribeBtn.classList.add('video-panel-on');
+                } else if (localStorage.getItem('language') == "en") {
+                    SubscribeBtn.innerHTML = "Отписаться";
                     SubscribeBtn.classList.add('video-panel-on'); 
                 }
             }

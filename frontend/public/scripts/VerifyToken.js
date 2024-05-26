@@ -70,7 +70,11 @@ async function verifyTokenOnServer() {
             })
         }
         if (typeof GetHistory === 'function') {
-            GetHistory()
+            GetHistory().then(() => {
+                ChekThemeHisory();
+                checkTheme();
+                checkLanguageHistory();
+            }) 
         }
         if (typeof GetVideo === 'function') {
             GetVideo().then(() => {
@@ -82,7 +86,9 @@ async function verifyTokenOnServer() {
                 getComment().then(() => {
                     getSelfProfile();
                     CountLikeDislike();
-                    VideoPlayer()
+                    VideoPlayer();
+                    checkTheme();
+                    ChekLanguage();
                 });
             });
         }
@@ -110,6 +116,8 @@ window.addEventListener('DOMContentLoaded', async function() {
                 AmountLikesDislikes();
                 getComment().then(() => {
                     VideoPlayer()
+                    checkTheme();
+                    ChekLanguage();
                 });
                 getCountComment();
             });
@@ -122,15 +130,6 @@ window.addEventListener('DOMContentLoaded', async function() {
             Users.innerHTML += `<div class="line" id="line-for-leftMenu"></div>
                                 <div class="footer">© 2024 Venisimo</div>
                                 <div class="zagluhka-footer"></div>`
-            if (typeof chekBurgerMenu === 'function') {
-                chekBurgerMenu();
-            }
-            if (typeof checkTheme === 'function') {
-                checkTheme();
-            }
-            if (typeof chekThemeResult === 'function') {
-                chekThemeResult();
-            }
         }
     }
 });

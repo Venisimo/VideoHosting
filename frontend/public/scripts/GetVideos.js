@@ -68,6 +68,7 @@ function createNewChannel(parent) {
 
 GetStartVideo().then(()=> {
     checkTheme();
+    chekBurgerMenu();
 });
 function ParseText() {
     const Name = document.querySelectorAll(".name");

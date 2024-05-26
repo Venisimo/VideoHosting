@@ -14,10 +14,10 @@ async function ChekSubs() {
         const responseData = await response.json();
         for (let i = 0; i < responseData.length; i++) {
             if (UserId == responseData[i].user_id) {
-                if (rus) {
+                if (localStorage.getItem('language') == "en") {
                     BtnChannelEdit.innerHTML = "Отписаться";
                     BtnChannelEdit.classList.add('on');
-                } else {
+                } else if (localStorage.getItem('language') == "ru") {
                     BtnChannelEdit.innerHTML = "Unsubscribe";
                     BtnChannelEdit.classList.add('on'); 
                 }

@@ -72,4 +72,6 @@ async function Result() {
         throw error;
     }
 }
-Result();
+Result().then(() => {
+    checkTheme();
+});

@@ -29,11 +29,6 @@ function chekBurgerMenu() {
     const HistoryViewsStr = document.querySelector('.history-views-str');
     const Footer = document.querySelector('.footer');
     const SubIconLeftMenu = document.querySelector('#sub-icon-for-leftMenu');
-    // if (Sub.classList.contains('bg-on2') && Profile.classList.contains('dark')) {
-    //     Sub.classList.add('dark');
-    // } else {
-    //     Sub.classList.remove('dark');
-    // }
     if (localStorage.getItem('Burger') == "on") {
         ProfileStr.classList.add('bg-on');
         MessageStr.classList.add('bg-on');

@@ -55,10 +55,18 @@ document.addEventListener('click', function(event) {
         }
     } else if (event.target.matches('.show-des')) {
         if (!boolShowDes) {
-            event.target.innerHTML = "Скрыть описание";
+            if (localStorage.getItem('language') == "ru") {
+                event.target.innerHTML = "Скрыть описание";
+            } else if (localStorage.getItem('language') == "en") {
+                event.target.innerHTML = "Hide description"
+            }
             boolShowDes = true
         } else {
-            event.target.innerHTML = "Показать описание";
+            if (localStorage.getItem('language') == "ru") {
+                event.target.innerHTML = "Показать описание";
+            } else if (localStorage.getItem('language') == "en") {
+                event.target.innerHTML = "Show description"
+            }
             boolShowDes = false
         }
     } else if (event.target.matches('.btn-top-comment')) {

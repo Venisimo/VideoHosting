@@ -2,7 +2,7 @@ video {
     object-fit: cover;
     border: none;
     outline: none;
-    background: rgb(79, 244, 215);
+    background-color: rgb(79, 244, 215);
 }
 video::cue {
     opacity: 0;
