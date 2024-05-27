@@ -17,7 +17,9 @@ async function verifyTokenOnServer() {
             ChekInfo();
         }
         if (typeof GetSelfVideo === 'function') {
-            GetSelfVideo();
+            GetSelfVideo().then(() => {
+                ChekLanguage();
+            });
         }
         if (typeof GetInfo === 'function') {
             GetInfo().then(() => {
@@ -39,13 +41,17 @@ async function verifyTokenOnServer() {
             GetUserSubscriptions()
         }
         if (typeof ChekSubs === 'function') {
-            ChekSubs();
+            ChekSubs().then(() => {
+                ChekLanguage();
+            });
         }
         if (typeof CountSelfSub === 'function') {
             CountSelfSub()
         }
         if (typeof GetUsersVideo === 'function') {
-            GetUsersVideo()
+            GetUsersVideo().then(() => {
+                chekBurgerMenu();
+            })
         }
         if (typeof GetUsersSubs === 'function') {
             GetUsersSubs()

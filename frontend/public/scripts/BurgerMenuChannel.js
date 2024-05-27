@@ -1,30 +1,57 @@
 BurgerMenu.addEventListener('click', function() {
-    ProfileStr.classList.toggle('bg-on');
-    MessageStr.classList.toggle('bg-on');
-    HistoryViewsStr.classList.toggle('bg-on');
-    SubStr.classList.toggle('bg-on');
-    LineChannel.classList.toggle('bg-on2');
-    User.forEach(element => {
-        element.classList.toggle('bg-on');
-    });
-    Line.forEach(element => {
-        element.classList.toggle('bg-on');
-    });
-    Footer.classList.toggle('bg-on');
-    Sub.classList.toggle('bg-on2');
-    console.log(Sub.classList.contains('bg-on2') && Profile.classList.contains('dark'));
-    if (Sub.classList.contains('bg-on2') && Profile.classList.contains('dark')) {
-        Sub.classList.add('dark');
-    } else {
-        Sub.classList.remove('dark');
+    if (localStorage.getItem('Burger') == "off") {
+        localStorage.setItem('Burger', "on");
+        chekBurgerMenu();
+    } else if (localStorage.getItem('Burger') == "on") {
+        localStorage.setItem('Burger', "off");
+        chekBurgerMenu();
     }
-    if (boolBurgerMenu == true) {
-        boolBurgerMenu = false;
-    } else {
-        boolBurgerMenu = true
-    }
-    
-    if (!boolBurgerMenu) {
+});
+function chekBurgerMenu() {
+    // if (Sub.classList.contains('bg-on2') && Profile.classList.contains('dark')) {
+    //     Sub.classList.add('dark');
+    // } else {
+    //     Sub.classList.remove('dark');
+    // }
+    const LeftMenu = document.querySelector(".left-menu");
+    const HomeButton = document.querySelector(".home-button");
+    const Profile = document.querySelector(".profile");
+    const ProfileIcon = document.querySelector(".profile-icon");
+    const Messenger = document.querySelector(".messenger");
+    const MessengerIcon = document.querySelector(".message-icon");
+    const HistoryViews = document.querySelector(".history-views");
+    const HistoryViewsIcon = document.querySelector('.history-views-icon');
+    const Sub = document.querySelector(".sub");
+    const Users = document.querySelector(".users");
+    const User = document.querySelectorAll(".user");
+    const SubStr = document.querySelector("#sub-str");
+    const Line = document.querySelectorAll('.line');
+    const Preview = document.querySelectorAll('.preview');
+    const ProfileStr = document.querySelector('.profile-str');
+    const MessageStr = document.querySelector('.message-str');
+    const HistoryViewsStr = document.querySelector('.history-views-str');
+    const Footer = document.querySelector('.footer');
+    const SubIconLeftMenu = document.querySelector('#sub-icon-for-leftMenu');
+    const LineChannel = document.querySelector('.lineChannel');
+    const VideosChannel = document.querySelectorAll('.videos-channel');
+    const Plus = document.querySelector('.plus');
+    if (localStorage.getItem('Burger') == "on") {
+        ProfileStr.classList.add('bg-on');
+        MessageStr.classList.add('bg-on');
+        HistoryViewsStr.classList.add('bg-on');
+        SubStr.classList.add('bg-on');
+        LineChannel.classList.add('bg-on2');
+        User.forEach(element => {
+            element.classList.add('bg-on');
+        });
+        Line.forEach(element => {
+            element.classList.add('bg-on');
+        });
+        Footer.classList.add('bg-on');
+        Sub.classList.add('bg-on2');
+        if (Plus !== null) {
+            Plus.classList.add('bg-on2');
+        }
         Preview.forEach(element => {
             element.style.width = "400px";
             element.style.height = "300px";
@@ -72,18 +99,34 @@ BurgerMenu.addEventListener('click', function() {
         VideosChannel.forEach(element => {
             element.style.marginLeft = "150px";
         });
-    } else {
+    } else if (localStorage.getItem('Burger') == "off") {
+        ProfileStr.classList.remove('bg-on');
+        MessageStr.classList.remove('bg-on');
+        HistoryViewsStr.classList.remove('bg-on');
+        SubStr.classList.remove('bg-on');
+        LineChannel.classList.remove('bg-on2');
+        User.forEach(element => {
+            element.classList.remove('bg-on');
+        });
+        Line.forEach(element => {
+            element.classList.remove('bg-on');
+        });
+        Footer.classList.remove('bg-on');
+        Sub.classList.remove('bg-on2');
+        if (Plus !== null) {
+            Plus.classList.remove('bg-on2');
+        }
         Preview.forEach(element => {
             element.style.width = "360px";
             element.style.height = "250px";
         });
-        if (rus) {
+        if (localStorage.getItem('language') == "ru") {
             HomeButton.innerHTML = "Главная";
             MessageStr.innerHTML = "Сообщения";
             ProfileStr.innerHTML = "Мой профиль";
             HistoryViewsStr.innerHTML = "История просмотров";
             SubStr.innerHTML = "Подписки";
-        } else {
+        } else if (localStorage.getItem('language') == "en") {
             HomeButton.innerHTML = "Home";
             ProfileStr.innerHTML = "My profile";
             MessageStr.innerHTML = "Messenger";
@@ -134,4 +177,4 @@ BurgerMenu.addEventListener('click', function() {
             element.style.marginLeft = "330px";
         });
     }  
-});
+}

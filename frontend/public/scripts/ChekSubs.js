@@ -15,11 +15,17 @@ async function ChekSubs() {
         for (let i = 0; i < responseData.length; i++) {
             if (UserId == responseData[i].user_id) {
                 if (localStorage.getItem('language') == "en") {
-                    BtnChannelEdit.innerHTML = "Отписаться";
+                    BtnChannelEdit.innerHTML = "Unsubscribe";
                     BtnChannelEdit.classList.add('on');
                 } else if (localStorage.getItem('language') == "ru") {
-                    BtnChannelEdit.innerHTML = "Unsubscribe";
+                    BtnChannelEdit.innerHTML = "Отписаться";
                     BtnChannelEdit.classList.add('on'); 
+                }
+            } else {
+                if (localStorage.getItem('language') == "en") {
+                    BtnChannelEdit.innerHTML = "Subscribe";
+                } else if (localStorage.getItem('language') == "ru") {
+                    BtnChannelEdit.innerHTML = "Подписаться";
                 }
             }
         }

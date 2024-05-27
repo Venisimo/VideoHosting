@@ -5,7 +5,7 @@ if (!token == true) {
 } else {
     SubscribeBtn.addEventListener('click', function() {
         SubscribeBtn.classList.toggle('video-panel-on');
-        if (rus) {
+        if (localStorage.getItem('language') == "ru") {
             if (SubscribeBtn.innerHTML == "Подписаться") {
                 SubscribeBtn.innerHTML = "Отписаться"; 
                 subscribe();   
@@ -13,7 +13,7 @@ if (!token == true) {
                 SubscribeBtn.innerHTML = "Подписаться";
                 unsubscribe()
             }
-        } else {
+        } else if (localStorage.getItem('language') == "en") {
             if (SubscribeBtn.innerHTML == "Subscribe") {
                 SubscribeBtn.innerHTML = "Unsubscribe";
                 subscribe();    

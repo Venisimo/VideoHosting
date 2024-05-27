@@ -18,9 +18,9 @@
         {% include 'templates/_selfProfile.html' %}
     </div>
     <ul class="list-channel">
-        <li class="list-channel-videos"><a href="/channel/videos">Видео</a></li>
-        <li class="list-channel-subscriptions"><a href="/channel/subscriptions">Подписки</a></li>
-        <li class="list-channel-about"><a href="/channel/about">Описание</a></li>
+        <li class="list-channel-videos"><a id="linkVideo" href="/channel/videos">Видео</a></li>
+        <li class="list-channel-subscriptions"><a id="linkSubs" href="/channel/subscriptions">Подписки</a></li>
+        <li class="list-channel-about"><a id="linkAbout" href="/channel/about">Описание</a></li>
     </ul>
     <div class="lineChoiseChannel"></div>
     <div class="lineChannel"></div>
@@ -54,6 +54,7 @@
     <script src="/scripts/ChannelUpdateLink.js"></script>
     <script src="/scripts/ChannelDeleteLink.js"></script>
     <script src="/scripts/BurgerMenuChannel.js"></script>
+    <script src="/scripts/LanguageChannel.js"></script>
     <script src="/scripts/Channel.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="/scripts/Popup.js"></script>

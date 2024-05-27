@@ -1,6 +1,6 @@
-* {
+/* * {
     font-family: "Inter-Regular";
-}
+} */
 input {
     font-size: 28px;
 }
@@ -26,6 +26,7 @@ input {
     opacity: 0;
     transition: opacity .3s ease-in-out;
     cursor: pointer;
+    font-family: "Inter-Regular";
 }
 .upload-video-button {
     width: 170px;
@@ -113,6 +114,7 @@ input {
     width: 430px;
     border-radius: 15px;
     height: 30px;
+    font-family: "Inter-Regular";
 }
 .popup__content {
     margin-top: 20px;

@@ -106,7 +106,7 @@ async function getComment() {
                                     <div class="self-answer">
                                         <div class="self-answer-entry">
                                             <a href="http://localhost:3000/channel/videos">
-                                                <img src="" class="answer-avatar"/>
+                                                <img src="images/Avatar.png" class="answer-avatar"/>
                                             </a>
                                             <textarea class="comment-text-answer" cols="90" rows="1" placeholder="Введите Комментарий"></textarea>
                                         </div>

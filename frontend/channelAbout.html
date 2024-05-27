@@ -18,9 +18,9 @@
         {% include 'templates/_selfProfile.html' %}
     </div>
     <ul class="list-channel">
-        <li class="list-channel-videos"><a href="/channel/videos">Видео</a></li>
-        <li class="list-channel-subscriptions"><a href="/channel/subscriptions">Подписки</a></li>
-        <li class="list-channel-about"><a href="/channel/about">Описание</a></li>
+        <li class="list-channel-videos"><a id="linkVideo" href="/channel/videos">Видео</a></li>
+        <li class="list-channel-subscriptions"><a id="linkSubs" href="/channel/subscriptions">Подписки</a></li>
+        <li class="list-channel-about"><a id="linkAbout" href="/channel/about">Описание</a></li>
     </ul>
     <div class="lineChoiseChannel"></div>
     <div class="lineChannel"></div>
@@ -40,17 +40,17 @@
             <div class="statistic">
                 <div class="statistic-str">Статистика:</div>
                 <div class="statistic-block">
-                    <div class="statistic-block-str">Регистрация:</div>
+                    <div class="statistic-block-str" id="reg-str">Регистрация:</div>
                     <div class="reg-date">15.04.2024</div>
                 </div>
                 <div class="des-line"></div>
                 <div class="statistic-block">
-                    <div class="statistic-block-str">Просмотры:</div>
+                    <div class="statistic-block-str" id="views-str">Просмотры:</div>
                     <div class="amount-views">231</div>
                 </div>
                 <div class="des-line"></div>
                 <div class="statistic-block">
-                    <div class="statistic-block-str">Видео:</div>
+                    <div class="statistic-block-str" id="videos-str">Видео:</div>
                     <div class="amount-videos">21</div>
                 </div>
             </div>
@@ -77,6 +77,7 @@
     </script>
     <script src="/scripts/ChekProfile.js"></script>
     <script src="/scripts/BurgerMenuChannel.js"></script>
+    <script src="/scripts/LanguageChannel.js"></script>
     <script src="/scripts/Channel.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="/scripts/Popup.js"></script>

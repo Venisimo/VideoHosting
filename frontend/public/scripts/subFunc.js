@@ -7,7 +7,7 @@ if (!token == true) {
 } else {
     BtnChannelEdit.addEventListener('click', function() {
         BtnChannelEdit.classList.toggle('on');
-        if (rus) {
+        if (localStorage.getItem('language') == "ru") {
             if (BtnChannelEdit.innerHTML == "Подписаться") {
                 BtnChannelEdit.innerHTML = "Отписаться";
                 subscribe();    
@@ -15,7 +15,7 @@ if (!token == true) {
                 BtnChannelEdit.innerHTML = "Подписаться";
                 unsubscribe();
             }
-        } else {
+        } else if (localStorage.getItem('language') == "en") {
             if (BtnChannelEdit.innerHTML == "Subscribe") {
                 BtnChannelEdit.innerHTML = "Unsubscribe"; 
                 subscribe();   

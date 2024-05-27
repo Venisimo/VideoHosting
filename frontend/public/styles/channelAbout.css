@@ -13,6 +13,7 @@
 }
 .about-block {
     display: flex;
+    font-family: "Inter-Regular";
 }
 .des-and-links {
     flex-direction: column;
