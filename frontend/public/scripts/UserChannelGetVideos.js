@@ -114,5 +114,8 @@ function ParseText() {
     });
 }
 if (!token) {
-    GetUsersVideo();
+    GetUsersVideo().then(() => {
+        chekBurgerMenu();
+        checkTheme();
+});
 }

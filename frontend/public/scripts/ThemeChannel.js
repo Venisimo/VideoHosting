@@ -1,0 +1,367 @@
+Theme.addEventListener('click', function() {
+    if (localStorage.getItem('theme') == "light") {
+        localStorage.setItem('theme', "dark");
+        checkTheme();
+    } else if (localStorage.getItem('theme') == "dark") {
+        localStorage.setItem('theme', "light");
+        checkTheme();
+    }
+});
+
+function checkTheme() {
+    const InputSearch = document.querySelector(".input-search");
+    const BurgerMenu = document.querySelector(".burger-menu");
+    const BurgerMenuIcon = document.querySelector(".burger-menu-icon");
+    const HomeButton = document.querySelector(".home-button");
+    const Profile = document.querySelector(".profile");
+    const ProfileIcon = document.querySelector(".profile-icon");
+    const Messenger = document.querySelector(".messenger");
+    const MessengerIcon = document.querySelector(".message-icon");
+    const HistoryViews = document.querySelector(".history-views");
+    const HistoryViewsIcon = document.querySelector('.history-views-icon');
+    const SubIcon = document.querySelectorAll(".sub-icon");
+    const Sub = document.querySelector(".sub");
+    const Users = document.querySelector(".users");
+    const User = document.querySelectorAll(".user");
+    const Line = document.querySelectorAll('.line');
+    const Preview = document.querySelectorAll('.preview');
+    const RightMenu = document.querySelector('.right-menu');
+    const Theme = document.querySelector('.theme');
+    const Language = document.querySelector('.language');
+    const MyProfie = document.querySelector('.my-profile');
+    const Documentation = document.querySelector('.documentation');
+    const Settings = document.querySelector('.settings');
+    const Exit = document.querySelector('.exit');
+    const Body = document.querySelector('body');
+    const Header = document.querySelector('header');
+    const DescriptionVideo = document.querySelectorAll('.description-video');
+    const Search = document.querySelector('.search');
+    const Lupa = document.querySelector('.lupa');
+    const ViewsIcon = document.querySelectorAll('.views-icon');
+    const profileIconRightMenu = document.querySelector('#profileIconRightMenu');
+    const languageIconRightMenu = document.querySelector('#languageIconRightMenu');
+    const themeIconRightMenu = document.querySelector('#themeIconRightMenu');
+    const documentationIconRightMenu = document.querySelector('#documentationIconRightMenu');
+    const settingsIconRightMenu = document.querySelector('#settingsIconRightMenu');
+    const exitIconRightMenu = document.querySelector('#exitIconRightMenu');
+    const Channel = document.querySelectorAll('.channel');
+    const NameChannel = document.querySelectorAll('.name-channel');
+    const Plus = document.querySelector('.plus');
+    const InputLinkAdd = document.querySelector(".input-link-add");
+    const BtnAddLink = document.querySelector(".btn-add-link");
+    const BtnDeleteLinks = document.querySelectorAll('.btn-delete-link');
+    const BtnEditLinks = document.querySelectorAll(".btn-edit-link");
+    if (localStorage.getItem('theme') == "light") {
+        HomeButton.classList.remove('dark');
+        Profile.classList.remove('dark')
+        Messenger.classList.remove('dark');
+        HistoryViews.classList.remove('dark');
+        Language.classList.remove('dark2');
+        Theme.classList.remove('dark2');
+        Documentation.classList.remove('dark2');
+        Settings.classList.remove('dark2');
+        Exit.classList.remove('dark2');
+        BurgerMenu.classList.remove('dark2');
+        InputSearch.classList.remove('dark3');
+        Lupa.classList.remove('dark');
+        NameChannel.forEach(element => {
+            element.classList.remove('dark');
+        });  
+        User.forEach(element => {
+            element.style.color = "#000000";
+            element.classList.remove('dark');
+        });  
+        if (MyProfie !== null) {
+            MyProfie.classList.remove('dark2');
+            MyProfie.style.color = '#000000';
+            profileIconRightMenu.src = '/images/dark-icon/menu/profile.png';
+        }
+        if (Sub !== null) {
+            Sub.classList.remove('dark')
+            Sub.style.color  = '#000000';
+        }
+        Body.style.background = '#FFFFFF';
+        Header.style.background = '#4FF4D7';
+        Preview.forEach(element => {
+            element.style.backgroundColor = '#4FF4D7';
+            if (element.style.backgroundImage == `url("/videos/posters/default-dark.png")`) {
+                element.style.backgroundImage = `url("/videos/posters/default.png")`
+            }
+        });
+        DescriptionVideo.forEach(element => {
+            element.style.color = '#000000';
+        });
+        ViewsIcon.forEach(element => {
+            element.src = '/images/dark-icon/views.png'
+        });
+        Channel.forEach(element => {
+            element.style.color = '#000000';
+        });
+        RightMenu.style.backgroundColor = '#4FF4D7';
+        RightMenu.style.color = '#000000';
+        Users.style.color  = '#000000';
+        Line.forEach(element => {
+            element.style.backgroundColor = '#4FF4D7';
+        });
+        LeftMenu.style.backgroundColor = "#FFFFFF";
+        // HomeButton.style.backgroundColor = '#4FF4D7';       
+        Language.style.color = '#000000';
+        Theme.style.color = '#000000';
+        Documentation.style.color = '#000000';
+        Settings.style.color = '#000000';
+        Exit.style.color = '#000000';
+        
+        BurgerMenuIcon.src = '/images/dark-icon/header/burger-menu.png';
+        SubIcon.forEach(element => {
+            element.src = '/images/dark-icon/menu/subscriptions.png';
+        });
+        if (token) {
+            ProfileIcon.src = '/images/dark-icon/menu/profile.png'; 
+        } else {
+            ProfileIcon.src = '/images/dark-icon/menu/log-out.png';
+        }
+        HomeButton.style.color = '#000000';
+        Profile.style.color = '#000000';
+        Messenger.style.color = '#000000';
+        HistoryViews.style.color = '#000000';
+        BurgerMenu.src = '/images/dark-icon/header/burger-menu.png';
+        InputSearch.style.backgroundColor = '#FFFFFF';
+        InputSearch.style.color = '#000000';
+        Lupa.src = '/images/dark-icon/header/lupaV3.png';
+        Search.style.backgroundColor = '#FFFFFF';
+        languageIconRightMenu.src = '/images/dark-icon/menu/language.png';
+        themeIconRightMenu.src = '/images/dark-icon/menu/moon.png'
+        documentationIconRightMenu.src = '/images/dark-icon/menu/documentation.png';
+        settingsIconRightMenu.src = '/images/dark-icon/menu/settings.png';
+        exitIconRightMenu.src = '/images/dark-icon/menu/log-out.png';
+        MessengerIcon.src = '/images/dark-icon/menu/message.png';
+        HistoryViewsIcon.src = '/images/dark-icon/menu/history.png';
+        if (ModalWindow !== null) {
+            ModalWindow.style.background = "#4FF4D7";
+            SuccesLogProfile.style.color = "#000000";
+            BtnOK.style.background = "#FFFFFF";
+            BtnOK.style.color = "#000000";
+        }
+        if (BtnOKVideo !== null) {
+            ModalVideoId.style.background = "#4FF4D7";
+            SuccesLogVideo.style.color = "#000000";
+            BtnOK.style.background = "#FFFFFF";
+            BtnOK.style.color = "#000000";
+        }
+
+        linkVideo.style.color = "#000000";
+        linkSubs.style.color = "#000000";
+        linkAbout.style.color = "#000000";
+
+        LineChannel.style.backgroundColor = "#4FF4D7";
+        LineChoiseChannel.style.backgroundColor = "#4FF4D7";
+
+        DesLine.forEach(element => {
+            element.style.backgroundColor = "#4FF4D7";
+        });
+        if (AboutBlock !== null) {
+            AboutBlock.style.color = "#000000";
+        }
+        WindowProfile.style.backgroundColor = "#4FF4D7";
+        WindowProfile.style.color = "#000000";
+
+        if (Plus !== null) {
+            Plus.style.color = "#000000";
+        }
+        Profile.style.backgroundColor = '#4FF4D7';
+
+        if (Popup !== null) {
+            Popup.style.background = 'rgb(79, 244, 215)';
+            Popup.style.color = 'rgb(0, 0, 0)';
+            InputName.style.background = "#FFFFFF";
+            InputName.style.color = "#000000";
+            TextAreaDes.style.background = "#FFFFFF";
+            TextAreaDes.style.color = "#000000";
+            InputLinkAdd.style.background = "#FFFFFF";
+            InputLinkAdd.style.color = "#000000";
+            BtnSave.style.background = "#FFFFFF";
+            BtnSave.style.color = "#000000";
+            BtnAddLink.classList.remove("dark4");
+            PopupClose.classList.remove("dark4");
+            popupContent.style.backgroundColor = "rgb(255, 255, 255)";
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(element => {
+                if (element.classList.contains('btn-delete-link') || element.classList.contains('input-link-add') || element.classList.contains('input-link-edit')) {
+                    element.classList.remove("dark4");
+                }
+            });
+            BtnAddLink.addEventListener('click', function() {
+                const allElements = document.querySelectorAll('*');
+                allElements.forEach(element => {
+                    if (element.classList.contains('btn-delete-link') || element.classList.contains('input-link-add')) {
+                        element.classList.remove("dark4");
+                    }
+                });
+            })
+        }
+
+        BtnEditLinks.forEach(element => {
+            element.style.backgroundColor = "#FFFFFF";
+            element.style.backgroundImage = "url(/images/dark-icon/popup/feather-icon.png)";
+        })
+        
+    } else if (localStorage.getItem('theme') == "dark") {
+        HomeButton.classList.add('dark');
+        Profile.classList.add('dark')
+        Messenger.classList.add('dark');
+        HistoryViews.classList.add('dark');
+        Language.classList.add('dark2');
+        Theme.classList.add('dark2');
+        Documentation.classList.add('dark2');
+        Settings.classList.add('dark2');
+        Exit.classList.add('dark2');
+        BurgerMenu.classList.add('dark2');
+        InputSearch.classList.add('dark3');
+        Lupa.classList.add('dark');
+        User.forEach(element => {
+            element.style.color = "#ffffff";
+            element.classList.add('dark');
+        });  
+        NameChannel.forEach(element => {
+            element.classList.add('dark');
+        });  
+        if (MyProfie !== null) {
+            MyProfie.classList.add('dark2');
+            MyProfie.style.color = '#ffffff';
+            profileIconRightMenu.src = '/images/light-icon/menu/profile.png';
+        }
+        if (Sub !== null) {
+            Sub.classList.add('dark')
+            Sub.style.color  = '#ffffff';
+        }
+        if (token) {
+            ProfileIcon.src = '/images/light-icon/menu/profile.png'; 
+        } else {
+            ProfileIcon.src = '/images/light-icon/menu/log-out.png';
+        }
+        MessengerIcon.src = '/images/light-icon/menu/message.png';
+        HistoryViewsIcon.src = '/images/light-icon/menu/history.png';
+        BurgerMenuIcon.src = '/images/light-icon/header/burger-menu.png';
+        Body.style.background = '#1F1C1C';
+        LeftMenu.style.backgroundColor = "#1F1C1C";
+        Header.style.background = '#030303';
+        Preview.forEach(element => {
+            element.style.backgroundColor = '#030303';
+            if (element.style.backgroundImage == `url("/videos/posters/default.png")`) {
+                element.style.backgroundImage = "url(/videos/posters/default-dark.png)"
+            }
+        });
+        DescriptionVideo.forEach(element => {
+            element.style.color = '#ffffff';
+        });
+        Channel.forEach(element => {
+            element.style.color = '#ffffff';
+        });
+        ViewsIcon.forEach(element => {
+            element.src = '/images/light-icon/views.png'
+        });
+        RightMenu.style.backgroundColor = '#030303';
+        Users.style.color  = '#ffffff';
+        Line.forEach(element => {
+            element.style.backgroundColor = '#030303';
+        });
+
+        Language.style.color = '#ffffff';
+        Theme.style.color = '#ffffff';
+        Documentation.style.color = '#ffffff';
+        Settings.style.color = '#ffffff';
+        Exit.style.color = '#ffffff';
+        SubIcon.forEach(element => {
+            element.src = '/images/light-icon/menu/subscriptions.png';
+        });
+        HomeButton.style.color = '#ffffff';
+        Profile.style.color = '#ffffff';
+        Messenger.style.color = '#ffffff';
+        HistoryViews.style.color = '#ffffff';
+        BurgerMenu.src = '/images/light-icon/header/burger-menu.png';
+        InputSearch.style.backgroundColor = '#1F1C1C';
+        InputSearch.style.color = '#ffffff';
+        Lupa.src = '/images/light-icon/header/lupaV3.png';
+        Search.style.backgroundColor = '#1F1C1C';
+        languageIconRightMenu.src = '/images/light-icon/menu/language.png';
+        themeIconRightMenu.src = '/images/light-icon/menu/sun.png'
+        documentationIconRightMenu.src = '/images/light-icon/menu/documentation.png';
+        settingsIconRightMenu.src = '/images/light-icon/menu/settings.png';
+        exitIconRightMenu.src = '/images/light-icon/menu/log-out.png';
+        if (ModalWindow !== null) {
+            ModalWindow.style.background = "#1F1C1C";
+            SuccesLogProfile.style.color = "#FFFFFF";
+            BtnOK.style.background = "#030303";
+            BtnOK.style.color = "#FFFFFF";
+            // btnCancel.style.background = "#030303";
+            // btnCancel.style.color = "#FFFFFF";
+        }
+        if (BtnOKVideo !== null) {
+            const ModalWindow = document.querySelectorAll('.modal-widnow');
+            ModalWindow.forEach(element => {
+                element.style.background = "#1F1C1C";
+            })
+            SuccesLogVideo.style.color = "#FFFFFF";
+            BtnOKVideo.style.background = "#030303";
+            BtnOKVideo.style.color = "#FFFFFF";
+        }
+
+        linkVideo.style.color = "#ffffff";
+        linkSubs.style.color = "#ffffff";
+        linkAbout.style.color = "#ffffff";
+
+        LineChannel.style.backgroundColor = "#030303";
+        LineChoiseChannel.style.backgroundColor = "#030303";
+
+        DesLine.forEach(element => {
+            element.style.backgroundColor = "#030303";
+        });
+        if (AboutBlock !== null) {
+            AboutBlock.style.color = "#ffffff";
+        }
+        
+        WindowProfile.style.backgroundColor = "#030303";
+        WindowProfile.style.color = "#ffffff";
+
+        if (Plus !== null) {
+            Plus.style.color = "#ffffff";
+        }
+        Profile.style.backgroundColor = '#030303';
+
+        if (Popup !== null) {
+            Popup.style.background = 'rgb(3, 3, 3)';
+            Popup.style.color = 'rgb(255, 255, 255)';
+            InputName.style.background = "#1F1C1C";
+            InputName.style.color = "#FFFFFF";
+            TextAreaDes.style.background = "#1F1C1C";
+            TextAreaDes.style.color = "#FFFFFF";
+            InputLinkAdd.style.background = "#1F1C1C";
+            InputLinkAdd.style.color = "#FFFFFF";
+            BtnSave.style.background = "#1F1C1C";
+            BtnSave.style.color = "#FFFFFF";
+            BtnAddLink.classList.add("dark4");
+            PopupClose.classList.add("dark4");
+            popupContent.style.backgroundColor = "rgb(31, 28, 28)";
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(element => {
+                if (element.classList.contains('btn-delete-link') || element.classList.contains('input-link-add') || element.classList.contains('input-link-edit')) {
+                    element.classList.add("dark4");
+                }
+            });
+            BtnAddLink.addEventListener('click', function() {
+                const allElements = document.querySelectorAll('*');
+                allElements.forEach(element => {
+                    if (element.classList.contains('btn-delete-link') || element.classList.contains('input-link-add')) {
+                        element.classList.add("dark4");
+                    }
+                });
+            });
+
+            BtnEditLinks.forEach(element => {
+                element.style.backgroundColor = "#1F1C1C";
+                element.style.backgroundImage = "url(/images/light-icon/popup/feather-icon.png)";
+            })
+        }
+    }
+}
+checkTheme();

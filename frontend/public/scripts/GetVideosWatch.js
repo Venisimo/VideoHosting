@@ -42,4 +42,7 @@ async function GetWatchVideos() {
         throw error;
     }
 }
-GetWatchVideos();
+GetWatchVideos().then(() => {
+    ViewsText();
+    ParseNumber();
+});

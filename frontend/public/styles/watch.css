@@ -15,7 +15,7 @@ body::-webkit-scrollbar {
 .video-block {
     margin-left: 75px;
     font-family: "Inter-Regular";
-    height: 935px;
+    height: 965px;
     width: 1200px;
     overflow-y: scroll;
 }
@@ -211,7 +211,7 @@ body::-webkit-scrollbar {
     margin-top: 100px;
     display: flex;
     flex-direction: column;
-    height: 835px;
+    height: 865px;
     width: 750px;
     overflow-y: scroll;
 }

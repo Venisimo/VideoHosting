@@ -89,6 +89,7 @@ function VideoPlayer() {
         }
         DurationTimeVideo.innerHTML = `${minutes}:${seconds}`
     }
+    DurationTime();
     function range() {
         let ProgressBarValue = ProgressBar.value;
         ProgressBar.style.background = '-webkit-linear-gradient(left, rgb(79, 244, 215) 0%, rgb(79, 244, 215) '+ProgressBarValue+'%, #fff '+ProgressBarValue+'%, #fff 100%)';

@@ -71,6 +71,7 @@ function chekBurgerMenu() {
         Line.forEach(element => {
             element.style.width = "0px";
         });
+        LeftMenu.style.width = "80px";
         Users.style.width = "0px";
         User.forEach(element => {
             element.style.width = "0px";
@@ -158,7 +159,7 @@ function chekBurgerMenu() {
         HomeButton.style.backgroundPosition = "35px";
         HomeButton.style.width = "230px";
         HomeButton.style.height = "50px";
-        
+        LeftMenu.style.width = "300px";
         Profile.style.marginTop = "14px";
         Messenger.style.marginTop = "14px";
         HistoryViews.style.marginTop = "14px";

@@ -8,11 +8,12 @@ Language.addEventListener('click', function() {
     }
 });
 function ChekLanguage() {
+    const Views = document.querySelectorAll('.views');
     console.log(ProfileStr.innerHTML)
     if (localStorage.getItem('language') == "en") {
         Views.forEach(element => {
             let numElement = element.previousElementSibling;
-    
+            console.log(numElement);
             if (element.innerHTML == "млн") {
                 element.innerHTML = "mln";
             } else if (element.innerHTML == "тыс") {

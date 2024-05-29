@@ -204,3 +204,9 @@ body::-webkit-scrollbar {
     background-color: rgb(79, 244, 215);
     display: flex;
 }
+.home-button.dark {
+    background-color: rgba(31, 28, 28, 1);
+}
+.home-button.dark:hover {
+    background-color: rgba(3, 3, 3, 0.7);
+}

@@ -35,6 +35,11 @@ document.addEventListener('click', function(event) {
         btnDelete = document.createElement('button');
         btnDelete.innerHTML = "X";
         btnDelete.className = "btn-delete-link";
+        console.log(btnDelete);
+        if (localStorage.getItem('theme') == "dark") {;
+            liInput.classList.add('dark4');
+            btnDelete.classList.add('dark4');
+        }
         li.append(liInput);
         li.append(btnDelete);
 
@@ -56,6 +61,10 @@ document.addEventListener('click', function(event) {
         btnDelete.innerHTML = "X";
         btnDelete.className = "btn-delete-link"
         liInput.className = "input-link-add";
+        if (BtnAddLink.classList.contains('dark4')) {
+            btnDelete.classList.add('dark4')
+            liInput.classList.add('dark4')
+        }
         UlListLinks.append(li);
         li.append(liInput);
         li.append(BtnAddLink);

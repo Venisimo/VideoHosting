@@ -22,6 +22,12 @@ function ChekLanguage() {
     const LinksStr = document.querySelector('.links-str');
     if (localStorage.getItem('language') == "en") {
 
+        if (BtnChannelEdit.innerHTML == "Подписаться") {
+            BtnChannelEdit.innerHTML = "Subscribe";            
+        } else if (BtnChannelEdit.innerHTML == "Отписаться") {
+            BtnChannelEdit.innerHTML = "Unsubscribe"; 
+        }
+
         if (!token) {
             BtnChannelEdit.innerHTML = "Subscribe";
         }
@@ -55,7 +61,7 @@ function ChekLanguage() {
             HomeButton.innerHTML = "";
             HistoryViewsStr.innerHTML = "";
             SubStr.innerHTML = "";
-            ProfileStr.style.paddingLeft = "20px";
+            // ProfileStr.style.paddingLeft = "20px";
         }
         HistoryViewsStr.style.paddingLeft = "20px"
         MessageStr.style.marginLeft = "10px";

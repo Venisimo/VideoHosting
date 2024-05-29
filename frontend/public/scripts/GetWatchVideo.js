@@ -51,6 +51,8 @@ async function GetVideo() {
     } catch (error) {
         throw error;
     }
+    ViewsText();
+    ParseNumber(); 
 }
 
 async function addInHtistory() {

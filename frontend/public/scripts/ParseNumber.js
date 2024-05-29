@@ -1,4 +1,5 @@
 function ParseNumber() {
+    const Num = document.querySelectorAll('.num');
     Num.forEach(element => {
         if (element.innerHTML.length == 3) {
             element.style.marginRight = "0px";
@@ -15,4 +16,4 @@ function ParseNumber() {
         }
     })  
 }
-ParseNumber();
+// ParseNumber();

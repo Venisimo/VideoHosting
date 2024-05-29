@@ -59,6 +59,7 @@ async function GetStartVideo() {
     }
 }
 
+
 function createNewChannel(parent) {
     const newRowVideos = document.createElement('div');
     newRowVideos.classList.add('row-videos');
@@ -69,6 +70,8 @@ function createNewChannel(parent) {
 GetStartVideo().then(()=> {
     checkTheme();
     chekBurgerMenu();
+    ViewsText();
+    ParseNumber();
 });
 function ParseText() {
     const Name = document.querySelectorAll(".name");

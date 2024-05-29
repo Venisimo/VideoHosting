@@ -135,6 +135,7 @@ const mainElementHeight = mainElement.clientHeight;
 const mainElementWidth = mainElement.clientWidth;
 const BtnChannelEdit = document.querySelector(".btn-channel");
 const PopupClose = document.querySelector(".popup__close");
+const popupContent = document.querySelector(".popup__content");
 const PopupCloseAddVideo = document.querySelector(".popup-close-add-video");
 const currentUrl = window.location.href;
 const ShadowForLeftMenu = document.querySelector(".Shadow-for-leftMenu");
@@ -240,6 +241,9 @@ const SuccesLogProfile = document.querySelector('#SuccesLogProfile');
 const SuccesLogVideo = document.querySelector('#SuccesLogVideo');
 const ModalVideoId = document.querySelector('#modal-video-id');
 const btnLogin = document.querySelector('#btnLogin');
+const DesLine = document.querySelectorAll('.des-line');
+const AboutBlock = document.querySelector('.about-block');
+const WindowProfile = document.querySelector('.window-profile');
 let Lang = localStorage.getItem('language');
 if (Lang == null) {
     localStorage.setItem('language', "ru");

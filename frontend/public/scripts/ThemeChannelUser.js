@@ -45,7 +45,7 @@ function checkTheme() {
     const settingsIconRightMenu = document.querySelector('#settingsIconRightMenu');
     const exitIconRightMenu = document.querySelector('#exitIconRightMenu');
     const Channel = document.querySelectorAll('.channel');
-    const imgPreview = document.querySelectorAll(".imgPreview");
+    const NameChannel = document.querySelectorAll('.name-channel');
     if (localStorage.getItem('theme') == "light") {
         HomeButton.classList.remove('dark');
         Profile.classList.remove('dark')
@@ -59,6 +59,9 @@ function checkTheme() {
         BurgerMenu.classList.remove('dark2');
         InputSearch.classList.remove('dark3');
         Lupa.classList.remove('dark');
+        NameChannel.forEach(element => {
+            element.classList.remove('dark');
+        });
         User.forEach(element => {
             element.style.color = "#000000";
             element.classList.remove('dark');
@@ -94,7 +97,8 @@ function checkTheme() {
         Users.style.color  = '#000000';
         Line.forEach(element => {
             element.style.backgroundColor = '#4FF4D7';
-        })
+        });
+        LeftMenu.style.backgroundColor = "#FFFFFF";
         // HomeButton.style.backgroundColor = '#4FF4D7';       
         Language.style.color = '#000000';
         Theme.style.color = '#000000';
@@ -127,11 +131,6 @@ function checkTheme() {
         exitIconRightMenu.src = 'images/dark-icon/menu/log-out.png';
         MessengerIcon.src = 'images/dark-icon/menu/message.png';
         HistoryViewsIcon.src = 'images/dark-icon/menu/history.png';
-        imgPreview.forEach(element => {
-            if (element.src == "http://localhost:3000/videos/posters/default-dark.png") {
-                element.src = "http://localhost:3000/videos/posters/default.png"
-            }
-        });
         if (ModalWindow !== null) {
             ModalWindow.style.background = "#4FF4D7";
             ReqLog.style.color = "#000000";
@@ -140,6 +139,22 @@ function checkTheme() {
             btnCancel.style.background = "#FFFFFF";
             btnCancel.style.color = "#000000";
         }
+
+        VideosUrl.style.color = "#000000";
+        SubsUrl.style.color = "#000000";
+        AboutsUrl.style.color = "#000000";
+
+        LineChannel.style.backgroundColor = "#4FF4D7";
+        LineChoiseChannel.style.backgroundColor = "#4FF4D7";
+
+        DesLine.forEach(element => {
+            element.style.backgroundColor = "#4FF4D7";
+        });
+        if (AboutBlock !== null) {
+            AboutBlock.style.color = "#000000";
+        }
+        WindowProfile.style.backgroundColor = "#4FF4D7";
+        WindowProfile.style.color = "#000000";
         
     } else if (localStorage.getItem('theme') == "dark") {
         HomeButton.classList.add('dark');
@@ -154,6 +169,9 @@ function checkTheme() {
         BurgerMenu.classList.add('dark2');
         InputSearch.classList.add('dark3');
         Lupa.classList.add('dark');
+        NameChannel.forEach(element => {
+            element.classList.add('dark');
+        });
         User.forEach(element => {
             element.style.color = "#ffffff";
             element.classList.add('dark');
@@ -176,6 +194,7 @@ function checkTheme() {
         HistoryViewsIcon.src = 'images/light-icon/menu/history.png';
         BurgerMenuIcon.src = 'images/light-icon/header/burger-menu.png';
         Body.style.background = '#1F1C1C';
+        LeftMenu.style.backgroundColor = "#1F1C1C";
         Header.style.background = '#030303';
         Preview.forEach(element => {
             element.style.backgroundColor = '#030303';
@@ -197,7 +216,7 @@ function checkTheme() {
         Line.forEach(element => {
             element.style.backgroundColor = '#030303';
         });
-        // HomeButton.style.backgroundColor = '#030303';
+
         Language.style.color = '#ffffff';
         Theme.style.color = '#ffffff';
         Documentation.style.color = '#ffffff';
@@ -220,11 +239,6 @@ function checkTheme() {
         documentationIconRightMenu.src = 'images/light-icon/menu/documentation.png';
         settingsIconRightMenu.src = 'images/light-icon/menu/settings.png';
         exitIconRightMenu.src = 'images/light-icon/menu/log-out.png';
-        imgPreview.forEach(element => {
-            if (element.src == "http://localhost:3000/videos/posters/default.png") {
-                element.src = "http://localhost:3000/videos/posters/default-dark.png";
-            }
-        });
         if (ModalWindow !== null) {
             ModalWindow.style.background = "#1F1C1C";
             ReqLog.style.color = "#FFFFFF";
@@ -232,6 +246,23 @@ function checkTheme() {
             BtnOK.style.color = "#FFFFFF";
             btnCancel.style.background = "#030303";
             btnCancel.style.color = "#FFFFFF";
-        } 
+        }
+
+        VideosUrl.style.color = "#ffffff";
+        SubsUrl.style.color = "#ffffff";
+        AboutsUrl.style.color = "#ffffff";
+
+        LineChannel.style.backgroundColor = "#030303";
+        LineChoiseChannel.style.backgroundColor = "#030303";
+
+        DesLine.forEach(element => {
+            element.style.backgroundColor = "#030303";
+        });
+        if (AboutBlock !== null) {
+            AboutBlock.style.color = "#ffffff";
+        }
+        
+        WindowProfile.style.backgroundColor = "#030303";
+        WindowProfile.style.color = "#ffffff";
     }
 }

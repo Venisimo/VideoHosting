@@ -29,7 +29,9 @@ async function verifyTokenOnServer() {
             });
         }
         if (typeof GetLinks === 'function') {
-            GetLinks()
+            GetLinks().then(() => {
+                checkTheme();
+            })
         }
         if (typeof GetSelfSubscriptions === 'function') {
             GetSelfSubscriptions()
@@ -43,6 +45,7 @@ async function verifyTokenOnServer() {
         if (typeof ChekSubs === 'function') {
             ChekSubs().then(() => {
                 ChekLanguage();
+                checkTheme();
             });
         }
         if (typeof CountSelfSub === 'function') {
@@ -51,6 +54,7 @@ async function verifyTokenOnServer() {
         if (typeof GetUsersVideo === 'function') {
             GetUsersVideo().then(() => {
                 chekBurgerMenu();
+                checkTheme();
             })
         }
         if (typeof GetUsersSubs === 'function') {
@@ -121,21 +125,40 @@ window.addEventListener('DOMContentLoaded', async function() {
                 ChekSubs();
                 AmountLikesDislikes();
                 getComment().then(() => {
-                    VideoPlayer()
+                    VideoPlayer();
                     checkTheme();
                     ChekLanguage();
                 });
                 getCountComment();
             });
         }
+        if (typeof GetUsersVideo === 'function') {
+            GetUsersVideo().then(() => {
+                chekBurgerMenu();
+                checkTheme();
+            })
+        }
         if (typeof GetUserSubscriptions === 'function') {
-            GetUserSubscriptions()
+            GetUserSubscriptions().then(() => {
+                chekBurgerMenu();
+                checkTheme();
+            })
+        }
+        if (typeof GetUsersAbout === 'function') {
+            GetUsersAbout().then(() => {
+                chekBurgerMenu();
+                checkTheme();
+            })
+        }
+        if (typeof GetUsersVideo === 'function') {
+            checkTheme();
         }
         console.log('Токен отсутствует, пользователь не аутентифицирован.');
         if (Users) {
             Users.innerHTML += `<div class="line" id="line-for-leftMenu"></div>
                                 <div class="footer">© 2024 Venisimo</div>
                                 <div class="zagluhka-footer"></div>`
+            chekBurgerMenu();
         }
     }
 });
