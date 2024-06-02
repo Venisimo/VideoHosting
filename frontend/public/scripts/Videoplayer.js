@@ -11,8 +11,11 @@ function VideoPlayer() {
     const DurationTimeVideo = document.querySelector('.duration');
     const VideoplayerPanel = document.querySelector('.videoplayer-panel');
     const settingsIcon = document.querySelector('.settings-videoplayer-icon');
+    const input = document.querySelector('input');
+    const textArea = document.querySelector('textarea');
+    let isFullScreen = false;
     function toggleVideoStatus() {
-        if(Video.paused) {
+        if (Video.paused) {
             Video.play();
             pauseBtn.src = 'images/light-icon/videoplayer/pause-icon.png';
             pauseBtn.style.width = "25px";
@@ -28,11 +31,46 @@ function VideoPlayer() {
             pauseBtn.style.marginLeft = "35px";
         }
     }
-    
+
     function toggleFullScreen() {
-        
+        if (isFullScreen) {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+            isFullScreen = false;
+        } else {
+            if (Video.requestFullscreen) {
+                Video.requestFullscreen();
+            } else if (Video.mozRequestFullScreen) { // Firefox
+                Video.mozRequestFullScreen();
+            } else if (Video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                Video.webkitRequestFullscreen();
+            } else if (Video.msRequestFullscreen) { // IE/Edge
+                Video.msRequestFullscreen();
+            }
+            isFullScreen = true;
+        }
     }
-    
+
+    document.addEventListener('keydown', function(event) {
+        if (event.target.tagName === 'TEXTAREA') {
+        } else if (event.target.tagName === 'INPUT') {
+        } else {
+            if (event.key === 'f' || event.key === 'F' || event.key === 'а' || event.key === 'А') {
+                toggleFullScreen();
+            } 
+        }
+    });
+
+    document.addEventListener('fullscreenchange', function() {
+        isFullScreen = !!document.fullscreenElement;
+    });
     
     function AfterEnd() {
         if (Video.currentTime == Video.duration) {
@@ -92,12 +130,12 @@ function VideoPlayer() {
     DurationTime();
     function range() {
         let ProgressBarValue = ProgressBar.value;
-        ProgressBar.style.background = '-webkit-linear-gradient(left, rgb(79, 244, 215) 0%, rgb(79, 244, 215) '+ProgressBarValue+'%, #fff '+ProgressBarValue+'%, #fff 100%)';
+        ProgressBar.style.background = 'linear-gradient(to right, rgb(79, 244, 215) 0%, rgb(79, 244, 215) '+ProgressBarValue+'%, #fff '+ProgressBarValue+'%, #fff 100%)';
     }
     function setVolume() {
         let VolumeRangeValue = VolumeRangeInput.value / 100;
         let InputRangeValue = VolumeRangeInput.value;
-        VolumeRangeInput.style.background = '-webkit-linear-gradient(left, rgb(79, 244, 215) 0%, rgb(79, 244, 215) '+InputRangeValue+'%, #fff '+InputRangeValue+'%, #fff 100%)';
+        VolumeRangeInput.style.background = 'linear-gradient(to right, rgb(79, 244, 215) 0%, rgb(79, 244, 215) '+InputRangeValue+'%, #fff '+InputRangeValue+'%, #fff 100%)';
         Video.volume = VolumeRangeValue;
         if (Video.volume >= 0.75) {
             SoundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl3-icon.png';
@@ -109,6 +147,8 @@ function VideoPlayer() {
             SoundLevelIcon.src = 'images/light-icon/videoplayer/sound-lvl0-icon.png';
         }
     }
+    
+    
     let InputRangeValue;
     SoundLevelIcon.addEventListener('click', function() {
         let VolumeRangeValue = VolumeRangeInput.value / 100;
@@ -163,7 +203,7 @@ function VideoPlayer() {
     });
     
     FullscreenBtn.addEventListener('click', function() {
-        Video.requestFullscreen()
+        toggleFullScreen();
     })
     
     Video.addEventListener('click', function() {
@@ -196,3 +236,7 @@ function VideoPlayer() {
     pauseBtn.addEventListener('click', toggleVideoStatus);
     stopBtn.addEventListener('click', stopVideo);
 }
+function isFullScreen() {
+    return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+}
+isFullScreen()

@@ -20,8 +20,15 @@ async function verifyTokenOnServer(token) {
     }
 }
 window.addEventListener('DOMContentLoaded', async function() {
-    const token = localStorage.getItem('jwtToken');
-    console.log(token);
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+    function deleteCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
+    const token = getCookie("jwtToken");
     if (token) {
         try {
             const decodedToken = await verifyTokenOnServer(token);
@@ -30,10 +37,12 @@ window.addEventListener('DOMContentLoaded', async function() {
             chekProfile(UserId)
         } catch (error) {
             console.error('Ошибка при верификации токена:', error);
-            localStorage.removeItem('jwtToken');
+            deleteCookie('jwtToken');
+            this.location.replace('http://localhost:3000/login');
         }
     } else {
         console.log('Токен отсутствует, пользователь не аутентифицирован.');
+        this.location.replace('http://localhost:3000/login');
     }
 });
 async function chekProfile(UserId) {

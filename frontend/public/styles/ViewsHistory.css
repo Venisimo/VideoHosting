@@ -1,3 +1,6 @@
+* {
+    scrollbar-width: none;
+}
 .Hisory-Input {
     margin-top: 150px;
     position: fixed;
@@ -70,6 +73,8 @@
 .trash-icon {
     margin-left: 10px;
     margin-top: 10px;
+    width: 25px;
+    height: 25px;
 }
 .history-views-search-str {
     margin-top: 13px;

@@ -169,7 +169,28 @@ function checkTheme() {
             Plus.style.color = "#000000";
         }
         Profile.style.backgroundColor = '#4FF4D7';
-
+        if (AddVideo) {
+            AddVideo.style.background = '#4FF4D7';
+            UploadVideoButton.style.backgroundColor = "#FFFFFF";
+            UploadVideoButton.style.color = "#000000";
+            UploadPreviewButton.style.backgroundColor = "#FFFFFF";
+            UploadPreviewButton.style.color = "#000000";
+            InputNameVideos.style.backgroundColor = "#FFFFFF";
+            InputNameVideos.style.color = "#000000";
+            TextAreaDesVideo.style.backgroundColor = "#FFFFFF";
+            TextAreaDesVideo.style.color = "#000000";
+            PopupVideoName.style.color = "#000000";
+            PopupVideoDes.style.color = "#000000";
+            PopupPreviewPreview.style.backgroundColor = "#FFFFFF";
+            BtnPublic.style.backgroundColor = "#FFFFFF";
+            BtnPublic.style.color = "#000000";
+            PopupCloseAddVideo.style.backgroundColor = "#FFFFFF";
+            const popupContent = document.querySelectorAll(".popup__content");
+            popupContent.forEach(element => {
+                element.style.backgroundColor = "rgb(255, 255, 255)";
+            });
+            PopupCloseAddVideo.style.color = "#000000";
+        }
         if (Popup !== null) {
             Popup.style.background = 'rgb(79, 244, 215)';
             Popup.style.color = 'rgb(0, 0, 0)';
@@ -327,7 +348,28 @@ function checkTheme() {
             Plus.style.color = "#ffffff";
         }
         Profile.style.backgroundColor = '#030303';
-
+        if (AddVideo) {
+            AddVideo.style.background = '#030303';
+            UploadVideoButton.style.backgroundColor = "#1F1C1C";
+            UploadVideoButton.style.color = "#FFFFFF";
+            UploadPreviewButton.style.backgroundColor = "#1F1C1C";
+            UploadPreviewButton.style.color = "#FFFFFF";
+            InputNameVideos.style.backgroundColor = "#1F1C1C";
+            InputNameVideos.style.color = "#FFFFFF";
+            TextAreaDesVideo.style.backgroundColor = "#1F1C1C";
+            TextAreaDesVideo.style.color = "#FFFFFF";
+            PopupVideoName.style.color = "#FFFFFF";
+            PopupVideoDes.style.color = "#FFFFFF";
+            PopupPreviewPreview.style.backgroundColor = "#1F1C1C";
+            BtnPublic.style.backgroundColor = "#1F1C1C";
+            BtnPublic.style.color = "#FFFFFF";
+            PopupCloseAddVideo.style.backgroundColor = "#1F1C1C";
+            const popupContent = document.querySelectorAll(".popup__content");
+            popupContent.forEach(element => {
+                element.style.backgroundColor = "rgb(31, 28, 28)";
+            });
+            PopupCloseAddVideo.style.color = "#FFFFFF";
+        }
         if (Popup !== null) {
             Popup.style.background = 'rgb(3, 3, 3)';
             Popup.style.color = 'rgb(255, 255, 255)';

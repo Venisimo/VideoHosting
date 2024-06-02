@@ -1,7 +1,7 @@
 function ParseNumber() {
     const Num = document.querySelectorAll('.num');
     Num.forEach(element => {
-        if (element.innerHTML.length == 3) {
+        if (element.innerHTML.length < 4) {
             element.style.marginRight = "0px";
         } else if (element.innerHTML.length == 4 || element.innerHTML.length == 7 || element.innerHTML.length == 10) {
             if (element.innerHTML[1] != 0) {

@@ -3,6 +3,7 @@ let arrPath = VideoPath.split('?');
 let channelLogin;
 VideoPath = arrPath[1];
 console.log(VideoPath);
+let chekSelfVideo = false;
 async function GetVideo() {
     try {
         const Data = {
@@ -20,6 +21,8 @@ async function GetVideo() {
         }
         const responseData = await response.json();
         if (responseData.UserId == UserId) {
+            chekSelfVideo = true;
+            console.log(chekSelfVideo);
             if (localStorage.getItem('language') == "ru") {
                 SubscribeBtn.innerHTML = "Удалить";
             } else if (localStorage.getItem('language') == "en") {
@@ -51,8 +54,6 @@ async function GetVideo() {
     } catch (error) {
         throw error;
     }
-    ViewsText();
-    ParseNumber(); 
 }
 
 async function addInHtistory() {

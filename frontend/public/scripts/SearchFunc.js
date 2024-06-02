@@ -1,5 +1,5 @@
 function encodeQueryParam(param) {
-    return encodeURIComponent(param).replace(/[!'()*]/g, escape);
+    return encodeURIComponent(param).replace(/[!'()*]/g, c => '%' + c.charCodeAt(0).toString(16));
 }
 
 InputSearch.addEventListener("keyup", e => {

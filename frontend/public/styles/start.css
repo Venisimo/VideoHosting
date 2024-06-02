@@ -2,6 +2,12 @@
     font-family: Inter-Regular;
     src: url("fonts/Inter-Regular.otf");
 }
+* {
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+    width: 0;
+}
 body::-webkit-scrollbar {
     width: 0;
 }

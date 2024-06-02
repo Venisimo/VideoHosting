@@ -3,9 +3,9 @@ InputSearch.addEventListener('focus', function() {
    RightMenu.style.visibility = "hidden"
 })
 InputSearch.addEventListener('blur', function() {
-    if (rus) {
+    if (localStorage.getItem('language') == "ru") {
        InputSearch.placeholder = "Поиск...";
-    } else {
+    } else if (localStorage.getItem('language') == "en") {
        InputSearch.placeholder = "Search...";
     }
 })

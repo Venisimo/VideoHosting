@@ -10,10 +10,12 @@ Language.addEventListener('click', function() {
 function ChekLanguage() {
     const StrAddVideo = document.querySelector('.str-add-video');
     const LinksStr = document.querySelector('.links-str');
+    const Views = document.querySelectorAll('.views');
     if (localStorage.getItem('language') == "en") {
+        console.log(Views);
         Views.forEach(element => {
+            console.log(element);
             let numElement = element.previousElementSibling;
-    
             if (element.innerHTML == "млн") {
                 element.innerHTML = "mln";
             } else if (element.innerHTML == "тыс") {
@@ -98,6 +100,7 @@ function ChekLanguage() {
 
     } else if (localStorage.getItem('language') == "ru") {
         Views.forEach(element => {
+            console.log(element);
             let numElement = element.previousElementSibling;
             if (element.innerHTML == "mln") {
                 element.innerHTML = "млн";

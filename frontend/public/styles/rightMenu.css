@@ -40,6 +40,8 @@
 #profileIconRightMenu {
     padding-left: 15px;
     padding-top: 12px;
+    width: 25px;
+    height: 25px;
 }
 .my-profile-str {
     padding-top: 5px;
@@ -60,6 +62,8 @@
 #languageIconRightMenu {
     padding-top: 10px;
     padding-left: 10px;
+    width: 30px;
+    height: 30px;
 }
 .language-str {
     padding-top: 5px;
@@ -80,7 +84,9 @@
 }
 #themeIconRightMenu{
     padding-top: 14px;
-    padding-left: 15px; 
+    padding-left: 15px;
+    width: 25px;
+    height: 25px; 
 }
 .theme-str {
     padding-top: 8px;
@@ -101,6 +107,8 @@
 #documentationIconRightMenu {
     padding-top: 13px;
     margin-left: 15px;
+    width: 25px;
+    height: 25px;
 }
 .documentation-str {
     padding-top: 6px;
@@ -122,6 +130,8 @@
 #settingsIconRightMenu {
     padding-top: 10px;
     margin-left: 15px;
+    width: 30px;
+    height: 30px;
 }
 .settings-str {
     padding-top: 5px;
@@ -143,6 +153,8 @@
 #exitIconRightMenu {
     padding-top: 13px;
     margin-left: 20px;
+    width: 24px;
+    height: 24px;
 }
 .exit-str {
     padding-top: 5px;

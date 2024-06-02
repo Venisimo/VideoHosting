@@ -43,10 +43,15 @@ async function verifyTokenOnServer(token) {
     }
 }
 
-console.log(localStorage.getItem("jwtToken"));
 
 window.addEventListener('DOMContentLoaded', async function() {
-    const token = localStorage.getItem('jwtToken');
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+      
+    const token = getCookie("jwtToken");
     console.log(token);
     if (token) {
         try {

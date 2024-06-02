@@ -40,6 +40,9 @@ async function GetHistory() {
                 </div>
             </div>`
         }
+        ParseText();
+        ViewsText();
+        ParseNumber();
         if (!response.ok) {
             throw new Error('Ошибка вывода данных');
         }

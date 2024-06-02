@@ -54,6 +54,8 @@ async function GetStartVideo() {
             `;
         }
         ParseText();
+        ViewsText();
+        ParseNumber();
     } catch (error) {
         throw error;
     }
@@ -70,8 +72,6 @@ function createNewChannel(parent) {
 GetStartVideo().then(()=> {
     checkTheme();
     chekBurgerMenu();
-    ViewsText();
-    ParseNumber();
 });
 function ParseText() {
     const Name = document.querySelectorAll(".name");

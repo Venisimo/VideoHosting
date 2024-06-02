@@ -63,7 +63,7 @@ async function Result() {
                     `
                 }
                 console.log(responseData.ResultUsers);
-            } 
+            }
         }
         if (!response.ok) {
             throw new Error('Ошибка вывода данных');

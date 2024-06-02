@@ -1,16 +1,15 @@
 SubscribeBtn.addEventListener('click', function() {
     SubscribeBtn.classList.toggle('video-panel-on');
-    if (localStorage.getItem('language') == "ru") {
-        if (SubscribeBtn.innerHTML == "Удалить") {
+    console.log(chekSelfVideo);
+    if (chekSelfVideo) {
+        if (localStorage.getItem('language') == "ru") {
             SubscribeBtn.innerHTML = "Удалено";
             DeleteVideo();
-        }
-    } else if (localStorage.getItem('language') == "en") {
-        if (SubscribeBtn.innerHTML == "Delete") {
+        } else if (localStorage.getItem('language') == "en") {
             SubscribeBtn.innerHTML = "deleted";
-            DeleteVideo();
-        } 
-    }
+             DeleteVideo();
+        }
+    } 
 });
 
 async function DeleteVideo() {

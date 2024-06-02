@@ -35,6 +35,9 @@ async function GetWatchVideos() {
                 </div>
             </div>`
         }
+        ParseText();
+        ViewsText();
+        ParseNumber();
         if (!response.ok) {
             throw new Error('Ошибка вывода данных');
         }
@@ -42,7 +45,4 @@ async function GetWatchVideos() {
         throw error;
     }
 }
-GetWatchVideos().then(() => {
-    ViewsText();
-    ParseNumber();
-});
+GetWatchVideos();

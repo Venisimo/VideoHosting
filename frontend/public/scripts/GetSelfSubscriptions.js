@@ -10,13 +10,22 @@ async function GetSelfSubscriptions() {
             },
             body: JSON.stringify(Data),
         });
+
+        if (!responseLink.ok) {
+            throw new Error('Ошибка вывода подписок');
+        }
+
         const responseData = await responseLink.json();
         console.log(responseData);
         const SubsBlock = document.querySelector(".SubsBlock");
+
         let Sub = createNewChannel(SubsBlock);
+        let count = 0;
+
         for (let i = 0; i < responseData.subs.length; i++) {
-            if (Sub.childElementCount >= 4) {
-                Sub = createNewChannel(Sub);
+            if (count >= 4) {
+                Sub = createNewChannel(SubsBlock);
+                count = 0;
             }
             Sub.innerHTML += `
             <a class="user-channel-menu" data-barba="false" href="http://localhost:3000/videos?${responseData.subs[i].channel}">
@@ -24,14 +33,11 @@ async function GetSelfSubscriptions() {
                 <div class="name-channel">${responseData.SubsInfo[i].name}</div>
             </a>
             `;
+            count++;
         }
-        if (!responseLink.ok) {
-            throw new Error('Ошибка вывода подписок');
-        } else {
-        }
+
     } catch (error) {
         console.error(error);
-    
     }
 }
 

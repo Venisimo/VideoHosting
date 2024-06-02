@@ -1,33 +1,53 @@
 document.addEventListener('click', function(event) {
     if (event.target.matches('.subscribe-btn')) {
-        const token = localStorage.getItem('jwtToken');
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+          }
+          
+        const token = getCookie("jwtToken");
         if (!token) {
             OpenModel();
         } else {
             event.target.classList.toggle('video-panel-on');
-            if (rus) {
-                if (event.target.innerHTML == "Подписаться") {
-                    event.target.innerHTML = "Отписаться"; 
-                    subscribe();   
-                } else if (event.target.innerHTML == "Отписаться") {
+
+            if (ChekSelfSub && !chekSelfVideo) {
+                if (localStorage.getItem('language') == "ru") {
                     event.target.innerHTML = "Подписаться";
-                    unsubscribe()
+                } else if (localStorage.getItem('language') == "en") {
+                    event.target.innerHTML = "Subscribes";
                 }
-            } else {
-                if (event.target.innerHTML == "Subscribe") {
+                unsubscribe(); 
+                ChekSelfSub = false;
+            } else if (!ChekSelfSub && !chekSelfVideo) {
+                if (localStorage.getItem('language') == "ru") {
+                    event.target.innerHTML = "Отписаться";
+                } else if (localStorage.getItem('language') == "en") {
                     event.target.innerHTML = "Unsubscribe";
-                    subscribe();    
-                } else if (event.target.innerHTML == "Unsubscribe") {
-                    event.target.innerHTML = "Subscribe";
-                    unsubscribe()
+                } 
+                subscribe();
+                ChekSelfSub = true;
+            } else if (chekSelfVideo) {
+                if (localStorage.getItem('language') == "ru") {
+                    event.target.innerHTML = "Удалено";
+                } else if (localStorage.getItem('language') == "en") {
+                    event.target.innerHTML = "deleted";
                 }
+                DeleteVideo();
             }
         }
     }
 });
 
 document.addEventListener('click', function(event) {
-    const token = localStorage.getItem('jwtToken');
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+      
+    const token = getCookie("jwtToken");
     if (token) {
         if (event.target.matches('.like')) {
             event.target.classList.toggle('video-panel-on');

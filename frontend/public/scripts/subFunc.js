@@ -1,28 +1,27 @@
 console.log(!token);
 if (!token == true) {
-    console.log("dsdsa");
     BtnChannelEdit.addEventListener('click', function() {
         OpenModel();
     });
 } else {
     BtnChannelEdit.addEventListener('click', function() {
         BtnChannelEdit.classList.toggle('on');
-        if (localStorage.getItem('language') == "ru") {
-            if (BtnChannelEdit.innerHTML == "Подписаться") {
-                BtnChannelEdit.innerHTML = "Отписаться";
-                subscribe();    
-            } else if (BtnChannelEdit.innerHTML == "Отписаться") {
+        if (ChekSelfSub) {
+            if (localStorage.getItem('language') == "ru") {
                 BtnChannelEdit.innerHTML = "Подписаться";
-                unsubscribe();
-            }
-        } else if (localStorage.getItem('language') == "en") {
-            if (BtnChannelEdit.innerHTML == "Subscribe") {
-                BtnChannelEdit.innerHTML = "Unsubscribe"; 
-                subscribe();   
-            } else if (BtnChannelEdit.innerHTML == "Unsubscribe") {
+            } else if (localStorage.getItem('language') == "en") {
                 BtnChannelEdit.innerHTML = "Subscribe";
-                unsubscribe();
             }
+            unsubscribe();
+            ChekSelfSub = false;
+        } else {
+            if (localStorage.getItem('language') == "ru") {
+                BtnChannelEdit.innerHTML = "Отписаться";
+            } else if (localStorage.getItem('language') == "en") {
+                BtnChannelEdit.innerHTML = "Unsubscribe";
+            }
+            subscribe();
+            ChekSelfSub = true;
         }
     })
 }

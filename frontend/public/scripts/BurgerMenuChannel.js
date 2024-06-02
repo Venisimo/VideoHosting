@@ -34,6 +34,7 @@ function chekBurgerMenu() {
     const SubIconLeftMenu = document.querySelector('#sub-icon-for-leftMenu');
     const LineChannel = document.querySelector('.lineChannel');
     const VideosChannel = document.querySelectorAll('.videos-channel');
+    const UsersChannelMenu = document.querySelectorAll('.users-channel-menu');
     const Plus = document.querySelector('.plus');
     if (localStorage.getItem('Burger') == "on") {
         ProfileStr.classList.add('bg-on');
@@ -60,6 +61,9 @@ function chekBurgerMenu() {
         if (Plus !== null) {
             Plus.classList.add('bg-on2');
         }
+        UsersChannelMenu.forEach(element => {
+            element.style.marginLeft = "250px";
+        })
         Preview.forEach(element => {
             element.style.width = "400px";
             element.style.height = "300px";
@@ -82,6 +86,10 @@ function chekBurgerMenu() {
             element.style.width = "0px";
             element.style.height = "0px";
         });
+        if (DesBlockChannel) {
+            DesBlockChannel.style.marginLeft = "250px";
+            LinksBlockChannel.style.marginLeft = "250px";
+        }
 
         ProfileIcon.style.paddingLeft = "6px";
         if (token) {
@@ -131,6 +139,13 @@ function chekBurgerMenu() {
         if (Plus !== null) {
             Plus.classList.remove('bg-on2');
         }
+        UsersChannelMenu.forEach(element => {
+            element.style.marginLeft = "350px";
+        })
+        if (DesBlockChannel) {
+            DesBlockChannel.style.marginLeft = "310px";
+            LinksBlockChannel.style.marginLeft = "310px";
+        }
         Preview.forEach(element => {
             element.style.width = "360px";
             element.style.height = "250px";
@@ -141,12 +156,24 @@ function chekBurgerMenu() {
             if (token) {
                 ProfileStr.innerHTML = "Мой профиль";
                 ProfileIcon.style.paddingLeft = "0px";
-                ProfileIcon.style.paddingTop = "1px";
+                ProfileIcon.style.width = "25px";
+                ProfileIcon.style.height = "25px";
+                if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                    ProfileIcon.style.paddingTop = "4px";
+                } else {
+                    ProfileIcon.style.paddingTop = "1px";
+                }
             } else {
-                ProfileStr.innerHTML = "Вход";
                 ProfileIcon.style.paddingLeft = "45px";
-                ProfileIcon.style.paddingTop = "3px";
-            }
+                ProfileIcon.style.width = "24px";
+                ProfileIcon.style.height = "24px";
+                if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                    ProfileIcon.style.paddingTop = "6px";
+                } else {
+                    ProfileIcon.style.paddingTop = "3px";
+                }
+                ProfileStr.innerHTML = "Вход";
+            } 
             
             HistoryViewsStr.innerHTML = "История просмотров";
             if (SubStr !== null) {
@@ -157,14 +184,25 @@ function chekBurgerMenu() {
             HomeButton.innerHTML = "Home";
             if (token) {
                 ProfileStr.innerHTML = "My profile";
-                ProfileStr.style.paddingLeft = "20px";
                 ProfileIcon.style.paddingLeft = "0px";
-                ProfileIcon.style.paddingTop = "1px";
+                ProfileIcon.style.width = "25px";
+                ProfileIcon.style.height = "25px";
+                if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                    ProfileIcon.style.paddingTop = "4px";
+                } else {
+                    ProfileIcon.style.paddingTop = "1px";
+                }
             } else {
-                ProfileStr.innerHTML = "Login";
                 ProfileIcon.style.paddingLeft = "45px";
-                ProfileIcon.style.paddingTop = "3px";
-            }
+                ProfileIcon.style.width = "24px";
+                ProfileIcon.style.height = "24px";
+                if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                    ProfileIcon.style.paddingTop = "6px";
+                } else {
+                    ProfileIcon.style.paddingTop = "3px";
+                }
+                ProfileStr.innerHTML = "Login";
+            }   
             MessageStr.innerHTML = "Messenger";
             HistoryViewsStr.innerHTML = "Views<br>history";
             if (SubStr !== null) {

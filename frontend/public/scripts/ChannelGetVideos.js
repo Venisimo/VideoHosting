@@ -66,7 +66,8 @@ async function GetSelfVideo() {
         }
 
         ParseText();
-
+        ViewsText();
+        ParseNumber();
     } catch (error) {
         console.error(error);
     }

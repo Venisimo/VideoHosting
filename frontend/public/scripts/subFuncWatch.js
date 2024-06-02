@@ -1,30 +1,3 @@
-if (!token == true) {
-    SubscribeBtn.addEventListener('click', function() {
-        OpenModel();
-    });
-} else {
-    SubscribeBtn.addEventListener('click', function() {
-        SubscribeBtn.classList.toggle('video-panel-on');
-        if (localStorage.getItem('language') == "ru") {
-            if (SubscribeBtn.innerHTML == "Подписаться") {
-                SubscribeBtn.innerHTML = "Отписаться"; 
-                subscribe();   
-            } else if (SubscribeBtn.innerHTML == "Отписаться") {
-                SubscribeBtn.innerHTML = "Подписаться";
-                unsubscribe()
-            }
-        } else if (localStorage.getItem('language') == "en") {
-            if (SubscribeBtn.innerHTML == "Subscribe") {
-                SubscribeBtn.innerHTML = "Unsubscribe";
-                subscribe();    
-            } else if (SubscribeBtn.innerHTML == "Unsubscribe") {
-                SubscribeBtn.innerHTML = "Subscribe";
-                unsubscribe()
-            }
-        }
-    });
-}
-
 async function subscribe() {
     try {
         const Data = {
@@ -61,7 +34,8 @@ async function unsubscribe() {
         });
         if (!response.ok) {
             throw new Error('Ошибка при отписке');
-        } 
+        }
+        // console.log(response); 
     } catch (error) {
         console.error(error);
     

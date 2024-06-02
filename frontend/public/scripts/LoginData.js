@@ -32,7 +32,11 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             ErrorMessageLogin.style.marginLeft = "180px";
         } else {
             console.log("Успешный вход");
-            localStorage.setItem("jwtToken", responseData.token);
+            // localStorage.setItem("jwtToken", responseData.token);
+            function setTokenInCookie(token) {
+                document.cookie = `jwtToken=${token}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+            }
+            setTokenInCookie(responseData.token);
             OpenModel();
         }
     } catch (error) {
@@ -88,11 +92,15 @@ async function verifyTokenOnServer(token) {
     }
 }
 
-console.log(localStorage.getItem("jwtToken"));
 
 window.addEventListener('DOMContentLoaded', async function() {
-    const token = localStorage.getItem('jwtToken');
-    console.log(token);
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+      
+    const token = getCookie("jwtToken");
     if (token) {
         try {
             const decodedToken = await verifyTokenOnServer(token);

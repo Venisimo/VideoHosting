@@ -1,7 +1,10 @@
 function ViewsText() {
+    console.trace();
     const Num = document.querySelectorAll('.num');
+    console.log(Num);
     Num.forEach(function(numElement) {
         let viewsElement = numElement.nextElementSibling;
+        console.log(viewsElement);
         if (Number(numElement.innerHTML) >= 1000 && Number(numElement.innerHTML) < 1000000) {
             if (localStorage.getItem('language') == 'ru') {
                 viewsElement.innerHTML = "тыс";
@@ -24,4 +27,3 @@ function ViewsText() {
         }
     });    
 }
-// ViewsText();

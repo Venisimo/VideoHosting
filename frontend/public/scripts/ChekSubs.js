@@ -1,3 +1,4 @@
+let ChekSelfSub = false;
 async function ChekSubs() {
     try {
         const Data = {
@@ -14,6 +15,7 @@ async function ChekSubs() {
         const responseData = await response.json();
         for (let i = 0; i < responseData.length; i++) {
             if (UserId == responseData[i].user_id) {
+                ChekSelfSub = true;
                 if (localStorage.getItem('language') == "en") {
                     BtnChannelEdit.innerHTML = "Unsubscribe";
                     BtnChannelEdit.classList.add('on');
@@ -21,7 +23,9 @@ async function ChekSubs() {
                     BtnChannelEdit.innerHTML = "Отписаться";
                     BtnChannelEdit.classList.add('on'); 
                 }
+                break;
             } else {
+                ChekSelfSub = false;
                 if (localStorage.getItem('language') == "en") {
                     BtnChannelEdit.innerHTML = "Subscribe";
                 } else if (localStorage.getItem('language') == "ru") {

@@ -8,6 +8,7 @@ Language.addEventListener('click', function() {
     }
 });
 function ChekLanguageResult() {
+    const Views = document.querySelectorAll('.views');
     if (localStorage.getItem('language') == "en") {
         Subs.forEach(element => {
             let numElement = element.previousElementSibling;

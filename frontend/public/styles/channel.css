@@ -2,9 +2,9 @@
     font-family: Inter-Regular;
     src: url("fonts/Inter-Regular.otf");
 }
-/* * {
-    font-family: "Inter-Regular";
-} */
+* {
+    scrollbar-width: none;
+}
 body {
     margin: 0px;
     overflow-x: hidden;

@@ -126,10 +126,22 @@ function chekBurgerMenu() {
             if (token) {
                 ProfileStr.innerHTML = "Мой профиль";
                 ProfileIcon.style.paddingLeft = "0px";
-                ProfileIcon.style.paddingTop = "1px";
+                ProfileIcon.style.width = "25px";
+                ProfileIcon.style.height = "25px";
+                if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                    ProfileIcon.style.paddingTop = "4px";
+                } else {
+                    ProfileIcon.style.paddingTop = "1px";
+                }
             } else {
                 ProfileIcon.style.paddingLeft = "45px";
-                ProfileIcon.style.paddingTop = "3px";
+                ProfileIcon.style.width = "24px";
+                ProfileIcon.style.height = "24px";
+                if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                    ProfileIcon.style.paddingTop = "6px";
+                } else {
+                    ProfileIcon.style.paddingTop = "3px";
+                }
                 ProfileStr.innerHTML = "Вход";
             }  
             HistoryViewsStr.innerHTML = "История просмотров";
@@ -139,12 +151,24 @@ function chekBurgerMenu() {
             if (token) {
                 ProfileStr.innerHTML = "My profile";
                 ProfileIcon.style.paddingLeft = "0px";
-                ProfileIcon.style.paddingTop = "1px";
+                ProfileIcon.style.width = "25px";
+                ProfileIcon.style.height = "25px";
+                if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                    ProfileIcon.style.paddingTop = "4px";
+                } else {
+                    ProfileIcon.style.paddingTop = "1px";
+                }
             } else {
                 ProfileIcon.style.paddingLeft = "45px";
-                ProfileIcon.style.paddingTop = "3px";
+                ProfileIcon.style.width = "24px";
+                ProfileIcon.style.height = "24px";
+                if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                    ProfileIcon.style.paddingTop = "6px";
+                } else {
+                    ProfileIcon.style.paddingTop = "3px";
+                }
                 ProfileStr.innerHTML = "Login";
-            }         
+            }           
             MessageStr.innerHTML = "Messenger";
             HistoryViewsStr.innerHTML = "Views<br>history";
         }

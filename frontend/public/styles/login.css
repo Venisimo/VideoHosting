@@ -5,6 +5,9 @@
 * {
   font-family: "Inter-Regular";
 }
+body {
+  overflow-y: hidden;
+}
 .sign-in-light {
     padding: 139.74px 635px;
     position: relative;

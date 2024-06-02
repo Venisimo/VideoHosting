@@ -1,5 +1,3 @@
-let tk = localStorage.getItem("jwtToken");
-
 async function addComment(ComTextValue) {
     try {
         const Data = {
@@ -172,7 +170,7 @@ function CommentBtns() {
     }
     
     CommentText.addEventListener('keydown', function (event) {
-        if(tk) {
+        if (token) {
             if (event.key === 'Enter' && !event.shiftKey) {
                 if (CommentText.value.trim() !== "") {
                     addComment(CommentText.value.trim());
@@ -185,7 +183,7 @@ function CommentBtns() {
     });
     
     BtnSumbit.addEventListener('click', function() {
-        if (tk) {
+        if (token) {
             if (CommentText.value.trim() !== "") {
                 addComment(CommentText.value.trim());
                 location.reload();

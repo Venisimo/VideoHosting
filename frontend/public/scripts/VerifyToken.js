@@ -1,5 +1,12 @@
 let UserId;
-const token = localStorage.getItem("jwtToken");
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+  
+const token = getCookie("jwtToken");
+  
 async function verifyTokenOnServer() {
     try {
         const response = await fetch('/verifyToken', {
@@ -19,6 +26,8 @@ async function verifyTokenOnServer() {
         if (typeof GetSelfVideo === 'function') {
             GetSelfVideo().then(() => {
                 ChekLanguage();
+                ViewsText();
+                ParseNumber();
             });
         }
         if (typeof GetInfo === 'function') {
@@ -53,12 +62,14 @@ async function verifyTokenOnServer() {
         }
         if (typeof GetUsersVideo === 'function') {
             GetUsersVideo().then(() => {
-                chekBurgerMenu();
+                // chekBurgerMenu();
                 checkTheme();
             })
         }
         if (typeof GetUsersSubs === 'function') {
-            GetUsersSubs()
+            GetUsersSubs().then(() => {
+                checkTheme();
+            })
         }
         if (typeof GetUsersAbout === 'function') {
             GetUsersAbout()
@@ -100,6 +111,9 @@ async function verifyTokenOnServer() {
                     checkTheme();
                     ChekLanguage();
                 });
+                // ParseText();
+                // ViewsText();
+                // ParseNumber();
             });
         }
         return responseData.decodedToken;
@@ -110,13 +124,16 @@ async function verifyTokenOnServer() {
 }
 
 window.addEventListener('DOMContentLoaded', async function() {
+    function deleteCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
     if (token) {
         try {
             const decodedToken = await verifyTokenOnServer();
             console.log('Токен верифицирован:', decodedToken);
         } catch (error) {
             console.error('Ошибка при верификации токена:', error);
-            localStorage.removeItem('jwtToken');
+            deleteCookie('jwtToken');
         }
     } else {
         if (typeof GetVideo === 'function') {
@@ -130,6 +147,9 @@ window.addEventListener('DOMContentLoaded', async function() {
                     ChekLanguage();
                 });
                 getCountComment();
+                ParseText();
+                ViewsText();
+                ParseNumber();
             });
         }
         if (typeof GetUsersVideo === 'function') {
@@ -150,14 +170,14 @@ window.addEventListener('DOMContentLoaded', async function() {
                 checkTheme();
             })
         }
-        if (typeof GetUsersVideo === 'function') {
-            checkTheme();
-        }
         console.log('Токен отсутствует, пользователь не аутентифицирован.');
         if (Users) {
             Users.innerHTML += `<div class="line" id="line-for-leftMenu"></div>
                                 <div class="footer">© 2024 Venisimo</div>
                                 <div class="zagluhka-footer"></div>`
+            // chekBurgerMenu();
+        }
+        if (typeof chekBurgerMenu === 'function') {
             chekBurgerMenu();
         }
     }

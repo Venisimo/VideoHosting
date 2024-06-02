@@ -138,6 +138,8 @@ function ChekLanguage() {
             SubscribeBtn.innerHTML = "Unsubscribe";
         } else if (SubscribeBtn.innerHTML == "Подписаться") {
             SubscribeBtn.innerHTML = "Subscribe";
+        } else if (SubscribeBtn.innerHTML == "Удалить") {
+            SubscribeBtn.innerHTML = "Delete"
         };
         if (MyProfileStr !== null) {
             MyProfileStr.innerHTML = "My profile";
@@ -266,7 +268,9 @@ function ChekLanguage() {
             SubscribeBtn.innerHTML = "Отписаться";
         } else if (SubscribeBtn.innerHTML == "Subscribe") {
             SubscribeBtn.innerHTML = "Подписаться";
-        };
+        } else if (SubscribeBtn.innerHTML == "Delete") {
+            SubscribeBtn.innerHTML = "Удалить"
+        };;
         if (MyProfileStr !== null) {
             MyProfileStr.innerHTML = "Мой профиль";
         }

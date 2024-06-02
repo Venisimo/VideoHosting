@@ -244,6 +244,9 @@ const btnLogin = document.querySelector('#btnLogin');
 const DesLine = document.querySelectorAll('.des-line');
 const AboutBlock = document.querySelector('.about-block');
 const WindowProfile = document.querySelector('.window-profile');
+const AddVideo = document.querySelector('#addVideo');
+const UsersChannelMenu = document.querySelector('.users-channel-menu');
+const DesBlockChannel = document.querySelector('.des-block-channel');
 let Lang = localStorage.getItem('language');
 if (Lang == null) {
     localStorage.setItem('language', "ru");

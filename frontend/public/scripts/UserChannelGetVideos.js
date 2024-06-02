@@ -57,9 +57,9 @@ async function GetUsersVideo() {
         </a>
         `;
         }
-
         ParseText();
-
+        ViewsText();
+        ParseNumber();
     } catch (error) {
         console.error(error);
     }
@@ -113,9 +113,9 @@ function ParseText() {
         }
     });
 }
-if (!token) {
-    GetUsersVideo().then(() => {
-        chekBurgerMenu();
-        checkTheme();
-});
-}
+// if (!token) {
+//     GetUsersVideo().then(() => {
+//         chekBurgerMenu();
+//         checkTheme();
+// });
+// }

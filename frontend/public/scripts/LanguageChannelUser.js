@@ -20,6 +20,7 @@ Language.addEventListener('click', function() {
 function ChekLanguage() {
     const DbcStr = document.querySelector('.dbc-str');
     const LinksStr = document.querySelector('.links-str');
+    const Views = document.querySelectorAll('.views');
     if (localStorage.getItem('language') == "en") {
 
         if (BtnChannelEdit.innerHTML == "Подписаться") {
@@ -33,7 +34,6 @@ function ChekLanguage() {
         }
         Views.forEach(element => {
             let numElement = element.previousElementSibling;
-    
             if (element.innerHTML == "млн") {
                 element.innerHTML = "mln";
             } else if (element.innerHTML == "тыс") {
