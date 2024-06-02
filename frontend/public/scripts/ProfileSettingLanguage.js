@@ -21,6 +21,7 @@ function ChekLanguage() {
         PopupLinksStr.style.marginLeft = "40px";
         ModalWindow.style.width = "660px";
         SuccesLog.innerHTML = "The profile has been configured successfully!";
+        BtnSave.innerHTML = "Save";
     } else if (localStorage.getItem('language') == "ru") {
         ru.innerHTML = "рус";
         ru.style.fontWeight = 'bold';
@@ -34,6 +35,7 @@ function ChekLanguage() {
         SuccesLog.innerHTML = "Профиль настроен успешно!";
         ModalWindow.style.width = "550px";
         SuccesLog.innerHTML = "Профиль настроен успешно!";
+        BtnSave.innerHTML = "Сохранить";
     }
 }
 ChekLanguage();

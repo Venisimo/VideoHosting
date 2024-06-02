@@ -16,7 +16,7 @@ async function GetUsersAbout() {
         }
         const responseData = await response.json();
         if (responseData.userInfo.id == UserId) {
-            location.replace("http://localhost:3000/channel/subscriptions");
+            location.replace("/channel/subscriptions");
         }
         console.log(responseData);
         let d = new Date(responseData.userInfo.date)

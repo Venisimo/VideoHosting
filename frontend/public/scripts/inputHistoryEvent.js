@@ -3,9 +3,9 @@ InputSearchHistory.addEventListener('focus', function() {
    RightMenu.style.visibility = "hidden"
 })
 InputSearchHistory.addEventListener('blur', function() {
-    if (rus) {
+    if (localStorage.getItem('language') == "ru") {
       InputSearchHistory.placeholder = "Поиск видео";
-    } else {
+    } else if (localStorage.getItem('language') == "en") {
       InputSearchHistory.placeholder = "Search video";
     }
 })

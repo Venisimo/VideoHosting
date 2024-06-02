@@ -19,7 +19,7 @@ async function GetUsersVideo() {
         console.log(responseData);
         console.log(UserId);
         if (responseData.userInfo.id == UserId) {
-            location.replace("http://localhost:3000/channel/videos");
+            location.replace("/channel/videos");
         }
         AvatarForChannel.src = responseData.userInfo.avatar;
         UserName.innerHTML = responseData.userInfo.name;
@@ -38,7 +38,7 @@ async function GetUsersVideo() {
             if (mm < 10) mm = '0' + mm;
             let yy = d.getFullYear() % 100;
             VideosChannel.innerHTML += `
-            <a href="http://localhost:3000/watch?${responseData.VideosPath[i]}" type="button" data-barba="false" class="video">
+            <a href="/watch?${responseData.VideosPath[i]}" type="button" data-barba="false" class="video">
             <div class="preview" style="background-image: url('${responseData.VideosPreviews[i]}')"></div>
             <div class="description-video">
                 <div class="avatar-and-name">

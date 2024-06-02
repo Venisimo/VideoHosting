@@ -3,7 +3,7 @@ Exit.addEventListener('click', function() {
         deleteCookie('jwtToken');
         location.reload();
     } else {
-        location.replace("http://localhost:3000/login");
+        location.replace("/login");
     }
 })
 

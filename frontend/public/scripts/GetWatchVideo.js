@@ -48,7 +48,7 @@ async function GetVideo() {
         VideoBlockChannelName.innerHTML = responseData.UserInfo.name;
         AvatarWatchVideo.style.background = `url(..${responseData.UserInfo.avatar}) center no-repeat`;
         AvatarWatchVideo.style.backgroundSize = `cover`;
-        AvatarWatchVideo.href = "http://localhost:3000/videos?" + responseData.UserInfo.login;
+        AvatarWatchVideo.href = "/videos?" + responseData.UserInfo.login;
         channelLogin = responseData.UserInfo.login;
         Video.load(); 
     } catch (error) {

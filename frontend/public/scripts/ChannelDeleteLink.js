@@ -14,11 +14,21 @@ document.getElementById('popup').addEventListener('submit', async function(event
     event.preventDefault();
     let userName = InputName.value;
     if (userName == "") {
-        ErrorMessageEditProfile.style.marginLeft = "285px";
-        return ErrorMessageEditProfile.innerHTML = "Вы не ввели имя!";
+        if (localStorage.getItem('language') == "ru") {
+            ErrorMessageEditProfile.style.marginLeft = "285px";
+            return ErrorMessageEditProfile.innerHTML = "Вы не ввели имя!";
+        } else if (localStorage.getItem('language') == "en") {
+            ErrorMessageEditProfile.style.marginLeft = "230px";
+            return ErrorMessageEditProfile.innerHTML = "you did not enter a name!";
+        }
     } else if (userName.length < 4) {
-        ErrorMessageEditProfile.style.marginLeft = "240px";
-        return ErrorMessageEditProfile.innerHTML = "Вы ввели короткое имя!";
+        if (localStorage.getItem('language') == "ru") {
+            ErrorMessageEditProfile.style.marginLeft = "240px";
+            return ErrorMessageEditProfile.innerHTML = "Вы ввели короткое имя!";;
+        } else if (localStorage.getItem('language') == "en") {
+            ErrorMessageEditProfile.style.marginLeft = "270px";
+            return ErrorMessageEditProfile.innerHTML = "Name is too short!";
+        }
     }
     if (userDeleteLinks.length > 0) {
         const DataLink = {

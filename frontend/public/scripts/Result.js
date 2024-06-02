@@ -25,13 +25,13 @@ async function Result() {
                     let yy = d.getFullYear() % 100;
                     ResultList.innerHTML += `
                         <div class="video">
-                        <a class="preview" style="background-image: url(${responseData.ResultVideos[i].preview})" href="http://localhost:3000/watch?${responseData.ResultVideos[i].path}"></a> 
+                        <a class="preview" style="background-image: url(${responseData.ResultVideos[i].preview})" href="/watch?${responseData.ResultVideos[i].path}"></a> 
                         <div class="description-video">
                             <div class="name">${responseData.ResultVideos[i].name}</div>
                             <div class="avatar-and-name">
-                                <a class="avatar-for-description" href="http://localhost:3000/videos?${responseData.UsersInfo[i].login}" style="background: url('${responseData.UsersInfo[i].avatar}') center / cover no-repeat"></a>
+                                <a class="avatar-for-description" href="/videos?${responseData.UsersInfo[i].login}" style="background: url('${responseData.UsersInfo[i].avatar}') center / cover no-repeat"></a>
                                 <div class="name-channel-stat">
-                                    <a class="channel" href="http://localhost:3000/videos?${responseData.UsersInfo[i].login}">${responseData.UsersInfo[i].name}</a>
+                                    <a class="channel" href="/videos?${responseData.UsersInfo[i].login}">${responseData.UsersInfo[i].name}</a>
                                 </div>
                             </div>
                             <div class="stat">
@@ -49,9 +49,9 @@ async function Result() {
                 for (let i = 0; i < responseData.ResultUsers.length; i++) {
                     ResultList.innerHTML += `
                     <div class="channel-result">
-                        <a class="avatar-for-result" href="http://localhost:3000/videos?${responseData.ResultUsers[i].login}" style="background: url('${responseData.ResultUsers[i].avatar}') center / cover no-repeat"></a>
+                        <a class="avatar-for-result" href="/videos?${responseData.ResultUsers[i].login}" style="background: url('${responseData.ResultUsers[i].avatar}') center / cover no-repeat"></a>
                         <div class="channel-result-stat">
-                            <a class="name-channel-result" href="http://localhost:3000/videos?${responseData.ResultUsers[i].login}">${responseData.ResultUsers[i].name}</a>
+                            <a class="name-channel-result" href="/videos?${responseData.ResultUsers[i].login}">${responseData.ResultUsers[i].name}</a>
                             <div class="description-channel">${responseData.ResultUsers[i].description}</div>
                             <div class="channel-des">
                                 <img class="sub-icon" src="images/dark-icon/menu/subscriptions.png"/>

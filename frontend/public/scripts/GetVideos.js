@@ -30,16 +30,16 @@ async function GetStartVideo() {
             VideosChannel.innerHTML += `
                 <div class="video">
                     <div class="preview">
-                        <a href="http://localhost:3000/watch?${responseData.VideosInfo[i].path}">
+                        <a href="/watch?${responseData.VideosInfo[i].path}">
                             <img class="imgPreview" src="${responseData.VideosInfo[i].preview}" />
                         </a>
                     </div>
                     <div class="description-video">
                         <div class="avatar-and-name">
-                            <a class="avatar-for-description" href="http://localhost:3000/videos?${responseData.UsersInfo[i].login}" style="background: url('${responseData.UsersInfo[i].avatar}') center / cover no-repeat"></a>
+                            <a class="avatar-for-description" href="/videos?${responseData.UsersInfo[i].login}" style="background: url('${responseData.UsersInfo[i].avatar}') center / cover no-repeat"></a>
                             <div class="name-channel-stat">
                                 <div class="name">${responseData.VideosInfo[i].name}</div>
-                                <a class="channel" href="http://localhost:3000/videos?${responseData.UsersInfo[i].login}">${responseData.UsersInfo[i].name}</a>
+                                <a class="channel" href="/videos?${responseData.UsersInfo[i].login}">${responseData.UsersInfo[i].name}</a>
                                 <div class="stat">
                                     <img class="views-icon" src="images/dark-icon/views.png">
                                     <div class="num">${responseData.VideosInfo[i].views}</div>

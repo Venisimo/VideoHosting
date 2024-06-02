@@ -21,13 +21,13 @@ async function GetHistory() {
             let yy = d.getFullYear() % 100;
             ResultList.innerHTML += `
                 <div class="video">
-                <a class="preview" style="background-image: url(${responseData.VideosInfo[i].preview})" href="http://localhost:3000/watch?${responseData.historyVideos[i].path}"></a> 
+                <a class="preview" style="background-image: url(${responseData.VideosInfo[i].preview})" href="/watch?${responseData.historyVideos[i].path}"></a> 
                 <div class="description-video">
                     <div class="name">${responseData.VideosInfo[i].name}</div>
                     <div class="avatar-and-name">
-                        <a class="avatar-for-description" href="http://localhost:3000/videos?${responseData.UsersInfo[i].login}" style="background: url('${responseData.UsersInfo[i].avatar}') center / cover no-repeat"></a>
+                        <a class="avatar-for-description" href="/videos?${responseData.UsersInfo[i].login}" style="background: url('${responseData.UsersInfo[i].avatar}') center / cover no-repeat"></a>
                         <div class="name-channel-stat">
-                            <a class="channel" href="http://localhost:3000/videos?${responseData.UsersInfo[i].login}">${responseData.UsersInfo[i].name}</a>
+                            <a class="channel" href="/videos?${responseData.UsersInfo[i].login}">${responseData.UsersInfo[i].name}</a>
                         </div>
                     </div>
                     <div class="stat">
@@ -98,13 +98,13 @@ async function SearchHistory(SearchValue) {
             let yy = d.getFullYear() % 100;
             ResultList.innerHTML += `
                 <div class="video">
-                <a class="preview" style="background-image: url(${responseData.VideosInfo[i].preview})" href="http://localhost:3000/watch?${responseData.VideosInfo[i].path}"></a> 
+                <a class="preview" style="background-image: url(${responseData.VideosInfo[i].preview})" href="/watch?${responseData.VideosInfo[i].path}"></a> 
                 <div class="description-video">
                     <div class="name">${responseData.VideosInfo[i].name}</div>
                     <div class="avatar-and-name">
-                        <a class="avatar-for-description" href="http://localhost:3000/videos?${responseData.UsersInfo[i].login}" style="background: url('${responseData.UsersInfo[i].avatar}') center / cover no-repeat"></a>
+                        <a class="avatar-for-description" href="/videos?${responseData.UsersInfo[i].login}" style="background: url('${responseData.UsersInfo[i].avatar}') center / cover no-repeat"></a>
                         <div class="name-channel-stat">
-                            <a class="channel" href="http://localhost:3000/videos?${responseData.UsersInfo[i].login}">${responseData.UsersInfo[i].name}</a>
+                            <a class="channel" href="/videos?${responseData.UsersInfo[i].login}">${responseData.UsersInfo[i].name}</a>
                         </div>
                     </div>
                     <div class="stat">

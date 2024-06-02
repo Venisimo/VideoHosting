@@ -19,7 +19,7 @@ async function GetUserSubscriptions() {
                 Sub = createNewChannel(Sub);
             }
             Sub.innerHTML += `
-            <a class="user-channel-menu" data-barba="false" href="http://localhost:3000/videos?${responseData.subs[i].channel}">
+            <a class="user-channel-menu" data-barba="false" href="/videos?${responseData.subs[i].channel}">
                 <img class="subscriptions-avatar" src="${responseData.SubsInfo[i].avatar}">
                 <div class="name-channel">${responseData.SubsInfo[i].name}</div>
             </a>

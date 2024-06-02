@@ -16,7 +16,7 @@ async function GetUsersSubs() {
         }
         const responseData = await response.json();
         if (responseData.userInfo.id == UserId) {
-            location.replace("http://localhost:3000/channel/subscriptions");
+            location.replace("/channel/subscriptions");
         }
         console.log(responseData);
         AvatarForChannel.src = responseData.userInfo.avatar;

@@ -65,8 +65,14 @@ document.getElementById('addVideo').addEventListener('submit', async function(ev
     if (uploadVideo != null) {
         addVideo(uploadVideo);
     } else {
-        ErrorMessageUploadVideo.style.marginLeft = "230px";
-        return ErrorMessageUploadVideo.innerHTML = "Вы не загрузили видео!";
+        if (localStorage.getItem('language') == "en") {
+            ErrorMessageUploadVideo.style.marginLeft = "200px";
+            return ErrorMessageUploadVideo.innerHTML = "You haven't loaded the video!";
+        } else if (localStorage.getItem('language') == "ru") {
+            ErrorMessageUploadVideo.style.marginLeft = "230px";
+            return ErrorMessageUploadVideo.innerHTML = "Вы не загрузили видео!"; 
+        }
+        
     }
         
 });
@@ -101,8 +107,13 @@ async function addVideo(Video) {
     let trimmedDescription = userDescription.trim();
     let trimmedName = videoName.trim();
     if (trimmedName == "") {
-        ErrorMessageUploadVideo.style.marginLeft = "240px";
-        return ErrorMessageUploadVideo.innerHTML = "Вы не ввели название!";
+        if (localStorage.getItem('language') == "en") {
+            ErrorMessageUploadVideo.style.marginLeft = "200px";
+            return ErrorMessageUploadVideo.innerHTML = "You haven't entered a name!";
+        } else if (localStorage.getItem('language') == "ru") {
+            ErrorMessageUploadVideo.style.marginLeft = "240px";
+            return ErrorMessageUploadVideo.innerHTML = "Вы не ввели название!"; 
+        }
     } 
     let formData = new FormData();
     formData.append('video', Video);

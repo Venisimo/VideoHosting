@@ -53,7 +53,7 @@ async function getComment() {
                 n = responseData.Answers.answer[i].length / 2;
                 console.log(responseData.Answers.answer[i][j], responseData.Answers.answer[i][j + n]);
                 Answer += `<div class="answer-comment">
-                                <a href="http://localhost:3000/videos?${responseData.Answers.answer[i][j + n][0].login}">
+                                <a href="/videos?${responseData.Answers.answer[i][j + n][0].login}">
                                     <img src="${responseData.Answers.answer[i][j + n][0].avatar}" class="answer-avatar-user"/>
                                 </a>
                                 <div class="channel-name-comment">
@@ -82,7 +82,7 @@ async function getComment() {
             let yy = d.getFullYear() % 100;
             let Comment = `<div class="comment-entry">
                             <div class="basic-comment">
-                                <a href="http://localhost:3000/videos?${responseData.UsersInfo[i].login}">
+                                <a href="/videos?${responseData.UsersInfo[i].login}">
                                     <img src="${responseData.UsersInfo[i].avatar}" class="comment-avatar"/>
                                 </a>
                                 <div class="channel-name-comment">
@@ -103,7 +103,7 @@ async function getComment() {
                                     </summary>
                                     <div class="self-answer">
                                         <div class="self-answer-entry">
-                                            <a href="http://localhost:3000/channel/videos">
+                                            <a href="/channel/videos">
                                                 <img src="images/Avatar.png" class="answer-avatar"/>
                                             </a>
                                             <textarea class="comment-text-answer" cols="90" rows="1" placeholder="Введите Комментарий"></textarea>

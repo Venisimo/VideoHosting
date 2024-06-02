@@ -4,12 +4,12 @@ function encodeQueryParam(param) {
 
 InputSearch.addEventListener("keyup", e => {
     if (e.key == "Enter" && InputSearch.value.trim() != "") {
-        location.href = "http://localhost:3000/result?" + encodeQueryParam(InputSearch.value.trim());
+        location.href = "/result?" + encodeQueryParam(InputSearch.value.trim());
     }
 });
 
 Lupa.addEventListener('click', function() {
     if (InputSearch.value.trim() != "") {
-        location.href = "http://localhost:3000/result?" + encodeQueryParam(InputSearch.value.trim());
+        location.href = "/result?" + encodeQueryParam(InputSearch.value.trim());
     }
 });

@@ -38,11 +38,11 @@ window.addEventListener('DOMContentLoaded', async function() {
         } catch (error) {
             console.error('Ошибка при верификации токена:', error);
             deleteCookie('jwtToken');
-            this.location.replace('http://localhost:3000/login');
+            this.location.replace('/login');
         }
     } else {
         console.log('Токен отсутствует, пользователь не аутентифицирован.');
-        this.location.replace('http://localhost:3000/login');
+        this.location.replace('/login');
     }
 });
 async function chekProfile(UserId) {
@@ -62,7 +62,7 @@ async function chekProfile(UserId) {
     }
     const responseData = await response.json();
     if (responseData.name !== null) {
-        window.location.replace("http://localhost:3000/");
+        window.location.replace("/");
     }
 }
 document.getElementById('popup').addEventListener('submit', async function(event) {

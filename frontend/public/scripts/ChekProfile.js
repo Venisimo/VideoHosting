@@ -14,7 +14,7 @@ async function ChekInfo() {
         const responseData = await response.json();
         console.log(responseData);
         if (responseData.name == null) {
-            window.location.replace("http://localhost:3000/profile-setting");
+            window.location.replace("/profile-setting");
         }
         if (!response.ok) {
             throw new Error('Ошибка вывода данных');

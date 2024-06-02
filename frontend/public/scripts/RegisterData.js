@@ -15,9 +15,9 @@ async function chekProfile(userId) {
     }
     const responseData = await response.json();
     if (responseData.name === null) {
-        window.location.replace("http://localhost:3000/profile-setting");
+        window.location.replace("/profile-setting");
     } else {
-        window.location.replace("http://localhost:3000/");
+        window.location.replace("/");
     }
     console.log(responseData.name); 
 }
@@ -50,6 +50,9 @@ window.addEventListener('DOMContentLoaded', async function() {
         const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return parts.pop().split(';').shift();
       }
+    function deleteCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
       
     const token = getCookie("jwtToken");
     console.log(token);
@@ -60,7 +63,7 @@ window.addEventListener('DOMContentLoaded', async function() {
             chekProfile(decodedToken.id);
         } catch (error) {
             console.error('Ошибка при верификации токена:', error);
-            localStorage.removeItem('jwtToken');
+            deleteCookie('jwtToken');
         }
     } else {
         console.log('Токен отсутствует, пользователь не аутентифицирован.');
@@ -86,20 +89,45 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
         }
         validateEmail(userEmail);
         if (userLogin == "") {
-            ErrorMessageReg.style.marginLeft = "200px";
-            return ErrorMessageReg.innerHTML = "Вы не ввели логин!";
+            if (localStorage.getItem('language') == "ru") {
+                ErrorMessageReg.style.marginLeft = "200px";
+                return ErrorMessageReg.innerHTML = "Вы не ввели логин!";
+            } else if (localStorage.getItem('language') == "en") {
+                ErrorMessageReg.style.marginLeft = "100px";
+                return ErrorMessageReg.innerHTML = "You have not entered your login!";
+            }  
         } else if (userLogin.length < 4) {
-            ErrorMessageReg.style.marginLeft = "150px";
-            return ErrorMessageReg.innerHTML = "Слишком короткий логин!";
+            if (localStorage.getItem('language') == "ru") {
+                ErrorMessageReg.style.marginLeft = "150px";
+                return ErrorMessageReg.innerHTML = "Слишком короткий логин!";
+            } else if (localStorage.getItem('language') == "en") {
+                ErrorMessageReg.style.marginLeft = "200px";
+                return ErrorMessageReg.innerHTML = "Login is too short!";
+            }  
         } else if (userPassword.length < 4) {
-            ErrorMessageReg.style.marginLeft = "150px";
-            return ErrorMessageReg.innerHTML = "Слишком короткий пароль!";
+            if (localStorage.getItem('language') == "ru") {
+                ErrorMessageReg.style.marginLeft = "150px";
+                return ErrorMessageReg.innerHTML = "Слишком короткий пароль!";
+            } else if (localStorage.getItem('language') == "en") {
+                ErrorMessageReg.style.marginLeft = "150px";
+                return ErrorMessageReg.innerHTML = "The password is too short!";
+            }  
         } else if (!boolEmail) {
-            ErrorMessageReg.style.marginLeft = "150px";
-            return ErrorMessageReg.innerHTML = "Почта указана неверно!";
+            if (localStorage.getItem('language') == "ru") {
+                ErrorMessageReg.style.marginLeft = "160px";
+                return ErrorMessageReg.innerHTML = "Почта указана неверно!";
+            } else if (localStorage.getItem('language') == "en") {
+                ErrorMessageReg.style.marginLeft = "175px";
+                return ErrorMessageReg.innerHTML = "The email is incorrect!";
+            }
         } else if (RepitPassword != userPassword) {
-            ErrorMessageReg.style.marginLeft = "180px";
-            return ErrorMessageReg.innerHTML = "Пароли не совпадают!";
+            if (localStorage.getItem('language') == "ru") {
+                ErrorMessageReg.style.marginLeft = "180px";
+                return ErrorMessageReg.innerHTML = "Пароли не совпадают!";
+            } else if (localStorage.getItem('language') == "en") {
+                ErrorMessageReg.style.marginLeft = "185px";
+                return ErrorMessageReg.innerHTML = "Password mismatch!";
+            }
         }
         const response = await fetch('/register', {
             method: 'POST',
@@ -111,11 +139,22 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
         const responseData = await response.json();
         console.log(responseData.error);
         if (!response.ok) {
-            ErrorMessageReg.innerHTML = responseData.error;
             if (responseData.error == "Почта уже используется") {
-                ErrorMessageReg.style.marginLeft = "150px"
+                if (localStorage.getItem('language') == "ru") {
+                    ErrorMessageReg.style.marginLeft = "150px";
+                    ErrorMessageReg.innerHTML = responseData.error;
+                } else if (localStorage.getItem('language') == "en") {
+                    ErrorMessageReg.style.marginLeft = "175px";
+                    ErrorMessageReg.innerHTML = "Email is already in use";
+                }
             } else {
-                ErrorMessageReg.style.marginLeft = "120px"
+                if (localStorage.getItem('language') == "ru") {
+                    ErrorMessageReg.style.marginLeft = "120px";
+                    ErrorMessageReg.innerHTML = responseData.error;
+                } else if (localStorage.getItem('language') == "en") {
+                    ErrorMessageReg.style.marginLeft = "200px";
+                    ErrorMessageReg.innerHTML = "User already exists";
+                }
             }
         } else {
             OpenModel();

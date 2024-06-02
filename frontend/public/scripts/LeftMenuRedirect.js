@@ -1,17 +1,17 @@
 HomeButton.addEventListener('click', function() {
-    location.href = "http://localhost:3000/";
+    location.href = "/";
 });
 HistoryViews.addEventListener('click', function() {
     if (token) {
-        location.href = "http://localhost:3000/history";
+        location.href = "/history";
     } else {
         OpenModel();
     }
 });
 Profile.addEventListener('click', function() {
     if (token) {
-        location.href = "http://localhost:3000/channel/videos";
+        location.href = "/channel/videos";
     } else {
-        location.href = "http://localhost:3000/login";
+        location.href = "/login";
     }
 });

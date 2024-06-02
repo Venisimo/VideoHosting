@@ -11,9 +11,8 @@ function VideoPlayer() {
     const DurationTimeVideo = document.querySelector('.duration');
     const VideoplayerPanel = document.querySelector('.videoplayer-panel');
     const settingsIcon = document.querySelector('.settings-videoplayer-icon');
-    const input = document.querySelector('input');
-    const textArea = document.querySelector('textarea');
     let isFullScreen = false;
+    let spacePressed = false;
     function toggleVideoStatus() {
         if (Video.paused) {
             Video.play();
@@ -31,6 +30,24 @@ function VideoPlayer() {
             pauseBtn.style.marginLeft = "35px";
         }
     }
+    let isMouseClick = false;
+
+    document.addEventListener('mousedown', function() {
+        isMouseClick = true;
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (isMouseClick) {
+            return;
+        }
+
+        if (event.code === 'Space' && event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {
+            event.preventDefault();
+            toggleVideoStatus();
+        }
+    });
+    
+    
 
     function toggleFullScreen() {
         if (isFullScreen) {
@@ -233,8 +250,17 @@ function VideoPlayer() {
         updateProgress();
         range();
     });
-    pauseBtn.addEventListener('click', toggleVideoStatus);
-    stopBtn.addEventListener('click', stopVideo);
+    pauseBtn.addEventListener('mousedown', function(event) {
+        if (event.detail === 1) { // Проверка на одиночное событие
+            toggleVideoStatus();
+        }
+    });
+    
+    stopBtn.addEventListener('mousedown', function(event) {
+        if (event.detail === 1) {
+            stopVideo();
+        }
+    });
 }
 function isFullScreen() {
     return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;

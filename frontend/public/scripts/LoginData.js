@@ -25,11 +25,21 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         const responseData = await response.json();
         console.log(responseData);
         if (responseData == "Пользователь не найден") {
-            ErrorMessageLogin.innerHTML = responseData
-            ErrorMessageLogin.style.marginLeft = "160px";
+            if (localStorage.getItem('language') == "ru") {
+                ErrorMessageLogin.innerHTML = responseData;
+                ErrorMessageLogin.style.marginLeft = "160px";
+            } else if (localStorage.getItem('language') == "en") {
+                ErrorMessageLogin.innerHTML = "User is not found";
+                ErrorMessageLogin.style.marginLeft = "210px";
+            }
         } else if (responseData == "Неправильный пароль") {
-            ErrorMessageLogin.innerHTML = responseData;
-            ErrorMessageLogin.style.marginLeft = "180px";
+            if (localStorage.getItem('language') == "ru") {
+                ErrorMessageLogin.innerHTML = responseData;
+                ErrorMessageLogin.style.marginLeft = "180px";
+            } else if (localStorage.getItem('language') == "en") {
+                ErrorMessageLogin.innerHTML = "Wrong password";
+                ErrorMessageLogin.style.marginLeft = "220px";
+            }
         } else {
             console.log("Успешный вход");
             // localStorage.setItem("jwtToken", responseData.token);
@@ -65,9 +75,9 @@ async function chekProfile(userId) {
     }
     const responseData = await response.json();
     if (responseData.name === null) {
-        window.location.replace("http://localhost:3000/profile-setting");
+        window.location.replace("/profile-setting");
     } else {
-        window.location.replace("http://localhost:3000/");
+        window.location.replace("/");
     }
     console.log(responseData.name); 
 }
@@ -99,6 +109,9 @@ window.addEventListener('DOMContentLoaded', async function() {
         const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return parts.pop().split(';').shift();
       }
+    function deleteCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
       
     const token = getCookie("jwtToken");
     if (token) {
@@ -108,7 +121,7 @@ window.addEventListener('DOMContentLoaded', async function() {
             chekProfile(decodedToken.id);
         } catch (error) {
             console.error('Ошибка при верификации токена:', error);
-            localStorage.removeItem('jwtToken');
+            deleteCookie('jwtToken');
         }
     } else {
         console.log('Токен отсутствует, пользователь не аутентифицирован.');

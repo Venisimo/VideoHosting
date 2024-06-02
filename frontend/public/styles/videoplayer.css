@@ -151,3 +151,10 @@ video::cue {
     width: 100px;
     cursor: pointer;
 }
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
