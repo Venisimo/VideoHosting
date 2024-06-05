@@ -19,6 +19,7 @@ async function ChekInfo() {
         if (!response.ok) {
             throw new Error('Ошибка вывода данных');
         }
+        console.log(response);
     } catch (error) {
         throw error;
     }

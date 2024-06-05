@@ -12,6 +12,7 @@ async function Result() {
             body: JSON.stringify(Data),
         });
         const responseData = await response.json();
+        console.log(responseData);
         if (responseData.ResultUsers.length == 0 && responseData.ResultVideos.length == 0) {
             console.log("Такого на сайте нет(");
         } else {
@@ -23,9 +24,27 @@ async function Result() {
                     let mm = d.getMonth() + 1;
                     if (mm < 10) mm = '0' + mm;
                     let yy = d.getFullYear() % 100;
+
+                    let DurationVideo = responseData.ResultVideos[i].duration;
+                    let minutes;
+                    let remainingSeconds;
+                    function formatDuration(DurationVideo) {
+                        minutes = Math.floor(DurationVideo / 60);
+                        remainingSeconds = Math.floor(DurationVideo % 60);
+                        if (minutes < 10) {
+                            minutes = '0' + String(minutes);
+                        }
+                        if (remainingSeconds < 10) {
+                            remainingSeconds = '0' + String(remainingSeconds);
+                        }
+                    }
+                    formatDuration(DurationVideo)
+                    
                     ResultList.innerHTML += `
                         <div class="video">
-                        <a class="preview" style="background-image: url(${responseData.ResultVideos[i].preview})" href="/watch?${responseData.ResultVideos[i].path}"></a> 
+                        <a class="preview" style="background-image: url(${responseData.ResultVideos[i].preview})" href="/watch?${responseData.ResultVideos[i].path}">
+                        <div class="DurationVideo">${minutes}:${remainingSeconds}</div>
+                        </a> 
                         <div class="description-video">
                             <div class="name">${responseData.ResultVideos[i].name}</div>
                             <div class="avatar-and-name">

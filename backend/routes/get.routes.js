@@ -39,5 +39,11 @@ router.get('/about', function(req, res) {
 router.get('/history', function(req, res) {
     res.render('ViewsHistory.html');
 });
+router.get('/dev', function(req, res) {
+    res.render('pageDeveloping.html');
+});
+router.get('/404', function(req, res) {
+    res.render('pageNotFound.html');
+});
 
 export default router;

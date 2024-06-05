@@ -1,6 +1,20 @@
 input {
     font-size: 28px;
 }
+.DurationVideo {
+    background-color: rgba(31, 28, 28, 0.7);
+    width: 50px;
+    height: 20px;
+    position: relative;
+    text-decoration: none;
+    margin-top: -30px;
+    padding-left: 5px;
+    padding-top: 1px;
+    margin-left: 290px;
+    color: rgb(255, 255, 255);
+    border-radius: 2px;
+    font-family: 'Inter-Regular';
+}
 .upload-video {
     margin-left: 100px;
     display: flex;

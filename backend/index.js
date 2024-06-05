@@ -68,11 +68,15 @@ app.post('/deleteAnswer', answerRoutes);
 app.use('/deleteVideo', async(req, res) => {
     const { path } = req.body;
     fs.unlink(__dirname + "/frontend/public/videos/" + path, (err) => {
-        if (err) throw err;
+        // if (err) throw err;
         console.log('Deleted video');
     });
-    await db.query(`DELETE FROM "Videos" where path = $1 RETURNING *`, [path])
-    await db.query(`DELETE FROM "History watch" where path = $1 RETURNING *`, [path])
+    await db.query(`DELETE FROM "Videos" where path = $1 RETURNING *`, [path]);
+    await db.query(`DELETE FROM "History watch" where path = $1 RETURNING *`, [path]);
+    await db.query(`DELETE FROM "Comments" where video = $1 RETURNING *`, [path]);
+    await db.query(`DELETE FROM "Likes" where name = $1 RETURNING *`, [path]);
+    await db.query(`DELETE FROM "Dislikes" where name = $1 RETURNING *`, [path]);
+
     res.json({message: `видео удалено`});
 })
 
@@ -97,10 +101,26 @@ app.use('/about', getRoutes)
 
 app.use('/history', getRoutes) 
 
-app.get('/s', function(req, res) {
-    res.render('startNotAuthorization.html');
-});
+app.use('/dev', getRoutes) 
+app.use('/404', getRoutes) 
+
 app.use(express.static(path.join(templatesPath, 'public')));
+
+app.use('/videos', express.static(path.join(__dirname, '/frontend/public/videos'), {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.mp4')) {
+            res.setHeader('Content-Type', 'video/mp4');
+        } else if (path.endsWith('.ogg')) {
+            res.setHeader('Content-Type', 'video/ogg');
+        } else if (path.endsWith('.mpeg')) {
+            res.setHeader('Content-Type', 'video/mpeg');
+        }
+    }
+}));
+
+app.use(function(req, res, next) {
+    res.status(404).sendFile(path.join(templatesPath,'/pageNotFound.html'));
+});
 
 app.listen(3000, function() {
     console.log('running');

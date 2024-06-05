@@ -134,7 +134,7 @@ function VideoPlayer() {
     }
     
     function DurationTime() {
-        let minutes = Math.floor(Video.duration / 60) * 100;
+        let minutes = Math.floor(Video.duration / 60);
         if (minutes < 10) {
             minutes = '0' + String(minutes);
         }

@@ -3,13 +3,14 @@ import db from '../db.js';
 class VideoController {
     async getSelfVideo(req, res) {
         const {id} = req.body;
-        const selfVideo = await db.query(`SELECT views, name, preview, path, date FROM "Videos" where user_id = '${id}'`);
+        const selfVideo = await db.query(`SELECT views, name, preview, path, date, duration FROM "Videos" where user_id = '${id}'`);
         const VideosViews = selfVideo.rows.map(row => row.views);
         const VideosNames = selfVideo.rows.map(row => row.name);
         const VideosPreviews = selfVideo.rows.map(row => row.preview);
         const VideosPath = selfVideo.rows.map(row => row.path);
         const VideosDate = selfVideo.rows.map(row => row.date);
-        res.json({VideosViews, VideosNames, VideosPreviews, VideosPath, VideosDate});
+        const VideosDuration = selfVideo.rows.map(row => row.duration);
+        res.json({VideosViews, VideosNames, VideosPreviews, VideosPath, VideosDate, VideosDuration});
     }
     async getWatchVideo(req, res) {
         const {path} = req.body;
@@ -27,7 +28,7 @@ class VideoController {
         }
     }
     async getStartVideo(req, res) {
-        const Videos = await db.query(`SELECT views, path, name, preview, user_id, date FROM "Videos"`);
+        const Videos = await db.query(`SELECT views, path, name, preview, user_id, date, duration FROM "Videos"`);
         let UsersInfo = [];
         for (let i = 0; i < Videos.rows.length; i++) {
             const User = await db.query(`SELECT login, name, avatar FROM "Users" where id = '${Videos.rows[i].user_id}'`);
@@ -39,7 +40,7 @@ class VideoController {
     async getResultVideo(req, res) {
         const {search} = req.body;
         const ResultUser = await db.query(`SELECT login, name, description, avatar FROM "Users" where name ILIKE '%' || '${search}' || '%';`);
-        const ResultVideo = await db.query(`SELECT name, path, preview, views, date, user_id FROM "Videos" where name ILIKE '%' || '${search}' || '%';`);
+        const ResultVideo = await db.query(`SELECT name, path, preview, views, date, user_id, duration FROM "Videos" where name ILIKE '%' || '${search}' || '%';`);
         let UsersInfo = [];
         let CountsSubs = [];
         for (let i = 0; i < ResultVideo.rows.length; i++) {
@@ -59,7 +60,7 @@ class VideoController {
         const User = await db.query(`SELECT id, description, avatar, name, date FROM "Users" where login = '${login}'`);
         const userInfo = User.rows[0];
         const id = User.rows[0].id;
-        const userVideos = await db.query(`SELECT views, name, preview, path, date FROM "Videos" where user_id = ${id}`);
+        const userVideos = await db.query(`SELECT views, name, preview, path, date, duration FROM "Videos" where user_id = ${id}`);
         const TotalViews = await db.query(`SELECT SUM(views) AS total_views FROM public."Videos" WHERE user_id = ${id} GROUP BY user_id`);
         const TotalVideos = await db.query(`SELECT COUNT(path) AS total_videos FROM public."Videos" WHERE user_id = ${id} GROUP BY user_id`);
         const Links = await db.query(`SELECT link FROM public."Links" WHERE user_id = ${id}`);
@@ -75,7 +76,8 @@ class VideoController {
         const VideosPreviews = userVideos.rows.map(row => row.preview);
         const VideosPath = userVideos.rows.map(row => row.path);
         const VideosDate = userVideos.rows.map(row => row.date);
-        res.json({links, userInfo, totalViews, totalVideos, VideosViews, VideosNames, VideosPreviews, VideosPath, VideosDate});
+        const VideosDuration = userVideos.rows.map(row => row.duration);
+        res.json({links, userInfo, totalViews, totalVideos, VideosViews, VideosNames, VideosPreviews, VideosPath, VideosDate, VideosDuration});
     }
     async getSelfInfoVideo(req, res) {
         const {id} = req.body;
@@ -106,7 +108,7 @@ class VideoController {
         let UsersInfo = [];
         let VideosInfo = [];
         for (let i = 0; i < HistoryVideos.rows.length; i++) {
-            const VideoInfo = await db.query(`SELECT user_id, preview, views, date, name FROM "Videos" where path = '${HistoryVideos.rows[i].path}'`);
+            const VideoInfo = await db.query(`SELECT user_id, preview, views, date, name, duration FROM "Videos" where path = '${HistoryVideos.rows[i].path}'`);
             if (typeof VideoInfo.rows[0] !== 'undefined') {
                 VideosInfo.push(VideoInfo.rows[0])
             }
@@ -129,7 +131,7 @@ class VideoController {
         let UsersInfo = [];
         let VideosInfo = [];
         for (let i = 0; i < HistoryVideos.rows.length; i++) {
-            const VideoInfo = await db.query(`SELECT user_id, preview, views, date, path, name FROM "Videos" where path = '${HistoryVideos.rows[i].path}' 
+            const VideoInfo = await db.query(`SELECT user_id, preview, views, date, path, duration, name FROM "Videos" where path = '${HistoryVideos.rows[i].path}' 
             and name ILIKE '%' || '${name}' || '%'`);
             if (typeof VideoInfo.rows[0] !== 'undefined') {
                 VideosInfo.push(VideoInfo.rows[0]);

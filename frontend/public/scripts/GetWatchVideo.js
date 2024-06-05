@@ -18,6 +18,8 @@ async function GetVideo() {
         });
         if (response.ok && typeof UserId !== 'undefined') {
             addInHtistory();
+        } else if (response.status == 404) {
+            location.replace('/404');
         }
         const responseData = await response.json();
         if (responseData.UserId == UserId) {

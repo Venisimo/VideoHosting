@@ -12,3 +12,9 @@ if (!tk) {
 MyProfie.addEventListener('click', function() {
     location.href = "/channel/videos"; 
 });
+Documentation.addEventListener('click', function() {
+    location.href = "/dev";
+});
+Settings.addEventListener('click', function() {
+    location.href = "/dev";
+});

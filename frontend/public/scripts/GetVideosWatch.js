@@ -14,9 +14,26 @@ async function GetWatchVideos() {
             let mm = d.getMonth() + 1;
             if (mm < 10) mm = '0' + mm;
             let yy = d.getFullYear() % 100;
+
+            let DurationVideo = responseData.VideosInfo[i].duration;
+            let minutes;
+            let remainingSeconds;
+            function formatDuration(DurationVideo) {
+                minutes = Math.floor(DurationVideo / 60);
+                remainingSeconds = Math.floor(DurationVideo % 60);
+                if (minutes < 10) {
+                    minutes = '0' + String(minutes);
+                }
+                if (remainingSeconds < 10) {
+                    remainingSeconds = '0' + String(remainingSeconds);
+                }
+            }
+            formatDuration(DurationVideo)
             RecBlock.innerHTML += `
                 <div class="video">
-                <a class="preview" style="background-image: url(${responseData.VideosInfo[i].preview})" href="/watch?${responseData.VideosInfo[i].path}"></a> 
+                <a class="preview" style="background-image: url(${responseData.VideosInfo[i].preview})" href="/watch?${responseData.VideosInfo[i].path}">
+                <div class="DurationVideo">${minutes}:${remainingSeconds}</div>
+                </a> 
                 <div class="description-video">
                     <div class="name">${responseData.VideosInfo[i].name}</div>
                     <div class="avatar-and-name">

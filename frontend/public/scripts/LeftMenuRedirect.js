@@ -15,3 +15,6 @@ Profile.addEventListener('click', function() {
         location.href = "/login";
     }
 });
+Messenger.addEventListener('click', function() {
+    location.href = "/dev";
+});

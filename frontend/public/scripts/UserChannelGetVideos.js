@@ -14,7 +14,7 @@ async function GetUsersVideo() {
         if (!response.ok) {
             throw new Error('Ошибка вывода данных');
         }
-
+        console.log(response);
         const responseData = await response.json();
         console.log(responseData);
         console.log(UserId);
@@ -37,9 +37,26 @@ async function GetUsersVideo() {
             let mm = d.getMonth() + 1;
             if (mm < 10) mm = '0' + mm;
             let yy = d.getFullYear() % 100;
+
+            let DurationVideo = responseData.VideosDuration[i];
+            let minutes;
+            let remainingSeconds;
+            function formatDuration(DurationVideo) {
+                minutes = Math.floor(DurationVideo / 60);
+                remainingSeconds = Math.floor(DurationVideo % 60);
+                if (minutes < 10) {
+                    minutes = '0' + String(minutes);
+                }
+                if (remainingSeconds < 10) {
+                    remainingSeconds = '0' + String(remainingSeconds);
+                }
+            }
+            formatDuration(DurationVideo)
+
             VideosChannel.innerHTML += `
             <a href="/watch?${responseData.VideosPath[i]}" type="button" data-barba="false" class="video">
             <div class="preview" style="background-image: url('${responseData.VideosPreviews[i]}')"></div>
+            <div class="DurationVideo">${minutes}:${remainingSeconds}</div>
             <div class="description-video">
                 <div class="avatar-and-name">
                     <div class="name-channel-stat">
@@ -61,6 +78,7 @@ async function GetUsersVideo() {
         ViewsText();
         ParseNumber();
     } catch (error) {
+        location.replace("/404");
         console.error(error);
     }
 }
@@ -73,30 +91,6 @@ function createNewChannel(parent) {
 }
 
 function ParseText() {
-    const Name = document.querySelectorAll(".name");
-    Name.forEach(element => {
-        if (element.innerHTML.length > 16) {
-            let el1 = element.innerHTML.slice(0, 15);
-            let el2 = element.innerHTML.slice(15); 
-            for (let i = 15; i > 0; i--) {
-                if (el1[i] == " ") {
-                    let a = i;
-                    el1 = element.innerHTML.slice(0, a);
-                    let el4 = element.innerHTML.slice(a, 15);
-                    element.innerHTML = el1 + "<br>" + el4 + el2;
-                    break;
-                } else {
-                    element.innerHTML = el1 + "-" + "<br>" + el2;
-                }
-            }
-        }
-
-        if (element.innerHTML.length > 36) {
-            let el1 = element.innerHTML.slice(0, 33);
-            element.innerHTML = el1 + "...";
-        }
-    });
-
     const NameChannel = document.querySelectorAll(".name-channel");
     NameChannel.forEach(element => {
         if (element.innerHTML.length > 10) {

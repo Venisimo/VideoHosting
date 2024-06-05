@@ -12,6 +12,20 @@ body {
 body::-webkit-scrollbar {
     width: 0;
 }
+.DurationVideo {
+    background-color: rgba(31, 28, 28, 0.7);
+    width: 50px;
+    height: 20px;
+    position: relative;
+    text-decoration: none;
+    margin-top: -30px;
+    padding-left: 5px;
+    padding-top: 1px;
+    margin-left: 290px;
+    color: rgb(255, 255, 255);
+    border-radius: 2px;
+    font-family: 'Inter-Regular';
+}
 .video {
     text-decoration: none;
     color: black;
@@ -150,6 +164,7 @@ body::-webkit-scrollbar {
     margin-left: 10px;
 }
 .name {
+    width: 300px;
     font-size: 28px;
 }
 .channel {
@@ -209,4 +224,11 @@ body::-webkit-scrollbar {
 }
 .home-button.dark:hover {
     background-color: rgba(3, 3, 3, 0.7);
+}
+@-moz-document url-prefix() {
+    .plus {
+        margin-top: -50px;
+        margin-left: 0px;
+        font-size: 150px;
+    }
 }

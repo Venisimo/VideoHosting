@@ -69,7 +69,7 @@ function checkTheme() {
         if (MyProfie !== null) {
             MyProfie.classList.remove('dark2');
             MyProfie.style.color = '#000000';
-            profileIconRightMenu.src = 'images/dark-icon/menu/profile.png';
+            profileIconRightMenu.src = '/images/dark-icon/menu/profile.png';
         }
         if (Sub !== null) {
             Sub.classList.remove('dark')
@@ -87,7 +87,7 @@ function checkTheme() {
             element.style.color = '#000000';
         });
         ViewsIcon.forEach(element => {
-            element.src = 'images/dark-icon/views.png'
+            element.src = '/images/dark-icon/views.png'
         });
         Channel.forEach(element => {
             element.style.color = '#000000';
@@ -106,31 +106,31 @@ function checkTheme() {
         Settings.style.color = '#000000';
         Exit.style.color = '#000000';
         
-        BurgerMenuIcon.src = 'images/dark-icon/header/burger-menu.png';
+        BurgerMenuIcon.src = '/images/dark-icon/header/burger-menu.png';
         SubIcon.forEach(element => {
-            element.src = 'images/dark-icon/menu/subscriptions.png';
+            element.src = '/images/dark-icon/menu/subscriptions.png';
         });
         if (token) {
-            ProfileIcon.src = 'images/dark-icon/menu/profile.png'; 
+            ProfileIcon.src = '/images/dark-icon/menu/profile.png'; 
         } else {
-            ProfileIcon.src = 'images/dark-icon/menu/log-out.png';
+            ProfileIcon.src = '/images/dark-icon/menu/log-out.png';
         }
         HomeButton.style.color = '#000000';
         Profile.style.color = '#000000';
         Messenger.style.color = '#000000';
         HistoryViews.style.color = '#000000';
-        BurgerMenu.src = 'images/dark-icon/header/burger-menu.png';
+        BurgerMenu.src = '/images/dark-icon/header/burger-menu.png';
         InputSearch.style.backgroundColor = '#FFFFFF';
         InputSearch.style.color = '#000000';
-        Lupa.src = 'images/dark-icon/header/lupaV3.png';
+        Lupa.src = '/images/dark-icon/header/lupaV3.png';
         Search.style.backgroundColor = '#FFFFFF';
-        languageIconRightMenu.src = 'images/dark-icon/menu/language.png';
-        themeIconRightMenu.src = 'images/dark-icon/menu/moon.png'
-        documentationIconRightMenu.src = 'images/dark-icon/menu/documentation.png';
-        settingsIconRightMenu.src = 'images/dark-icon/menu/settings.png';
-        exitIconRightMenu.src = 'images/dark-icon/menu/log-out.png';
-        MessengerIcon.src = 'images/dark-icon/menu/message.png';
-        HistoryViewsIcon.src = 'images/dark-icon/menu/history.png';
+        languageIconRightMenu.src = '/images/dark-icon/menu/language.png';
+        themeIconRightMenu.src = '/images/dark-icon/menu/moon.png'
+        documentationIconRightMenu.src = '/images/dark-icon/menu/documentation.png';
+        settingsIconRightMenu.src = '/images/dark-icon/menu/settings.png';
+        exitIconRightMenu.src = '/images/dark-icon/menu/log-out.png';
+        MessengerIcon.src = '/images/dark-icon/menu/message.png';
+        HistoryViewsIcon.src = '/images/dark-icon/menu/history.png';
         if (ModalWindow !== null) {
             ModalWindow.style.background = "#4FF4D7";
             ReqLog.style.color = "#000000";
@@ -179,20 +179,20 @@ function checkTheme() {
         if (MyProfie !== null) {
             MyProfie.classList.add('dark2');
             MyProfie.style.color = '#ffffff';
-            profileIconRightMenu.src = 'images/light-icon/menu/profile.png';
+            profileIconRightMenu.src = '/images/light-icon/menu/profile.png';
         }
         if (Sub !== null) {
             Sub.classList.add('dark')
             Sub.style.color  = '#ffffff';
         }
         if (token) {
-            ProfileIcon.src = 'images/light-icon/menu/profile.png'; 
+            ProfileIcon.src = '/images/light-icon/menu/profile.png'; 
         } else {
-            ProfileIcon.src = 'images/light-icon/menu/log-out.png';
+            ProfileIcon.src = '/images/light-icon/menu/log-out.png';
         }
-        MessengerIcon.src = 'images/light-icon/menu/message.png';
-        HistoryViewsIcon.src = 'images/light-icon/menu/history.png';
-        BurgerMenuIcon.src = 'images/light-icon/header/burger-menu.png';
+        MessengerIcon.src = '/images/light-icon/menu/message.png';
+        HistoryViewsIcon.src = '/images/light-icon/menu/history.png';
+        BurgerMenuIcon.src = '/images/light-icon/header/burger-menu.png';
         Body.style.background = '#1F1C1C';
         LeftMenu.style.backgroundColor = "#1F1C1C";
         Header.style.background = '#030303';
@@ -209,7 +209,7 @@ function checkTheme() {
             element.style.color = '#ffffff';
         });
         ViewsIcon.forEach(element => {
-            element.src = 'images/light-icon/views.png'
+            element.src = '/images/light-icon/views.png'
         });
         RightMenu.style.backgroundColor = '#030303';
         Users.style.color  = '#ffffff';
@@ -223,22 +223,22 @@ function checkTheme() {
         Settings.style.color = '#ffffff';
         Exit.style.color = '#ffffff';
         SubIcon.forEach(element => {
-            element.src = 'images/light-icon/menu/subscriptions.png';
+            element.src = '/images/light-icon/menu/subscriptions.png';
         });
         HomeButton.style.color = '#ffffff';
         Profile.style.color = '#ffffff';
         Messenger.style.color = '#ffffff';
         HistoryViews.style.color = '#ffffff';
-        BurgerMenu.src = 'images/light-icon/header/burger-menu.png';
+        BurgerMenu.src = '/images/light-icon/header/burger-menu.png';
         InputSearch.style.backgroundColor = '#1F1C1C';
         InputSearch.style.color = '#ffffff';
-        Lupa.src = 'images/light-icon/header/lupaV3.png';
+        Lupa.src = '/images/light-icon/header/lupaV3.png';
         Search.style.backgroundColor = '#1F1C1C';
-        languageIconRightMenu.src = 'images/light-icon/menu/language.png';
-        themeIconRightMenu.src = 'images/light-icon/menu/sun.png'
-        documentationIconRightMenu.src = 'images/light-icon/menu/documentation.png';
-        settingsIconRightMenu.src = 'images/light-icon/menu/settings.png';
-        exitIconRightMenu.src = 'images/light-icon/menu/log-out.png';
+        languageIconRightMenu.src = '/images/light-icon/menu/language.png';
+        themeIconRightMenu.src = '/images/light-icon/menu/sun.png'
+        documentationIconRightMenu.src = '/images/light-icon/menu/documentation.png';
+        settingsIconRightMenu.src = '/images/light-icon/menu/settings.png';
+        exitIconRightMenu.src = '/images/light-icon/menu/log-out.png';
         if (ModalWindow !== null) {
             ModalWindow.style.background = "#1F1C1C";
             ReqLog.style.color = "#FFFFFF";

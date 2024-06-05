@@ -16,6 +16,7 @@ async function GetSelfVideo() {
         }
 
         const responseData = await response.json();
+        console.log(responseData);
         const VideosBlock = document.querySelector(".videos-block");
         let VideosChannel = createNewChannel(VideosBlock);
         VideosChannel.innerHTML += `
@@ -44,9 +45,25 @@ async function GetSelfVideo() {
             let mm = d.getMonth() + 1;
             if (mm < 10) mm = '0' + mm;
             let yy = d.getFullYear() % 100;
+
+            let DurationVideo = responseData.VideosDuration[i];
+            let minutes;
+            let remainingSeconds;
+            function formatDuration(DurationVideo) {
+                minutes = Math.floor(DurationVideo / 60);
+                remainingSeconds = Math.floor(DurationVideo % 60);
+                if (minutes < 10) {
+                    minutes = '0' + String(minutes);
+                }
+                if (remainingSeconds < 10) {
+                    remainingSeconds = '0' + String(remainingSeconds);
+                }
+            }
+            formatDuration(DurationVideo)
             VideosChannel.innerHTML += `
             <a href="/watch?${responseData.VideosPath[i]}" type="button" data-barba="false" class="video">
             <div class="preview" style="background-image: url('${responseData.VideosPreviews[i]}')"></div>
+            <div class="DurationVideo">${minutes}:${remainingSeconds}</div>
             <div class="description-video">
                 <div class="avatar-and-name">
                     <div class="name-channel-stat">
@@ -65,7 +82,7 @@ async function GetSelfVideo() {
         `;
         }
 
-        ParseText();
+        // ParseText();
         ViewsText();
         ParseNumber();
     } catch (error) {
@@ -80,44 +97,44 @@ function createNewChannel(parent) {
     return newChannel;
 }
 
-function ParseText() {
-    const Name = document.querySelectorAll(".name");
-    Name.forEach(element => {
-        if (element.innerHTML.length > 16) {
-            let el1 = element.innerHTML.slice(0, 15);
-            let el2 = element.innerHTML.slice(15); 
-            for (let i = 15; i > 0; i--) {
-                if (el1[i] == " ") {
-                    let a = i;
-                    el1 = element.innerHTML.slice(0, a);
-                    let el4 = element.innerHTML.slice(a, 15);
-                    element.innerHTML = el1 + "<br>" + el4 + el2;
-                    break;
-                } else {
-                    element.innerHTML = el1 + "-" + "<br>" + el2;
-                }
-            }
-        }
+// function ParseText() {
+//     const Name = document.querySelectorAll(".name");
+//     Name.forEach(element => {
+//         if (element.innerHTML.length > 16) {
+//             let el1 = element.innerHTML.slice(0, 15);
+//             let el2 = element.innerHTML.slice(15); 
+//             for (let i = 15; i > 0; i--) {
+//                 if (el1[i] == " ") {
+//                     let a = i;
+//                     el1 = element.innerHTML.slice(0, a);
+//                     let el4 = element.innerHTML.slice(a, 15);
+//                     element.innerHTML = el1 + "<br>" + el4 + el2;
+//                     break;
+//                 } else {
+//                     element.innerHTML = el1 + "-" + "<br>" + el2;
+//                 }
+//             }
+//         }
 
-        if (element.innerHTML.length > 36) {
-            let el1 = element.innerHTML.slice(0, 33);
-            element.innerHTML = el1 + "...";
-        }
-    });
+//         if (element.innerHTML.length > 36) {
+//             let el1 = element.innerHTML.slice(0, 33);
+//             element.innerHTML = el1 + "...";
+//         }
+//     });
 
-    const NameChannel = document.querySelectorAll(".name-channel");
-    NameChannel.forEach(element => {
-        if (element.innerHTML.length > 10) {
-            let el1 = element.innerHTML.slice(0, 8);
-            element.innerHTML = el1 + "...";
-        }
-    });
+//     const NameChannel = document.querySelectorAll(".name-channel");
+//     NameChannel.forEach(element => {
+//         if (element.innerHTML.length > 10) {
+//             let el1 = element.innerHTML.slice(0, 8);
+//             element.innerHTML = el1 + "...";
+//         }
+//     });
 
-    const Channel = document.querySelectorAll(".channel");
-    Channel.forEach(element => {
-        if (element.innerHTML.length > 30) {
-            let el1 = element.innerHTML.slice(0, 28);
-            element.innerHTML = el1 + "...";
-        }
-    });
-}
+//     const Channel = document.querySelectorAll(".channel");
+//     Channel.forEach(element => {
+//         if (element.innerHTML.length > 30) {
+//             let el1 = element.innerHTML.slice(0, 28);
+//             element.innerHTML = el1 + "...";
+//         }
+//     });
+// }

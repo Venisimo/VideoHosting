@@ -18,7 +18,6 @@ async function GetUsersAbout() {
         if (responseData.userInfo.id == UserId) {
             location.replace("/channel/subscriptions");
         }
-        console.log(responseData);
         let d = new Date(responseData.userInfo.date)
         let dd = d.getDate();
         if (dd < 10) dd = '0' + dd;

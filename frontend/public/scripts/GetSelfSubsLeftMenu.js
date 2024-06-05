@@ -28,7 +28,7 @@ async function GetSelfSubsLeftMenu() {
         } else {
         }
     } catch (error) {
-        console.error(error);
-    
+        location.replace("/404");
     }
+    ParseText();
 }

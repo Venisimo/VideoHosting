@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Inter-Regular;
+    src: url("fonts/Inter-Regular.otf");
+}
+body {
+    margin: 0px;
+    overflow-x: auto;
+    font-family: 'Inter-Regular';
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+    width: 0;
+}
+#icon {
+    display: flex;
+    margin-left: 700px;
+    width: 600px;
+    height: 600px;
+}
+.text {
+    color: #000;
+    font-size: 48px;
+    margin-left: 850px;
+}
