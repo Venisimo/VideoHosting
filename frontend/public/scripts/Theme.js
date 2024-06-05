@@ -128,8 +128,8 @@ function checkTheme() {
         MessengerIcon.src = 'images/dark-icon/menu/message.png';
         HistoryViewsIcon.src = 'images/dark-icon/menu/history.png';
         imgPreview.forEach(element => {
-            if (element.src == "http://localhost:3000/videos/posters/default-dark.png") {
-                element.src = "http://localhost:3000/videos/posters/default.png"
+            if (element.src == "http://217.71.129.139:4338/videos/posters/default-dark.png") {
+                element.src = "http://217.71.129.139:4338/videos/posters/default.png"
             }
         });
         if (ModalWindow !== null) {
@@ -221,8 +221,8 @@ function checkTheme() {
         settingsIconRightMenu.src = 'images/light-icon/menu/settings.png';
         exitIconRightMenu.src = 'images/light-icon/menu/log-out.png';
         imgPreview.forEach(element => {
-            if (element.src == "http://localhost:3000/videos/posters/default.png") {
-                element.src = "http://localhost:3000/videos/posters/default-dark.png";
+            if (element.src == "http://217.71.129.139:4338/videos/posters/default.png") {
+                element.src = "http://217.71.129.139:4338/videos/posters/default-dark.png";
             }
         });
         if (ModalWindow !== null) {
