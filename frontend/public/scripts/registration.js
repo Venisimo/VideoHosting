@@ -128,6 +128,7 @@ function ChekLanguage() {
         signInTitle.style.left = "220px";
         signInTitle.style.right = "220px";
         
+        signUp.innerHTML = "Register";
         login.innerHTML = "Login";
         email.innerHTML = "Email";
         password.innerHTML = "Password";
@@ -150,6 +151,7 @@ function ChekLanguage() {
         signInTitle.style.left = "160px";
         signInTitle.style.right = "160px";
         
+        signUp.innerHTML = "Зарегистрироваться";
         login.innerHTML = "Логин";
         email.innerHTML = "Почта";
         password.innerHTML = "Пароль";
@@ -162,5 +164,5 @@ function ChekLanguage() {
 ChekLanguage();
 
 BtnOK.addEventListener('click', function() {
-    window.location.replace("http://localhost:3000/login");
+    window.location.replace("/login");
 });
